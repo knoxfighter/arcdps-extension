@@ -31,8 +31,6 @@ jobs:
       with:
         repository: Krappa322/arcdps_unofficial_extras_releases
         path: unofficial_extras
-        # downgrade from HEAD (4e32e79dbcba7eeaa5fdcce542cd433aab9c080e) of the project branch because it doesn't compile at the moment
-        ref: cc7ba9fda5bed3150b7f9e619259ee4ec0f3855e
         set-safe-directory: false
 
     - name: Move unofficial_extras
