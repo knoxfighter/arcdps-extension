@@ -40,14 +40,6 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
 
-    - name: Add Visual Studio's LLVM to Path
-      shell: bash
-      run: |
-        VS_PATH=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
-        LLVM_PATH="${VS_PATH}\VC\Tools\Llvm\bin"
-        echo "Adding ${LLVM_PATH} to PATH"
-        echo $LLVM_PATH >> $GITHUB_PATH
-
     - name: Restore from cache and install vcpkg
       uses: lukka/run-vcpkg@v10
       with:
@@ -58,21 +50,11 @@ jobs:
       run: |
         ${{ github.workspace }}/vcpkg/vcpkg.exe integrate install
 
-    # - name: Build
-    #   working-directory: ${{env.GITHUB_WORKSPACE}}
-    #   # Add additional options to the MSBuild command line here (like platform or verbosity level).
-    #   # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-    #   run: |
-    #     echo "::add-matcher::.github/msbuild.json"
-    #     msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:RunCodeAnalysis=true /p:EnableClangTidyCodeAnalysis=true ${{env.SOLUTION_FILE_PATH}}
-    #     echo "::remove-matcher owner=mscompile::"
-
-    - name: Test
-      run: clang-format --help
-
-    - name: Lint
-      uses: wearerequired/lint-action@640cbd3acbeb113f05067c41db28f1836e1861ce
-      with:
-        clang_format: true
-        auto_fix: true
-        commit: false
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: |
+        echo "::add-matcher::.github/msbuild.json"
+        msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:RunCodeAnalysis=true /p:EnableClangTidyCodeAnalysis=true ${{env.SOLUTION_FILE_PATH}}
+        echo "::remove-matcher owner=mscompile::"
