@@ -40,11 +40,13 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
 
-    - name: Install LLVM and Clang
-      uses: KyleMayes/install-llvm-action@v1
-      with:
-        version: 15
-        cached: ${{ steps.cache-llvm.outputs.cache-hit }}
+    - name: Add Visual Studio's LLVM to Path
+      shell: bash
+      run: |
+        VS_PATH=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
+        LLVM_PATH="${VS_PATH}\VC\Tools\Llvm\bin"
+        echo "Adding ${LLVM_PATH} to PATH"
+        echo $LLVM_PATH >> $GITHUB_PATH
 
     - name: Restore from cache and install vcpkg
       uses: lukka/run-vcpkg@v10
