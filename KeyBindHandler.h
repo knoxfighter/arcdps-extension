@@ -1,6 +1,8 @@
 #pragma once
 
-#if __has_include("KeyBindHelper.h")
+#if __has_include("ArcdpsUnofficialExtras/KeyBindHelper.h")
+	#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
+#elif __has_include("KeyBindHelper.h")
 	#include "KeyBindHelper.h"
 #elif __has_include("../unofficial_extras/KeyBindHelper.h")
 	#include "../unofficial_extras/KeyBindHelper.h"

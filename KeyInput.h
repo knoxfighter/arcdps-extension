@@ -1,7 +1,9 @@
 #pragma once
 
-#if __has_include("KeyBindsTranslation.h") || __has_include("../unofficial_extras/KeyBindsTranslation.h")
-	#if __has_include("KeyBindsTranslation.h")
+#if __has_include("ArcdpsUnofficialExtras/KeyBindsTranslation.h") || __has_include("KeyBindsTranslation.h") || __has_include("../unofficial_extras/KeyBindsTranslation.h")
+	#if __has_include("ArcdpsUnofficialExtras/KeyBindsTranslation.h")
+		#include <ArcdpsUnofficialExtras/KeyBindsTranslation.h>
+	#elif __has_include("KeyBindsTranslation.h")
 		#include "KeyBindsTranslation.h"
 	#elif __has_include("../unofficial_extras/KeyBindsTranslation.h")
 		#include "../unofficial_extras/KeyBindsTranslation.h"

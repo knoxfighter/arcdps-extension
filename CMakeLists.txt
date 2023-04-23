@@ -31,8 +31,8 @@ target_sources(${PROJECT_NAME} INTERFACE
 		IconLoader.h
 		ImGui_Math.h
 		imgui_stdlib.h
-		#KeyBindHandler.h
-		#KeyInput.h
+		KeyBindHandler.h
+		KeyInput.h
 		Localization.h
 		map.h
 		MobIDs.h
@@ -44,12 +44,12 @@ target_sources(${PROJECT_NAME} INTERFACE
 		UpdateCheckerBase.h
 		Widgets.h
 		Windows/ComponentBase.h
-		#Windows/Demo/DemoKeyBindComponent.h
-		#Windows/Demo/DemoPositioningComponent.h
-		#Windows/Demo/DemoTable.h
-		#Windows/Demo/DemoTableWindow.h
-		#Windows/Demo/DemoWindow.h
-		#Windows/KeyBindComponent.h
+		Windows/Demo/DemoKeyBindComponent.h
+		Windows/Demo/DemoPositioningComponent.h
+		Windows/Demo/DemoTable.h
+		Windows/Demo/DemoTableWindow.h
+		Windows/Demo/DemoWindow.h
+		Windows/KeyBindComponent.h
 		Windows/MainTable.h
 		Windows/MainWindow.h
 		Windows/PositioningComponent.h
@@ -62,8 +62,8 @@ target_sources(${PROJECT_NAME}
 		EventSequencer.cpp
 		IconLoader.cpp
 		imgui_stdlib.cpp
-		#KeyBindHandler.cpp
-		#KeyInput.cpp
+		KeyBindHandler.cpp
+		KeyInput.cpp
 		Localization.cpp
 		#SimpleRingBufferTests.cpp
 		Singleton.cpp
@@ -71,12 +71,12 @@ target_sources(${PROJECT_NAME}
 		UpdateCheckerBase.cpp
 		#UpdateCheckerTest.cpp
 		Widgets.cpp
-		#Windows/Demo/DemoKeyBindComponent.cpp
-		#Windows/Demo/DemoPositioningComponent.cpp
-		#Windows/Demo/DemoTable.cpp
-		#Windows/Demo/DemoTableWindow.cpp
-		#Windows/Demo/DemoWindow.cpp
-		#Windows/KeyBindComponent.cpp
+		Windows/Demo/DemoKeyBindComponent.cpp
+		Windows/Demo/DemoPositioningComponent.cpp
+		Windows/Demo/DemoTable.cpp
+		Windows/Demo/DemoTableWindow.cpp
+		Windows/Demo/DemoWindow.cpp
+		Windows/KeyBindComponent.cpp
 		Windows/MainWindow.cpp
 		Windows/PositioningComponent.cpp
 )

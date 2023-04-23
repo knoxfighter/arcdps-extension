@@ -3,6 +3,7 @@
   "name": "arcdps-extension",
   "version-string": "1.0.0",
   "dependencies": [
+    "arcdps-unofficial-extras",
 	"magic-enum",
 	"nlohmann-json",
 	"cpr",
