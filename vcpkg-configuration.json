@@ -12,8 +12,5 @@
 	  "baseline": "4935416c71a44a02fedd2d316557a61997e05792",
 	  "packages": [ "imgui", "spdlog", "cpr", "arcdps-unofficial-extras" ]
 	}
-  ],
-  "overlay-ports": [
-    "D:/ProgrammeSelbst/C++/vcpkg-registry/ports"
   ]
 }
