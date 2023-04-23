@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.23)
 project(ArcdpsExtension CXX)
 set(CMAKE_CXX_STANDARD 20)
 
+option(BUILD_TESTS "Build the GTest executable" OFF)
+
 add_definitions(-DUNICODE)
 add_definitions(-D_UNICODE)
 
@@ -92,6 +94,7 @@ install(EXPORT ArcdpsExtensionExport
 	DESTINATION share/${PROJECT_NAME}
 )
 
+IF(BUILD_TESTS)
 find_package(GTest CONFIG REQUIRED)
 include(GoogleTest)
 add_executable(
@@ -107,3 +110,4 @@ ELSE()
 ENDIF()
 
 gtest_discover_tests(${PROJECT_NAME}Tests)
+ENDIF()
