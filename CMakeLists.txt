@@ -65,11 +65,9 @@ target_sources(${PROJECT_NAME}
 		KeyBindHandler.cpp
 		KeyInput.cpp
 		Localization.cpp
-		#SimpleRingBufferTests.cpp
 		Singleton.cpp
 		UpdateChecker.cpp
 		UpdateCheckerBase.cpp
-		#UpdateCheckerTest.cpp
 		Widgets.cpp
 		Windows/Demo/DemoKeyBindComponent.cpp
 		Windows/Demo/DemoPositioningComponent.cpp
@@ -94,7 +92,18 @@ install(EXPORT ArcdpsExtensionExport
 	DESTINATION share/${PROJECT_NAME}
 )
 
+find_package(GTest CONFIG REQUIRED)
+include(GoogleTest)
+add_executable(
+		${PROJECT_NAME}Tests
+		UpdateCheckerTest.cpp
+		SimpleRingBufferTests.cpp
+)
 
-# usage
-#add_executable(exe1 exe1.cpp)
-#target_link_libraries(exe1 ArcdpsExtension)
+target_link_libraries(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
+IF (WIN32)
+target_link_libraries(${PROJECT_NAME}Tests PRIVATE Version.lib)
+ELSE()
+ENDIF()
+
+gtest_discover_tests(${PROJECT_NAME}Tests)

@@ -6,8 +6,6 @@
 #include <gtest/gtest.h>
 #pragma warning(pop)
 
-#include <Log.h>
-
 #include <UpdateCheckerBase.h>
 
 #include <filesystem>
@@ -301,11 +299,6 @@ public:
 	std::optional<std::string> GetPathFromHModule(HMODULE) noexcept override
 	{
 		return DllName;
-	}
-
-	void Log(std::string&& pMessage) override
-	{
-		LogD("{}", pMessage);
 	}
 };
 
