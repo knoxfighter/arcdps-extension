@@ -1,0 +1,100 @@
+cmake_minimum_required(VERSION 3.23)
+
+project(ArcdpsExtension CXX)
+set(CMAKE_CXX_STANDARD 20)
+
+add_definitions(-DUNICODE)
+add_definitions(-D_UNICODE)
+
+find_package(cpr CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
+find_package(magic_enum CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
+
+add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
+
+add_compile_definitions(
+	NOMINMAX
+	MAGIC_ENUM_RANGE_MAX=256
+	IMGUI_DEFINE_MATH_OPERATORS
+)
+
+target_sources(${PROJECT_NAME} INTERFACE
+	FILE_SET HEADERS
+	FILES
+		arcdps_structs.h
+		arcdps_structs_slim.h
+		CombatEventHandler.h
+		EventSequencer.h
+		ExtensionTranslations.h
+		IconLoader.h
+		ImGui_Math.h
+		imgui_stdlib.h
+		#KeyBindHandler.h
+		#KeyInput.h
+		Localization.h
+		map.h
+		MobIDs.h
+		MumbleLink.h
+		nlohmannJsonExtension.h
+		SimpleRingBuffer.h
+		Singleton.h
+		UpdateChecker.h
+		UpdateCheckerBase.h
+		Widgets.h
+		Windows/ComponentBase.h
+		#Windows/Demo/DemoKeyBindComponent.h
+		#Windows/Demo/DemoPositioningComponent.h
+		#Windows/Demo/DemoTable.h
+		#Windows/Demo/DemoTableWindow.h
+		#Windows/Demo/DemoWindow.h
+		#Windows/KeyBindComponent.h
+		Windows/MainTable.h
+		Windows/MainWindow.h
+		Windows/PositioningComponent.h
+)
+
+target_sources(${PROJECT_NAME}
+	PRIVATE
+		arcdps_structs.cpp
+		CombatEventHandler.cpp
+		EventSequencer.cpp
+		IconLoader.cpp
+		imgui_stdlib.cpp
+		#KeyBindHandler.cpp
+		#KeyInput.cpp
+		Localization.cpp
+		#SimpleRingBufferTests.cpp
+		Singleton.cpp
+		UpdateChecker.cpp
+		UpdateCheckerBase.cpp
+		#UpdateCheckerTest.cpp
+		Widgets.cpp
+		#Windows/Demo/DemoKeyBindComponent.cpp
+		#Windows/Demo/DemoPositioningComponent.cpp
+		#Windows/Demo/DemoTable.cpp
+		#Windows/Demo/DemoTableWindow.cpp
+		#Windows/Demo/DemoWindow.cpp
+		#Windows/KeyBindComponent.cpp
+		Windows/MainWindow.cpp
+		Windows/PositioningComponent.cpp
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE imgui::imgui)
+target_link_libraries(${PROJECT_NAME} PRIVATE cpr::cpr)
+target_link_libraries(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ArcdpsExtensionExport 
+	FILE_SET HEADERS DESTINATION include/${PROJECT_NAME}
+)
+install(EXPORT ArcdpsExtensionExport 
+	NAMESPACE ${PROJECT_NAME}::
+	DESTINATION share/${PROJECT_NAME}
+)
+
+
+# usage
+#add_executable(exe1 exe1.cpp)
+#target_link_libraries(exe1 ArcdpsExtension)

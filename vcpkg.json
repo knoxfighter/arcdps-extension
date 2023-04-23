@@ -7,11 +7,5 @@
 	"nlohmann-json",
 	"cpr",
 	"imgui"
-  ],
-  "overrides": [
-    {
-      "name": "imgui", 
-	  "version": "1.80#1"
-    }
   ]
 }
