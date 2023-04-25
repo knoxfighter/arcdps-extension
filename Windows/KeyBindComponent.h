@@ -5,9 +5,11 @@
 #include "../KeyInput.h"
 #include "../arcdps_structs_slim.h"
 
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+
 class KeyBindComponent : public ComponentBase {
 public:
-	KeyBindComponent(MainWindow* pMainWindow);
+	explicit KeyBindComponent(MainWindow* pMainWindow);
 
 protected:
 	/**

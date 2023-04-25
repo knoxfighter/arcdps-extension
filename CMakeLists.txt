@@ -12,6 +12,7 @@ find_package(cpr CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 find_package(magic_enum CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
+find_package(ArcdpsUnofficialExtras REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
@@ -85,6 +86,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE imgui::imgui)
 target_link_libraries(${PROJECT_NAME} PRIVATE cpr::cpr)
 target_link_libraries(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(${PROJECT_NAME} PRIVATE ArcdpsUnofficialExtras)
 
 install(TARGETS ${PROJECT_NAME} EXPORT ArcdpsExtensionExport 
 	FILE_SET HEADERS DESTINATION include/${PROJECT_NAME}
@@ -95,19 +97,19 @@ install(EXPORT ArcdpsExtensionExport
 )
 
 IF(BUILD_TESTS)
-find_package(GTest CONFIG REQUIRED)
-include(GoogleTest)
-add_executable(
-		${PROJECT_NAME}Tests
-		UpdateCheckerTest.cpp
-		SimpleRingBufferTests.cpp
-)
+	find_package(GTest CONFIG REQUIRED)
+	include(GoogleTest)
+	add_executable(
+			${PROJECT_NAME}Tests
+			UpdateCheckerTest.cpp
+			SimpleRingBufferTests.cpp
+	)
 
-target_link_libraries(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
-IF (WIN32)
-target_link_libraries(${PROJECT_NAME}Tests PRIVATE Version.lib)
-ELSE()
-ENDIF()
+	target_link_libraries(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
+	IF (WIN32)
+		target_link_libraries(${PROJECT_NAME}Tests PRIVATE Version.lib)
+	ELSE()
+	ENDIF()
 
-gtest_discover_tests(${PROJECT_NAME}Tests)
+	gtest_discover_tests(${PROJECT_NAME}Tests)
 ENDIF()
