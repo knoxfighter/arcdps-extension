@@ -17,6 +17,13 @@ find_package(ArcdpsUnofficialExtras REQUIRED)
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
 
+target_include_directories(
+		${PROJECT_NAME}
+		PUBLIC
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+		$<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+)
+
 add_compile_definitions(
 	NOMINMAX
 	MAGIC_ENUM_RANGE_MAX=256
@@ -88,11 +95,24 @@ target_link_libraries(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(${PROJECT_NAME} PRIVATE ArcdpsUnofficialExtras)
 
-install(TARGETS ${PROJECT_NAME} EXPORT ArcdpsExtensionExport 
-	FILE_SET HEADERS DESTINATION include/${PROJECT_NAME}
+install(TARGETS ${PROJECT_NAME}
+	EXPORT ArcdpsExtensionTargets
+	FILE_SET HEADERS
+	DESTINATION include/${PROJECT_NAME}
 )
-install(EXPORT ArcdpsExtensionExport 
-	NAMESPACE ${PROJECT_NAME}::
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+	${CMAKE_CURRENT_BINARY_DIR}/ArcdpsExtensionConfig.cmake
+	INSTALL_DESTINATION share/${PROJECT_NAME}
+)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArcdpsExtensionConfig.cmake
+	DESTINATION share/${PROJECT_NAME}
+)
+
+install(EXPORT ArcdpsExtensionTargets
+	FILE ArcdpsExtensionTargets.cmake
 	DESTINATION share/${PROJECT_NAME}
 )
 
