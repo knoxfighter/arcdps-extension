@@ -12,7 +12,7 @@ find_package(cpr CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 find_package(magic_enum CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
-find_package(ArcdpsUnofficialExtras REQUIRED)
+find_package(ArcdpsUnofficialExtras CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
