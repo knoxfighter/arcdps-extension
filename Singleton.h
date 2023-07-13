@@ -33,6 +33,10 @@ public:
 			singletons_.pop();
 	}
 
+	bool Empty() {
+		return singletons_.empty();
+	}
+
 private:
 	std::stack<std::unique_ptr<BaseSingleton>> singletons_;
 
