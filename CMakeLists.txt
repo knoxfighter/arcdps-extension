@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.23)
 
 project(ArcdpsExtension CXX)
-set(CMAKE_CXX_STANDARD 20)
+
+set(CMAKE_CXX_STANDARD 23)
 
 option(BUILD_TESTS "Build the GTest executable" OFF)
 
@@ -16,6 +17,10 @@ find_package(ArcdpsUnofficialExtras CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
+
+# Use -MT / -MTd runtime library
+set_property(TARGET ArcdpsExtension PROPERTY
+		MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 target_include_directories(
 		${PROJECT_NAME}
@@ -125,6 +130,10 @@ IF(BUILD_TESTS)
 			UpdateCheckerTest.cpp
 			SimpleRingBufferTests.cpp
 	)
+
+	# Use -MT / -MTd runtime library
+	set_property(TARGET ${PROJECT_NAME}Tests PROPERTY
+			MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 	target_link_libraries(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
 	IF (WIN32)
