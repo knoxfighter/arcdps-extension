@@ -39,4 +39,4 @@ jobs:
           buildPreset: debug
 
       - name: Run Test
-        run: '${sourceDir}/cmake-build/debug/ArcdpsExtensionTests.exe'
+        run: './cmake-build/debug/ArcdpsExtensionTests.exe'
