@@ -8,7 +8,7 @@
       "binaryDir": "${sourceDir}/cmake-build/default",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+        "VCPKG_TARGET_TRIPLET": "x64-${hostSystemName}-static",
         "BUILD_TESTS": "ON"
       },
       "hidden": true
