@@ -34,12 +34,19 @@ jobs:
           # don't run vcpkg install in the project, ket run-cmake do it.
           runVcpkgInstall: false
 
-      - name: Run CMake with vcpkg.json manifest
+      - name: Run CMake with vcpkg.json manifest - Windows
+        if: runner.os == 'Windows'
         uses: lukka/run-cmake@v10
         with:
-          # cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
-          configurePreset: debug-${runner.os}
-          buildPreset: debug-${runner.os}
+          configurePreset: debug-windows
+          buildPreset: debug-windows
+
+      - name: Run CMake with vcpkg.json manifest - Linux
+        if: runner.os == 'Linux'
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: debug-linux
+          buildPreset: debug-linux
 
       - name: Run Test
         run: |
