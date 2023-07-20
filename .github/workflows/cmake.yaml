@@ -38,8 +38,11 @@ jobs:
         uses: lukka/run-cmake@v10
         with:
           # cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
-          configurePreset: debug
-          buildPreset: debug
+          configurePreset: debug-${runner.os}
+          buildPreset: debug-${runner.os}
 
       - name: Run Test
-        run: './cmake-build/debug/ArcdpsExtensionTests.exe'
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            ./cmake-build/debug/ArcdpsExtensionTests.exe
+          fi

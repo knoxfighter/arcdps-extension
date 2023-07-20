@@ -8,7 +8,6 @@
       "binaryDir": "${sourceDir}/cmake-build/default",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-${hostSystemName}-static",
         "BUILD_TESTS": "ON"
       },
       "hidden": true
@@ -20,7 +19,8 @@
       "binaryDir": "${sourceDir}/cmake-build/debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
-      }
+      },
+      "hidden": true
     },
     {
       "name": "release",
@@ -29,17 +29,94 @@
       "binaryDir": "${sourceDir}/cmake-build/release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
+      },
+      "hidden": true
+    },
+    {
+      "name": "debug-windows",
+      "inherits": ["debug"],
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "debug-linux",
+      "inherits": ["debug"],
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-linux"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "release-windows",
+      "inherits": ["release"],
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "release-linux",
+      "inherits": ["release"],
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-linux"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
       }
     }
   ],
   "buildPresets": [
     {
-      "name": "debug",
-      "configurePreset": "debug"
+      "name": "debug-linux",
+      "configurePreset": "debug-linux",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
     },
     {
-      "name": "release",
-      "configurePreset": "release"
+      "name": "release-linux",
+      "configurePreset": "release-linux",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "debug-windows",
+      "configurePreset": "debug-windows",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "release-windows",
+      "configurePreset": "release-windows",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
     }
   ]
 }
