@@ -50,7 +50,4 @@ jobs:
 #          buildPreset: debug-linux
 
       - name: Run Test
-        run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            ./cmake-build/debug/ArcdpsExtensionTests.exe
-          fi
+        run: ./cmake-build/debug/ArcdpsExtensionTests.exe
