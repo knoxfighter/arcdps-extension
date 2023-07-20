@@ -50,4 +50,4 @@ jobs:
 #          buildPreset: debug-linux
 
       - name: Run Test
-        run: './cmake-build/debug/ArcdpsExtensionTests.exe'
+        run: './cmake-build/release/ArcdpsExtensionTests.exe'
