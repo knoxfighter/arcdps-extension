@@ -45,18 +45,6 @@
       }
     },
     {
-      "name": "debug-linux",
-      "inherits": ["debug"],
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-linux"
-      },
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      }
-    },
-    {
       "name": "release-windows",
       "inherits": ["release"],
       "cacheVariables": {
@@ -67,39 +55,9 @@
         "lhs": "${hostSystemName}",
         "rhs": "Windows"
       }
-    },
-    {
-      "name": "release-linux",
-      "inherits": ["release"],
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-linux"
-      },
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      }
     }
   ],
   "buildPresets": [
-    {
-      "name": "debug-linux",
-      "configurePreset": "debug-linux",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      }
-    },
-    {
-      "name": "release-linux",
-      "configurePreset": "release-linux",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      }
-    },
     {
       "name": "debug-windows",
       "configurePreset": "debug-windows",

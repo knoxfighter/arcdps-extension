@@ -10,7 +10,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+#        os: [ubuntu-latest, windows-latest]
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -38,15 +39,15 @@ jobs:
         if: runner.os == 'Windows'
         uses: lukka/run-cmake@v10
         with:
-          configurePreset: debug-windows
-          buildPreset: debug-windows
+          configurePreset: release-windows
+          buildPreset: release-windows
 
-      - name: Run CMake with vcpkg.json manifest - Linux
-        if: runner.os == 'Linux'
-        uses: lukka/run-cmake@v10
-        with:
-          configurePreset: debug-linux
-          buildPreset: debug-linux
+#      - name: Run CMake with vcpkg.json manifest - Linux
+#        if: runner.os == 'Linux'
+#        uses: lukka/run-cmake@v10
+#        with:
+#          configurePreset: debug-linux
+#          buildPreset: debug-linux
 
       - name: Run Test
         run: |
