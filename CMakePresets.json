@@ -5,7 +5,7 @@
       "name": "default",
       "displayName": "Default Config",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/cmake-build/default",
+      "binaryDir": "${sourceDir}/cmake-build/${presetName}",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
         "BUILD_TESTS": "ON"
@@ -16,7 +16,6 @@
       "name": "debug",
       "displayName": "Debug Config",
       "inherits": ["default"],
-      "binaryDir": "${sourceDir}/cmake-build/debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       },
@@ -26,7 +25,6 @@
       "name": "release",
       "displayName": "Release Config",
       "inherits": ["default"],
-      "binaryDir": "${sourceDir}/cmake-build/release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       },
@@ -59,7 +57,6 @@
     {
       "name": "release-windows-clang",
       "inherits": ["release-windows"],
-      "binaryDir": "${sourceDir}/cmake-build/release-clang",
       "cacheVariables": {
         "CMAKE_CXX_COMPILER": "clang.exe",
         "CMAKE_C_COMPILER": "clang.exe",
@@ -70,7 +67,6 @@
     {
       "name": "debug-windows-clang",
       "inherits": ["debug-windows"],
-      "binaryDir": "${sourceDir}/cmake-build/debug-clang",
       "cacheVariables": {
         "CMAKE_CXX_COMPILER": "clang.exe",
         "CMAKE_C_COMPILER": "clang.exe",
