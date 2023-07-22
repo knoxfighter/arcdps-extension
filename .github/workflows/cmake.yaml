@@ -12,6 +12,7 @@ jobs:
       matrix:
 #        os: [ubuntu-latest, windows-latest]
         os: [windows-latest]
+        presets: [release-windows-clang, release-windows]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -39,8 +40,8 @@ jobs:
         if: runner.os == 'Windows'
         uses: lukka/run-cmake@v10
         with:
-          configurePreset: release-windows
-          buildPreset: release-windows
+          configurePreset: ${{ matrix.presets }}
+          buildPreset: ${{ matrix.presets }}
 
 #      - name: Run CMake with vcpkg.json manifest - Linux
 #        if: runner.os == 'Linux'

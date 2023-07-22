@@ -55,6 +55,28 @@
         "lhs": "${hostSystemName}",
         "rhs": "Windows"
       }
+    },
+    {
+      "name": "release-windows-clang",
+      "inherits": ["release-windows"],
+      "binaryDir": "${sourceDir}/cmake-build/release-clang",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang.exe",
+        "CMAKE_C_COMPILER": "clang.exe",
+        "CMAKE_LINKER": "lld-link.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "debug-windows-clang",
+      "inherits": ["debug-windows"],
+      "binaryDir": "${sourceDir}/cmake-build/debug-clang",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang.exe",
+        "CMAKE_C_COMPILER": "clang.exe",
+        "CMAKE_LINKER": "lld-link.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
     }
   ],
   "buildPresets": [
@@ -70,6 +92,24 @@
     {
       "name": "release-windows",
       "configurePreset": "release-windows",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "release-windows-clang",
+      "configurePreset": "release-windows-clang",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "debug-windows-clang",
+      "configurePreset": "debug-windows-clang",
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
