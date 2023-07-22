@@ -55,5 +55,4 @@ jobs:
 
       - name: Build IWYU
         if: ${{ matrix.presets }} == 'release-windows-clang'
-#        run: 'cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang.exe -DCMAKE_C_COMPILER=clang.exe -DCMAKE_LINKER=lld-link.exe iwyu'
-        run: 'gcm clang.exe'
+        run: 'cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang.exe -DCMAKE_C_COMPILER=clang.exe -DCMAKE_PREFIX_PATH="C:\Program Files\LLVM" -DCMAKE_LINKER=lld-link.exe iwyu'
