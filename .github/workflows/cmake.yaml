@@ -46,7 +46,7 @@ jobs:
 #        run: './cmake-build/${{ matrix.presets }}/ArcdpsExtensionTests.exe'
 
       - name: Checkout IWYU
-        if: ${{ matrix.presets }} == 'release-windows-clang'
+        if: ${{ matrix.presets == 'release-windows-clang' }}
         uses: actions/checkout@v3
         with:
           repository: 'include-what-you-use/include-what-you-use'
@@ -54,5 +54,5 @@ jobs:
           path: 'iwyu'
 
       - name: Build IWYU
-        if: ${{ matrix.presets }} == 'release-windows-clang'
-        run: 'cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang.exe -DCMAKE_C_COMPILER=clang.exe -DCMAKE_PREFIX_PATH="C:\Program Files\LLVM" -DCMAKE_LINKER=lld-link.exe iwyu'
+        if: ${{ matrix.presets == 'release-windows-clang' }}
+        run: 'cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang.exe -DCMAKE_C_COMPILER=clang.exe -DCMAKE_LINKER=lld-link.exe iwyu'
