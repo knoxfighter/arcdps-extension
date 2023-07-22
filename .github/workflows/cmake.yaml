@@ -15,12 +15,11 @@ jobs:
         presets: [release-windows-clang, release-windows]
     runs-on: ${{ matrix.os }}
     steps:
-      - run: 'clang.exe --version'
-#      - uses: actions/checkout@v3
-#
-#      # install cmake and ninja
-#      - uses: lukka/get-cmake@latest
-#
+      - uses: actions/checkout@v3
+
+      # install cmake and ninja
+      - uses: lukka/get-cmake@latest
+
 #      - name: Setup vcpkg
 #        uses: lukka/run-vcpkg@main
 #        id: runvcpkg
@@ -38,17 +37,18 @@ jobs:
 #          runVcpkgInstall: false
 #
 #      - name: Run CMake with vcpkg.json manifest - Windows
-#        if: runner.os == 'Windows'
 #        uses: lukka/run-cmake@v10
 #        with:
 #          configurePreset: ${{ matrix.presets }}
 #          buildPreset: ${{ matrix.presets }}
-#
-#      - name: Run Test
-#        run: './cmake-build/${{ matrix.presets }}/ArcdpsExtensionTests.exe'
-#
-#      - name: Checkout IWYU
-#        uses: actions/checkout@v3
-#        with:
-#          repository: 'include-what-you-use/include-what-you-use'
-#          path: iwyu
+
+      - name: Run Test
+        run: './cmake-build/${{ matrix.presets }}/ArcdpsExtensionTests.exe'
+
+      - name: Checkout IWYU
+        if: ${{ matrix.presets }} == 'release-windows-clang'
+        uses: actions/checkout@v3
+        with:
+          repository: 'include-what-you-use/include-what-you-use'
+          ref: 'clang_15'
+          path: iwyu
