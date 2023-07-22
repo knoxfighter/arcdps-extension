@@ -51,4 +51,8 @@ jobs:
         with:
           repository: 'include-what-you-use/include-what-you-use'
           ref: 'clang_15'
-          path: iwyu
+          path: 'iwyu'
+
+      - name: Build IWYU
+        if: ${{ matrix.presets }} == 'release-windows-clang'
+        run: 'cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang.exe -DCMAKE_C_COMPILER=clang.exe -DCMAKE_LINKER=lld-link.exe iwyu'
