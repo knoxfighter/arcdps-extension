@@ -78,6 +78,8 @@ public:
 	 */
 	void Reset();
 
+	void Shutdown();
+
 private:
 	const CallbackSignature mCallback;
     std::multiset<Event> mElements;

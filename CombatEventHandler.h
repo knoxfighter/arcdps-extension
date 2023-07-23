@@ -6,6 +6,12 @@
 #include <cstdint>
 #include <format>
 
+/**
+ * For every combat event call `Event()`
+ * The virtual protected functions are called for every event.
+ * This will happen in the correct order and in a separate thread.
+ * Call `Shutdown()` in `mod_release` to stop execution of events and stop the thread.
+ */
 class CombatEventHandler {
 public:
 	explicit CombatEventHandler()
@@ -23,6 +29,10 @@ public:
     void Reset() {
 	    mSequencer.Reset();
     }
+
+	void Shutdown() {
+		mSequencer.Shutdown();
+	}
 
 protected:
     /**

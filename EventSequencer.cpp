@@ -77,3 +77,8 @@ void EventSequencer::EventInternal(Event& pElem) {
 
     mCallback(event, source, dest, pElem.Skillname, pElem.Id, pElem.Revision);
 }
+
+void EventSequencer::Shutdown() {
+	mThread.request_stop();
+	mThread.join();
+}
