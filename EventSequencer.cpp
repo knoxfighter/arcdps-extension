@@ -43,14 +43,10 @@ EventSequencer::EventSequencer(const CallbackSignature& pCallback) : mCallback(p
             std::this_thread::sleep_for(100ms);
         }
     });
-    mThread.detach();
 }
 
 EventSequencer::~EventSequencer() {
-    if (mThread.joinable()) {
-        mThread.request_stop();
-        mThread.join();
-    }
+    Shutdown();
 }
 
 void EventSequencer::EventInternal(Event& pElem) {
@@ -79,6 +75,8 @@ void EventSequencer::EventInternal(Event& pElem) {
 }
 
 void EventSequencer::Shutdown() {
-	mThread.request_stop();
-	mThread.join();
+	if (mThread.joinable()) {
+		mThread.request_stop();
+		mThread.join();
+	}
 }
