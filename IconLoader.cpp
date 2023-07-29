@@ -55,74 +55,74 @@ size_t IconLoader::LoadTexture(const std::filesystem::path& pFilePath) {
  * Array of needed GUID conversions.
  * CurrentGUID -> WantedGUID
  */
-static const std::vector<std::pair<GUID, GUID>> WIC_CONVERT = 
-{
-    // Note target GUID in this conversion table must be one of those directly supported formats (above).
+static const std::vector<std::pair<GUID, GUID>> WIC_CONVERT =
+		{
+  // Note target GUID in this conversion table must be one of those directly supported formats (above).
 
-    { GUID_WICPixelFormatBlackWhite,            GUID_WICPixelFormat8bppGray }, // DXGI_FORMAT_R8_UNORM
+				{GUID_WICPixelFormatBlackWhite,           GUID_WICPixelFormat8bppGray        }, // DXGI_FORMAT_R8_UNORM
 
-    { GUID_WICPixelFormat1bppIndexed,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat2bppIndexed,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat4bppIndexed,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat8bppIndexed,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
+				{GUID_WICPixelFormat1bppIndexed,          GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat2bppIndexed,          GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat4bppIndexed,          GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat8bppIndexed,          GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
 
-    { GUID_WICPixelFormat2bppGray,              GUID_WICPixelFormat8bppGray }, // DXGI_FORMAT_R8_UNORM 
-    { GUID_WICPixelFormat4bppGray,              GUID_WICPixelFormat8bppGray }, // DXGI_FORMAT_R8_UNORM 
+				{GUID_WICPixelFormat2bppGray,             GUID_WICPixelFormat8bppGray        }, // DXGI_FORMAT_R8_UNORM
+				{GUID_WICPixelFormat4bppGray,             GUID_WICPixelFormat8bppGray        }, // DXGI_FORMAT_R8_UNORM
 
-    { GUID_WICPixelFormat16bppGrayFixedPoint,   GUID_WICPixelFormat16bppGrayHalf }, // DXGI_FORMAT_R16_FLOAT 
-    { GUID_WICPixelFormat32bppGrayFixedPoint,   GUID_WICPixelFormat32bppGrayFloat }, // DXGI_FORMAT_R32_FLOAT 
+				{GUID_WICPixelFormat16bppGrayFixedPoint,  GUID_WICPixelFormat16bppGrayHalf   }, // DXGI_FORMAT_R16_FLOAT
+				{GUID_WICPixelFormat32bppGrayFixedPoint,  GUID_WICPixelFormat32bppGrayFloat  }, // DXGI_FORMAT_R32_FLOAT
 
 #ifdef DXGI_1_2_FORMATS
 
-    { GUID_WICPixelFormat16bppBGR555,           GUID_WICPixelFormat16bppBGRA5551 }, // DXGI_FORMAT_B5G5R5A1_UNORM
+				{GUID_WICPixelFormat16bppBGR555,          GUID_WICPixelFormat16bppBGRA5551   }, // DXGI_FORMAT_B5G5R5A1_UNORM
 
 #else
 
-    { GUID_WICPixelFormat16bppBGR555,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM
-    { GUID_WICPixelFormat16bppBGRA5551,         GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM
-    { GUID_WICPixelFormat16bppBGR565,           GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat16bppBGR555, GUID_WICPixelFormat32bppRGBA},   // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat16bppBGRA5551, GUID_WICPixelFormat32bppRGBA}, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat16bppBGR565, GUID_WICPixelFormat32bppRGBA},   // DXGI_FORMAT_R8G8B8A8_UNORM
 
-#endif // DXGI_1_2_FORMATS
+#endif  // DXGI_1_2_FORMATS
 
-    { GUID_WICPixelFormat32bppBGR101010,        GUID_WICPixelFormat32bppRGBA1010102 }, // DXGI_FORMAT_R10G10B10A2_UNORM
+				{GUID_WICPixelFormat32bppBGR101010,       GUID_WICPixelFormat32bppRGBA1010102}, // DXGI_FORMAT_R10G10B10A2_UNORM
 
-    { GUID_WICPixelFormat24bppBGR,              GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat24bppRGB,              GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat32bppPBGRA,            GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat32bppPRGBA,            GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
+				{GUID_WICPixelFormat24bppBGR,             GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat24bppRGB,             GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat32bppPBGRA,           GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat32bppPRGBA,           GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
 
-    { GUID_WICPixelFormat48bppRGB,              GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat48bppBGR,              GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat64bppBGRA,             GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat64bppPRGBA,            GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat64bppPBGRA,            GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat48bppRGB,             GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat48bppBGR,             GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat64bppBGRA,            GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat64bppPRGBA,           GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat64bppPBGRA,           GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
 
-    { GUID_WICPixelFormat48bppRGBFixedPoint,    GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat48bppBGRFixedPoint,    GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat64bppRGBAFixedPoint,   GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat64bppBGRAFixedPoint,   GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat64bppRGBFixedPoint,    GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat64bppRGBHalf,          GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
-    { GUID_WICPixelFormat48bppRGBHalf,          GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
+				{GUID_WICPixelFormat48bppRGBFixedPoint,   GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat48bppBGRFixedPoint,   GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat64bppRGBAFixedPoint,  GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat64bppBGRAFixedPoint,  GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat64bppRGBFixedPoint,   GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat64bppRGBHalf,         GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
+				{GUID_WICPixelFormat48bppRGBHalf,         GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
 
-    { GUID_WICPixelFormat96bppRGBFixedPoint,    GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT 
-    { GUID_WICPixelFormat128bppPRGBAFloat,      GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT 
-    { GUID_WICPixelFormat128bppRGBFloat,        GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT 
-    { GUID_WICPixelFormat128bppRGBAFixedPoint,  GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT 
-    { GUID_WICPixelFormat128bppRGBFixedPoint,   GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT 
+				{GUID_WICPixelFormat96bppRGBFixedPoint,   GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT
+				{GUID_WICPixelFormat128bppPRGBAFloat,     GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT
+				{GUID_WICPixelFormat128bppRGBFloat,       GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT
+				{GUID_WICPixelFormat128bppRGBAFixedPoint, GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT
+				{GUID_WICPixelFormat128bppRGBFixedPoint,  GUID_WICPixelFormat128bppRGBAFloat }, // DXGI_FORMAT_R32G32B32A32_FLOAT
 
-    { GUID_WICPixelFormat32bppCMYK,             GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM 
-    { GUID_WICPixelFormat64bppCMYK,             GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat40bppCMYKAlpha,        GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat80bppCMYKAlpha,        GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat32bppCMYK,            GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat64bppCMYK,            GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat40bppCMYKAlpha,       GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat80bppCMYKAlpha,       GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
 
-#if (_WIN32_WINNT >= 0x0602 /*_WIN32_WINNT_WIN8*/)
-    { GUID_WICPixelFormat32bppRGB,              GUID_WICPixelFormat32bppRGBA }, // DXGI_FORMAT_R8G8B8A8_UNORM
-    { GUID_WICPixelFormat64bppRGB,              GUID_WICPixelFormat64bppRGBA }, // DXGI_FORMAT_R16G16B16A16_UNORM
-    { GUID_WICPixelFormat64bppPRGBAHalf,        GUID_WICPixelFormat64bppRGBAHalf }, // DXGI_FORMAT_R16G16B16A16_FLOAT 
+#if (_WIN32_WINNT >= 0x0602  /*_WIN32_WINNT_WIN8*/)
+				{GUID_WICPixelFormat32bppRGB,             GUID_WICPixelFormat32bppRGBA       }, // DXGI_FORMAT_R8G8B8A8_UNORM
+				{GUID_WICPixelFormat64bppRGB,             GUID_WICPixelFormat64bppRGBA       }, // DXGI_FORMAT_R16G16B16A16_UNORM
+				{GUID_WICPixelFormat64bppPRGBAHalf,       GUID_WICPixelFormat64bppRGBAHalf   }, // DXGI_FORMAT_R16G16B16A16_FLOAT
 #endif
 
-    // We don't support n-channel formats
+  // We don't support n-channel formats
 };
 
 DXGI_FORMAT IconLoader::Texture::GetFormatDx11(WICPixelFormatGUID pPixelFormat) {
@@ -182,47 +182,47 @@ DXGI_FORMAT IconLoader::Texture::GetFormatDx11(WICPixelFormatGUID pPixelFormat) 
 }
 
 static const std::map<DXGI_FORMAT, _D3DFORMAT> DX9_FORMAT = {
-	{DXGI_FORMAT_B8G8R8A8_UNORM , D3DFMT_A8R8G8B8},
-	{DXGI_FORMAT_B8G8R8A8_UNORM_SRGB, D3DFMT_A8R8G8B8},
-	{DXGI_FORMAT_B8G8R8X8_UNORM, D3DFMT_X8R8G8B8},
-	{DXGI_FORMAT_B8G8R8X8_UNORM_SRGB, D3DFMT_X8R8G8B8},
-	{DXGI_FORMAT_B5G6R5_UNORM, D3DFMT_R5G6B5},
-	// {DXGI_FORMAT_B5G5R5A1_UNORM, D3DFMT_A1R5G5B5},
-	// {DXGI_FORMAT_B4G4R4A4_UNORM, D3DFMT_A4R4G4B4},
-	{DXGI_FORMAT_A8_UNORM, D3DFMT_A8},
-	{DXGI_FORMAT_R8G8B8A8_UNORM, D3DFMT_A8B8G8R8},
-	{DXGI_FORMAT_R8G8B8A8_UNORM_SRGB, D3DFMT_A8B8G8R8},
-	{DXGI_FORMAT_R16G16_UNORM, D3DFMT_G16R16},
-	{DXGI_FORMAT_R16G16B16A16_UNORM, D3DFMT_A16B16G16R16},
-	{DXGI_FORMAT_R8_UNORM, D3DFMT_L8},
-	// {DXGI_FORMAT_R8G8_UNORM, D3DFMT_A8L8},
-	// {DXGI_FORMAT_R8G8_SNORM, D3DFMT_V8U8},
-	// {DXGI_FORMAT_R8G8B8A8_SNORM, D3DFMT_Q8W8V8U8},
-	// {DXGI_FORMAT_R16G16_SNORM, D3DFMT_V16U16},
-	// {DXGI_FORMAT_G8R8_G8B8_UNORM, D3DFMT_R8G8_B8G8},
-	// {DXGI_FORMAT_R8G8_B8G8_UNORM, D3DFMT_G8R8_G8B8},
-	// {DXGI_FORMAT_BC1_UNORM, D3DFMT_DXT1},
-	// {DXGI_FORMAT_BC1_UNORM_SRGB, D3DFMT_DXT1},
-	// {DXGI_FORMAT_BC1_UNORM, D3DFMT_DXT2},
-	// {DXGI_FORMAT_BC1_UNORM_SRGB, D3DFMT_DXT2},
-	// {DXGI_FORMAT_BC2_UNORM, D3DFMT_DXT3},
-	// {DXGI_FORMAT_BC2_UNORM_SRGB, D3DFMT_DXT3},
-	// {DXGI_FORMAT_BC2_UNORM, D3DFMT_DXT4},
-	// {DXGI_FORMAT_BC2_UNORM_SRGB, D3DFMT_DXT4},
-	// {DXGI_FORMAT_BC3_UNORM, D3DFMT_DXT5},
-	// {DXGI_FORMAT_BC3_UNORM_SRGB, D3DFMT_DXT5},
-	// {DXGI_FORMAT_D16_UNORM, D3DFMT_D16},
-	// {DXGI_FORMAT_D32_FLOAT, D3DFMT_D32F_LOCKABLE},
-	{DXGI_FORMAT_R16_UNORM, D3DFMT_L16},
-	// {DXGI_FORMAT_R16_UINT, D3DFMT_INDEX16},
-	// {DXGI_FORMAT_R32_UINT, D3DFMT_INDEX32},
-	// {DXGI_FORMAT_R16G16B16A16_SNORM, D3DFMT_Q16W16V16U16},
-	{DXGI_FORMAT_R16_FLOAT, D3DFMT_R16F},
-	{DXGI_FORMAT_R16G16_FLOAT, D3DFMT_G16R16F},
-	{DXGI_FORMAT_R16G16B16A16_FLOAT, D3DFMT_A16B16G16R16F},
-	{DXGI_FORMAT_R32_FLOAT, D3DFMT_R32F},
-	{DXGI_FORMAT_R32G32_FLOAT, D3DFMT_G32R32F},
-	{DXGI_FORMAT_R32G32B32A32_FLOAT, D3DFMT_A32B32G32R32F},
+		{DXGI_FORMAT_B8G8R8A8_UNORM,      D3DFMT_A8R8G8B8     },
+		{DXGI_FORMAT_B8G8R8A8_UNORM_SRGB, D3DFMT_A8R8G8B8     },
+		{DXGI_FORMAT_B8G8R8X8_UNORM,      D3DFMT_X8R8G8B8     },
+		{DXGI_FORMAT_B8G8R8X8_UNORM_SRGB, D3DFMT_X8R8G8B8     },
+		{DXGI_FORMAT_B5G6R5_UNORM,        D3DFMT_R5G6B5       },
+ // {DXGI_FORMAT_B5G5R5A1_UNORM, D3DFMT_A1R5G5B5},
+  // {DXGI_FORMAT_B4G4R4A4_UNORM, D3DFMT_A4R4G4B4},
+		{DXGI_FORMAT_A8_UNORM,            D3DFMT_A8           },
+		{DXGI_FORMAT_R8G8B8A8_UNORM,      D3DFMT_A8B8G8R8     },
+		{DXGI_FORMAT_R8G8B8A8_UNORM_SRGB, D3DFMT_A8B8G8R8     },
+		{DXGI_FORMAT_R16G16_UNORM,        D3DFMT_G16R16       },
+		{DXGI_FORMAT_R16G16B16A16_UNORM,  D3DFMT_A16B16G16R16 },
+		{DXGI_FORMAT_R8_UNORM,            D3DFMT_L8           },
+ // {DXGI_FORMAT_R8G8_UNORM, D3DFMT_A8L8},
+  // {DXGI_FORMAT_R8G8_SNORM, D3DFMT_V8U8},
+  // {DXGI_FORMAT_R8G8B8A8_SNORM, D3DFMT_Q8W8V8U8},
+  // {DXGI_FORMAT_R16G16_SNORM, D3DFMT_V16U16},
+  // {DXGI_FORMAT_G8R8_G8B8_UNORM, D3DFMT_R8G8_B8G8},
+  // {DXGI_FORMAT_R8G8_B8G8_UNORM, D3DFMT_G8R8_G8B8},
+  // {DXGI_FORMAT_BC1_UNORM, D3DFMT_DXT1},
+  // {DXGI_FORMAT_BC1_UNORM_SRGB, D3DFMT_DXT1},
+  // {DXGI_FORMAT_BC1_UNORM, D3DFMT_DXT2},
+  // {DXGI_FORMAT_BC1_UNORM_SRGB, D3DFMT_DXT2},
+  // {DXGI_FORMAT_BC2_UNORM, D3DFMT_DXT3},
+  // {DXGI_FORMAT_BC2_UNORM_SRGB, D3DFMT_DXT3},
+  // {DXGI_FORMAT_BC2_UNORM, D3DFMT_DXT4},
+  // {DXGI_FORMAT_BC2_UNORM_SRGB, D3DFMT_DXT4},
+  // {DXGI_FORMAT_BC3_UNORM, D3DFMT_DXT5},
+  // {DXGI_FORMAT_BC3_UNORM_SRGB, D3DFMT_DXT5},
+  // {DXGI_FORMAT_D16_UNORM, D3DFMT_D16},
+  // {DXGI_FORMAT_D32_FLOAT, D3DFMT_D32F_LOCKABLE},
+		{DXGI_FORMAT_R16_UNORM,           D3DFMT_L16          },
+ // {DXGI_FORMAT_R16_UINT, D3DFMT_INDEX16},
+  // {DXGI_FORMAT_R32_UINT, D3DFMT_INDEX32},
+  // {DXGI_FORMAT_R16G16B16A16_SNORM, D3DFMT_Q16W16V16U16},
+		{DXGI_FORMAT_R16_FLOAT,           D3DFMT_R16F         },
+		{DXGI_FORMAT_R16G16_FLOAT,        D3DFMT_G16R16F      },
+		{DXGI_FORMAT_R16G16B16A16_FLOAT,  D3DFMT_A16B16G16R16F},
+		{DXGI_FORMAT_R32_FLOAT,           D3DFMT_R32F         },
+		{DXGI_FORMAT_R32G32_FLOAT,        D3DFMT_G32R32F      },
+		{DXGI_FORMAT_R32G32B32A32_FLOAT,  D3DFMT_A32B32G32R32F},
 };
 
 _D3DFORMAT IconLoader::Texture::GetFormatDx9() {
@@ -246,13 +246,13 @@ void IconLoader::Texture::LoadIntoDirectXDevice(IconLoader& pIconLoader) {
 		desc.SampleDesc.Count = 1;
 		desc.Usage = D3D11_USAGE_DEFAULT;
 		desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
-		
+
 		D3D11_SUBRESOURCE_DATA subResource;
 		ZeroMemory(&subResource, sizeof subResource);
 		subResource.pSysMem = static_cast<const void*>(mPixelBuffer.data());
 		subResource.SysMemPitch = desc.Width * 4;
 		subResource.SysMemSlicePitch = 0;
-		
+
 		CComPtr<ID3D11Texture2D> pTexture;
 		HRESULT createTexture2DRes = pIconLoader.mD3d11Device->CreateTexture2D(&desc, &subResource, &pTexture);
 		if (!SUCCEEDED(createTexture2DRes)) {
@@ -260,7 +260,7 @@ void IconLoader::Texture::LoadIntoDirectXDevice(IconLoader& pIconLoader) {
 			text.append(std::to_string(createTexture2DRes));
 			throw std::runtime_error(text);
 		}
-		
+
 		// Create texture view
 		D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
 		ZeroMemory(&srvDesc, sizeof(srvDesc));
@@ -268,7 +268,7 @@ void IconLoader::Texture::LoadIntoDirectXDevice(IconLoader& pIconLoader) {
 		srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
 		srvDesc.Texture2D.MipLevels = desc.MipLevels;
 		srvDesc.Texture2D.MostDetailedMip = 0;
-		
+
 		pIconLoader.mD3d11Device->CreateShaderResourceView(pTexture, &srvDesc, &mD11Texture);
 		if (FAILED(createTexture2DRes)) {
 			// error copying pixels to buffer
@@ -294,7 +294,7 @@ void IconLoader::Texture::LoadIntoDirectXDevice(IconLoader& pIconLoader) {
 
 			d3Dformat = D3DFMT_A8R8G8B8;
 		}
-	
+
 		HRESULT createTextureRes = pIconLoader.mD3d9Device->CreateTexture(Width, Height, 1, 0, d3Dformat, D3DPOOL_MANAGED, &mD9Texture, NULL);
 		if (FAILED(createTextureRes)) {
 			// error creating d3d9 texture
@@ -408,7 +408,7 @@ void IconLoader::Texture::LoadFromFile() {
 }
 
 void IconLoader::Texture::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory) {
-	HRESULT getSizeRes = pIDecodeFrame->GetSize( &Width, &Height );
+	HRESULT getSizeRes = pIDecodeFrame->GetSize(&Width, &Height);
 	if (FAILED(getSizeRes)) {
 		return;
 	}
@@ -418,7 +418,7 @@ void IconLoader::Texture::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDeco
 	}
 
 	// get pixel format (color-depth)
-    WICPixelFormatGUID pixelFormat;
+	WICPixelFormatGUID pixelFormat;
 	HRESULT pixelFormatRes = pIDecodeFrame->GetPixelFormat(&pixelFormat);
 	if (FAILED(pixelFormatRes)) {
 		return;
@@ -441,11 +441,11 @@ void IconLoader::Texture::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDeco
 
 	WICComponentType componentType;
 	HRESULT componentTypeRes = pIComponentInfo->GetComponentType(&componentType);
-    if (FAILED(componentTypeRes)) {
-	    return;
-    }
+	if (FAILED(componentTypeRes)) {
+		return;
+	}
 
-	if ( componentType != WICPixelFormat ) {
+	if (componentType != WICPixelFormat) {
 		return;
 	}
 
@@ -462,8 +462,8 @@ void IconLoader::Texture::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDeco
 	}
 
 	// Allocate temporary memory for image
-    size_t rowPitch = ( Width * bitsPerPixel + 7 ) / 8;
-    size_t imageSize = rowPitch * Height;
+	size_t rowPitch = (Width * bitsPerPixel + 7) / 8;
+	size_t imageSize = rowPitch * Height;
 
 	mPixelBuffer.resize(imageSize);
 
@@ -567,7 +567,7 @@ void IconLoader::LoadThreadFunc(std::stop_token stop_token) {
 	mThreadMutex.lock();
 
 	while (true) {
-		mThreadCondition.wait(mThreadMutex, stop_token, [this]{ return !mLoadIds.empty(); });
+		mThreadCondition.wait(mThreadMutex, stop_token, [this] { return !mLoadIds.empty(); });
 
 		if (stop_token.stop_requested()) break;
 
@@ -628,7 +628,7 @@ void IconLoader::Texture::LoadFromCpr() {
 
 	size_t size = urlString.find("//");
 	urlString = urlString.replace(0, size + 2, "");
-	std::replace( urlString.begin(), urlString.end(), '/', '\\');
+	std::replace(urlString.begin(), urlString.end(), '/', '\\');
 
 	auto filePath = std::filesystem::temp_directory_path();
 	filePath.append("GW2-arcdps-extension");

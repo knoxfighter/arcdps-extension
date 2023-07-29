@@ -9,12 +9,11 @@
 #include <UpdateCheckerBase.h>
 
 #include <filesystem>
-#include <queue>
 #include <fstream>
+#include <queue>
 
-namespace
-{
-constexpr char MOCK_RESPONSE_ALL_RELEASES[] = R"DELIMITER([
+namespace {
+	constexpr char MOCK_RESPONSE_ALL_RELEASES[] = R"DELIMITER([
   {
     "url": "https://api.github.com/repos/knoxfighter/arcdps-killproof.me-plugin/releases/45627408",
     "assets_url": "https://api.github.com/repos/knoxfighter/arcdps-killproof.me-plugin/releases/45627408/assets",
@@ -177,7 +176,7 @@ constexpr char MOCK_RESPONSE_ALL_RELEASES[] = R"DELIMITER([
   }
 ])DELIMITER";
 
-constexpr char MOCK_RESPONSE_LATEST_RELEASE[] = R"DELIMITER({
+	constexpr char MOCK_RESPONSE_LATEST_RELEASE[] = R"DELIMITER({
   "url": "https://api.github.com/repos/knoxfighter/arcdps-killproof.me-plugin/releases/45627408",
   "assets_url": "https://api.github.com/repos/knoxfighter/arcdps-killproof.me-plugin/releases/45627408/assets",
   "upload_url": "https://uploads.github.com/repos/knoxfighter/arcdps-killproof.me-plugin/releases/45627408/assets{?name,label}",
@@ -265,65 +264,56 @@ constexpr char MOCK_RESPONSE_LATEST_RELEASE[] = R"DELIMITER({
 }
 )DELIMITER";
 
-class UpdateCheckerMock final : public UpdateCheckerBase
-{
-public:
-	std::string DllName = "update_checker_test.dll";
-	std::queue<std::optional<std::string>> QueuedResponses;
+	class UpdateCheckerMock final : public UpdateCheckerBase {
+	public:
+		std::string DllName = "update_checker_test.dll";
+		std::queue<std::optional<std::string>> QueuedResponses;
 
-	bool HttpDownload(const std::string&, std::ofstream& pOutputStream) override
-	{
-		assert(QueuedResponses.size() > 0);
+		bool HttpDownload(const std::string&, std::ofstream& pOutputStream) override {
+			assert(QueuedResponses.size() > 0);
 
-		std::optional<std::string> result = QueuedResponses.front();
-		QueuedResponses.pop();
+			std::optional<std::string> result = QueuedResponses.front();
+			QueuedResponses.pop();
 
-		if (result.has_value() == false)
-		{
-			return false;
+			if (result.has_value() == false) {
+				return false;
+			}
+
+			pOutputStream.write(result->data(), result->size());
+			return true;
 		}
 
-		pOutputStream.write(result->data(), result->size());
-		return true;
-	}
+		std::optional<std::string> HttpGet(const std::string&) override {
+			assert(QueuedResponses.size() > 0);
 
-	std::optional<std::string> HttpGet(const std::string&) override
-	{
-		assert(QueuedResponses.size() > 0);
+			std::optional<std::string> result = QueuedResponses.front();
+			QueuedResponses.pop();
+			return result;
+		}
 
-		std::optional<std::string> result = QueuedResponses.front();
-		QueuedResponses.pop();
-		return result;
-	}
+		std::optional<std::string> GetPathFromHModule(HMODULE) noexcept override {
+			return DllName;
+		}
+	};
 
-	std::optional<std::string> GetPathFromHModule(HMODULE) noexcept override
-	{
-		return DllName;
-	}
-};
+	// parameters are <use_prerelease, window_dismissed>
+	class UpdateCheckerTestFixture : public ::testing::TestWithParam<std::tuple<bool, bool>> {
+	protected:
+		UpdateCheckerMock mUpdater;
 
-// parameters are <use_prerelease, window_dismissed>
-class UpdateCheckerTestFixture : public ::testing::TestWithParam<std::tuple<bool, bool>>
-{
-protected:
-	UpdateCheckerMock mUpdater;
+		void SetUp() override {
+			remove(mUpdater.DllName.c_str());
+			mUpdater.ClearFiles(NULL);
+		}
 
-	void SetUp() override
-	{
-		remove(mUpdater.DllName.c_str());
-		mUpdater.ClearFiles(NULL);
-	}
-
-	void TearDown() override
-	{
-		remove(mUpdater.DllName.c_str());
-		mUpdater.ClearFiles(NULL);
-	}
-};
+		void TearDown() override {
+			remove(mUpdater.DllName.c_str());
+			mUpdater.ClearFiles(NULL);
+		}
+	};
 } // anonymous namespace
 
-TEST(UpdateCheckerTest, ParseVersion)
-{
+TEST(UpdateCheckerTest, ParseVersion) {
 	UpdateCheckerMock updater;
 	// "Good path"
 	EXPECT_EQ(updater.ParseVersion("1.2.3"), UpdateCheckerMock::Version({1, 2, 3, 0}));
@@ -346,8 +336,7 @@ TEST(UpdateCheckerTest, ParseVersion)
 	EXPECT_EQ(updater.ParseVersion("a.b"), UpdateCheckerMock::Version({0, 0, 0, 0}));
 }
 
-TEST(UpdateCheckerTest, IsNewer)
-{
+TEST(UpdateCheckerTest, IsNewer) {
 	UpdateCheckerMock updater;
 	// Last version token is ignored
 	EXPECT_FALSE(updater.IsNewer(UpdateCheckerMock::Version({1, 2, 3, 0}), UpdateCheckerMock::Version({1, 2, 3, 0})));
@@ -365,15 +354,11 @@ TEST(UpdateCheckerTest, IsNewer)
 	EXPECT_FALSE(updater.IsNewer(UpdateCheckerMock::Version({9, 9, 9, 9}), UpdateCheckerMock::Version({10, 0, 0, 0})));
 }
 
-TEST_P(UpdateCheckerTestFixture, Update_Positive)
-{
+TEST_P(UpdateCheckerTestFixture, Update_Positive) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -399,20 +384,16 @@ TEST_P(UpdateCheckerTestFixture, Update_Positive)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateSuccessful);
 	}
 
@@ -429,15 +410,11 @@ TEST_P(UpdateCheckerTestFixture, Update_Positive)
 }
 
 // Like the positive case, except it doesn't create the old file the update is performed from, so the rename will fail
-TEST_P(UpdateCheckerTestFixture, Update_RenameFailure)
-{
+TEST_P(UpdateCheckerTestFixture, Update_RenameFailure) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -458,34 +435,26 @@ TEST_P(UpdateCheckerTestFixture, Update_RenameFailure)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateError);
 	}
 }
 
 // Like the positive case, except it pre-creates the temp file as a directory, so opening it as a file will fail
-TEST_P(UpdateCheckerTestFixture, Update_TempFileFailure)
-{
+TEST_P(UpdateCheckerTestFixture, Update_TempFileFailure) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -512,34 +481,26 @@ TEST_P(UpdateCheckerTestFixture, Update_TempFileFailure)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateError);
 	}
 }
 
 // Like the positive case, except it returns a http error on download
-TEST_P(UpdateCheckerTestFixture, Update_HttpError)
-{
+TEST_P(UpdateCheckerTestFixture, Update_HttpError) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -565,33 +526,25 @@ TEST_P(UpdateCheckerTestFixture, Update_HttpError)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateError);
 	}
 }
 
-TEST_P(UpdateCheckerTestFixture, Install_Positive)
-{
+TEST_P(UpdateCheckerTestFixture, Install_Positive) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -612,20 +565,16 @@ TEST_P(UpdateCheckerTestFixture, Install_Positive)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateSuccessful);
 	}
 
@@ -642,15 +591,11 @@ TEST_P(UpdateCheckerTestFixture, Install_Positive)
 }
 
 // Like the positive case, except it returns a http error on download
-TEST_P(UpdateCheckerTestFixture, Install_HttpError)
-{
+TEST_P(UpdateCheckerTestFixture, Install_HttpError) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -671,33 +616,25 @@ TEST_P(UpdateCheckerTestFixture, Install_HttpError)
 		mUpdater.PerformInstallOrUpdate(*state);
 
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateInProgress);
-		if (dismiss_window == true)
-		{
+		if (dismiss_window == true) {
 			state->UpdateStatus = UpdateCheckerMock::Status::Dismissed;
 		}
 	}
 
 	state->FinishPendingTasks();
 
-	if (dismiss_window == true)
-	{
+	if (dismiss_window == true) {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Dismissed);
-	}
-	else
-	{
+	} else {
 		EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::UpdateError);
 	}
 }
 
-TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoUpdate)
-{
+TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoUpdate) {
 	auto [prerelease, dismiss_window] = GetParam();
-	if (prerelease == false)
-	{
+	if (prerelease == false) {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_LATEST_RELEASE);
-	}
-	else
-	{
+	} else {
 		mUpdater.QueuedResponses.push(MOCK_RESPONSE_ALL_RELEASES);
 	}
 
@@ -711,8 +648,7 @@ TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoUpdate)
 	EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Unknown);
 }
 
-TEST_P(UpdateCheckerTestFixture, CheckForUpdate_BadJson)
-{
+TEST_P(UpdateCheckerTestFixture, CheckForUpdate_BadJson) {
 	auto [prerelease, dismiss_window] = GetParam();
 	mUpdater.QueuedResponses.push("[ not json data }");
 	std::unique_ptr<UpdateCheckerMock::UpdateState> state = mUpdater.CheckForUpdate(NULL, UpdateCheckerMock::Version({0, 0, 1, 0}), "Krappa322/arcdps_unofficial_extras_releases", prerelease);
@@ -725,8 +661,7 @@ TEST_P(UpdateCheckerTestFixture, CheckForUpdate_BadJson)
 	EXPECT_EQ(state->UpdateStatus, UpdateCheckerMock::Status::Unknown);
 }
 
-TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoReleases)
-{
+TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoReleases) {
 	auto [prerelease, dismiss_window] = GetParam();
 	mUpdater.QueuedResponses.push("[]");
 	std::unique_ptr<UpdateCheckerMock::UpdateState> state = mUpdater.CheckForUpdate(NULL, UpdateCheckerMock::Version({0, 0, 1, 0}), "Krappa322/arcdps_unofficial_extras_releases", prerelease);
@@ -740,20 +675,21 @@ TEST_P(UpdateCheckerTestFixture, CheckForUpdate_NoReleases)
 }
 
 INSTANTIATE_TEST_SUITE_P(
-	Stable,
-	UpdateCheckerTestFixture,
-	::testing::Values(std::make_pair(false, false), std::make_pair(false, true)));
+		Stable,
+		UpdateCheckerTestFixture,
+		::testing::Values(std::make_pair(false, false), std::make_pair(false, true))
+);
 
 INSTANTIATE_TEST_SUITE_P(
-	PreRelease,
-	UpdateCheckerTestFixture,
-	::testing::Values(std::make_pair(true, false), std::make_pair(true, true)));
+		PreRelease,
+		UpdateCheckerTestFixture,
+		::testing::Values(std::make_pair(true, false), std::make_pair(true, true))
+);
 
 #ifndef ARCDPS_EXTENSION_NO_CPR
 #include <cpr/cpr.h>
 // CPR has a very bad track record, apparently we need to test it as well
-TEST(HTTPS_Client, SmokeTest)
-{
+TEST(HTTPS_Client, SmokeTest) {
 	cpr::Response response = cpr::Get(cpr::Url{"https://google.com"});
 	EXPECT_EQ(response.status_code, 200);
 	EXPECT_EQ(response.status_line, "HTTP/1.1 200 OK");

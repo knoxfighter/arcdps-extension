@@ -272,13 +272,13 @@ TEST(SimpleRingBufferTests, IteratorOperatorPlusNumber) {
 	buffer.PushBack(12);
 	buffer.PushBack(13);
 	buffer.PushBack(14);
-	
+
 	// check the pointer of the iterator directly, to not have dependency on `Iterator::operator+`
 	EXPECT_EQ((buffer.begin() + 3).operator->(), buffer.begin().operator->() + 3);
-	
+
 	// check begin iterator, when going to begin
 	EXPECT_EQ(buffer.begin() + 10, buffer.end());
-	
+
 	// with dependency on `operator+`
 	EXPECT_EQ(buffer.begin() + 9, buffer.end() - 1);
 }

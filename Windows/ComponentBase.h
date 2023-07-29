@@ -16,5 +16,5 @@ public:
 	// ComponentBase& operator=(ComponentBase&& pOther) noexcept = default;
 
 protected:
-	MainWindow*	mMainWindow;
+	MainWindow* mMainWindow;
 };

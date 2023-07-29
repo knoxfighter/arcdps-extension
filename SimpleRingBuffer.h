@@ -1,16 +1,16 @@
 #pragma once
 
-#include <cstddef>
-#include <malloc.h>
-#include <iterator>
-#include <concepts>
 #include <cassert>
+#include <concepts>
+#include <cstddef>
+#include <iterator>
+#include <malloc.h>
 #include <ostream>
 
 /**
  * @tparam T The type that this buffer holds.
  */
-template <typename T, typename Allocator = std::allocator<T>>
+template<typename T, typename Allocator = std::allocator<T>>
 class RingBuffer {
 public:
 	explicit RingBuffer(size_t pInitialCapacity) {
@@ -79,8 +79,8 @@ public:
 	void PushBack(T&& pElement);
 	void PushBack(const T& pElement);
 
-	template <typename ...Args>
-	void EmplaceBack(const Args& ...args);
+	template<typename... Args>
+	void EmplaceBack(const Args&... args);
 
 	T& Back();
 	const T& Back() const;
@@ -120,8 +120,8 @@ public:
 
 		// Relation comparison relys on uintptr_t "underflow". It basically means, that the comparison breaks, when the size is bigger than `size_t / 2`.
 		std::strong_ordering operator<=>(const RingBufferIterator& pOther) const {
-			uintptr_t thisDiff = (uintptr_t)mPtr - (uintptr_t)(mParent->mCurrent);
-			uintptr_t otherDiff = (uintptr_t)pOther.mPtr - (uintptr_t)(mParent->mCurrent);
+			uintptr_t thisDiff = (uintptr_t) mPtr - (uintptr_t) (mParent->mCurrent);
+			uintptr_t otherDiff = (uintptr_t) pOther.mPtr - (uintptr_t) (mParent->mCurrent);
 			if ((mEnd && !pOther.mEnd) || (pOther.mBegin && !mBegin)) {
 				return std::strong_ordering::greater;
 			}
@@ -213,7 +213,7 @@ public:
 			mEnd = false;
 			mPtr -= pNum;
 			if (mPtr < mParent->mCapacityBegin) {
-				mPtr = (T*)((uintptr_t)mPtr + (uintptr_t)mParent->mSizeEnd - (uintptr_t)mParent->mCapacityBegin);
+				mPtr = (T*) ((uintptr_t) mPtr + (uintptr_t) mParent->mSizeEnd - (uintptr_t) mParent->mCapacityBegin);
 			}
 			if (mParent->mCurrent == mPtr) mBegin = true;
 			return *this;
@@ -237,10 +237,10 @@ public:
 		 */
 		friend std::ostream& operator<<(std::ostream& pOs, const RingBufferIterator& pObj) {
 			return pOs
-				<< "mPtr: " << pObj.mPtr
-				<< " mBegin: " << pObj.mBegin
-				<< " mEnd: " << pObj.mEnd
-				<< " mParent: " << pObj.mParent;
+				   << "mPtr: " << pObj.mPtr
+				   << " mBegin: " << pObj.mBegin
+				   << " mEnd: " << pObj.mEnd
+				   << " mParent: " << pObj.mParent;
 		}
 
 	private:
@@ -283,19 +283,19 @@ private:
 static_assert(std::ranges::random_access_range<RingBuffer<uint64_t>>);
 static_assert(std::ranges::random_access_range<const RingBuffer<uint64_t>>);
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 void RingBuffer<T, Allocator>::PushBack(T&& pElement) {
 	T* elem = pushOne();
-	new(elem) T(pElement);
+	new (elem) T(pElement);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 void RingBuffer<T, Allocator>::PushBack(const T& pElement) {
 	T* elem = pushOne();
-	new(elem) T(pElement);
+	new (elem) T(pElement);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 T* RingBuffer<T, Allocator>::pushOne() {
 	// If first element
 	if (mSizeEnd == mCapacityBegin) {
@@ -317,14 +317,14 @@ T* RingBuffer<T, Allocator>::pushOne() {
 	return current;
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 T* RingBuffer<T, Allocator>::advance(T* pElem) const {
 	auto val = pElem + 1;
 	if (val >= mSizeEnd) return mCapacityBegin;
 	return val;
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 T* RingBuffer<T, Allocator>::retreat(T* pElem) const {
 	auto val = pElem;
 	if (val <= mCapacityBegin) val = mSizeEnd;
@@ -332,24 +332,24 @@ T* RingBuffer<T, Allocator>::retreat(T* pElem) const {
 	return val;
 }
 
-template <typename T, typename Allocator>
-template <typename... Args>
-void RingBuffer<T, Allocator>::EmplaceBack(const Args& ... args) {
+template<typename T, typename Allocator>
+template<typename... Args>
+void RingBuffer<T, Allocator>::EmplaceBack(const Args&... args) {
 	T* elem = pushOne();
-	new(elem) T(args...);
+	new (elem) T(args...);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 T& RingBuffer<T, Allocator>::Back() {
 	return *retreat(mCurrent);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 const T& RingBuffer<T, Allocator>::Back() const {
 	return *retreat(mCurrent);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 void RingBuffer<T, Allocator>::Clear() {
 	for (auto it = begin(); it != end(); ++it) {
 		(*it).~T();
@@ -358,12 +358,12 @@ void RingBuffer<T, Allocator>::Clear() {
 	mCurrent = mSizeEnd = mCapacityBegin;
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 size_t RingBuffer<T, Allocator>::Size() const {
 	return mSizeEnd - mCapacityBegin;
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 void RingBuffer<T, Allocator>::Resize(size_t pNewCapacity) {
 	// backup old data
 	T* current = mCurrent;
@@ -395,13 +395,13 @@ void RingBuffer<T, Allocator>::Resize(size_t pNewCapacity) {
 	mAlloc.deallocate(capacityBegin, capacityEnd - capacityBegin);
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 const T& RingBuffer<T, Allocator>::operator[](size_t pNum) const {
 	const auto var = begin() + pNum;
 	return *var;
 }
 
-template <typename T, typename Allocator>
+template<typename T, typename Allocator>
 T& RingBuffer<T, Allocator>::operator[](size_t pNum) {
 	auto var = begin() + pNum;
 	return *var;

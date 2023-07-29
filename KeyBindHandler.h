@@ -1,11 +1,11 @@
 #pragma once
 
 #if __has_include("ArcdpsUnofficialExtras/KeyBindHelper.h")
-	#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
+#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
 #elif __has_include("KeyBindHelper.h")
-	#include "KeyBindHelper.h"
+#include "KeyBindHelper.h"
 #elif __has_include("../unofficial_extras/KeyBindHelper.h")
-	#include "../unofficial_extras/KeyBindHelper.h"
+#include "../unofficial_extras/KeyBindHelper.h"
 #endif
 
 #include "Singleton.h"
@@ -75,8 +75,8 @@ public:
 
 private:
 	static uint64_t getNewId() {
-	    static uint64_t the_id;
-	    return the_id++;
+		static uint64_t the_id;
+		return the_id++;
 	}
 
 	std::unordered_map<uint64_t, Subscriber> mSubscribers;

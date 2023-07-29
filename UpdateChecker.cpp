@@ -25,17 +25,11 @@ void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const
 			const Version& newVersion = pUpdateState->NewVersion;
 
 			ImGuiEx::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), Localization::STranslate(ET_UpdateDesc), pPluginName);
-			ImGuiEx::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "{}: {}.{}.{}",
-			                   Localization::STranslate(ET_UpdateCurrentVersion), currentVersion[0], currentVersion[1],
-			                   currentVersion[2]);
-			ImGuiEx::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "{}: {}.{}.{}",
-			                   Localization::STranslate(ET_UpdateNewVersion), newVersion[0], newVersion[1],
-			                   newVersion[2]);
+			ImGuiEx::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "{}: {}.{}.{}", Localization::STranslate(ET_UpdateCurrentVersion), currentVersion[0], currentVersion[1], currentVersion[2]);
+			ImGuiEx::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "{}: {}.{}.{}", Localization::STranslate(ET_UpdateNewVersion), newVersion[0], newVersion[1], newVersion[2]);
 			if (ImGui::Button(Localization::STranslate(ET_UpdateOpenPage).c_str())) {
 				std::thread([pRepoReleaseLink]() {
-					ShellExecuteA(nullptr, nullptr,
-					              pRepoReleaseLink.c_str(), nullptr,
-					              nullptr, SW_SHOW);
+					ShellExecuteA(nullptr, nullptr, pRepoReleaseLink.c_str(), nullptr, nullptr, SW_SHOW);
 				}).detach();
 			}
 
@@ -51,8 +45,7 @@ void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const
 					break;
 				}
 				case Status::UpdateSuccessful: {
-					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f),
-					                   Localization::STranslate(ET_UpdateRestartPending).c_str());
+					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), Localization::STranslate(ET_UpdateRestartPending).c_str());
 					break;
 				}
 				case Status::UpdateError: {

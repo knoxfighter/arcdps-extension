@@ -1,9 +1,9 @@
 #include "MainWindow.h"
 
-#include "../Widgets.h"
+#include "../ExtensionTranslations.h"
 #include "../imgui_stdlib.h"
 #include "../Localization.h"
-#include "../ExtensionTranslations.h"
+#include "../Widgets.h"
 
 #include <magic_enum.hpp>
 
@@ -17,8 +17,7 @@ void MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWindowFlags mainWin
 	}
 
 	// general window options
-	imGuiWindowFlags |= ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoFocusOnAppearing |
-		ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoNavFocus;
+	imGuiWindowFlags |= ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoNavFocus;
 
 	if (!getShowTitleBar()) {
 		imGuiWindowFlags |= ImGuiWindowFlags_NoTitleBar;
@@ -96,7 +95,7 @@ void MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWindowFlags mainWin
 
 				for (const auto& drawStyleSubMenuHook : mDrawStyleSubMenuHooks | std::ranges::views::reverse) {
 					drawStyleSubMenuHook();
-				} 
+				}
 
 				ImGui::EndMenu();
 			}

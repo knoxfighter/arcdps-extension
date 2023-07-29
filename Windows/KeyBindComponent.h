@@ -2,8 +2,8 @@
 
 #include "ComponentBase.h"
 
-#include "../KeyInput.h"
 #include "../arcdps_structs_slim.h"
+#include "../KeyInput.h"
 
 #include <ArcdpsUnofficialExtras/KeyBindStructs.h>
 
@@ -62,7 +62,7 @@ protected:
 	 * Default to english, this should be overridden to get proper language selection.
 	 * The current language can be tracked with the `unofficial_extras` add-on.
 	 */
-	virtual gwlanguage getCurrentLanguage(){return GWL_ENG;}
+	virtual gwlanguage getCurrentLanguage() { return GWL_ENG; }
 
 private:
 	uint64_t mKeyBindHandlerId = 0;

@@ -48,13 +48,12 @@ namespace ImGuiEx {
 	 */
 	bool TableIsMouseHoveringCurrentRow();
 	// returns true if the window moved
-	bool WindowReposition(ImGuiWindow* window, Position position, const ImVec2& cornerVector, CornerPosition cornerPosition, ImGuiID fromWindowID,
-	                      CornerPosition anchorPanelCornerPosition, CornerPosition selfPanelCornerPosition);
+	bool WindowReposition(ImGuiWindow* window, Position position, const ImVec2& cornerVector, CornerPosition cornerPosition, ImGuiID fromWindowID, CornerPosition anchorPanelCornerPosition, CornerPosition selfPanelCornerPosition);
 
 	/**
 	 * @return if element was freshly selected.
 	 */
-	template <typename E>
+	template<typename E>
 	requires std::is_enum_v<E>
 	bool Selectable(E& storage, E value) {
 		const bool selected = ImGui::Selectable(to_string(value).c_str());
@@ -67,8 +66,8 @@ namespace ImGuiEx {
 	/**
 	 * @return A new element was selected
 	 */
-	template <typename E, std::ranges::range R>
-	requires (std::is_enum_v<E> && std::same_as<std::ranges::range_value_t<R>, E>)
+	template<typename E, std::ranges::range R>
+	requires(std::is_enum_v<E> && std::same_as<std::ranges::range_value_t<R>, E>)
 	bool EnumCombo(const char* label, E& storage, const R& values, const std::map<E, std::function<const std::string&()>>& pPopupText = {}) {
 		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
 			bool selected = false;
@@ -93,8 +92,8 @@ namespace ImGuiEx {
 		return false;
 	}
 
-	template <typename E>
-	requires (std::is_enum_v<E>)
+	template<typename E>
+	requires(std::is_enum_v<E>)
 	bool EnumCombo(const char* label, E& storage, const std::initializer_list<E>& values, const std::map<E, std::function<const std::string&()>>& pPopupText = {}) {
 		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
 			bool selected = false;
@@ -124,7 +123,7 @@ namespace ImGuiEx {
 	 *
 	 * @return A new element was selected
 	 */
-	template <typename E>
+	template<typename E>
 	requires std::is_enum_v<E>
 	bool EnumCombo(const char* label, E& storage, E lastElement, const std::map<uint64_t, std::function<const std::string&()>>& pPopupText = {}) {
 		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
@@ -148,13 +147,13 @@ namespace ImGuiEx {
 		return false;
 	}
 
-	template <typename E>
+	template<typename E>
 	requires std::is_enum_v<E>
 	bool EnumRadioButton(int& buttonStorage, E value) {
 		return ImGui::RadioButton(to_string(value).c_str(), &buttonStorage, static_cast<int>(value));
 	}
 
-	template <typename E>
+	template<typename E>
 	requires std::is_enum_v<E>
 	bool EnumRadioButton(int& buttonStorage, E value, E& storage) {
 		bool res = EnumRadioButton(buttonStorage, value);
@@ -168,19 +167,18 @@ namespace ImGuiEx {
 	// FIXME: This would work nicely if it was a public template, e.g. 'template<T> RadioButton(const char* label, T* v, T v_button)', but I'm not sure how we would expose it..
 	// I have fixed it, don't know what the problem is with this ... --knox
 	template<typename T>
-	bool RadioButton(const char* label, T& v, T v_button)
-	{
-	    const bool pressed = ImGui::RadioButton(label, v == v_button);
-	    if (pressed)
-	        v = v_button;
-	    return pressed;
+	bool RadioButton(const char* label, T& v, T v_button) {
+		const bool pressed = ImGui::RadioButton(label, v == v_button);
+		if (pressed)
+			v = v_button;
+		return pressed;
 	}
 
 	template<class... Args>
 	void TextColored(const ImVec4& col, const std::string& fmt, Args&&... args) {
 		ImGui::PushStyleColor(ImGuiCol_Text, col);
-	    ImGui::TextEx(std::vformat(fmt, std::make_format_args(args...)).c_str(), NULL, ImGuiTextFlags_NoWidthForLargeClippedText); // Skip formatting
-	    ImGui::PopStyleColor();
+		ImGui::TextEx(std::vformat(fmt, std::make_format_args(args...)).c_str(), NULL, ImGuiTextFlags_NoWidthForLargeClippedText); // Skip formatting
+		ImGui::PopStyleColor();
 	}
 
 #ifdef _WIN32
@@ -199,63 +197,62 @@ namespace ImGuiEx {
 #endif
 
 
-    // This code is derived from an issue in the ImGui github repo: https://github.com/ocornut/imgui/issues/1658#issuecomment-886171438
-    // Therefore the original code is licensed under the same license as ImGui (MIT)
+	// This code is derived from an issue in the ImGui github repo: https://github.com/ocornut/imgui/issues/1658#issuecomment-886171438
+	// Therefore the original code is licensed under the same license as ImGui (MIT)
 	//
 	// returns if the value was changed.
 	// `pPopupOpen` returns if the popup is open
-    template<std::ranges::viewable_range T, typename ValueType = std::ranges::views::all_t<T>>
-    // template<std::ranges::common_range T, typename ValueType = std::ranges::range_value_t<T>>
+	template<std::ranges::viewable_range T, typename ValueType = std::ranges::views::all_t<T>>
+	// template<std::ranges::common_range T, typename ValueType = std::ranges::range_value_t<T>>
 	bool FilteredCombo(const char* pLabel, const T& pContainer, ValueType& pCurrent, bool* pPopupOpen = nullptr) {
 		// this is breaking the overloaded to_string functions (in theory it should work, but it doesn't :( )
-    	// using std::to_string;
+		// using std::to_string;
 
 		ImGuiContext& g = *GImGui;
 
-        ImGuiWindow* window = ImGui::GetCurrentWindow();
-        if (window->SkipItems)
-            return false;
+		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		if (window->SkipItems)
+			return false;
 
-        static char searchInputBuffer[256] = { 0 };
+		static char searchInputBuffer[256] = {0};
 
 		std::string popupName = std::format("###FilteredCombo_popup_name_{}", pLabel);
 
-        // Display items
-        // FIXME-OPT: Use clipper (but we need to disable it on the appearing frame to make sure our call to SetItemDefaultFocus() is processed)
-        bool valueChanged = false;
+		// Display items
+		// FIXME-OPT: Use clipper (but we need to disable it on the appearing frame to make sure our call to SetItemDefaultFocus() is processed)
+		bool valueChanged = false;
 
 		const float expectedWidth = ImGui::CalcItemWidth();
-        bool isNewOpen = false;
-        float frameHeight = ImGui::GetFrameHeight();
-        ImVec2 size(frameHeight, frameHeight);
-        ImVec2 CursorPos = window->DC.CursorPos;
-        ImVec2 pos = CursorPos + ImVec2(expectedWidth - frameHeight, 0);
-        const ImRect bb(pos, pos + size);
+		bool isNewOpen = false;
+		float frameHeight = ImGui::GetFrameHeight();
+		ImVec2 size(frameHeight, frameHeight);
+		ImVec2 CursorPos = window->DC.CursorPos;
+		ImVec2 pos = CursorPos + ImVec2(expectedWidth - frameHeight, 0);
+		const ImRect bb(pos, pos + size);
 
-        float ButtonTextAlignX = g.Style.ButtonTextAlign.x;
-        g.Style.ButtonTextAlign.x = 0;
-        if (ImGui::Button(std::format("{}###FilteredCombo_button_label_{}", to_string(pCurrent), pLabel).c_str(), ImVec2(expectedWidth, 0)))
-        {
-            ImGui::OpenPopup(popupName.c_str());
-            isNewOpen = true;
-            memset(searchInputBuffer, 0, sizeof searchInputBuffer);
-        }
-        g.Style.ButtonTextAlign.x = ButtonTextAlignX;
-        // bool hovered = ImGui::IsItemHovered();
-        // bool active = ImGui::IsItemActivated();
-        // bool pressed = ImGui::IsItemClicked();
+		float ButtonTextAlignX = g.Style.ButtonTextAlign.x;
+		g.Style.ButtonTextAlign.x = 0;
+		if (ImGui::Button(std::format("{}###FilteredCombo_button_label_{}", to_string(pCurrent), pLabel).c_str(), ImVec2(expectedWidth, 0))) {
+			ImGui::OpenPopup(popupName.c_str());
+			isNewOpen = true;
+			memset(searchInputBuffer, 0, sizeof searchInputBuffer);
+		}
+		g.Style.ButtonTextAlign.x = ButtonTextAlignX;
+		// bool hovered = ImGui::IsItemHovered();
+		// bool active = ImGui::IsItemActivated();
+		// bool pressed = ImGui::IsItemClicked();
 
 		// Render
-        //const ImU32 bg_col = GetColorU32((active && hovered) ? ImGuiCol_ButtonActive : hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button);
-        //RenderFrame(bb.Min, bb.Max, bg_col, true, g.Style.FrameRounding);
-        const ImU32 textColor = ImGui::GetColorU32(ImGuiCol_Text);
-        ImGui::RenderArrow(window->DrawList, bb.Min + ImVec2(ImMax(0.0f, (size.x - g.FontSize) * 0.5f), ImMax(0.0f, (size.y - g.FontSize) * 0.5f)), textColor, ImGuiDir_Down);
+		//const ImU32 bg_col = GetColorU32((active && hovered) ? ImGuiCol_ButtonActive : hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button);
+		//RenderFrame(bb.Min, bb.Max, bg_col, true, g.Style.FrameRounding);
+		const ImU32 textColor = ImGui::GetColorU32(ImGuiCol_Text);
+		ImGui::RenderArrow(window->DrawList, bb.Min + ImVec2(ImMax(0.0f, (size.x - g.FontSize) * 0.5f), ImMax(0.0f, (size.y - g.FontSize) * 0.5f)), textColor, ImGuiDir_Down);
 
-        ImVec2 item_max = ImGui::GetItemRectMax();
-        ImGui::SetNextWindowPos({ CursorPos.x, item_max.y });
-        ImGui::SetNextWindowSize({ ImGui::GetItemRectSize().x, 0 });
+		ImVec2 item_max = ImGui::GetItemRectMax();
+		ImGui::SetNextWindowPos({CursorPos.x, item_max.y});
+		ImGui::SetNextWindowSize({ImGui::GetItemRectSize().x, 0});
 
-    	if (ImGui::BeginPopup(popupName.c_str())) {
+		if (ImGui::BeginPopup(popupName.c_str())) {
 			using CacheVectorType = std::tuple<double, ValueType>;
 			static std::vector<CacheVectorType> valueCache;
 
@@ -263,19 +260,19 @@ namespace ImGuiEx {
 				*pPopupOpen = true;
 			}
 
-            ImGui::PushStyleColor(ImGuiCol_FrameBg, (ImVec4)ImColor(240, 240, 240, 255));
-            ImGui::PushStyleColor(ImGuiCol_Text, (ImVec4)ImColor(0, 0, 0, 255));
-            ImGui::PushItemWidth(-FLT_MIN);
+			ImGui::PushStyleColor(ImGuiCol_FrameBg, (ImVec4) ImColor(240, 240, 240, 255));
+			ImGui::PushStyleColor(ImGuiCol_Text, (ImVec4) ImColor(0, 0, 0, 255));
+			ImGui::PushItemWidth(-FLT_MIN);
 
-            // Filter input
-            if (isNewOpen) {
-	            ImGui::SetKeyboardFocusHere();
+			// Filter input
+			if (isNewOpen) {
+				ImGui::SetKeyboardFocusHere();
 				for (const auto& val : pContainer) {
 					valueCache.emplace_back(1, val);
 				}
-            }
-            if (ImGui::InputText("###FilteredCombo_InputText", searchInputBuffer, sizeof searchInputBuffer)) {
-	            // input changed, recalculate fuzzy values
+			}
+			if (ImGui::InputText("###FilteredCombo_InputText", searchInputBuffer, sizeof searchInputBuffer)) {
+				// input changed, recalculate fuzzy values
 				valueCache.clear();
 				if (searchInputBuffer[0] == '\0') {
 					for (const auto& val : pContainer) {
@@ -288,44 +285,43 @@ namespace ImGuiEx {
 						if (ratio >= 0.5)
 							valueCache.emplace_back(ratio, val);
 					}
-				
+
 					std::ranges::sort(valueCache, [](const CacheVectorType& val1, const CacheVectorType& val2) {
 						return std::get<0>(val1) > std::get<0>(val2);
 					});
 				}
-            }
+			}
 
-            // Search Icon, you can use it if you load IconsFontAwesome5 https://github.com/juliettef/IconFontCppHeaders
-            //const ImVec2 label_size = CalcTextSize(ICON_FA_SEARCH, NULL, true);
-            //const ImVec2 search_icon_pos(ImGui::GetItemRectMax().x - label_size.x - style.ItemInnerSpacing.x * 2, window->DC.CursorPos.y + style.FramePadding.y + g.FontSize * 0.1f);
-            //RenderText(search_icon_pos, ICON_FA_SEARCH);
+			// Search Icon, you can use it if you load IconsFontAwesome5 https://github.com/juliettef/IconFontCppHeaders
+			//const ImVec2 label_size = CalcTextSize(ICON_FA_SEARCH, NULL, true);
+			//const ImVec2 search_icon_pos(ImGui::GetItemRectMax().x - label_size.x - style.ItemInnerSpacing.x * 2, window->DC.CursorPos.y + style.FramePadding.y + g.FontSize * 0.1f);
+			//RenderText(search_icon_pos, ICON_FA_SEARCH);
 
-            ImGui::PopStyleColor(2);
+			ImGui::PopStyleColor(2);
 
 			if (ImGui::ListBoxHeader("###FilteredCombo_ItemList")) {
-				for (const auto& value : valueCache)  {
+				for (const auto& value : valueCache) {
 					const auto& val = std::get<1>(value);
-                    const bool itemSelected = (val == pCurrent);
-                    if (ImGui::Selectable(to_string(val).c_str(), itemSelected))
-                    {
-                        valueChanged = true;
-                        pCurrent = val;
-                        ImGui::CloseCurrentPopup();
-                    }
-                    if (itemSelected)
-                        ImGui::SetItemDefaultFocus();
+					const bool itemSelected = (val == pCurrent);
+					if (ImGui::Selectable(to_string(val).c_str(), itemSelected)) {
+						valueChanged = true;
+						pCurrent = val;
+						ImGui::CloseCurrentPopup();
+					}
+					if (itemSelected)
+						ImGui::SetItemDefaultFocus();
 				}
-                ImGui::ListBoxFooter();
+				ImGui::ListBoxFooter();
 			}
-            ImGui::PopItemWidth();
-            ImGui::EndPopup();
-        }
+			ImGui::PopItemWidth();
+			ImGui::EndPopup();
+		}
 
 
-        if (valueChanged)
-            ImGui::MarkItemEdited(g.CurrentWindow->DC.LastItemId);
-		
-        return valueChanged;
+		if (valueChanged)
+			ImGui::MarkItemEdited(g.CurrentWindow->DC.LastItemId);
+
+		return valueChanged;
 	}
 
 	// template<typename T, typename ValueType>
@@ -334,8 +330,8 @@ namespace ImGuiEx {
 	//     return FilteredCombo(pLabel, std::ranges::views::all(pContainer), pCurrent, pPopupOpen);
 	// }
 	template<std::ranges::common_range T, typename ValueType = std::ranges::range_value_t<T>>
-	requires (!std::ranges::viewable_range<T>)
+	requires(!std::ranges::viewable_range<T>)
 	bool FilteredCombo(const char* pLabel, const T& pContainer, ValueType& pCurrent, bool* pPopupOpen = nullptr) {
 		return FilteredCombo(pLabel, std::ranges::views::all(pContainer), pCurrent, pPopupOpen);
 	}
-}
+} // namespace ImGuiEx

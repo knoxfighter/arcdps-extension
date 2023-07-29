@@ -119,10 +119,10 @@ protected:
 	 * Used to draw additional settings below the sizingPolicy combobox.
 	 * Example: Tables might have a specific column size depending on the sizingPolicy.
 	 */
-	virtual void DrawSizingPolicySubSettings(SizingPolicy sizingPolicy){}
+	virtual void DrawSizingPolicySubSettings(SizingPolicy sizingPolicy) {}
 
 	virtual SizingPolicy& getSizingPolicy() = 0;
-	
+
 	/**
 	 * This has to be `true` to show the titlebar.
 	 * Therefore setting it to `true` by default is recommended.
@@ -179,7 +179,7 @@ protected:
 	 * Default to english, this should be overridden to get proper language selection.
 	 * The current language can be tracked with the `unofficial_extras` add-on.
 	 */
-	virtual gwlanguage getCurrentLanguage(){return GWL_ENG;}
+	virtual gwlanguage getCurrentLanguage() { return GWL_ENG; }
 
 	/**
 	 * This can be called to draw the SubMenu of the "Style".
@@ -208,6 +208,6 @@ private:
 	std::vector<DrawContentHookFunction> mDrawContentHooks;
 	std::vector<InitHookFunction> mInitHooks;
 	std::vector<DrawStyleSubMenuHookFunction> mDrawStyleSubMenuHooks;
-	
+
 	std::vector<std::unique_ptr<ComponentBase>> mComponents;
 };

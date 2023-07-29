@@ -1,7 +1,7 @@
 #pragma once
 
-#include "MainWindow.h"
 #include "ComponentBase.h"
+#include "MainWindow.h"
 
 class PositioningComponent : public ComponentBase {
 public:

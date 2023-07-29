@@ -9,8 +9,8 @@
 #endif
 
 #ifndef ARCDPS_EXTENSION_NO_LANG_H
-#include "Localization.h"
 #include "ExtensionTranslations.h"
+#include "Localization.h"
 
 #define POPUP_NAME_TEXT Localization::STranslate(ET_KeyInputPopupName)
 #define APPLY_TEXT Localization::STranslate(ET_ApplyButton).c_str()
@@ -21,37 +21,34 @@
 #define CANCEL_TEXT "Cancel"
 #endif
 
-namespace
-{
+namespace {
 	using KeyBinds::KeyCode;
 	constexpr KeyCode allowedKeyCodesValues[] = {
-		KeyCode::LeftAlt, KeyCode::LeftCtrl, KeyCode::LeftShift, KeyCode::Quote, KeyCode::Hash,
-		KeyCode::CapsLock, KeyCode::Colon, KeyCode::Minus, KeyCode::Equals, KeyCode::Escape,
-		KeyCode::OpenBracket, KeyCode::NumLock, KeyCode::Period, KeyCode::CloseBracket, KeyCode::Semicolon,
-		KeyCode::Slash, KeyCode::Print, KeyCode::Tilde, KeyCode::Backspace, KeyCode::Delete, KeyCode::Enter,
-		KeyCode::Space, KeyCode::Tab, KeyCode::End, KeyCode::Home, KeyCode::Insert, KeyCode::Next,
-		KeyCode::Prior, KeyCode::ArrowDown, KeyCode::ArrowLeft, KeyCode::ArrowRight, KeyCode::ArrowUp,
-		KeyCode::F1, KeyCode::F2, KeyCode::F3, KeyCode::F4, KeyCode::F5, KeyCode::F6, KeyCode::F7, KeyCode::F8,
-		KeyCode::F9, KeyCode::F10, KeyCode::F11, KeyCode::F12, KeyCode::_0, KeyCode::_1, KeyCode::_2,
-		KeyCode::_3, KeyCode::_4, KeyCode::_5, KeyCode::_6, KeyCode::_7, KeyCode::_8, KeyCode::_9, KeyCode::A,
-		KeyCode::B, KeyCode::C, KeyCode::D, KeyCode::E, KeyCode::F, KeyCode::G, KeyCode::H, KeyCode::I,
-		KeyCode::J, KeyCode::K, KeyCode::L, KeyCode::M, KeyCode::N, KeyCode::O, KeyCode::P, KeyCode::Q,
-		KeyCode::R, KeyCode::S, KeyCode::T, KeyCode::U, KeyCode::V, KeyCode::W, KeyCode::X, KeyCode::Y,
-		KeyCode::Z, KeyCode::PlusNum, KeyCode::DecimalNum, KeyCode::DivideNum, KeyCode::MultiplyNum,
-		KeyCode::_0_NUM, KeyCode::_1_NUM, KeyCode::_2_NUM, KeyCode::_3_NUM, KeyCode::_4_NUM, KeyCode::_5_NUM,
-		KeyCode::_6_NUM, KeyCode::_7_NUM, KeyCode::_8_NUM, KeyCode::_9_NUM, KeyCode::EnterNum,
-		KeyCode::MinusNum, KeyCode::ImeKey1, KeyCode::ImeKey2, KeyCode::RightAlt, KeyCode::RightCtrl,
-		KeyCode::Backslash, KeyCode::F13, KeyCode::F14, KeyCode::F15, KeyCode::F16, KeyCode::F17, KeyCode::F18,
-		KeyCode::F19, KeyCode::F20, KeyCode::F21, KeyCode::F22, KeyCode::F23, KeyCode::F24, KeyCode::F25,
-		KeyCode::F26, KeyCode::F27, KeyCode::F28, KeyCode::F29, KeyCode::F30, KeyCode::F31, KeyCode::F32,
-		KeyCode::F33, KeyCode::F34, KeyCode::F35, KeyCode::RightShift, KeyCode::Eject, KeyCode::EqualNum,
-		KeyCode::ClearNum, KeyCode::LeftCmd, KeyCode::Function, KeyCode::RightCmd
-	};
+			KeyCode::LeftAlt, KeyCode::LeftCtrl, KeyCode::LeftShift, KeyCode::Quote, KeyCode::Hash,
+			KeyCode::CapsLock, KeyCode::Colon, KeyCode::Minus, KeyCode::Equals, KeyCode::Escape,
+			KeyCode::OpenBracket, KeyCode::NumLock, KeyCode::Period, KeyCode::CloseBracket, KeyCode::Semicolon,
+			KeyCode::Slash, KeyCode::Print, KeyCode::Tilde, KeyCode::Backspace, KeyCode::Delete, KeyCode::Enter,
+			KeyCode::Space, KeyCode::Tab, KeyCode::End, KeyCode::Home, KeyCode::Insert, KeyCode::Next,
+			KeyCode::Prior, KeyCode::ArrowDown, KeyCode::ArrowLeft, KeyCode::ArrowRight, KeyCode::ArrowUp,
+			KeyCode::F1, KeyCode::F2, KeyCode::F3, KeyCode::F4, KeyCode::F5, KeyCode::F6, KeyCode::F7, KeyCode::F8,
+			KeyCode::F9, KeyCode::F10, KeyCode::F11, KeyCode::F12, KeyCode::_0, KeyCode::_1, KeyCode::_2,
+			KeyCode::_3, KeyCode::_4, KeyCode::_5, KeyCode::_6, KeyCode::_7, KeyCode::_8, KeyCode::_9, KeyCode::A,
+			KeyCode::B, KeyCode::C, KeyCode::D, KeyCode::E, KeyCode::F, KeyCode::G, KeyCode::H, KeyCode::I,
+			KeyCode::J, KeyCode::K, KeyCode::L, KeyCode::M, KeyCode::N, KeyCode::O, KeyCode::P, KeyCode::Q,
+			KeyCode::R, KeyCode::S, KeyCode::T, KeyCode::U, KeyCode::V, KeyCode::W, KeyCode::X, KeyCode::Y,
+			KeyCode::Z, KeyCode::PlusNum, KeyCode::DecimalNum, KeyCode::DivideNum, KeyCode::MultiplyNum,
+			KeyCode::_0_NUM, KeyCode::_1_NUM, KeyCode::_2_NUM, KeyCode::_3_NUM, KeyCode::_4_NUM, KeyCode::_5_NUM,
+			KeyCode::_6_NUM, KeyCode::_7_NUM, KeyCode::_8_NUM, KeyCode::_9_NUM, KeyCode::EnterNum,
+			KeyCode::MinusNum, KeyCode::ImeKey1, KeyCode::ImeKey2, KeyCode::RightAlt, KeyCode::RightCtrl,
+			KeyCode::Backslash, KeyCode::F13, KeyCode::F14, KeyCode::F15, KeyCode::F16, KeyCode::F17, KeyCode::F18,
+			KeyCode::F19, KeyCode::F20, KeyCode::F21, KeyCode::F22, KeyCode::F23, KeyCode::F24, KeyCode::F25,
+			KeyCode::F26, KeyCode::F27, KeyCode::F28, KeyCode::F29, KeyCode::F30, KeyCode::F31, KeyCode::F32,
+			KeyCode::F33, KeyCode::F34, KeyCode::F35, KeyCode::RightShift, KeyCode::Eject, KeyCode::EqualNum,
+			KeyCode::ClearNum, KeyCode::LeftCmd, KeyCode::Function, KeyCode::RightCmd};
 	static_assert(std::size(allowedKeyCodesValues) == KeyBinds::KEY_CODES_SIZE_GW2);
-}
+} // namespace
 
-namespace ImGuiEx
-{
+namespace ImGuiEx {
 	static inline KeyBinds::Key keyCodeInputKeyState;
 	static inline KeyBinds::Modifier keyCodeInputCurrentModifier;
 	static inline bool keyCodeInputActive = false;
@@ -59,14 +56,14 @@ namespace ImGuiEx
 	static inline KeyCodeInputFlags keyCodeInputFlags = 0;
 
 	bool KeyCodeInputWndHandle(
-		[[maybe_unused]] HWND pWindowHandle,
-		UINT pMessage, 
-		[[maybe_unused]] WPARAM pAdditionalW,
-		[[maybe_unused]] LPARAM pAdditionalL
+			[[maybe_unused]] HWND pWindowHandle,
+			UINT pMessage,
+			[[maybe_unused]] WPARAM pAdditionalW,
+			[[maybe_unused]] LPARAM pAdditionalL
 	) {
 		if (keyCodeInputActive == true) {
 			// if not called last frame, the window is closed and we should not consume any events anymore
-			if (keyCodeInputLastActiveFrame < ImGui::GetFrameCount()-1) {
+			if (keyCodeInputLastActiveFrame < ImGui::GetFrameCount() - 1) {
 				keyCodeInputActive = false;
 				return false;
 			}
@@ -150,7 +147,7 @@ namespace ImGuiEx
 					return true;
 				}
 				case WM_KILLFOCUS: {
-					if (!(keyCodeInputFlags & KeyCodeInputFlags_NoMouse)){
+					if (!(keyCodeInputFlags & KeyCodeInputFlags_NoMouse)) {
 						// reset modifier when loosing focus (Alt+Tab)
 						keyCodeInputCurrentModifier = 0;
 					}
@@ -181,13 +178,11 @@ namespace ImGuiEx
 		keyCodeInputLastActiveFrame = ImGui::GetFrameCount();
 	}
 
-	const KeyBinds::Key& GetKeyCodeInputKeyState()
-	{
+	const KeyBinds::Key& GetKeyCodeInputKeyState() {
 		return keyCodeInputKeyState;
 	}
 
-	bool KeyCodeInput(const char* pLabel, KeyBinds::Key& pKeyContainer, Language pLanguage, HKL pHkl,
-	                  KeyCodeInputFlags pFlags, KeyBinds::Modifier pFixedModifier) {
+	bool KeyCodeInput(const char* pLabel, KeyBinds::Key& pKeyContainer, Language pLanguage, HKL pHkl, KeyCodeInputFlags pFlags, KeyBinds::Modifier pFixedModifier) {
 		bool res = false;
 
 		pFlags |= (pFlags & KeyCodeInputFlags_FixedModifier) ? KeyCodeInputFlags_NoModifier : 0;
@@ -219,7 +214,7 @@ namespace ImGuiEx
 
 		// Always center this window when appearing
 		ImVec2 center(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f);
-		ImGui::SetNextWindowPos(center, 0/*ImGuiCond_Appearing*/, ImVec2(0.5f, 0.5f));
+		ImGui::SetNextWindowPos(center, 0 /*ImGuiCond_Appearing*/, ImVec2(0.5f, 0.5f));
 		ImGui::SetNextWindowSize(ImVec2(550.f, 250.f), ImGuiCond_Appearing);
 		ImGui::SetNextWindowSizeConstraints(ImVec2(350.f, FLT_MIN), ImVec2(FLT_MAX, FLT_MAX));
 		if (ImGui::BeginPopupModal(popupName.c_str(), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize)) {
@@ -276,5 +271,5 @@ namespace ImGuiEx
 
 		return res;
 	}
-}
+} // namespace ImGuiEx
 // #endif

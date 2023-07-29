@@ -2,18 +2,18 @@
 
 #include "Singleton.h"
 
-#include <condition_variable>
-#include <Windows.h>
-#include <d3d9.h>
-#include <d3d11.h>
-#include <map>
-#include <thread>
-#include <wincodec.h>
 #include <atlbase.h>
+#include <condition_variable>
+#include <d3d11.h>
+#include <d3d9.h>
 #include <filesystem>
+#include <map>
 #include <ranges>
+#include <thread>
 #include <utility>
 #include <variant>
+#include <wincodec.h>
+#include <Windows.h>
 
 #ifndef ARCDPS_EXTENSION_NO_CPR
 #include <cpr/cpr.h>
@@ -47,7 +47,7 @@ public:
 	~IconLoader() override;
 
 	void Setup(HMODULE new_dll, IDirect3DDevice9* d3d9Device, ID3D11Device* new_d3d11device);
-	
+
 	/*************/
 	/* GetTexture - used when already there, does NOT load */
 	/*************/
@@ -112,10 +112,10 @@ private:
 
 		void LoadTexture(IconLoader& pIconLoader, UINT pResourceId);
 		void LoadTexture(IconLoader& pIconLoader, const std::filesystem::path& pFilePath);
-	#ifndef ARCDPS_EXTENSION_NO_CPR
+#ifndef ARCDPS_EXTENSION_NO_CPR
 		void LoadTexture(IconLoader& pIconLoader, const cpr::Url& pUrl);
 		void LoadFromCpr();
-	#endif
+#endif
 		void Load(IconLoader& pIconLoader);
 
 		void* GetTexture(IconLoader& pIconLoader);
@@ -142,9 +142,9 @@ private:
 	std::mutex mThreadMutex;
 };
 
-#define GET_TEXTURE(name, source) \
-	std::invoke([] { \
-		auto& iconLoader = IconLoader::instance(); \
+#define GET_TEXTURE(name, source)                                       \
+	std::invoke([] {                                                    \
+		auto& iconLoader = IconLoader::instance();                      \
 		static size_t textureId##name = iconLoader.LoadTexture(source); \
-		return iconLoader.GetTexture(textureId##name); \
+		return iconLoader.GetTexture(textureId##name);                  \
 	})

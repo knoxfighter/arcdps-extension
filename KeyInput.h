@@ -1,13 +1,13 @@
 #pragma once
 
 #if __has_include("ArcdpsUnofficialExtras/KeyBindsTranslation.h") || __has_include("KeyBindsTranslation.h") || __has_include("../unofficial_extras/KeyBindsTranslation.h")
-	#if __has_include("ArcdpsUnofficialExtras/KeyBindsTranslation.h")
-		#include <ArcdpsUnofficialExtras/KeyBindsTranslation.h>
-	#elif __has_include("KeyBindsTranslation.h")
-		#include "KeyBindsTranslation.h"
-	#elif __has_include("../unofficial_extras/KeyBindsTranslation.h")
-		#include "../unofficial_extras/KeyBindsTranslation.h"
-	#endif
+#if __has_include("ArcdpsUnofficialExtras/KeyBindsTranslation.h")
+#include <ArcdpsUnofficialExtras/KeyBindsTranslation.h>
+#elif __has_include("KeyBindsTranslation.h")
+#include "KeyBindsTranslation.h"
+#elif __has_include("../unofficial_extras/KeyBindsTranslation.h")
+#include "../unofficial_extras/KeyBindsTranslation.h"
+#endif
 
 /**
  * How to use:
@@ -18,9 +18,9 @@
  */
 namespace ImGuiEx {
 	enum KeyCodeInputFlags_ : int32_t {
-		KeyCodeInputFlags_NoModifier    = 1 << 0,
-		KeyCodeInputFlags_NoMouse       = 1 << 1,
-		KeyCodeInputFlags_OnlyGW2Keys   = 1 << 2,
+		KeyCodeInputFlags_NoModifier = 1 << 0,
+		KeyCodeInputFlags_NoMouse = 1 << 1,
+		KeyCodeInputFlags_OnlyGW2Keys = 1 << 2,
 		KeyCodeInputFlags_FixedModifier = 1 << 3, // Will set NoModifier internally, Always use the Modifier given in parameter `pFixedModifier`.
 	};
 	typedef int32_t KeyCodeInputFlags; // enum KeyCodeInputFlags_
@@ -43,13 +43,12 @@ namespace ImGuiEx {
 	 * \param pHkl current Keyboardlayout, has to be tracked, cause `GetKeyboardLayout` is thread dependent. You can get it by tracking window events or by calling `GetKeyboardLayout` with the correct threadId as param.
 	 * \param pFlags Additional flags for the input.
 	 */
-	bool KeyCodeInput(const char* pLabel, KeyBinds::Key& pKeyContainer, Language pLanguage, HKL pHkl,
-	                  KeyCodeInputFlags pFlags = 0, KeyBinds::Modifier pFixedModifier = 0);
+	bool KeyCodeInput(const char* pLabel, KeyBinds::Key& pKeyContainer, Language pLanguage, HKL pHkl, KeyCodeInputFlags pFlags = 0, KeyBinds::Modifier pFixedModifier = 0);
 
 	void OpenKeyCodePopupState(const KeyBinds::Key& pKeyContainer, KeyCodeInputFlags pFlags, KeyBinds::Modifier pFixedModifier = 0);
 	void CloseKeyCodePopupState();
 	void RestartKeyCodePopupState();
 	void KeyCodeInputActiveFrame();
 	const KeyBinds::Key& GetKeyCodeInputKeyState();
-}
+} // namespace ImGuiEx
 #endif

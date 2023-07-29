@@ -1,8 +1,8 @@
 #include "PositioningComponent.h"
 
-#include "../Widgets.h"
-#include "../Localization.h"
 #include "../ExtensionTranslations.h"
+#include "../Localization.h"
+#include "../Widgets.h"
 
 #include <algorithm>
 
@@ -42,10 +42,8 @@ void PositioningComponent::DrawPositionSettingsSubMenu() {
 			ImGui::PushID("cornerPositionRadioButton");
 			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), cornerPosition, CornerPosition::TopLeft);
 			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), cornerPosition, CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), cornerPosition,
-			                     CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), cornerPosition,
-			                     CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), cornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), cornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
 			ImGui::PushItemWidth(80.f);
@@ -62,26 +60,18 @@ void PositioningComponent::DrawPositionSettingsSubMenu() {
 
 			ImGui::TextUnformatted(Localization::STranslate(ET_FromAnchorPanelCorner).c_str());
 			ImGui::PushID("anchorPanelCornerPositionRadioButton");
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), anchorPanelCornerPosition,
-			                     CornerPosition::TopLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), anchorPanelCornerPosition,
-			                     CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), anchorPanelCornerPosition,
-			                     CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), anchorPanelCornerPosition,
-			                     CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), anchorPanelCornerPosition, CornerPosition::TopLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), anchorPanelCornerPosition, CornerPosition::TopRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), anchorPanelCornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), anchorPanelCornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
 			ImGui::TextUnformatted(Localization::STranslate(ET_ThisPanelCorner).c_str());
 			ImGui::PushID("selfPanelCornerPositionRadioButton");
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), selfPanelCornerPosition,
-			                     CornerPosition::TopLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), selfPanelCornerPosition,
-			                     CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), selfPanelCornerPosition,
-			                     CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), selfPanelCornerPosition,
-			                     CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), selfPanelCornerPosition, CornerPosition::TopLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), selfPanelCornerPosition, CornerPosition::TopRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), selfPanelCornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), selfPanelCornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
 			ImGui::PushItemWidth(80.f);
@@ -109,17 +99,18 @@ void PositioningComponent::DrawPositionSettingsSubMenu() {
 
 				for (ImGuiWindow* window : ImGui::GetCurrentContext()->Windows) {
 					if (window != mMainWindow->GetInnerWindow() && // Not the window this MainWindow represents
-						window != parent && // Not the window we're currently in
-						window->ParentWindow == nullptr && // Not a child window of another window
-						window->Hidden == false && // Not hidden
+						window != parent &&                        // Not the window we're currently in
+						window->ParentWindow == nullptr &&         // Not a child window of another window
+						window->Hidden == false &&                 // Not hidden
 						window->WasActive == true &&
 						// Not closed (we check ->WasActive because ->Active might not be true yet if the window gets rendered after this one)
-						window->IsFallbackWindow == false && // Not default window ("Debug##Default")
+						window->IsFallbackWindow == false &&             // Not default window ("Debug##Default")
 						(window->Flags & ImGuiWindowFlags_Tooltip) == 0) // Not a tooltip window ("##Tooltip_<id>")
 					{
 						std::string windowName = "(";
 						windowName += std::to_string(
-							PositioningComponentImGuiHook::ANCHORING_HIGHLIGHTED_WINDOWS.size());
+								PositioningComponentImGuiHook::ANCHORING_HIGHLIGHTED_WINDOWS.size()
+						);
 						windowName += ") ";
 						windowName += window->Name;
 
@@ -147,13 +138,13 @@ void PositioningComponent::Reposition() {
 	ImGuiWindow* window = mMainWindow->GetInnerWindow();
 	if (window != nullptr) {
 		ImGuiEx::WindowReposition(
-			window,
-			getPositionMode(),
-			getCornerVector(),
-			getCornerPosition(),
-			getFromWindowId(),
-			getAnchorPanelCorner(),
-			getSelfPanelCorner()
+				window,
+				getPositionMode(),
+				getCornerVector(),
+				getCornerPosition(),
+				getFromWindowId(),
+				getAnchorPanelCorner(),
+				getSelfPanelCorner()
 		);
 	}
 }
@@ -186,9 +177,8 @@ void PositioningComponentImGuiHook::PostNewFrame(ImGuiContext* pImguiContext, Im
 
 ImVec2 CalcCenteredPosition(const ImVec2& pBoundsPosition, const ImVec2& pBoundsSize, const ImVec2& pItemSize) {
 	return ImVec2{
-		pBoundsPosition.x + (std::max)((pBoundsSize.x - pItemSize.x) * 0.5f, 0.0f),
-		pBoundsPosition.y + (std::max)((pBoundsSize.y - pItemSize.y) * 0.5f, 0.0f)
-	};
+			pBoundsPosition.x + (std::max)((pBoundsSize.x - pItemSize.x) * 0.5f, 0.0f),
+			pBoundsPosition.y + (std::max)((pBoundsSize.y - pItemSize.y) * 0.5f, 0.0f)};
 }
 
 void PositioningComponentImGuiHook::PreEndFrame(ImGuiContext* pImguiContext, ImGuiContextHook*) {
@@ -207,8 +197,7 @@ void PositioningComponentImGuiHook::PreEndFrame(ImGuiContext* pImguiContext, ImG
 			ImVec2 textPos = CalcCenteredPosition(regionPos, regionSize, textSize);
 
 			window->DrawList->AddRectFilled(regionPos, regionPos + regionSize, IM_COL32(0, 0, 0, 255));
-			window->DrawList->AddText(pImguiContext->Font, font_size, textPos, ImGui::GetColorU32(ImGuiCol_Text),
-			                          text.c_str());
+			window->DrawList->AddText(pImguiContext->Font, font_size, textPos, ImGui::GetColorU32(ImGuiCol_Text), text.c_str());
 		}
 	}
 

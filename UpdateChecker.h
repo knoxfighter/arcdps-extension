@@ -1,8 +1,8 @@
 #pragma once
 
 #include "arcdps_structs.h"
-#include "UpdateCheckerBase.h"
 #include "Singleton.h"
+#include "UpdateCheckerBase.h"
 
 /**
  * Use this only if you can live with the Dependencies:

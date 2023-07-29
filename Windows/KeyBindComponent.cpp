@@ -2,9 +2,9 @@
 
 #include "MainWindow.h"
 
+#include "../ExtensionTranslations.h"
 #include "../KeyBindHandler.h"
 #include "../Localization.h"
-#include "../ExtensionTranslations.h"
 
 /**
  * This does only work with arcdps modifiers.
@@ -14,29 +14,26 @@
 KeyBindComponent::KeyBindComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
 	pMainWindow->RegisterInitHook([this] {
 		mKeyBindHandlerId = KeyBindHandler::instance().Subscribe(
-			{
-				getKeyBind(),
-				[this](const KeyBinds::Key&) {
-					return getKeyBindSwitch() && KeyBindPressed();
-				},
-				KeyBindHandler::SubscriberFlags_ArcdpsModifier
-			}
+				{getKeyBind(),
+				 [this](const KeyBinds::Key&) {
+					 return getKeyBindSwitch() && KeyBindPressed();
+				 },
+				 KeyBindHandler::SubscriberFlags_ArcdpsModifier}
 		);
 
 		if (getCloseWithEscActive()) {
 			mKeyBindEscHandlerId = KeyBindHandler::instance().Subscribe({
-				KeyBinds::Key{KeyBinds::DeviceType::Keyboard, static_cast<int32_t>(KeyBinds::KeyCode::Escape), 0},
-				[this](const KeyBinds::Key&) {
-					return mMainWindow->GetOpenVar() && getCloseWithEsc() && EscPressed();
-				},
-				0
-			});
+					KeyBinds::Key{KeyBinds::DeviceType::Keyboard, static_cast<int32_t>(KeyBinds::KeyCode::Escape), 0},
+					[this](const KeyBinds::Key&) {
+						return mMainWindow->GetOpenVar() && getCloseWithEsc() && EscPressed();
+								  },
+					0
+            });
 		}
 	});
 
 	pMainWindow->RegisterDrawStyleSubMenuHook([this] {
-		if (ImGuiEx::KeyCodeInput(Localization::STranslate(ET_Shortcut).c_str(), getKeyBind(), static_cast<Language>(getCurrentLanguage()),
-		                          getCurrentHKL(), ImGuiEx::KeyCodeInputFlags_FixedModifier, KeyBindHandler::GetArcdpsModifier())) {
+		if (ImGuiEx::KeyCodeInput(Localization::STranslate(ET_Shortcut).c_str(), getKeyBind(), static_cast<Language>(getCurrentLanguage()), getCurrentHKL(), ImGuiEx::KeyCodeInputFlags_FixedModifier, KeyBindHandler::GetArcdpsModifier())) {
 			KeyBindHandler::instance().UpdateKey(mKeyBindHandlerId, getKeyBind());
 		}
 	});

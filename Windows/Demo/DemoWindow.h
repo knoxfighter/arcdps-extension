@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../MainWindow.h"
 #include "../../Singleton.h"
+#include "../MainWindow.h"
 
 class DemoWindow final : public MainWindow, public Singleton<DemoWindow> {
 public:

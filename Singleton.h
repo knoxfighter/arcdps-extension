@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include <memory>
 #include <concepts>
-#include <stack>
 #include <functional>
+#include <memory>
+#include <stack>
 #include <stdexcept>
 
 /**
@@ -14,17 +14,16 @@
  * 1. Define the `extern` variable `g_singletonManagerInstance` in your main.cpp
  * 2. Call `Shutdown` in `mod_release`
  */
-class BaseSingleton
-{
+class BaseSingleton {
 public:
-	virtual ~BaseSingleton() { }
+	virtual ~BaseSingleton() {}
+
 protected:
 	static BaseSingleton* Store(std::unique_ptr<BaseSingleton>&& ptr);
 	static void Clear(BaseSingleton* ptr);
 };
 
-class SingletonManager
-{
+class SingletonManager {
 public:
 	SingletonManager() = default;
 	// Call this when shutting down `mod_release`
@@ -46,44 +45,40 @@ private:
 extern SingletonManager g_singletonManagerInstance;
 
 template<typename T, bool AutoInit = true>
-class Singleton : public BaseSingleton
-{
+class Singleton : public BaseSingleton {
 public:
-	static T& instance()
-	{
+	static T& instance() {
 		if constexpr (AutoInit) {
 			if (!init_) {
 				init_ = true;
-				instance_ = (T*)Store(std::make_unique<T>());
+				instance_ = (T*) Store(std::make_unique<T>());
 			}
-		}
-		else {
+		} else {
 			if (!instance_)
 				throw std::logic_error("Singleton is not Auto Init and was not initialized.");
 		}
 		return *instance_;
 	}
 
-	template<typename T2 = T> requires std::derived_from<T2, T>
-	static T& instance(std::unique_ptr<T2>&& i)
-	{
+	template<typename T2 = T>
+	requires std::derived_from<T2, T>
+	static T& instance(std::unique_ptr<T2>&& i) {
 		if (!init_) {
 			init_ = true;
-			instance_ = (T*)Store(std::move(i));
+			instance_ = (T*) Store(std::move(i));
 		}
 		return *instance_;
 	}
 
-	template<typename T2 = T> requires std::derived_from<T2, T>
-	static void instance(std::function<void(T&)> action)
-	{
+	template<typename T2 = T>
+	requires std::derived_from<T2, T>
+	static void instance(std::function<void(T&)> action) {
 		if (instance_)
 			action(*instance_);
 	}
 
-	static void reset()
-	{
-		if(init_)
+	static void reset() {
+		if (init_)
 			Clear(instance_);
 	}
 

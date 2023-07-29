@@ -2,18 +2,18 @@
 
 #include "arcdps_structs_slim.h"
 
-#include <functional>
-#include <set>
-#include <mutex>
-#include <thread>
 #include <cstdlib>
+#include <functional>
+#include <mutex>
+#include <set>
+#include <thread>
 
 class EventSequencer {
 public:
 	typedef std::function<uintptr_t(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision)> CallbackSignature;
 
 	explicit EventSequencer(const CallbackSignature& pCallback);
-    virtual ~EventSequencer();
+	virtual ~EventSequencer();
 
 	// delete copy and move
 	EventSequencer(const EventSequencer& pOther) = delete;
@@ -49,23 +49,23 @@ public:
 			  Id(pId),
 			  Revision(pRevision) {
 			if (pEv) {
-			    *static_cast<cbtevent*>(&Ev) = *pEv;
-		        Ev.Present = true;
-		    }
-		    if (pSrc) {
-			    *static_cast<ag*>(&Source) = *pSrc;
-		        Source.Present = true;
-		        if (Source.name) {
-			        Source.NameStorage = pSrc->name;
-		        }
-		    }
-		    if (pDst) {
-			    *static_cast<ag*>(&Destination) = *pDst;
-		        Destination.Present = true;
-		        if (Destination.name) {
-			        Destination.NameStorage = pDst->name;
-		        }
-		    }
+				*static_cast<cbtevent*>(&Ev) = *pEv;
+				Ev.Present = true;
+			}
+			if (pSrc) {
+				*static_cast<ag*>(&Source) = *pSrc;
+				Source.Present = true;
+				if (Source.name) {
+					Source.NameStorage = pSrc->name;
+				}
+			}
+			if (pDst) {
+				*static_cast<ag*>(&Destination) = *pDst;
+				Destination.Present = true;
+				if (Destination.name) {
+					Destination.NameStorage = pDst->name;
+				}
+			}
 		}
 	};
 
@@ -82,29 +82,29 @@ public:
 
 private:
 	const CallbackSignature mCallback;
-    std::multiset<Event> mElements;
-    std::mutex mElementsMutex;
-    std::jthread mThread;
-    uint64_t mNextId = 2; // Events start with ID 2 for some reason (it is always like that and no plans to change)
+	std::multiset<Event> mElements;
+	std::mutex mElementsMutex;
+	std::jthread mThread;
+	uint64_t mNextId = 2; // Events start with ID 2 for some reason (it is always like that and no plans to change)
 	uint64_t mLastId = 2;
 	bool mThreadRunning = false;
 
 	template<bool First = true>
 	void Runner() {
-	    std::unique_lock guard(mElementsMutex);
-	    
-	    if (!mElements.empty() && mElements.begin()->Id == mNextId) {
-	        mThreadRunning = true;
-	        auto item = mElements.extract(mElements.begin());
-	        guard.unlock();
-	        EventInternal(item.value());
-	        mThreadRunning = false;
+		std::unique_lock guard(mElementsMutex);
+
+		if (!mElements.empty() && mElements.begin()->Id == mNextId) {
+			mThreadRunning = true;
+			auto item = mElements.extract(mElements.begin());
+			guard.unlock();
+			EventInternal(item.value());
+			mThreadRunning = false;
 			Runner<false>();
 
 			if constexpr (First) {
 				++mNextId;
 			}
-	    }
+		}
 	}
 
 	void EventInternal(Event& pElem);

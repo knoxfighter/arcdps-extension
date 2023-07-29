@@ -21,7 +21,7 @@ void KeyBindHandler::UpdateKey(uint64_t pId, const KeyBinds::Key& pKey) {
 
 void KeyBindHandler::UpdateKeys(const KeyBinds::Key& pOldKey, const KeyBinds::Key& pNewKey) {
 	for (auto& subscriber : mSubscribers | std::views::values) {
-		if(subscriber.Key == pOldKey) {
+		if (subscriber.Key == pOldKey) {
 			subscriber.Key = pNewKey;
 		}
 	}
@@ -57,8 +57,7 @@ bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 				for (const auto& subscriber : mSubscribers | std::views::values) {
 					const auto& key = subscriber.Key;
 
-					if ((subscriber.Flags & SubscriberFlags_ArcdpsModifier ? arcdpsModifier == mTrackedModifier : key.Modifier == mTrackedModifier) && 
-						key.DeviceType == KeyBinds::DeviceType::Keyboard && static_cast<KeyBinds::KeyCode>(key.Code) == keyCode) {
+					if ((subscriber.Flags & SubscriberFlags_ArcdpsModifier ? arcdpsModifier == mTrackedModifier : key.Modifier == mTrackedModifier) && key.DeviceType == KeyBinds::DeviceType::Keyboard && static_cast<KeyBinds::KeyCode>(key.Code) == keyCode) {
 						bool res = subscriber.Fun(key);
 						if (res) {
 							return res;
@@ -97,8 +96,7 @@ bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			if (code != 0) {
 				for (const auto& subscriber : mSubscribers) {
 					const auto& key = subscriber.second.Key;
-					if (key.Modifier == mTrackedModifier && key.DeviceType == KeyBinds::DeviceType::Mouse && key.Code ==
-						code) {
+					if (key.Modifier == mTrackedModifier && key.DeviceType == KeyBinds::DeviceType::Mouse && key.Code == code) {
 						return subscriber.second.Fun(key);
 					}
 				}
@@ -108,8 +106,7 @@ bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 		case WM_MBUTTONDOWN: {
 			for (const auto& subscriber : mSubscribers) {
 				const auto& key = subscriber.second.Key;
-				if (key.Modifier == mTrackedModifier && key.DeviceType == KeyBinds::DeviceType::Mouse && key.Code ==
-					static_cast<int32_t>(KeyBinds::MouseCode::Mouse_3)) {
+				if (key.Modifier == mTrackedModifier && key.DeviceType == KeyBinds::DeviceType::Mouse && key.Code == static_cast<int32_t>(KeyBinds::MouseCode::Mouse_3)) {
 					return subscriber.second.Fun(key);
 				}
 			}
@@ -129,7 +126,7 @@ bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 KeyBinds::Modifier KeyBindHandler::GetArcdpsModifier() {
 	uint64_t e7_result = ARC_EXPORT_E7();
 
-	uint16_t* ra = (uint16_t*)&e7_result;
+	uint16_t* ra = (uint16_t*) &e7_result;
 	if (ra) {
 		uint16_t mod1 = ra[0];
 		uint16_t mod2 = ra[1];
