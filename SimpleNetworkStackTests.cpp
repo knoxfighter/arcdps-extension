@@ -2,7 +2,14 @@
 
 #include <gtest/gtest.h>
 
-TEST(SimpleNetworkStackTests, GetCallback) {
+class SimpleNetworkStackTests : public ::testing::Test {
+public:
+	static void TearDownTestSuite() {
+		g_singletonManagerInstance.Shutdown();
+	}
+};
+
+TEST_F(SimpleNetworkStackTests, GetCallback) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<void> promise;
@@ -15,7 +22,7 @@ TEST(SimpleNetworkStackTests, GetCallback) {
 	future.get();
 }
 
-TEST(SimpleNetworkStackTests, GetPromise) {
+TEST_F(SimpleNetworkStackTests, GetPromise) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<SimpleNetworkStack::Result> promise;
