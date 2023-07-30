@@ -505,6 +505,3 @@ vcpkg_installed/
 
 # local overrides
 Directory.Build.props
-
-# ignore the whole .idea folder
-.idea
