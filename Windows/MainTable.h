@@ -3064,7 +3064,7 @@ void MainTable<MaxColumnCount>::MenuItemColumnVisibility(int TableColumnIdx) {
 		column.IsEnabledNextFrame = !column.IsEnabled;
 
 	if (ImGui::IsItemHovered()) {
-		ImGui::SetTooltip(mColumns.at(TableColumnIdx).Popup().c_str());
+		ImGui::SetTooltip("%s", mColumns.at(TableColumnIdx).Popup().c_str());
 	}
 }
 
@@ -3339,6 +3339,9 @@ void MainTable<MaxColumnCount>::ColumnHeader(const char* label, bool show_label,
 				newX = ellipsis_max - label_size.x;
 				if (newX <= label_pos.x) newX = label_pos.x;
 				break;
+			// Nothing to do
+			case Alignment::Left:
+			case Alignment::Unaligned: break;
 		}
 
 		ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label, label_end, &label_size);
@@ -3355,6 +3358,9 @@ void MainTable<MaxColumnCount>::ColumnHeader(const char* label, bool show_label,
 				// ImGui::SetCursorPosX(cursorPosX + textSpace - contentSize.x);
 				if (newX <= label_pos.x) newX = label_pos.x;
 				break;
+			// Nothing to do
+			case Alignment::Left:
+			case Alignment::Unaligned: break;
 		}
 
 		ImRect ibb(ImVec2(newX, label_pos.y), ImVec2(newX, label_pos.y) + image_size);
@@ -3392,6 +3398,8 @@ void MainTable<MaxColumnCount>::AlignedTextColumn(const char* text) {
 		case Alignment::Right:
 			newX = posX + columnWidth - textWidth;
 			break;
+		// Nothing to do
+		case Alignment::Unaligned: break;
 	}
 
 	// Clip to left, if text is bigger than current column

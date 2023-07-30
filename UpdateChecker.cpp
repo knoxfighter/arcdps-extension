@@ -45,12 +45,15 @@ void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const
 					break;
 				}
 				case Status::UpdateSuccessful: {
-					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), Localization::STranslate(ET_UpdateRestartPending).c_str());
+					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateRestartPending).c_str());
 					break;
 				}
 				case Status::UpdateError: {
-					ImGui::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), Localization::STranslate(ET_UpdateError).c_str());
+					ImGui::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateError).c_str());
 				}
+				// nothing to print when user doesn't want to update
+				case Status::Unknown:
+				case Status::Dismissed: break;
 			}
 
 			ImGui::End();

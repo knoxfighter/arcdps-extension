@@ -58,7 +58,7 @@ void DemoTable::DrawRows(TableColumnIdx pFirstColumnIndex) {
 
 		if (IsCurrentRowHovered()) {
 			ARC_LOG("IsCurrentRowHovered!");
-			ImGui::SetTooltip(row.HoveredText.c_str());
+			ImGui::SetTooltip("%s", row.HoveredText.c_str());
 		}
 	}
 }

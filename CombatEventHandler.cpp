@@ -16,6 +16,8 @@ void CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, con
 		mLastEventTime = pEvent->time;
 
 		if (pEvent->is_statechange) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch"
 			switch (pEvent->is_statechange) {
 				case CBTS_ENTERCOMBAT:
 					EnterCombat(mLastEventTime, pEvent->src_agent, static_cast<uint8_t>(pEvent->dst_agent), *pSrc);
@@ -113,6 +115,7 @@ void CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, con
 				case CBTS_LOGNPCUPDATE:
 					LogNpcUpdate(mLastEventTime, static_cast<uint32_t>(pEvent->value), static_cast<uint32_t>(pEvent->buff_dmg), pEvent->src_agent);
 			}
+#pragma clang diagnostic pop
 		} else if (pEvent->is_activation) {
 			Activation(mLastEventTime, pEvent, *pSrc, *pDst, pSkillname, pId);
 		} else if (pEvent->is_buffremove) {

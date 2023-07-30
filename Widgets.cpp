@@ -69,6 +69,8 @@ namespace ImGuiEx {
 			case Alignment::Right:
 				newX = posX + columnWidth - elementWidth;
 				break;
+			// nothing to do when unaligned
+			case Alignment::Unaligned: break;
 		}
 
 		// Clip to left, if text is bigger than current column
@@ -102,6 +104,8 @@ namespace ImGuiEx {
 			case Alignment::Right:
 				newX = posX + columnWidth - textWidth;
 				break;
+			// nothing to do when unaligned
+			case Alignment::Unaligned: break;
 		}
 
 		// Clip to left, if text is bigger than current column
@@ -273,6 +277,9 @@ namespace ImGuiEx {
 					newX = ellipsis_max - label_size.x;
 					// ImGui::SetCursorPosX(cursorPosX + textSpace - contentSize.x);
 					break;
+				// nothing to do
+				case Alignment::Left:
+				case Alignment::Unaligned: break;
 			}
 
 			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label, label_end, &label_size);
@@ -289,6 +296,9 @@ namespace ImGuiEx {
 					newX = ellipsis_max - image_size;
 					// ImGui::SetCursorPosX(cursorPosX + textSpace - contentSize.x);
 					break;
+				// nothing to do
+				case Alignment::Left:
+				case Alignment::Unaligned: break;
 			}
 
 			ImRect ibb(ImVec2(newX, label_pos.y), ImVec2(newX, label_pos.y) + image_size);
@@ -706,6 +716,8 @@ namespace ImGuiEx {
 				ImGui::SetWindowPos(window, setPosition);
 				break;
 			}
+			// nothing to do for Manual
+			case Position::Manual: break;
 		}
 
 		const ImVec2& endPos = window->Pos;
