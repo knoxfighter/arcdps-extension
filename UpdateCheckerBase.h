@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <filesystem>
 #include <mutex>
 #include <optional>
 #include <string>
@@ -77,6 +78,6 @@ public:
 
 	// Can throw http errors
 	std::optional<std::tuple<Version, std::string>> GetLatestRelease(std::string&& pRepo, bool pAllowPreRelease);
-	virtual bool HttpDownload(const std::string& pUrl, std::ofstream& pOutputStream);
-	virtual std::optional<std::string> HttpGet(const std::string& pUrl);
+	virtual bool HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) = 0;
+	virtual std::optional<std::string> HttpGet(const std::string& pUrl) = 0;
 };

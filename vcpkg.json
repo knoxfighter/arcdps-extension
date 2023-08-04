@@ -4,20 +4,16 @@
   "version-string": "1.0.0",
   "dependencies": [
     "arcdps-unofficial-extras",
-	"magic-enum",
-	"nlohmann-json",
-	"cpr",
-	"imgui",
-    "gtest"
+    "magic-enum",
+    "nlohmann-json",
+    "imgui",
+    "gtest",
+    "curl"
   ],
   "overrides": [
     {
       "name": "imgui",
       "version": "1.80#1"
-    },
-    {
-      "name": "cpr",
-      "version": "1.8.3"
     }
   ]
 }

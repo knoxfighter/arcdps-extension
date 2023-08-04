@@ -286,28 +286,12 @@ UpdateCheckerBase::Version UpdateCheckerBase::ParseVersion(std::string_view vers
 }
 
 bool UpdateCheckerBase::PerformDownload(const std::string& pUrl, const std::string& pDestinationPath) {
-	std::ofstream outFile(pDestinationPath, std::ios::binary);
-
-	if (HttpDownload(pUrl, outFile) == false) {
-		return false;
-	}
-
-	outFile.close();
-	if (outFile.fail() == true) {
-		Log(std::format("Downloading {} failed - output stream failure", pUrl));
+	if (HttpDownload(pUrl, pDestinationPath) == false) {
 		return false;
 	}
 
 	return true;
 }
-
-
-#ifndef ARCDPS_EXTENSION_NO_CPR
-#pragma warning(push)
-#pragma warning(disable : 4996) //  error C4996: '_Header_cstdbool': warning STL4004: <ccomplex>, <cstdalign>, <cstdbool>, and <ctgmath> are deprecated in C++17.
-
-#include <cpr/cpr.h>
-#pragma warning(pop)
 
 std::optional<std::tuple<UpdateCheckerBase::Version, std::string>> UpdateCheckerBase::GetLatestRelease(
 		std::string&& pRepo, bool pAllowPreRelease
@@ -363,25 +347,3 @@ std::optional<std::tuple<UpdateCheckerBase::Version, std::string>> UpdateChecker
 
 	return std::make_tuple(releaseVersion, releaseDownloadUrl);
 }
-
-bool UpdateCheckerBase::HttpDownload(const std::string& pUrl, std::ofstream& pOutputStream) {
-	cpr::Response response = cpr::Download(pOutputStream, cpr::Url{pUrl});
-	if (response.status_code != 200) {
-		Log(std::format("Downloading {} failed - http failure {} {}", pUrl, response.status_code, response.status_line));
-		return false;
-	}
-
-	return true;
-}
-
-std::optional<std::string> UpdateCheckerBase::HttpGet(const std::string& pUrl) {
-	cpr::Response response = cpr::Get(cpr::Url{pUrl});
-	if (response.status_code != 200) {
-		Log(std::format("Getting {} failed - {} {}", pUrl, response.status_code, response.status_line));
-		return std::nullopt;
-	}
-
-	return response.text;
-}
-
-#endif // ARCDPS_EXTENSION_NO_CPR

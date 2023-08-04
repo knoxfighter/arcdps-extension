@@ -269,17 +269,20 @@ namespace {
 		std::string DllName = "update_checker_test.dll";
 		std::queue<std::optional<std::string>> QueuedResponses;
 
-		bool HttpDownload(const std::string&, std::ofstream& pOutputStream) override {
+		bool HttpDownload(const std::string&, const std::filesystem::path& pOutputFile) override {
 			assert(QueuedResponses.size() > 0);
 
-			std::optional<std::string> result = QueuedResponses.front();
-			QueuedResponses.pop();
+			// TODO: implement
+			assert(false);
 
-			if (result.has_value() == false) {
-				return false;
-			}
-
-			pOutputStream.write(result->data(), result->size());
+			//			std::optional<std::string> result = QueuedResponses.front();
+			//			QueuedResponses.pop();
+			//
+			//			if (result.has_value() == false) {
+			//				return false;
+			//			}
+			//
+			//			pOutputFile.write(result->data(), result->size());
 			return true;
 		}
 
@@ -685,13 +688,3 @@ INSTANTIATE_TEST_SUITE_P(
 		UpdateCheckerTestFixture,
 		::testing::Values(std::make_pair(true, false), std::make_pair(true, true))
 );
-
-#ifndef ARCDPS_EXTENSION_NO_CPR
-#include <cpr/cpr.h>
-// CPR has a very bad track record, apparently we need to test it as well
-TEST(HTTPS_Client, SmokeTest) {
-	cpr::Response response = cpr::Get(cpr::Url{"https://google.com"});
-	EXPECT_EQ(response.status_code, 200);
-	EXPECT_EQ(response.status_line, "HTTP/1.1 200 OK");
-}
-#endif

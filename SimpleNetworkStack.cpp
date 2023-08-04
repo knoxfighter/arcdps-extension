@@ -17,24 +17,40 @@ SimpleNetworkStack::SimpleNetworkStack() {
 	}));
 }
 
-SimpleNetworkStack::Result SimpleNetworkStack::get(const std::string& pUrl) {
+SimpleNetworkStack::Result SimpleNetworkStack::get(const QueueElement& pElement) {
 	mLastResponseBuffer.clear();
 	curl_easy_reset(mHandle);
 
-	if (auto res = curl_easy_setopt(mHandle, CURLOPT_URL, pUrl.c_str()); res != CURLE_OK) {
+	if (auto res = curl_easy_setopt(mHandle, CURLOPT_URL, pElement.Url.c_str()); res != CURLE_OK) {
 		return std::unexpected(Error{ErrorType::OptUrlError, curl_easy_strerror(res)});
 	}
 	if (auto res = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1l); res != CURLE_OK) {
 		return std::unexpected(Error{ErrorType::OptFollowLocationError, curl_easy_strerror(res)});
 	}
-	if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEFUNCTION, ResponseCallback); res != CURLE_OK) {
-		return std::unexpected(Error{ErrorType::OptWriteFuncError, curl_easy_strerror(res)});
-	}
-	if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEDATA, &mLastResponseBuffer); res != CURLE_OK) {
-		return std::unexpected(Error{ErrorType::OptWriteDataError, curl_easy_strerror(res)});
+
+	FILE* fp = nullptr;
+	// set write data if there is a response
+	if (pElement.Filepath.empty()) {
+		if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEFUNCTION, ResponseBufferWriteFunction); res != CURLE_OK) {
+			return std::unexpected(Error{ErrorType::OptWriteFuncError, curl_easy_strerror(res)});
+		}
+		if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEDATA, &mLastResponseBuffer); res != CURLE_OK) {
+			return std::unexpected(Error{ErrorType::OptWriteDataError, curl_easy_strerror(res)});
+		}
+	} else {
+		if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEFUNCTION, NULL); res != CURLE_OK) {
+			return std::unexpected(Error{ErrorType::OptWriteFuncError, curl_easy_strerror(res)});
+		}
+		fopen_s(&fp, pElement.Filepath.string().c_str(), "wb");
+		if (auto res = curl_easy_setopt(mHandle, CURLOPT_WRITEDATA, fp); res != CURLE_OK) {
+			return std::unexpected(Error{ErrorType::OptWriteDataError, curl_easy_strerror(res)});
+		}
 	}
 
 	auto res = curl_easy_perform(mHandle);
+	if (fp != nullptr) {
+		fclose(fp);
+	}
 	if (res == CURLE_OK) {
 		curl_easy_getinfo(mHandle, CURLINFO_RESPONSE_CODE, &mLastResponseCode);
 	} else {
@@ -52,7 +68,7 @@ SimpleNetworkStack::~SimpleNetworkStack() {
 	curl_easy_cleanup(mHandle);
 }
 
-size_t SimpleNetworkStack::ResponseCallback(void* pContent, size_t pSize, size_t pNMemb, void* pUserP) {
+size_t SimpleNetworkStack::ResponseBufferWriteFunction(void* pContent, size_t pSize, size_t pNMemb, void* pUserP) {
 	static_cast<std::string*>(pUserP)->append(static_cast<char*>(pContent), pSize * pNMemb);
 	return pSize * pNMemb;
 }
@@ -73,85 +89,34 @@ void SimpleNetworkStack::runner(const std::stop_token& pToken) {
 
 		lock.unlock();
 
-		auto response = get(element.Url);
+		auto response = get(element);
 
-		switch (element.Type) {
-			case QueueElementType::Function:
-				element.Func(response);
-				break;
-			case QueueElementType::Promise:
-				element.Promise.set_value(response);
-				break;
+		if (auto* func = std::get_if<ResultFunc>(&element.Callback)) {
+			(*func)(response);
+		} else if (auto* promise = std::get_if<ResultPromise>(&element.Callback)) {
+			promise->set_value(response);
 		}
 	}
 }
 
-void SimpleNetworkStack::QueueGet(const std::string& pUrl, const SimpleNetworkStack::ResultFunc& pFunc) {
-	// queue element and notify cv
+void SimpleNetworkStack::QueueGet(const std::string& pUrl, const std::filesystem::path& pFilepath) {
 	std::lock_guard lock(mQueueMutex);
 
-	mJobQueue.emplace(QueueElementType::Function, pUrl, pFunc);
+	mJobQueue.emplace(pUrl, std::monostate(), pFilepath);
 
 	mQueueCv.notify_one();
 }
-
-void SimpleNetworkStack::QueueGet(const std::string& pUrl, std::promise<Result> pPromise) {
+void SimpleNetworkStack::QueueGet(const std::string& pUrl, const SimpleNetworkStack::ResultFunc& pFunc, const std::filesystem::path& pFilepath) {
 	std::lock_guard lock(mQueueMutex);
 
-	mJobQueue.emplace(QueueElementType::Promise, pUrl, std::move(pPromise));
+	mJobQueue.emplace(pUrl, pFunc, pFilepath);
 
 	mQueueCv.notify_one();
 }
+void SimpleNetworkStack::QueueGet(const std::string& pUrl, std::promise<Result> pPromise, const std::filesystem::path& pFilepath) {
+	std::lock_guard lock(mQueueMutex);
 
-SimpleNetworkStack::QueueElement::QueueElement(SimpleNetworkStack::QueueElement&& pOther) noexcept {
-	switch (Type) {
-		case QueueElementType::Function:
-			Func.~function();
-			break;
-		case QueueElementType::Promise:
-			Promise.~promise();
-			break;
-	}
+	mJobQueue.emplace(pUrl, std::move(pPromise), pFilepath);
 
-	// reset self, if this is not done, there will be a sigsegv when the Promise is moved
-	std::memset(this, 0, sizeof(SimpleNetworkStack::QueueElement));
-
-	Type = pOther.Type;
-	Url = std::move(pOther.Url);
-	switch (Type) {
-		case QueueElementType::Function:
-			Func = pOther.Func;
-			break;
-		case QueueElementType::Promise:
-			Promise = std::move(pOther.Promise);
-			break;
-	}
+	mQueueCv.notify_one();
 }
-
-SimpleNetworkStack::QueueElement& SimpleNetworkStack::QueueElement::operator=(SimpleNetworkStack::QueueElement&& pOther) noexcept {
-	Type = pOther.Type;
-	Url = pOther.Url;
-	switch (Type) {
-		case QueueElementType::Function:
-			Func = pOther.Func;
-			break;
-		case QueueElementType::Promise:
-			Promise = std::move(pOther.Promise);
-			break;
-	}
-	return *this;
-}
-
-SimpleNetworkStack::QueueElement::~QueueElement() {
-	switch (Type) {
-		case QueueElementType::Function:
-			Func.~function();
-			break;
-		case QueueElementType::Promise:
-			Promise.~promise();
-			break;
-	}
-}
-
-SimpleNetworkStack::QueueElement::QueueElement(SimpleNetworkStack::QueueElementType pType, const std::string& pUrl, const SimpleNetworkStack::ResultFunc& pFunc) : Type(pType), Url(pUrl), Func(pFunc) {}
-SimpleNetworkStack::QueueElement::QueueElement(SimpleNetworkStack::QueueElementType pType, const std::string& pUrl, std::promise<SimpleNetworkStack::Result> pPromise) : Type(pType), Url(pUrl), Promise(std::move(pPromise)) {}

@@ -2,6 +2,7 @@
 
 #include "ExtensionTranslations.h"
 #include "Localization.h"
+#include "SimpleNetworkStack.h"
 #include "Widgets.h"
 
 #if __has_include(<imgui/imgui.h>)
@@ -63,4 +64,45 @@ void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const
 			pUpdateState->UpdateStatus = Status::Dismissed;
 		}
 	}
+}
+
+bool UpdateChecker::HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) {
+	auto& networkStack = SimpleNetworkStack::instance();
+
+	std::promise<SimpleNetworkStack::Result> promise;
+	auto future = promise.get_future();
+	networkStack.QueueGet(pUrl, std::move(promise), pOutputFile);
+	auto response = future.get();
+	if (!response.has_value()) {
+		Log(std::format("Downloading {} failed - networkStack error {} - {}", pUrl, magic_enum::enum_name(response.error().Type), response.error().Message));
+		return false;
+	} else if (response.value().Code != 200) {
+		Log(std::format("Downloading {} failed - http failure {} {}", pUrl, response.value().Code, response.value().Message));
+		return false;
+	}
+
+	return true;
+}
+
+std::optional<std::string> UpdateChecker::HttpGet(const std::string& pUrl) {
+	auto& networkStack = SimpleNetworkStack::instance();
+
+	std::promise<SimpleNetworkStack::Result> promise;
+	auto future = promise.get_future();
+	networkStack.QueueGet(pUrl, std::move(promise));
+	auto response = future.get();
+
+	if (!response) {
+		auto& error = response.error();
+		Log(std::format("Getting {} failed - {} - {}", pUrl, magic_enum::enum_name(error.Type), error.Message));
+		return std::nullopt;
+	}
+
+	auto& result = response.value();
+	if (result.Code != 200) {
+		Log(std::format("Getting {} failed - {} {}", pUrl, result.Code, result.Message));
+		return std::nullopt;
+	}
+
+	return result.Message;
 }
