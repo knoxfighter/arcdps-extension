@@ -15,7 +15,9 @@
     {
       "name": "debug",
       "displayName": "Debug Config",
-      "inherits": ["default"],
+      "inherits": [
+        "default"
+      ],
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       },
@@ -24,7 +26,9 @@
     {
       "name": "release",
       "displayName": "Release Config",
-      "inherits": ["default"],
+      "inherits": [
+        "default"
+      ],
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       },
@@ -32,7 +36,9 @@
     },
     {
       "name": "debug-windows",
-      "inherits": ["debug"],
+      "inherits": [
+        "debug"
+      ],
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "x64-windows-static"
       },
@@ -44,7 +50,9 @@
     },
     {
       "name": "release-windows",
-      "inherits": ["release"],
+      "inherits": [
+        "release"
+      ],
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "x64-windows-static"
       },
@@ -56,20 +64,22 @@
     },
     {
       "name": "release-windows-clang",
-      "inherits": ["release-windows"],
+      "inherits": [
+        "release-windows"
+      ],
       "cacheVariables": {
         "CMAKE_CXX_COMPILER": "clang.exe",
-        "CMAKE_C_COMPILER": "clang.exe",
         "CMAKE_LINKER": "lld-link.exe",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     },
     {
       "name": "debug-windows-clang",
-      "inherits": ["debug-windows"],
+      "inherits": [
+        "debug-windows"
+      ],
       "cacheVariables": {
         "CMAKE_CXX_COMPILER": "clang.exe",
-        "CMAKE_C_COMPILER": "clang.exe",
         "CMAKE_LINKER": "lld-link.exe",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
