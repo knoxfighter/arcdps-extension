@@ -8,6 +8,7 @@
 #include <d3d9.h>
 #include <filesystem>
 #include <map>
+#include <queue>
 #include <ranges>
 #include <thread>
 #include <utility>
@@ -15,136 +16,189 @@
 #include <wincodec.h>
 #include <Windows.h>
 
-#ifndef ARCDPS_EXTENSION_NO_CPR
-#include <cpr/cpr.h>
-#endif
-
-/**
- * Call `Setup()` in `mod_init()`. This is needed, so this class knows about the dll and the directx device!
- * The IconLoader is not thread-safe, only call it in the render frame (or on startup)
- *
- * Always have an enum or any other list of numbers as unique ID.
- * Load textures:
- * - GetTexture(pResourceId):
- *     Load Texture from a resource within this DLL
- * - GetTexture(pFilePath):
- *	   Load Texture from file.
- *	   There is a direct conversion from string to filesystem::path.
- *	   If such a file is not found, you will always get a nullptr as result (no file reload performed)
- * - GetTexture(pUrl):
- *     Load Texture from url.
- *     It will be saved in AppData/Local/Temp/GW2-arcdps-extension and loaded from there.
- *	   If the file already exists, it will just be loaded.
- *	   Only available if cpr is loaded (can be disabled with `ARCDPS_EXTENSION_NO_CPR`)
- */
-class IconLoader : public Singleton<IconLoader> {
-public:
-	IconLoader() {
-		// mLoadThread = std::jthread([this](std::stop_token pToken){LoadThreadFunc(pToken);});
-		mLoadThread = std::jthread(std::bind_front(&IconLoader::LoadThreadFunc, this));
-	}
-
-	~IconLoader() override;
-
-	void Setup(HMODULE new_dll, IDirect3DDevice9* d3d9Device, ID3D11Device* new_d3d11device);
-
-	/*************/
-	/* GetTexture - used when already there, does NOT load */
-	/*************/
-	void* GetTexture(size_t pId);
-
-	/*************/
-	/* LoadTexture - used to request to load a texture and to get it's unique ID */
-	/*************/
-	size_t LoadTexture(UINT pResourceId);
-	size_t LoadTexture(const std::filesystem::path& pFilePath);
-#ifndef ARCDPS_EXTENSION_NO_CPR
-	size_t LoadTexture(const cpr::Url& pUrl);
-#endif
-
-private:
-	/**
-	 *          /  PendingResource  \
-	 * Pending                         Loaded  -  Finished
-	 *          \  PendingFile      /
-	 *
-	 *	Fallout: Error
-	 */
-	enum class Status {
-		Pending,
-		PendingResource,
-		PendingFile,
-		PendingCpr,
-		Loaded,
-		Finished,
-		Error,
-	};
-
-#ifndef ARCDPS_EXTENSION_NO_CPR
-	using TargetVariant = std::variant<UINT, std::filesystem::path, cpr::Url>;
-#else
-	using TargetVariant = std::variant<UINT, std::filesystem::path>;
-
-#endif
-
-	class Texture {
-	public:
-		UINT Width = 0;
-		UINT Height = 0;
-		Status Status = Status::Pending;
-
-		Texture() = default;
-
-		// copy/move
-		Texture(const Texture& pOther) = default;
-		Texture(Texture&& pOther) noexcept = default;
-		Texture& operator=(const Texture& pOther) = default;
-		Texture& operator=(Texture&& pOther) noexcept = default;
-
-		friend ::IconLoader;
-
-	private:
-		std::vector<uint8_t> mPixelBuffer;
-		IDirect3DTexture9* mD9Texture = nullptr;
-		ID3D11ShaderResourceView* mD11Texture = nullptr;
-		TargetVariant mLoadTarget;
-		DXGI_FORMAT mDxgiFormat = DXGI_FORMAT_UNKNOWN;
-
-		void LoadTexture(IconLoader& pIconLoader, UINT pResourceId);
-		void LoadTexture(IconLoader& pIconLoader, const std::filesystem::path& pFilePath);
-#ifndef ARCDPS_EXTENSION_NO_CPR
-		void LoadTexture(IconLoader& pIconLoader, const cpr::Url& pUrl);
-		void LoadFromCpr();
-#endif
-		void Load(IconLoader& pIconLoader);
-
-		void* GetTexture(IconLoader& pIconLoader);
-		void LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory);
-		DXGI_FORMAT GetFormatDx11(WICPixelFormatGUID pPixelFormat);
-		_D3DFORMAT GetFormatDx9();
-		void LoadIntoDirectXDevice(IconLoader& pIconLoader);
-		void LoadFromFile();
-		void LoadFromResource(IconLoader& pIconLoader);
-	};
-
-	void LoadThreadFunc(std::stop_token stop_token);
-
-	HMODULE mDll = nullptr;
-	ID3D11Device* mD3d11Device = nullptr;
-	IDirect3DDevice9* mD3d9Device = nullptr;
-
-	std::vector<Texture> mTextures;
-	std::mutex mTexturesMutex;
-	std::deque<size_t> mLoadIds;
-
-	std::jthread mLoadThread;
-	std::condition_variable_any mThreadCondition;
-	std::mutex mThreadMutex;
+template<typename From, typename To>
+concept static_castable = requires(From f) {
+	static_cast<To>(f);
 };
 
-#define GET_TEXTURE(name, source)                                       \
-	std::invoke([] {                                                    \
-		auto& iconLoader = IconLoader::instance();                      \
-		static size_t textureId##name = iconLoader.LoadTexture(source); \
-		return iconLoader.GetTexture(textureId##name);                  \
-	})
+using IconLoaderKeyType = uint64_t;
+
+template<typename T>
+concept IconLoaderKey = static_castable<T, IconLoaderKeyType>;
+
+/**
+ * Load icons in a separate thread.<br>
+ * Always have an enum or any other list of numbers as unique ID.<br>
+ * Make sure to call `Setup()` before you use this class.
+ * <p>
+ * Class-Internal flow:
+ * @code
+ * MainThread::Register()
+ *   ↳ lock mThreadMutex
+ *   ↳ mThreadQueue
+ * ↓
+ * IconLoaderThread::runner()
+ *   ↳ Load()
+ *   ↳ lock mLoadQueueMutex
+ *   ↳ mLoadQueue
+ * ↓
+ * MainThread::Draw()
+ *   ↳ lock mLoadQueueMutex
+ *   ↳ extract from mLoadQueue
+ *   ↳ mIcons
+ * @endcode
+ * </p>
+ */
+class IconLoader final : public Singleton<IconLoader> {
+public:
+	IconLoader();
+	~IconLoader() override;
+
+	/**
+	 * Call in `mod_init()`. If this is not called properly, it will crash when icons are loaded.
+	 * @param pDll The DLL of this module (the one to load resources from)
+	 * @param pD11Device The D3D11 device
+	 */
+	void Setup(HMODULE pDll, ID3D11Device* pD11Device);
+
+	/**
+	 * Register an Icon that will be loaded from a file.
+	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+	 * @param pFilepath The Path to the file that will be loaded (has to exist, else nothing happens)
+	 */
+	void RegisterFile(IconLoaderKey auto pName, const std::filesystem::path& pFilepath);
+
+	/**
+	 * Register an Icon that will be downloaded and then loaded. It will cache files in the Temp Dir.
+	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+	 * @param pUrl The URL to download (has to be a full link, like `https://wiki.guildwars2.com/images/4/4c/Alacrity.png`)
+	 */
+	void RegisterUrl(IconLoaderKey auto pName, const std::string& pUrl);
+
+	/**
+	 * Register an Icon that will be downloaded from gw2dat.com. It will cache files in the Temp Dir.
+	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+	 * @param pId The ID to download from gw2dat.com (`.png` will be added to the id)
+	 */
+	void RegisterGw2Dat(IconLoaderKey auto pName, const std::string& pId);
+
+	/**
+	 * Register an Icon that will be loaded from the Resource of the module defined in Setup().
+	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+	 * @param pId The ID of the resource to load (normally defined in resource.h)
+	 */
+	void RegisterResource(IconLoaderKey auto pName, UINT pId);
+
+	/**
+	 * Get the ResourceView* from a previously Registered Icon.
+	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+	 * @return either the ResourceView* or nullptr if loading failed or is in progress.
+	 */
+	ID3D11ShaderResourceView* Draw(IconLoaderKey auto pName);
+
+private:
+	struct Icon {
+		UINT Width;
+		UINT Height;
+		ID3D11ShaderResourceView* Texture;
+
+		Icon(UINT pWidth, UINT pHeight, ID3D11ShaderResourceView* pTexture) : Width(pWidth), Height(pHeight), Texture(pTexture) {}
+	};
+
+	enum class LoadWay {
+		File,
+		Url,
+		Gw2Dat,
+		Resource,
+	};
+	class QueueIcon {
+	public:
+		QueueIcon(IconLoaderKeyType pName, IconLoader& pIconLoader, LoadWay pWay, const auto& pResource) : mIconLoader(pIconLoader), mName(pName), mWay(pWay), mResource(pResource) {}
+
+	protected:
+		IconLoaderKeyType mName;
+		LoadWay mWay;
+		std::variant<std::filesystem::path, std::string, UINT> mResource;
+		IconLoader& mIconLoader;
+		UINT mWidth = 0;
+		UINT mHeight = 0;
+		std::vector<uint8_t> mPixelBuffer;
+		DXGI_FORMAT mDxgiFormat = DXGI_FORMAT_UNKNOWN;
+
+		void Load();
+
+	private:
+		void LoadFile(const std::filesystem::path& pFilepath);
+		void LoadUrl(const std::string& pUrl);
+		void LoadGw2Dat(const std::string& pId);
+		void LoadResource(UINT pId);
+		void LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory);
+		void DeviceLoad();
+		static DXGI_FORMAT GetFormatDx11(WICPixelFormatGUID pPixelFormat);
+
+		friend IconLoader;
+	};
+
+	HMODULE mDll;
+	ID3D11Device* mD11Device;
+
+	std::unordered_map<IconLoaderKeyType, Icon> mIcons;
+	std::unordered_map<IconLoaderKeyType, QueueIcon> mLoadQueue;
+	std::mutex mLoadQueueMutex;
+	std::queue<QueueIcon> mThreadQueue;
+
+	std::jthread mThread;
+	std::mutex mThreadMutex;
+	std::condition_variable_any mThreadVariable;
+
+	void runner(std::stop_token pToken);
+	void queueLoad(const QueueIcon& pIcon);
+	void loadDone(const IconLoader::QueueIcon& pIcon, ID3D11ShaderResourceView* pTexture);
+};
+
+void IconLoader::RegisterFile(IconLoaderKey auto pName, const std::filesystem::path& pFilepath) {
+	std::lock_guard guard(mThreadMutex);
+
+	mThreadQueue.emplace(static_cast<IconLoaderKeyType>(pName), *this, LoadWay::File, pFilepath);
+
+	mThreadVariable.notify_one();
+}
+
+void IconLoader::RegisterUrl(IconLoaderKey auto pName, const std::string& pUrl) {
+	std::lock_guard guard(mThreadMutex);
+
+	mThreadQueue.emplace(static_cast<IconLoaderKeyType>(pName), *this, LoadWay::Url, pUrl);
+
+	mThreadVariable.notify_one();
+}
+
+void IconLoader::RegisterGw2Dat(IconLoaderKey auto pName, const std::string& pId) {
+	std::lock_guard guard(mThreadMutex);
+
+	mThreadQueue.emplace(static_cast<IconLoaderKeyType>(pName), *this, LoadWay::Gw2Dat, pId);
+
+	mThreadVariable.notify_one();
+}
+
+void IconLoader::RegisterResource(IconLoaderKey auto pName, UINT pId) {
+	std::lock_guard guard(mThreadMutex);
+
+	mThreadQueue.emplace(static_cast<IconLoaderKeyType>(pName), *this, LoadWay::Resource, pId);
+
+	mThreadVariable.notify_one();
+}
+
+ID3D11ShaderResourceView* IconLoader::Draw(IconLoaderKey auto pName) {
+	auto name = static_cast<IconLoaderKeyType>(pName);
+	if (const auto& icon = mIcons.find(name); icon != mIcons.end()) {
+		return icon->second.Texture;
+	}
+	if (const auto& icon = mLoadQueue.find(name); icon != mLoadQueue.end()) {
+		std::unique_lock lock(mLoadQueueMutex);
+		auto element = mLoadQueue.extract(name);
+		lock.unlock();
+
+		element.mapped().DeviceLoad();
+	}
+	return nullptr;
+}

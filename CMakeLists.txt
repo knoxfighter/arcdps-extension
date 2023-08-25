@@ -1,8 +1,6 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.23)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.25)
 
 PROJECT(ArcdpsExtension CXX)
-
-SET(CMAKE_CXX_STANDARD 23)
 
 OPTION(BUILD_TESTS "Build the GTest executable" OFF)
 
@@ -97,6 +95,8 @@ TARGET_SOURCES(${PROJECT_NAME}
 		Windows/PositioningComponent.cpp
 )
 
+TARGET_COMPILE_FEATURES(${PROJECT_NAME} PUBLIC cxx_std_23)
+
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE imgui::imgui)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
@@ -132,6 +132,9 @@ IF (BUILD_TESTS)
 			UpdateCheckerTest.cpp
 			SimpleRingBufferTests.cpp
 			SimpleNetworkStackTests.cpp
+			IconLoaderTests.cpp
+			test/tests.rc
+			test/resource.h
 	)
 
 	# Use -MT / -MTd runtime library
@@ -140,9 +143,13 @@ IF (BUILD_TESTS)
 
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
 	IF (WIN32)
-		TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE Version.lib)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE Version.lib d3d11.lib)
 	ELSE ()
+		# Link libraries on non-windows, is this even possible?
 	ENDIF ()
 
 	GTEST_DISCOVER_TESTS(${PROJECT_NAME}Tests)
+
+	FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/test/Alacrity.png
+			DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 ENDIF ()

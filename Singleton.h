@@ -11,8 +11,7 @@
 
 /**
  * To use:
- * 1. Define the `extern` variable `g_singletonManagerInstance` in your main.cpp
- * 2. Call `Shutdown` in `mod_release`
+ * 1. Call `Shutdown` in `mod_release`
  */
 class BaseSingleton {
 public:
