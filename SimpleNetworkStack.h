@@ -27,6 +27,7 @@ public:
 		OptFollowLocationError,
 		OptWriteFuncError,
 		OptWriteDataError,
+		OptUseragentError,
 	};
 	struct Error {
 		ErrorType Type;

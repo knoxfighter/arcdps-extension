@@ -27,6 +27,9 @@ SimpleNetworkStack::Result SimpleNetworkStack::get(const QueueElement& pElement)
 	if (auto res = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1l); res != CURLE_OK) {
 		return std::unexpected(Error{ErrorType::OptFollowLocationError, curl_easy_strerror(res)});
 	}
+	if (auto res = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, "ArcdpsExtension/1.0")) {
+		return std::unexpected(Error{ErrorType::OptUseragentError, curl_easy_strerror(res)});
+	}
 
 	FILE* fp = nullptr;
 	// set write data if there is a response
