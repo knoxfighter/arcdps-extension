@@ -53,7 +53,9 @@ TEST_F(IconLoaderTests, LoadFromFile) {
 	using namespace std::chrono_literals;
 	auto& iconLoader = IconLoader::instance();
 
-	iconLoader.RegisterFile(1, "Alacrity.png");
+	std::string file = TEST_DIR;
+	file.append("Alacrity.png");
+	iconLoader.RegisterFile(1, file);
 
 	const auto& begin = std::chrono::steady_clock::now();
 	while (true) {

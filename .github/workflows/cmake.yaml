@@ -42,12 +42,10 @@ jobs:
           configurePreset: ${{ matrix.presets }}
           buildPreset: ${{ matrix.presets }}
 
-      - run: tree
-
       - name: Run Test
         run: './cmake-build/${{ matrix.presets }}/ArcdpsExtensionTests.exe'
 
-# disabled cause i have no idea how to build/use IWYU in windows
+# disabled cause i have no idea how to build/use IWYU on windows
 #      - name: Checkout IWYU
 #        if: ${{ matrix.presets == 'release-windows-clang' }}
 #        uses: actions/checkout@v3
