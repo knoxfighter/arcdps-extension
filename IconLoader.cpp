@@ -1,13 +1,19 @@
 #include "IconLoader.h"
+#include "magic_enum.hpp"
 #include "SimpleNetworkStack.h"
 
+#include <iostream>
 #include <utility>
 
 namespace {
+	void Log(const std::string& pText) {
+		std::cout << pText << std::endl;
+	}
+
 	/*
- * Array of needed GUID conversions.
- * CurrentGUID -> WantedGUID
- */
+	 * Array of needed GUID conversions.
+	 * CurrentGUID -> WantedGUID
+	 */
 	const std::vector<std::pair<GUID, GUID>> WIC_CONVERT = {
   // Note target GUID in this conversion table must be one of those directly supported formats (above).
 			{GUID_WICPixelFormatBlackWhite,           GUID_WICPixelFormat8bppGray        }, // DXGI_FORMAT_R8_UNORM
@@ -143,6 +149,7 @@ void IconLoader::QueueIcon::Load() {
 
 void IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
 	if (!exists(pFilepath)) {
+		Log(std::format("LoadFile|File '{}' does not exist", pFilepath.string()));
 		return;
 	}
 
@@ -151,6 +158,7 @@ void IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
 		if (CoGetContextToken(&contextToken) == CO_E_NOTINITIALIZED) {
 			HRESULT coInitializeResult = CoInitialize(NULL);
 			if (FAILED(coInitializeResult)) {
+				Log(std::format("LoadIcon|Cannot CoInitialize - {}", coInitializeResult));
 				return;
 			}
 		}
@@ -159,18 +167,21 @@ void IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
 	CComPtr<IWICImagingFactory> pIWICFactory;
 	HRESULT createInstance = CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pIWICFactory));
 	if (FAILED(createInstance)) {
+		Log(std::format("LoadIcon|cannot CoCreateInstance - {}", createInstance));
 		return;
 	}
 
 	CComPtr<IWICBitmapDecoder> wicDecoder;
 	HRESULT fromFilenameRes = pIWICFactory->CreateDecoderFromFilename(pFilepath.c_str(), NULL, GENERIC_READ, WICDecodeMetadataCacheOnDemand, &wicDecoder);
 	if (FAILED(fromFilenameRes)) {
+		Log(std::format("LoadIcon|cannot CreateDecoderFromFilename - {}", fromFilenameRes));
 		return;
 	}
 
 	CComPtr<IWICBitmapFrameDecode> pIDecodeFrame;
 	HRESULT getFrameRes = wicDecoder->GetFrame(0, &pIDecodeFrame);
 	if (FAILED(getFrameRes)) {
+		Log(std::format("LoadIcon|cannot GetFrame - {}", getFrameRes));
 		return;
 	}
 
@@ -226,22 +237,26 @@ void IconLoader::QueueIcon::LoadGw2Dat(const std::string& pId) {
 void IconLoader::QueueIcon::LoadResource(UINT pId) {
 	HRSRC imageResHandle = FindResource(mIconLoader.mDll, MAKEINTRESOURCE(pId), L"PNG");
 	if (!imageResHandle) {
+		Log("LoadResource|cannot FindResource");
 		return;
 	}
 
 	// does not need to be freed
 	HGLOBAL imageResDataHandle = ::LoadResource(mIconLoader.mDll, imageResHandle);
 	if (!imageResDataHandle) {
+		Log("LoadResource|LoadResource failed");
 		return;
 	}
 
 	LPVOID imageFile = LockResource(imageResDataHandle);
 	if (!imageFile) {
+		Log("LoadResource|LockResource failed");
 		return;
 	}
 
 	DWORD imageFileSize = SizeofResource(mIconLoader.mDll, imageResHandle);
 	if (!imageFileSize) {
+		Log("LoadResource|SizeOfResourceFailed");
 		return;
 	}
 
@@ -250,6 +265,7 @@ void IconLoader::QueueIcon::LoadResource(UINT pId) {
 		if (CoGetContextToken(&contextToken) == CO_E_NOTINITIALIZED) {
 			HRESULT coInitializeResult = CoInitialize(NULL);
 			if (FAILED(coInitializeResult)) {
+				Log(std::format("LoadResource|CoInitialize failed - {}", coInitializeResult));
 				return;
 			}
 		}
@@ -259,29 +275,34 @@ void IconLoader::QueueIcon::LoadResource(UINT pId) {
 	// IWICImagingFactory* m_pIWICFactory = NULL;
 	HRESULT createInstance = CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pIWICFactory));
 	if (FAILED(createInstance)) {
+		Log(std::format("LoadResource|CoCreateInstance failed - {}", createInstance));
 		return;
 	}
 
 	CComPtr<IWICStream> pIWICStream;
 	HRESULT streamRes = pIWICFactory->CreateStream(&pIWICStream);
 	if (FAILED(streamRes)) {
+		Log(std::format("LoadResource|CreateStream failed - {}", streamRes));
 		return;
 	}
 
 	HRESULT initializeFromMemoryRes = pIWICStream->InitializeFromMemory(reinterpret_cast<BYTE*>(imageFile), imageFileSize);
 	if (FAILED(initializeFromMemoryRes)) {
+		Log(std::format("LoadResource|InitializeFromMemory failed - {}", initializeFromMemoryRes));
 		return;
 	}
 
 	CComPtr<IWICBitmapDecoder> pIDecoder;
 	HRESULT decoderFromStreamRes = pIWICFactory->CreateDecoderFromStream(pIWICStream, NULL, WICDecodeMetadataCacheOnLoad, &pIDecoder);
 	if (FAILED(decoderFromStreamRes)) {
+		Log(std::format("LoadResource|CreateDecoderFromStream failed - {}", decoderFromStreamRes));
 		return;
 	}
 
 	CComPtr<IWICBitmapFrameDecode> pIDecodeFrame;
 	HRESULT getFrameRes = pIDecoder->GetFrame(0, &pIDecodeFrame);
 	if (FAILED(getFrameRes)) {
+		Log(std::format("LoadResource|GetFrame failed - {}", getFrameRes));
 		return;
 	}
 
@@ -291,10 +312,12 @@ void IconLoader::QueueIcon::LoadResource(UINT pId) {
 void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory) {
 	HRESULT getSizeRes = pIDecodeFrame->GetSize(&mWidth, &mHeight);
 	if (FAILED(getSizeRes)) {
+		Log(std::format("LoadFrame|GetSize failed - {}", getSizeRes));
 		return;
 	}
 
 	if (mWidth <= 0 || mHeight <= 0) {
+		Log("LoadFrame|No valid size");
 		return;
 	}
 
@@ -302,6 +325,7 @@ void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDe
 	WICPixelFormatGUID pixelFormat;
 	HRESULT pixelFormatRes = pIDecodeFrame->GetPixelFormat(&pixelFormat);
 	if (FAILED(pixelFormatRes)) {
+		Log(std::format("LoadFrame|GetPixelFormat failed - {}", pixelFormatRes));
 		return;
 	}
 
@@ -317,28 +341,33 @@ void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDe
 	CComPtr<IWICComponentInfo> pIComponentInfo;
 	HRESULT componentInfoRes = pIWICFactory->CreateComponentInfo(targetFormat, &pIComponentInfo);
 	if (FAILED(componentInfoRes)) {
+		Log(std::format("LoadFrame|CreateComponentInfo failed - {}", componentInfoRes));
 		return;
 	}
 
 	WICComponentType componentType;
 	HRESULT componentTypeRes = pIComponentInfo->GetComponentType(&componentType);
 	if (FAILED(componentTypeRes)) {
+		Log(std::format("LoadFrame|GetComponentType failed - {}", componentTypeRes));
 		return;
 	}
 
 	if (componentType != WICPixelFormat) {
+		Log(std::format("LoadFrame|not supported componentType - {}", magic_enum::enum_name(componentType)));
 		return;
 	}
 
 	CComPtr<IWICPixelFormatInfo> pIPixelFormatInfo;
 	HRESULT pixelFormatInfoRes = pIComponentInfo->QueryInterface(__uuidof(IWICPixelFormatInfo), reinterpret_cast<void**>(&pIPixelFormatInfo));
 	if (FAILED(pixelFormatInfoRes)) {
+		Log(std::format("LoadFrame|QueryInterface failed - {}", pixelFormatInfoRes));
 		return;
 	}
 
 	UINT bitsPerPixel;
 	HRESULT bitsPerPixelRes = pIPixelFormatInfo->GetBitsPerPixel(&bitsPerPixel);
 	if (FAILED(bitsPerPixelRes)) {
+		Log(std::format("LoadFrame|GetBitsPerPixel failed - {}", bitsPerPixelRes));
 		return;
 	}
 
@@ -352,6 +381,7 @@ void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDe
 		// no conversion needed, just copy it
 		HRESULT copyPixelsRes = pIDecodeFrame->CopyPixels(NULL, static_cast<UINT>(rowPitch), static_cast<UINT>(imageSize), mPixelBuffer.data());
 		if (FAILED(copyPixelsRes)) {
+			Log(std::format("LoadFrame|CopyPixels failed - {}", copyPixelsRes));
 			return;
 		}
 	} else {
@@ -359,16 +389,19 @@ void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDe
 		CComPtr<IWICFormatConverter> formatConverter;
 		HRESULT formatConverterRes = pIWICFactory->CreateFormatConverter(&formatConverter);
 		if (FAILED(formatConverterRes)) {
+			Log(std::format("LoadFrame|CreateFormatConverter failed - {}", formatConverterRes));
 			return;
 		}
 
 		HRESULT initConverterRes = formatConverter->Initialize(pIDecodeFrame, targetFormat, WICBitmapDitherTypeErrorDiffusion, 0, 0, WICBitmapPaletteTypeCustom);
 		if (FAILED(initConverterRes)) {
+			Log(std::format("LoadFrame|FormatConverter->Initialize failed - {}", initConverterRes));
 			return;
 		}
 
 		HRESULT copyPixelsRes = formatConverter->CopyPixels(NULL, static_cast<UINT>(rowPitch), static_cast<UINT>(imageSize), mPixelBuffer.data());
 		if (FAILED(copyPixelsRes)) {
+			Log(std::format("LoadFrame|formatConverter->CopyPixels failed - {}", copyPixelsRes));
 			return;
 		}
 	}
@@ -402,6 +435,7 @@ void IconLoader::QueueIcon::DeviceLoad() {
 		//		std::string text = "Error creating 2d texture: ";
 		//		text.append(std::to_string(createTexture2DRes));
 		//		throw std::runtime_error(text);
+		Log(std::format("DeviceLoad|CreateTexture2D failed - {}", createTexture2DRes));
 		return;
 	}
 
@@ -420,6 +454,7 @@ void IconLoader::QueueIcon::DeviceLoad() {
 		//		std::string text = "Error creating shader mResource View: ";
 		//		text.append(std::to_string(createTexture2DRes));
 		//		throw std::runtime_error(text);
+		Log(std::format("DeviceLoad|CreateShaderResourceView failed - {}", createTexture2DRes));
 		return;
 	}
 
