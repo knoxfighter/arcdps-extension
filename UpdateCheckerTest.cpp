@@ -272,17 +272,20 @@ namespace {
 		bool HttpDownload(const std::string&, const std::filesystem::path& pOutputFile) override {
 			assert(QueuedResponses.size() > 0);
 
-			// TODO: implement
-			assert(false);
+			std::optional<std::string> result = QueuedResponses.front();
+			QueuedResponses.pop();
 
-			//			std::optional<std::string> result = QueuedResponses.front();
-			//			QueuedResponses.pop();
-			//
-			//			if (result.has_value() == false) {
-			//				return false;
-			//			}
-			//
-			//			pOutputFile.write(result->data(), result->size());
+			if (result.has_value() == false) {
+				return false;
+			}
+
+			std::ofstream outputFile(pOutputFile);
+
+			if (!outputFile.is_open()) {
+				return false;
+			}
+			outputFile.write(result->data(), result->size());
+			outputFile.close();
 			return true;
 		}
 
