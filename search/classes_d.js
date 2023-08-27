@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['satisfies_5fall_2041',['satisfies_all',['../structrapidfuzz_1_1satisfies__all.html',1,'rapidfuzz']]],
+  ['satisfies_5fall_3c_20cond_2c_20conds_2e_2e_2e_20_3e_2042',['satisfies_all&lt; Cond, Conds... &gt;',['../structrapidfuzz_1_1satisfies__all_3_01Cond_00_01Conds_8_8_8_01_4.html',1,'rapidfuzz']]],
+  ['satisfies_5fany_2043',['satisfies_any',['../structrapidfuzz_1_1satisfies__any.html',1,'rapidfuzz']]],
+  ['satisfies_5fany_3c_20cond_2c_20conds_2e_2e_2e_20_3e_2044',['satisfies_any&lt; Cond, Conds... &gt;',['../structrapidfuzz_1_1satisfies__any_3_01Cond_00_01Conds_8_8_8_01_4.html',1,'rapidfuzz']]],
+  ['sequencematcher_2045',['SequenceMatcher',['../classrapidfuzz_1_1detail_1_1difflib_1_1SequenceMatcher.html',1,'rapidfuzz::detail::difflib']]],
+  ['simplenetworkstack_2046',['SimpleNetworkStack',['../classSimpleNetworkStack.html',1,'']]],
+  ['simplenetworkstacktests_2047',['SimpleNetworkStackTests',['../classSimpleNetworkStackTests.html',1,'']]],
+  ['singleton_2048',['Singleton',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20demotablewindow_20_3e_2049',['Singleton&lt; DemoTableWindow &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20demowindow_20_3e_2050',['Singleton&lt; DemoWindow &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20iconloader_20_3e_2051',['Singleton&lt; IconLoader &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20keybindhandler_20_3e_2052',['Singleton&lt; KeyBindHandler &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20localization_20_3e_2053',['Singleton&lt; Localization &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20simplenetworkstack_20_3e_2054',['Singleton&lt; SimpleNetworkStack &gt;',['../classSingleton.html',1,'']]],
+  ['singleton_3c_20updatechecker_20_3e_2055',['Singleton&lt; UpdateChecker &gt;',['../classSingleton.html',1,'']]],
+  ['singletonmanager_2056',['SingletonManager',['../classSingletonManager.html',1,'']]],
+  ['splittedsentenceview_2057',['SplittedSentenceView',['../classrapidfuzz_1_1SplittedSentenceView.html',1,'rapidfuzz']]],
+  ['splittedsentenceview_3c_20inputit1_20_3e_2058',['SplittedSentenceView&lt; InputIt1 &gt;',['../classrapidfuzz_1_1SplittedSentenceView.html',1,'rapidfuzz']]],
+  ['splittedsentenceview_3c_20inputit2_20_3e_2059',['SplittedSentenceView&lt; InputIt2 &gt;',['../classrapidfuzz_1_1SplittedSentenceView.html',1,'rapidfuzz']]],
+  ['splittedsentenceview_3c_20inputit3_20_3e_2060',['SplittedSentenceView&lt; InputIt3 &gt;',['../classrapidfuzz_1_1SplittedSentenceView.html',1,'rapidfuzz']]],
+  ['splittedsentenceview_3c_20typename_20std_3a_3abasic_5fstring_3c_20chart1_20_3e_3a_3aiterator_20_3e_2061',['SplittedSentenceView&lt; typename std::basic_string&lt; CharT1 &gt;::iterator &gt;',['../classrapidfuzz_1_1SplittedSentenceView.html',1,'rapidfuzz']]],
+  ['stringaffix_2062',['StringAffix',['../structrapidfuzz_1_1StringAffix.html',1,'rapidfuzz']]],
+  ['subscriber_2063',['Subscriber',['../structKeyBindHandler_1_1Subscriber.html',1,'KeyBindHandler']]]
+];

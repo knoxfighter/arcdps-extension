@@ -1,0 +1,28 @@
+var namespacerapidfuzz_1_1common =
+[
+    [ "PatternMatchVector", "structrapidfuzz_1_1common_1_1PatternMatchVector.html", "structrapidfuzz_1_1common_1_1PatternMatchVector" ],
+    [ "BlockPatternMatchVector", "structrapidfuzz_1_1common_1_1BlockPatternMatchVector.html", "structrapidfuzz_1_1common_1_1BlockPatternMatchVector" ],
+    [ "CharHashTable", "structrapidfuzz_1_1common_1_1CharHashTable.html", "structrapidfuzz_1_1common_1_1CharHashTable" ],
+    [ "CharHashTable< CharT1, ValueType, 1 >", "structrapidfuzz_1_1common_1_1CharHashTable_3_01CharT1_00_01ValueType_00_011_01_4.html", "structrapidfuzz_1_1common_1_1CharHashTable_3_01CharT1_00_01ValueType_00_011_01_4" ],
+    [ "MatrixVectorView", "structrapidfuzz_1_1common_1_1MatrixVectorView.html", "structrapidfuzz_1_1common_1_1MatrixVectorView" ],
+    [ "ConstMatrixVectorView", "structrapidfuzz_1_1common_1_1ConstMatrixVectorView.html", "structrapidfuzz_1_1common_1_1ConstMatrixVectorView" ],
+    [ "Matrix", "structrapidfuzz_1_1common_1_1Matrix.html", "structrapidfuzz_1_1common_1_1Matrix" ],
+    [ "CanTypeFitValue", "group__Common.html#ga62cb92dadf8785f9c00c222cfb5f2fe9", null ],
+    [ "is_zero", "group__Common.html#ga18b78c8b4ad79e5ade8b34bb8dd993b6", null ],
+    [ "mismatch", "group__Common.html#ga2c796ca863f18150b0997dd392f9cdc8", null ],
+    [ "norm_distance", "group__Common.html#ga96d63bc749822a01f20041b9608beaf0", null ],
+    [ "remove_common_affix", "group__Common.html#gab7151f7a13c5d237bf6815fe4f7e0761", null ],
+    [ "remove_common_prefix", "group__Common.html#ga5ea900d3c74b3080ccee33e6a63b656e", null ],
+    [ "remove_common_suffix", "group__Common.html#gaf6357c263defb60895a32ab418b55894", null ],
+    [ "result_cutoff", "group__Common.html#gabc971a77fa5461fd97be49da34accaca", null ],
+    [ "set_decomposition", "group__Common.html#ga39f38a438b685b1d546f73b8ce11db93", null ],
+    [ "sorted_split", "group__Common.html#gae2560c1cedf7acfca47c75a03bbff2b7", null ],
+    [ "to_begin", "group__Common.html#ga54b66f5bfc6b2fa98072cf9beaf5eb43", null ],
+    [ "to_begin", "group__Common.html#ga2ddf29c35d56a85c9f528a490d0a6570", null ],
+    [ "to_end", "group__Common.html#gafa202618b0443b6cc7f559a28a10d640", null ],
+    [ "to_end", "group__Common.html#ga56529c34f5941522ca14e4bbce73ca4b", null ],
+    [ "to_signed", "group__Common.html#ga2321594d09533cce46c4b2b70fa4e10e", null ],
+    [ "to_string", "group__Common.html#gace3f2100a7429c65263a48d245b7d5b6", null ],
+    [ "to_string", "group__Common.html#ga81746627aeedc0820c7b383f1c62af5f", null ],
+    [ "to_unsigned", "group__Common.html#ga6b6641b60213d6ce206714966387bfb0", null ]
+];

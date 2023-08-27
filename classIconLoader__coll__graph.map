@@ -1,0 +1,5 @@
+<map id="IconLoader" name="IconLoader">
+<area shape="rect" id="node1" title=" " alt="" coords="51,155,144,181"/>
+<area shape="rect" id="node2" href="$classSingleton.html" title=" " alt="" coords="5,80,189,107"/>
+<area shape="rect" id="node3" href="$classBaseSingleton.html" title=" " alt="" coords="40,5,155,32"/>
+</map>

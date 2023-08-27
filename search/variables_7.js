@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['heldheadercolumn_2649',['HeldHeaderColumn',['../structMainTable_1_1Table.html#a813022692ef671d8f114dcf0cc919aa8',1,'MainTable::Table']]],
+  ['hostbackupcolumnsoffset_2650',['HostBackupColumnsOffset',['../structMainTable_1_1Table.html#a423024fe518e069edb4457fee4a304cf',1,'MainTable::Table']]],
+  ['hostbackupcurrlinesize_2651',['HostBackupCurrLineSize',['../structMainTable_1_1Table.html#a515f29b750e8525237498b47f594b911',1,'MainTable::Table']]],
+  ['hostbackupcursormaxpos_2652',['HostBackupCursorMaxPos',['../structMainTable_1_1Table.html#a13f379644bc0ab8d5320ad610623a84e',1,'MainTable::Table']]],
+  ['hostbackupinnercliprect_2653',['HostBackupInnerClipRect',['../structMainTable_1_1Table.html#a3180e9fe6971324a2a1f462e70dcd00a',1,'MainTable::Table']]],
+  ['hostbackupitemwidth_2654',['HostBackupItemWidth',['../structMainTable_1_1Table.html#a728764f2c9455110d30098a0d34db480',1,'MainTable::Table']]],
+  ['hostbackupitemwidthstacksize_2655',['HostBackupItemWidthStackSize',['../structMainTable_1_1Table.html#a659394c5e69018e8e3bb9ca2c9b694b5',1,'MainTable::Table']]],
+  ['hostbackupparentworkrect_2656',['HostBackupParentWorkRect',['../structMainTable_1_1Table.html#a965378b16423d23e911572fbf474735d',1,'MainTable::Table']]],
+  ['hostbackupprevlinesize_2657',['HostBackupPrevLineSize',['../structMainTable_1_1Table.html#a2be6696f2f77be3e7d58f5beb4b81cc9',1,'MainTable::Table']]],
+  ['hostbackupworkrect_2658',['HostBackupWorkRect',['../structMainTable_1_1Table.html#a5df01ac5175fa4c4e8b7d4748709ca90',1,'MainTable::Table']]],
+  ['hostcliprect_2659',['HostClipRect',['../structMainTable_1_1Table.html#a6abaf25b2a5953584e231b74df0ec940',1,'MainTable::Table']]],
+  ['hostindentx_2660',['HostIndentX',['../structMainTable_1_1Table.html#a8233affffb5537b257276195a76fe300',1,'MainTable::Table']]],
+  ['hostskipitems_2661',['HostSkipItems',['../structMainTable_1_1Table.html#accf361ca9e2b7d4120bc8e0d2cfa1a52',1,'MainTable::Table']]],
+  ['hoveredcolumnbody_2662',['HoveredColumnBody',['../structMainTable_1_1Table.html#ad196640656434b6a519b2b315074f660',1,'MainTable::Table']]],
+  ['hoveredcolumnborder_2663',['HoveredColumnBorder',['../structMainTable_1_1Table.html#a1e66b72e424bf8a4b423432c5575833f',1,'MainTable::Table']]],
+  ['hoveredtext_2664',['HoveredText',['../structRow.html#a02a254c4b2840b828dabb6409066bb6e',1,'Row']]]
+];
