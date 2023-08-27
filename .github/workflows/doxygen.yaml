@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - main
+      - vcpkg-update-doxygen
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: DenverCoder1/doxygen-github-pages-action@latest
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: docs/html
+          config_file: docs/Doxyfile
