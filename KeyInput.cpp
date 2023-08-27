@@ -1,12 +1,7 @@
 #include "KeyInput.h"
 
-#if __has_include(<imgui/imgui.h>)
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
-#else
-#include "../imgui/imgui.h"
-#include "../imgui/imgui_internal.h"
-#endif
 
 #ifndef ARCDPS_EXTENSION_NO_LANG_H
 #include "ExtensionTranslations.h"
@@ -49,6 +44,8 @@ namespace {
 } // namespace
 
 namespace ImGuiEx {
+	using namespace ArcdpsExtension;
+
 	static inline KeyBinds::Key keyCodeInputKeyState;
 	static inline KeyBinds::Modifier keyCodeInputCurrentModifier;
 	static inline bool keyCodeInputActive = false;

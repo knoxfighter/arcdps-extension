@@ -1,9 +1,9 @@
 #include "DemoKeyBindComponent.h"
 
-KeyBinds::Key& DemoKeyBindComponent::getKeyBind() {
+KeyBinds::Key& ArcdpsExtension::DemoKeyBindComponent::getKeyBind() {
 	return mKeyBind;
 }
 
-bool DemoKeyBindComponent::getCloseWithEsc() {
+bool ArcdpsExtension::DemoKeyBindComponent::getCloseWithEsc() {
 	return true;
 }

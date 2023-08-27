@@ -9,17 +9,17 @@
 
 #include <nlohmann/json.hpp>
 
-UpdateCheckerBase::UpdateState::UpdateState(const std::optional<Version>& pVersion, std::string&& pInstallPath)
+ArcdpsExtension::UpdateCheckerBase::UpdateState::UpdateState(const std::optional<Version>& pVersion, std::string&& pInstallPath)
 	: CurrentVersion(pVersion), InstallPath(std::move(pInstallPath)) {}
 
-UpdateCheckerBase::UpdateState::~UpdateState() {
+ArcdpsExtension::UpdateCheckerBase::UpdateState::~UpdateState() {
 	assert(Tasks.empty() && "All tasks should be awaited before shutdown");
 
 	// Desparate attempt to not crash in release, this might crash itself because joining threads during static destruction is wonky on Windows
 	FinishPendingTasks();
 }
 
-void UpdateCheckerBase::UpdateState::FinishPendingTasks() {
+void ArcdpsExtension::UpdateCheckerBase::UpdateState::FinishPendingTasks() {
 	std::vector<std::thread> tasks;
 	{
 		std::lock_guard lock(Lock);
@@ -31,7 +31,7 @@ void UpdateCheckerBase::UpdateState::FinishPendingTasks() {
 	}
 }
 
-bool UpdateCheckerBase::UpdateState::ChangeStatus(Status pExpectedStatus, Status pNewStatus) {
+bool ArcdpsExtension::UpdateCheckerBase::UpdateState::ChangeStatus(Status pExpectedStatus, Status pNewStatus) {
 	std::lock_guard lock(Lock);
 	if (UpdateStatus != pExpectedStatus) {
 		return false;
@@ -41,7 +41,7 @@ bool UpdateCheckerBase::UpdateState::ChangeStatus(Status pExpectedStatus, Status
 	return true;
 }
 
-std::optional<UpdateCheckerBase::Version> UpdateCheckerBase::GetCurrentVersion(HMODULE pDll) noexcept {
+std::optional<ArcdpsExtension::UpdateCheckerBase::Version> ArcdpsExtension::UpdateCheckerBase::GetCurrentVersion(HMODULE pDll) noexcept {
 	// GetModuleFileName
 	TCHAR moduleFileName[MAX_PATH + 1]{};
 	if (!GetModuleFileName(pDll, moduleFileName, MAX_PATH)) {
@@ -74,7 +74,7 @@ std::optional<UpdateCheckerBase::Version> UpdateCheckerBase::GetCurrentVersion(H
 	return Version({HIWORD(fixedFileInfo->dwProductVersionMS), LOWORD(fixedFileInfo->dwProductVersionMS), HIWORD(fixedFileInfo->dwProductVersionLS), LOWORD(fixedFileInfo->dwProductVersionLS)});
 }
 
-void UpdateCheckerBase::ClearFiles(HMODULE pDll) noexcept {
+void ArcdpsExtension::UpdateCheckerBase::ClearFiles(HMODULE pDll) noexcept {
 	std::error_code ec;
 
 	std::optional<std::string> dllPath = GetPathFromHModule(pDll);
@@ -97,7 +97,7 @@ void UpdateCheckerBase::ClearFiles(HMODULE pDll) noexcept {
 	}
 }
 
-std::unique_ptr<UpdateCheckerBase::UpdateState> UpdateCheckerBase::CheckForUpdate(
+std::unique_ptr<ArcdpsExtension::UpdateCheckerBase::UpdateState> ArcdpsExtension::UpdateCheckerBase::CheckForUpdate(
 		HMODULE pDll, const Version& pCurrentVersion, std::string&& pRepo, bool pAllowPreRelease
 ) noexcept {
 	std::optional<std::string> dllPath = GetPathFromHModule(pDll);
@@ -109,14 +109,14 @@ std::unique_ptr<UpdateCheckerBase::UpdateState> UpdateCheckerBase::CheckForUpdat
 	return GetUpdateInternal(std::move(*dllPath), pCurrentVersion, std::move(pRepo), pAllowPreRelease);
 }
 
-std::unique_ptr<UpdateCheckerBase::UpdateState> UpdateCheckerBase::GetInstallState(
+std::unique_ptr<ArcdpsExtension::UpdateCheckerBase::UpdateState> ArcdpsExtension::UpdateCheckerBase::GetInstallState(
 		std::string&& pInstallPath, std::string&& pRepo, bool pAllowPreRelease
 ) noexcept {
 	// TODO: FIRST CHECK IF FILE ALREADY EXISTS? OR SHOULD WE USE INTERNAL STATE IN ADDON TO DETERMINE?
 	return GetUpdateInternal(std::move(pInstallPath), std::nullopt, std::move(pRepo), pAllowPreRelease);
 }
 
-void UpdateCheckerBase::PerformInstallOrUpdate(UpdateState& pState) noexcept {
+void ArcdpsExtension::UpdateCheckerBase::PerformInstallOrUpdate(UpdateState& pState) noexcept {
 	assert(pState.Lock.try_lock() == false && "Lock should be held when this function is called");
 
 	if (pState.UpdateStatus != Status::UpdateAvailable) {
@@ -169,7 +169,7 @@ void UpdateCheckerBase::PerformInstallOrUpdate(UpdateState& pState) noexcept {
 	}
 }
 
-std::optional<std::string> UpdateCheckerBase::GetPathFromHModule(HMODULE pDll) noexcept {
+std::optional<std::string> ArcdpsExtension::UpdateCheckerBase::GetPathFromHModule(HMODULE pDll) noexcept {
 	CHAR dllPath[MAX_PATH] = {};
 	if (GetModuleFileNameA(pDll, dllPath, _countof(dllPath)) == 0) {
 		Log(std::format("Getting path failed - GetLastError={}", GetLastError()));
@@ -179,7 +179,7 @@ std::optional<std::string> UpdateCheckerBase::GetPathFromHModule(HMODULE pDll) n
 	return std::string(dllPath);
 }
 
-std::unique_ptr<UpdateCheckerBase::UpdateState> UpdateCheckerBase::GetUpdateInternal(
+std::unique_ptr<ArcdpsExtension::UpdateCheckerBase::UpdateState> ArcdpsExtension::UpdateCheckerBase::GetUpdateInternal(
 		std::string&& pInstallPath, const std::optional<Version>& pCurrentVersion, std::string&& pRepo,
 		bool pAllowPreRelease
 ) noexcept {
@@ -223,20 +223,20 @@ std::unique_ptr<UpdateCheckerBase::UpdateState> UpdateCheckerBase::GetUpdateInte
 	return result;
 }
 
-std::string UpdateCheckerBase::GetVersionAsString(const Version& pVersion) {
+std::string ArcdpsExtension::UpdateCheckerBase::GetVersionAsString(const Version& pVersion) {
 	return std::format("{}.{}.{}.{}", pVersion.at(0), pVersion.at(1), pVersion.at(2), pVersion.at(3));
 }
 
-bool UpdateCheckerBase::IsNewer(const Version& pRepoVersion, const Version& pCurrentVersion) {
+bool ArcdpsExtension::UpdateCheckerBase::IsNewer(const Version& pRepoVersion, const Version& pCurrentVersion) {
 	return std::tie(pCurrentVersion[0], pCurrentVersion[1], pCurrentVersion[2])
 		   < std::tie(pRepoVersion[0], pRepoVersion[1], pRepoVersion[2]);
 }
 
-void UpdateCheckerBase::Log(std::string&&) {
+void ArcdpsExtension::UpdateCheckerBase::Log(std::string&&) {
 	// Do nothing by default
 }
 
-UpdateCheckerBase::Version UpdateCheckerBase::ParseVersion(std::string_view versionString) {
+ArcdpsExtension::UpdateCheckerBase::Version ArcdpsExtension::UpdateCheckerBase::ParseVersion(std::string_view versionString) {
 	// TODO: use semver to calculate this. So all semver releases can be parsed and not only my hardcoded ones :)
 	// libary for it: https://github.com/Neargye/semver
 
@@ -285,7 +285,7 @@ UpdateCheckerBase::Version UpdateCheckerBase::ParseVersion(std::string_view vers
 	return result;
 }
 
-bool UpdateCheckerBase::PerformDownload(const std::string& pUrl, const std::string& pDestinationPath) {
+bool ArcdpsExtension::UpdateCheckerBase::PerformDownload(const std::string& pUrl, const std::string& pDestinationPath) {
 	if (HttpDownload(pUrl, pDestinationPath) == false) {
 		return false;
 	}
@@ -293,7 +293,7 @@ bool UpdateCheckerBase::PerformDownload(const std::string& pUrl, const std::stri
 	return true;
 }
 
-std::optional<std::tuple<UpdateCheckerBase::Version, std::string>> UpdateCheckerBase::GetLatestRelease(
+std::optional<std::tuple<ArcdpsExtension::UpdateCheckerBase::Version, std::string>> ArcdpsExtension::UpdateCheckerBase::GetLatestRelease(
 		std::string&& pRepo, bool pAllowPreRelease
 ) {
 	nlohmann::basic_json<> json;

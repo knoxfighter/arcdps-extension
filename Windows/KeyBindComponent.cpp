@@ -11,7 +11,7 @@
  * To allow other input handling, i recommend adding a flag to this class and have the arcdps features optional.
  * Alternatively, remove features here and add them in a subclass.
  */
-KeyBindComponent::KeyBindComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
+ArcdpsExtension::KeyBindComponent::KeyBindComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
 	pMainWindow->RegisterInitHook([this] {
 		mKeyBindHandlerId = KeyBindHandler::instance().Subscribe(
 				{getKeyBind(),
@@ -39,12 +39,12 @@ KeyBindComponent::KeyBindComponent(MainWindow* pMainWindow) : ComponentBase(pMai
 	});
 }
 
-bool KeyBindComponent::KeyBindPressed() {
+bool ArcdpsExtension::KeyBindComponent::KeyBindPressed() {
 	mMainWindow->GetOpenVar() = !mMainWindow->GetOpenVar();
 	return true;
 }
 
-bool KeyBindComponent::EscPressed() {
+bool ArcdpsExtension::KeyBindComponent::EscPressed() {
 	mMainWindow->GetOpenVar() = false;
 	return true;
 }

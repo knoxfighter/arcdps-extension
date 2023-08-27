@@ -6,7 +6,7 @@
 
 #include <algorithm>
 
-PositioningComponent::PositioningComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
+ArcdpsExtension::PositioningComponent::PositioningComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
 	pMainWindow->RegisterPreDrawHook([this](ImGuiWindowFlags& PH1) {
 		PreDrawHookFunction(std::forward<decltype(PH1)>(PH1));
 	});
@@ -18,13 +18,13 @@ PositioningComponent::PositioningComponent(MainWindow* pMainWindow) : ComponentB
 	PositioningComponentImGuiHook::POSITIONING_COMPONENTS.emplace_back(this);
 }
 
-void PositioningComponent::PreDrawHookFunction(ImGuiWindowFlags& pFlags) {
+void ArcdpsExtension::PositioningComponent::PreDrawHookFunction(ImGuiWindowFlags& pFlags) {
 	if (getPositionMode() != Position::Manual) {
 		pFlags |= ImGuiWindowFlags_NoMove;
 	}
 }
 
-void PositioningComponent::DrawPositionSettingsSubMenu() {
+void ArcdpsExtension::PositioningComponent::DrawPositionSettingsSubMenu() {
 	if (ImGui::BeginMenu(Localization::STranslate(ET_Position).c_str())) {
 		Position& position = getPositionMode();
 		CornerPosition& cornerPosition = getCornerPosition();
@@ -134,7 +134,7 @@ void PositioningComponent::DrawPositionSettingsSubMenu() {
 	}
 }
 
-void PositioningComponent::Reposition() {
+void ArcdpsExtension::PositioningComponent::Reposition() {
 	ImGuiWindow* window = mMainWindow->GetInnerWindow();
 	if (window != nullptr) {
 		ImGuiEx::WindowReposition(
@@ -149,14 +149,14 @@ void PositioningComponent::Reposition() {
 	}
 }
 
-PositioningComponent::~PositioningComponent() {
+ArcdpsExtension::PositioningComponent::~PositioningComponent() {
 	auto& components = PositioningComponentImGuiHook::POSITIONING_COMPONENTS;
 	if (!components.empty()) {
 		components.erase(std::ranges::remove(components, this).begin(), components.end());
 	}
 }
 
-void PositioningComponentImGuiHook::InstallHooks(ImGuiContext* imGuiContext) {
+void ArcdpsExtension::PositioningComponentImGuiHook::InstallHooks(ImGuiContext* imGuiContext) {
 	if (imGuiContext != nullptr) {
 		ImGuiContextHook contextHook;
 		contextHook.Type = ImGuiContextHookType_NewFramePost;
@@ -169,19 +169,21 @@ void PositioningComponentImGuiHook::InstallHooks(ImGuiContext* imGuiContext) {
 	}
 }
 
-void PositioningComponentImGuiHook::PostNewFrame(ImGuiContext* pImguiContext, ImGuiContextHook*) {
+void ArcdpsExtension::PositioningComponentImGuiHook::PostNewFrame(ImGuiContext* pImguiContext, ImGuiContextHook*) {
 	for (auto* mainWindow : POSITIONING_COMPONENTS) {
 		mainWindow->Reposition();
 	}
 }
 
-ImVec2 CalcCenteredPosition(const ImVec2& pBoundsPosition, const ImVec2& pBoundsSize, const ImVec2& pItemSize) {
-	return ImVec2{
-			pBoundsPosition.x + (std::max)((pBoundsSize.x - pItemSize.x) * 0.5f, 0.0f),
-			pBoundsPosition.y + (std::max)((pBoundsSize.y - pItemSize.y) * 0.5f, 0.0f)};
-}
+namespace {
+	ImVec2 CalcCenteredPosition(const ImVec2& pBoundsPosition, const ImVec2& pBoundsSize, const ImVec2& pItemSize) {
+		return ImVec2{
+				pBoundsPosition.x + (std::max)((pBoundsSize.x - pItemSize.x) * 0.5f, 0.0f),
+				pBoundsPosition.y + (std::max)((pBoundsSize.y - pItemSize.y) * 0.5f, 0.0f)};
+	}
+} // namespace
 
-void PositioningComponentImGuiHook::PreEndFrame(ImGuiContext* pImguiContext, ImGuiContextHook*) {
+void ArcdpsExtension::PositioningComponentImGuiHook::PreEndFrame(ImGuiContext* pImguiContext, ImGuiContextHook*) {
 	float font_size = pImguiContext->FontSize * 2.0f;
 
 	for (size_t i = 0; i < ANCHORING_HIGHLIGHTED_WINDOWS.size(); i++) {

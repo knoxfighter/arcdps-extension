@@ -5,21 +5,21 @@
 
 #include "../../KeyBindHandler.h"
 
-DemoTableWindow::DemoTableWindow() : MainWindow() {
+ArcdpsExtension::DemoTableWindow::DemoTableWindow() : MainWindow() {
 	CreateComponent<DemoPositioningComponent>();
 	CreateComponent<DemoKeyBindComponent>();
 	mTable = std::make_unique<DemoTable>(this);
 }
 
-bool& DemoTableWindow::GetOpenVar() {
+bool& ArcdpsExtension::DemoTableWindow::GetOpenVar() {
 	return mOpen;
 }
 
-void DemoTableWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
+void ArcdpsExtension::DemoTableWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
 	MainWindow::SetMaxHeightCursorPos(pNewCursorPos - GImGui->Style.ItemSpacing.y);
 }
 
-void DemoTableWindow::DrawContextMenu() {
+void ArcdpsExtension::DemoTableWindow::DrawContextMenu() {
 	ImGui::Text("testWindowContextMenu");
 
 	mTable->DrawColumnSetupMenu();
@@ -28,46 +28,46 @@ void DemoTableWindow::DrawContextMenu() {
 	ImGui::PopStyleVar();
 }
 
-void DemoTableWindow::DrawContent() {
+void ArcdpsExtension::DemoTableWindow::DrawContent() {
 	mTable->Draw();
 }
 
-const std::string& DemoTableWindow::getTitleDefault() {
+const std::string& ArcdpsExtension::DemoTableWindow::getTitleDefault() {
 	return mTitleDefault;
 }
 
-std::optional<std::string>& DemoTableWindow::getTitle() {
+std::optional<std::string>& ArcdpsExtension::DemoTableWindow::getTitle() {
 	return mTitle;
 }
 
-const std::string& DemoTableWindow::getWindowID() {
+const std::string& ArcdpsExtension::DemoTableWindow::getWindowID() {
 	return mWindowID;
 }
 
-bool& DemoTableWindow::getShowTitleBar() {
+bool& ArcdpsExtension::DemoTableWindow::getShowTitleBar() {
 	return mShowTitleBar;
 }
 
-bool& DemoTableWindow::getShowBackground() {
+bool& ArcdpsExtension::DemoTableWindow::getShowBackground() {
 	return mGetShowBackground;
 }
 
-bool& DemoTableWindow::GetShowScrollbar() {
+bool& ArcdpsExtension::DemoTableWindow::GetShowScrollbar() {
 	return mShowScrollbar;
 }
 
-std::optional<ImVec2>& DemoTableWindow::getPadding() {
+std::optional<ImVec2>& ArcdpsExtension::DemoTableWindow::getPadding() {
 	return mPadding;
 }
 
-SizingPolicy& DemoTableWindow::getSizingPolicy() {
+SizingPolicy& ArcdpsExtension::DemoTableWindow::getSizingPolicy() {
 	return mSizingPolicy;
 }
 
-std::optional<std::string>& DemoTableWindow::getAppearAsInOption() {
+std::optional<std::string>& ArcdpsExtension::DemoTableWindow::getAppearAsInOption() {
 	return mAppearAsInOptionOpt;
 }
 
-const std::string& DemoTableWindow::getAppearAsInOptionDefault() {
+const std::string& ArcdpsExtension::DemoTableWindow::getAppearAsInOptionDefault() {
 	return mAppearAsInOptionDefault;
 }

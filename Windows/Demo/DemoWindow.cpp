@@ -5,27 +5,27 @@
 
 #include "../../KeyBindHandler.h"
 
-DemoWindow::DemoWindow() : MainWindow() {
+ArcdpsExtension::DemoWindow::DemoWindow() : MainWindow() {
 	CreateComponent<DemoPositioningComponent>();
 	CreateComponent<DemoKeyBindComponent>();
 }
 
-bool& DemoWindow::GetOpenVar() {
+bool& ArcdpsExtension::DemoWindow::GetOpenVar() {
 	return mOpen;
 }
 
-void DemoWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
+void ArcdpsExtension::DemoWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
 	MainWindow::SetMaxHeightCursorPos(pNewCursorPos - GImGui->Style.ItemSpacing.y);
 }
 
-void DemoWindow::DrawContextMenu() {
+void ArcdpsExtension::DemoWindow::DrawContextMenu() {
 	ImGui::Text("testWindowContextMenu");
 
 	ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
 	ImGui::PopStyleVar();
 }
 
-void DemoWindow::DrawContent() {
+void ArcdpsExtension::DemoWindow::DrawContent() {
 	mCurrentRow = 0;
 	ImGui::Text("testWindow");
 	newRow();
@@ -35,7 +35,7 @@ void DemoWindow::DrawContent() {
 	newRow();
 }
 
-void DemoWindow::newRow() {
+void ArcdpsExtension::DemoWindow::newRow() {
 	if (mCurrentRow < mMaxDisplayed) {
 		SetMaxHeightCursorPos();
 	}
@@ -43,51 +43,51 @@ void DemoWindow::newRow() {
 	++mCurrentRow;
 }
 
-const std::string& DemoWindow::getTitleDefault() {
+const std::string& ArcdpsExtension::DemoWindow::getTitleDefault() {
 	return mTitleDefault;
 }
 
-std::optional<std::string>& DemoWindow::getTitle() {
+std::optional<std::string>& ArcdpsExtension::DemoWindow::getTitle() {
 	return mTitle;
 }
 
-const std::string& DemoWindow::getWindowID() {
+const std::string& ArcdpsExtension::DemoWindow::getWindowID() {
 	return mWindowID;
 }
 
-bool& DemoWindow::getShowTitleBar() {
+bool& ArcdpsExtension::DemoWindow::getShowTitleBar() {
 	return mShowTitleBar;
 }
 
-bool& DemoWindow::getShowBackground() {
+bool& ArcdpsExtension::DemoWindow::getShowBackground() {
 	return mGetShowBackground;
 }
 
-bool& DemoWindow::GetShowScrollbar() {
+bool& ArcdpsExtension::DemoWindow::GetShowScrollbar() {
 	return mShowScrollbar;
 }
 
-std::optional<ImVec2>& DemoWindow::getPadding() {
+std::optional<ImVec2>& ArcdpsExtension::DemoWindow::getPadding() {
 	return mPadding;
 }
 
-SizingPolicy& DemoWindow::getSizingPolicy() {
+SizingPolicy& ArcdpsExtension::DemoWindow::getSizingPolicy() {
 	return mSizingPolicy;
 }
 
-bool DemoWindow::getMaxHeightActive() {
+bool ArcdpsExtension::DemoWindow::getMaxHeightActive() {
 	return mMaxDisplayed != 0;
 }
 
-std::optional<std::string>& DemoWindow::getAppearAsInOption() {
+std::optional<std::string>& ArcdpsExtension::DemoWindow::getAppearAsInOption() {
 	return mAppearAsInOptionOpt;
 }
 
-const std::string& DemoWindow::getAppearAsInOptionDefault() {
+const std::string& ArcdpsExtension::DemoWindow::getAppearAsInOptionDefault() {
 	return mAppearAsInOptionDefault;
 }
 
-void DemoWindow::DrawStyleSettingsSubMenu() {
+void ArcdpsExtension::DemoWindow::DrawStyleSettingsSubMenu() {
 	MainWindow::DrawStyleSettingsSubMenu();
 
 	ImGui::InputInt("max displayed", &mMaxDisplayed);

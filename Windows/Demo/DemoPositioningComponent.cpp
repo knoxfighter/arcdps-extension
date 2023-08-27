@@ -1,25 +1,25 @@
 #include "DemoPositioningComponent.h"
 
-Position& DemoPositioningComponent::getPositionMode() {
+Position& ArcdpsExtension::DemoPositioningComponent::getPositionMode() {
 	return mPositionMode;
 }
 
-CornerPosition& DemoPositioningComponent::getCornerPosition() {
+CornerPosition& ArcdpsExtension::DemoPositioningComponent::getCornerPosition() {
 	return mCornerPosition;
 }
 
-ImVec2& DemoPositioningComponent::getCornerVector() {
+ImVec2& ArcdpsExtension::DemoPositioningComponent::getCornerVector() {
 	return mCornerVector;
 }
 
-CornerPosition& DemoPositioningComponent::getAnchorPanelCorner() {
+CornerPosition& ArcdpsExtension::DemoPositioningComponent::getAnchorPanelCorner() {
 	return mAnchorPanelCornerPosition;
 }
 
-CornerPosition& DemoPositioningComponent::getSelfPanelCorner() {
+CornerPosition& ArcdpsExtension::DemoPositioningComponent::getSelfPanelCorner() {
 	return mSelfPanelCornerPosition;
 }
 
-ImGuiID& DemoPositioningComponent::getFromWindowId() {
+ImGuiID& ArcdpsExtension::DemoPositioningComponent::getFromWindowId() {
 	return mFromWindowID;
 }

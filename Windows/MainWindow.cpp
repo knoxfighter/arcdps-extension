@@ -7,11 +7,11 @@
 
 #include <magic_enum.hpp>
 
-MainWindow::~MainWindow() {
+ArcdpsExtension::MainWindow::~MainWindow() {
 	mComponents.clear();
 }
 
-void MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWindowFlags mainWindowFlags) {
+void ArcdpsExtension::MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWindowFlags mainWindowFlags) {
 	if (!GetOpenVar()) {
 		return;
 	}
@@ -121,51 +121,51 @@ void MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWindowFlags mainWin
 	ImGui::End();
 }
 
-void MainWindow::Init() {
+void ArcdpsExtension::MainWindow::Init() {
 	for (const auto& initHook : mInitHooks) {
 		initHook();
 	}
 }
 
-void MainWindow::DrawOptionCheckbox() {
+void ArcdpsExtension::MainWindow::DrawOptionCheckbox() {
 	const auto& appearAsInOptionOpt = getAppearAsInOption();
 	const std::string& appearAsInOption = appearAsInOptionOpt ? appearAsInOptionOpt.value() : getAppearAsInOptionDefault();
 	ImGui::Checkbox(appearAsInOption.c_str(), &GetOpenVar());
 }
 
-void MainWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
+void ArcdpsExtension::MainWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
 	mMaxHeightCursorPos = pNewCursorPos;
 }
 
-ImGuiWindow* MainWindow::GetInnerWindow() {
+ImGuiWindow* ArcdpsExtension::MainWindow::GetInnerWindow() {
 	return mThisWindow;
 }
 
-void MainWindow::RegisterPreDrawHook(PreDrawHookFunction pFun) {
+void ArcdpsExtension::MainWindow::RegisterPreDrawHook(PreDrawHookFunction pFun) {
 	mPreDrawHooks.emplace_back(pFun);
 }
 
-void MainWindow::RegisterContextMenuHook(ContextMenuHookFunction pFun) {
+void ArcdpsExtension::MainWindow::RegisterContextMenuHook(ContextMenuHookFunction pFun) {
 	mContextMenuHooks.emplace_back(pFun);
 }
 
-void MainWindow::RegisterContentHook(DrawContentHookFunction pFun) {
+void ArcdpsExtension::MainWindow::RegisterContentHook(DrawContentHookFunction pFun) {
 	mDrawContentHooks.emplace_back(pFun);
 }
 
-void MainWindow::RegisterInitHook(InitHookFunction pFun) {
+void ArcdpsExtension::MainWindow::RegisterInitHook(InitHookFunction pFun) {
 	mInitHooks.emplace_back(pFun);
 }
 
-void MainWindow::RegisterDrawStyleSubMenuHook(DrawStyleSubMenuHookFunction pFun) {
+void ArcdpsExtension::MainWindow::RegisterDrawStyleSubMenuHook(DrawStyleSubMenuHookFunction pFun) {
 	mDrawStyleSubMenuHooks.emplace_back(pFun);
 }
 
-float MainWindow::GetMaxCursorPos() {
+float ArcdpsExtension::MainWindow::GetMaxCursorPos() {
 	return mMaxHeightCursorPos;
 }
 
-void MainWindow::DrawStyleSettingsSubMenu() {
+void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
 	ImGui::Checkbox(Localization::STranslate(ET_TitleBar).c_str(), &getShowTitleBar());
 	ImGui::Checkbox(Localization::STranslate(ET_Background).c_str(), &getShowBackground());
 	ImGui::Checkbox(Localization::STranslate(ET_Scrollbar).c_str(), &GetShowScrollbar());
@@ -240,6 +240,6 @@ void MainWindow::DrawStyleSettingsSubMenu() {
 	}
 }
 
-bool MainWindow::KeyBindPressed() {
+bool ArcdpsExtension::MainWindow::KeyBindPressed() {
 	return true;
 }

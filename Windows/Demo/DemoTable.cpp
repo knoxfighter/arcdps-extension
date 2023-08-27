@@ -1,44 +1,44 @@
 #include "DemoTable.h"
 
-Alignment& DemoTable::getAlignment() {
+Alignment& ArcdpsExtension::DemoTable::getAlignment() {
 	return mAlignment;
 }
 
-Alignment& DemoTable::getHeaderAlignment() {
+Alignment& ArcdpsExtension::DemoTable::getHeaderAlignment() {
 	return mHeaderAlignment;
 }
 
-std::string DemoTable::getTableId() {
+std::string ArcdpsExtension::DemoTable::getTableId() {
 	return "DemoTableId";
 }
 
-int& DemoTable::getMaxDisplayed() {
+int& ArcdpsExtension::DemoTable::getMaxDisplayed() {
 	return mMaxDisplayed;
 }
 
-const char* DemoTable::getCategoryName(const std::string& pCat) {
+const char* ArcdpsExtension::DemoTable::getCategoryName(const std::string& pCat) {
 	if (pCat == "1") return "Cat1";
 	if (pCat == "1.1") return "Cat1.1";
 	return "";
 }
 
-bool& DemoTable::getShowAlternatingBackground() {
+bool& ArcdpsExtension::DemoTable::getShowAlternatingBackground() {
 	return mAlternatingBackground;
 }
 
-MainTable<64>::TableSettings& DemoTable::getTableSettings() {
+ArcdpsExtension::MainTable<64>::TableSettings& ArcdpsExtension::DemoTable::getTableSettings() {
 	return mSettings;
 }
 
-bool& DemoTable::getHighlightHoveredRows() {
+bool& ArcdpsExtension::DemoTable::getHighlightHoveredRows() {
 	return mHighlightHoveredRows;
 }
 
-bool& DemoTable::getShowHeaderAsText() {
+bool& ArcdpsExtension::DemoTable::getShowHeaderAsText() {
 	return mShowHeaderAsText;
 }
 
-void DemoTable::DrawRows(TableColumnIdx pFirstColumnIndex) {
+void ArcdpsExtension::DemoTable::DrawRows(TableColumnIdx pFirstColumnIndex) {
 	for (const Row& row : Rows) {
 		NextRow();
 
@@ -63,7 +63,7 @@ void DemoTable::DrawRows(TableColumnIdx pFirstColumnIndex) {
 	}
 }
 
-void DemoTable::Sort(const ImGuiTableColumnSortSpecs* mColumnSortSpecs) {
+void ArcdpsExtension::DemoTable::Sort(const ImGuiTableColumnSortSpecs* mColumnSortSpecs) {
 	const bool descend = mColumnSortSpecs->SortDirection == ImGuiSortDirection_Descending;
 	std::ranges::sort(Rows, [descend, mColumnSortSpecs](const Row& row1, const Row& row2) -> bool {
 		switch (mColumnSortSpecs->ColumnIndex) {

@@ -1,13 +1,13 @@
 #include "Singleton.h"
 
-SingletonManager g_singletonManagerInstance;
+ArcdpsExtension::SingletonManager ArcdpsExtension::g_singletonManagerInstance;
 
-BaseSingleton* BaseSingleton::Store(std::unique_ptr<BaseSingleton>&& ptr) {
+ArcdpsExtension::BaseSingleton* ArcdpsExtension::BaseSingleton::Store(std::unique_ptr<BaseSingleton>&& ptr) {
 	g_singletonManagerInstance.singletons_.push(std::move(ptr));
 	return g_singletonManagerInstance.singletons_.top().get();
 }
 
-void BaseSingleton::Clear(BaseSingleton* clearPtr) {
+void ArcdpsExtension::BaseSingleton::Clear(BaseSingleton* clearPtr) {
 	std::stack<std::unique_ptr<BaseSingleton>> singletons;
 
 	while (!g_singletonManagerInstance.singletons_.empty()) {

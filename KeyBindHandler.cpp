@@ -5,21 +5,21 @@
 #include <format>
 #include <ranges>
 
-uint64_t KeyBindHandler::Subscribe(Subscriber pSubscriber) {
+uint64_t ArcdpsExtension::KeyBindHandler::Subscribe(Subscriber pSubscriber) {
 	uint64_t newId = getNewId();
 	mSubscribers.try_emplace(newId, pSubscriber);
 	return newId;
 }
 
-void KeyBindHandler::Unsubscribe(uint64_t pId) {
+void ArcdpsExtension::KeyBindHandler::Unsubscribe(uint64_t pId) {
 	mSubscribers.erase(pId);
 }
 
-void KeyBindHandler::UpdateKey(uint64_t pId, const KeyBinds::Key& pKey) {
+void ArcdpsExtension::KeyBindHandler::UpdateKey(uint64_t pId, const KeyBinds::Key& pKey) {
 	mSubscribers.at(pId).Key = pKey;
 }
 
-void KeyBindHandler::UpdateKeys(const KeyBinds::Key& pOldKey, const KeyBinds::Key& pNewKey) {
+void ArcdpsExtension::KeyBindHandler::UpdateKeys(const KeyBinds::Key& pOldKey, const KeyBinds::Key& pNewKey) {
 	for (auto& subscriber : mSubscribers | std::views::values) {
 		if (subscriber.Key == pOldKey) {
 			subscriber.Key = pNewKey;
@@ -27,7 +27,7 @@ void KeyBindHandler::UpdateKeys(const KeyBinds::Key& pOldKey, const KeyBinds::Ke
 	}
 }
 
-bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+bool ArcdpsExtension::KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch (uMsg) {
 		case WM_KEYDOWN:
 		case WM_SYSKEYDOWN: {
@@ -123,7 +123,7 @@ bool KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	return false;
 }
 
-KeyBinds::Modifier KeyBindHandler::GetArcdpsModifier() {
+KeyBinds::Modifier ArcdpsExtension::KeyBindHandler::GetArcdpsModifier() {
 	uint64_t e7_result = ARC_EXPORT_E7();
 
 	uint16_t* ra = (uint16_t*) &e7_result;
@@ -137,7 +137,7 @@ KeyBinds::Modifier KeyBindHandler::GetArcdpsModifier() {
 	return 0;
 }
 
-KeyBinds::Modifier KeyBindHandler::getArcdpsModifierSingle(uint16_t pMod) {
+KeyBinds::Modifier ArcdpsExtension::KeyBindHandler::getArcdpsModifierSingle(uint16_t pMod) {
 	if (pMod == 16) {
 		return KeyBinds::Modifier_Shift;
 	}

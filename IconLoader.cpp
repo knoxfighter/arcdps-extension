@@ -83,23 +83,23 @@ namespace {
 	};
 } // namespace
 
-IconLoader::IconLoader() {
+ArcdpsExtension::IconLoader::IconLoader() {
 	mThread = std::move(std::jthread([this](std::stop_token pToken) {
 		runner(std::move(pToken));
 	}));
 }
 
-IconLoader::~IconLoader() {
+ArcdpsExtension::IconLoader::~IconLoader() {
 	mThread.request_stop();
 	mThread.join();
 }
 
-void IconLoader::Setup(HMODULE pDll, ID3D11Device* pD11Device) {
+void ArcdpsExtension::IconLoader::Setup(HMODULE pDll, ID3D11Device* pD11Device) {
 	mDll = pDll;
 	mD11Device = pD11Device;
 }
 
-void IconLoader::runner(std::stop_token pToken) {
+void ArcdpsExtension::IconLoader::runner(std::stop_token pToken) {
 	while (true) {
 		std::unique_lock lock(mThreadMutex);
 		mThreadVariable.wait(lock, pToken, [this] {
@@ -120,17 +120,17 @@ void IconLoader::runner(std::stop_token pToken) {
 	}
 }
 
-void IconLoader::queueLoad(const QueueIcon& pIcon) {
+void ArcdpsExtension::IconLoader::queueLoad(const QueueIcon& pIcon) {
 	std::lock_guard guard(mLoadQueueMutex);
 
 	mLoadQueue.try_emplace(pIcon.mName, pIcon);
 }
 
-void IconLoader::loadDone(const IconLoader::QueueIcon& pIcon, ID3D11ShaderResourceView* pTexture) {
+void ArcdpsExtension::IconLoader::loadDone(const IconLoader::QueueIcon& pIcon, ID3D11ShaderResourceView* pTexture) {
 	mIcons.try_emplace(pIcon.mName, pIcon.mWidth, pIcon.mHeight, pTexture);
 }
 
-void IconLoader::QueueIcon::Load() {
+void ArcdpsExtension::IconLoader::QueueIcon::Load() {
 	switch (mWay) {
 		case LoadWay::File:
 			LoadFile(std::get<std::filesystem::path>(mResource));
@@ -147,7 +147,7 @@ void IconLoader::QueueIcon::Load() {
 	}
 }
 
-void IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
+void ArcdpsExtension::IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
 	if (!exists(pFilepath)) {
 		Log(std::format("LoadFile|File '{}' does not exist", pFilepath.string()));
 		return;
@@ -188,7 +188,7 @@ void IconLoader::QueueIcon::LoadFile(const std::filesystem::path& pFilepath) {
 	LoadFrame(pIDecodeFrame, pIWICFactory);
 }
 
-void IconLoader::QueueIcon::LoadUrl(const std::string& pUrl) {
+void ArcdpsExtension::IconLoader::QueueIcon::LoadUrl(const std::string& pUrl) {
 	// build local path to cache
 	std::filesystem::path filepath = pUrl;
 	size_t size = pUrl.find("//");
@@ -227,14 +227,14 @@ void IconLoader::QueueIcon::LoadUrl(const std::string& pUrl) {
 	);
 }
 
-void IconLoader::QueueIcon::LoadGw2Dat(const std::string& pId) {
+void ArcdpsExtension::IconLoader::QueueIcon::LoadGw2Dat(const std::string& pId) {
 	// build http link to download from gw2dat
 	std::string url = std::format("https://assets.gw2dat.com/{}.png", pId);
 
 	LoadUrl(url);
 }
 
-void IconLoader::QueueIcon::LoadResource(UINT pId) {
+void ArcdpsExtension::IconLoader::QueueIcon::LoadResource(UINT pId) {
 	HRSRC imageResHandle = FindResource(mIconLoader.mDll, MAKEINTRESOURCE(pId), L"PNG");
 	if (!imageResHandle) {
 		Log("LoadResource|cannot FindResource");
@@ -309,7 +309,7 @@ void IconLoader::QueueIcon::LoadResource(UINT pId) {
 	LoadFrame(pIDecodeFrame, pIWICFactory);
 }
 
-void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory) {
+void ArcdpsExtension::IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory) {
 	HRESULT getSizeRes = pIDecodeFrame->GetSize(&mWidth, &mHeight);
 	if (FAILED(getSizeRes)) {
 		Log(std::format("LoadFrame|GetSize failed - {}", getSizeRes));
@@ -411,7 +411,7 @@ void IconLoader::QueueIcon::LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDe
 	mIconLoader.queueLoad(*this);
 }
 
-void IconLoader::QueueIcon::DeviceLoad() {
+void ArcdpsExtension::IconLoader::QueueIcon::DeviceLoad() {
 	D3D11_TEXTURE2D_DESC desc;
 	ZeroMemory(&desc, sizeof desc);
 	desc.Width = mWidth;
@@ -461,7 +461,7 @@ void IconLoader::QueueIcon::DeviceLoad() {
 	mIconLoader.loadDone(*this, d11Texture);
 }
 
-DXGI_FORMAT IconLoader::QueueIcon::GetFormatDx11(WICPixelFormatGUID pPixelFormat) {
+DXGI_FORMAT ArcdpsExtension::IconLoader::QueueIcon::GetFormatDx11(WICPixelFormatGUID pPixelFormat) {
 	if (pPixelFormat == GUID_WICPixelFormat128bppRGBAFloat) {
 		return DXGI_FORMAT_R32G32B32A32_FLOAT;
 	}

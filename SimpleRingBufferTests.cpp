@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <ranges>
 
+using namespace ArcdpsExtension;
+
 TEST(SimpleRingBufferTests, PushBackTest) {
 	RingBuffer<uint64_t> buffer(10);
 	for (int i = 1; i < 7; ++i) {

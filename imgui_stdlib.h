@@ -10,13 +10,8 @@
 
 #pragma once
 
-#include <string>
-
-#if __has_include(<imgui/imgui.h>)
 #include <imgui/imgui.h>
-#else
-#include "../imgui/imgui.h"
-#endif
+#include <string>
 
 namespace ImGui {
 	// ImGui::InputText() with std::string

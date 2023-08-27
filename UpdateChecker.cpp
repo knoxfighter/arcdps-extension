@@ -11,7 +11,7 @@
 #include "../imgui/imgui.h"
 #endif
 
-void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
+void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
 	if (!pUpdateState) {
 		// wrongly initialized UpdateChecker, nothing to do here!
 		return;
@@ -66,7 +66,7 @@ void UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const
 	}
 }
 
-bool UpdateChecker::HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) {
+bool ArcdpsExtension::UpdateChecker::HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<SimpleNetworkStack::Result> promise;
@@ -84,7 +84,7 @@ bool UpdateChecker::HttpDownload(const std::string& pUrl, const std::filesystem:
 	return true;
 }
 
-std::optional<std::string> UpdateChecker::HttpGet(const std::string& pUrl) {
+std::optional<std::string> ArcdpsExtension::UpdateChecker::HttpGet(const std::string& pUrl) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<SimpleNetworkStack::Result> promise;

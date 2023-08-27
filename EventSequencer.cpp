@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-void EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
+void ArcdpsExtension::EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
 	std::lock_guard guard(mElementsMutex);
 	if (pId == 0) {
 		if (mElements.empty()) {
@@ -19,18 +19,18 @@ void EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char*
 	}
 }
 
-bool EventSequencer::EventsPending() const {
+bool ArcdpsExtension::EventSequencer::EventsPending() const {
 	return !mElements.empty() || mThreadRunning;
 }
 
-void EventSequencer::Reset() {
+void ArcdpsExtension::EventSequencer::Reset() {
 	std::unique_lock guard(mElementsMutex);
 	mElements.clear();
 	mNextId = 2;
 	mLastId = 2;
 }
 
-EventSequencer::EventSequencer(const CallbackSignature& pCallback) : mCallback(pCallback) {
+ArcdpsExtension::EventSequencer::EventSequencer(const CallbackSignature& pCallback) : mCallback(pCallback) {
 	using namespace std::chrono_literals;
 	mThread = std::jthread([this](std::stop_token stoken) {
 		while (!stoken.stop_requested()) {
@@ -45,11 +45,11 @@ EventSequencer::EventSequencer(const CallbackSignature& pCallback) : mCallback(p
 	});
 }
 
-EventSequencer::~EventSequencer() {
+ArcdpsExtension::EventSequencer::~EventSequencer() {
 	Shutdown();
 }
 
-void EventSequencer::EventInternal(Event& pElem) {
+void ArcdpsExtension::EventSequencer::EventInternal(Event& pElem) {
 	cbtevent* event = nullptr;
 	if (pElem.Ev.Present) {
 		event = &pElem.Ev;
@@ -74,7 +74,7 @@ void EventSequencer::EventInternal(Event& pElem) {
 	mCallback(event, source, dest, pElem.Skillname, pElem.Id, pElem.Revision);
 }
 
-void EventSequencer::Shutdown() {
+void ArcdpsExtension::EventSequencer::Shutdown() {
 	if (mThread.joinable()) {
 		mThread.request_stop();
 		mThread.join();

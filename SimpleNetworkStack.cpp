@@ -3,8 +3,7 @@
 
 #include "SimpleNetworkStack.h"
 
-
-SimpleNetworkStack::SimpleNetworkStack() {
+ArcdpsExtension::SimpleNetworkStack::SimpleNetworkStack() {
 	mHandle = curl_easy_init();
 
 	if (!mHandle) {
@@ -17,7 +16,7 @@ SimpleNetworkStack::SimpleNetworkStack() {
 	}));
 }
 
-SimpleNetworkStack::Result SimpleNetworkStack::get(const QueueElement& pElement) {
+ArcdpsExtension::SimpleNetworkStack::Result ArcdpsExtension::SimpleNetworkStack::get(const QueueElement& pElement) {
 	mLastResponseBuffer.clear();
 	curl_easy_reset(mHandle);
 
@@ -63,7 +62,7 @@ SimpleNetworkStack::Result SimpleNetworkStack::get(const QueueElement& pElement)
 	return Response{mLastResponseBuffer, mLastResponseCode};
 }
 
-SimpleNetworkStack::~SimpleNetworkStack() {
+ArcdpsExtension::SimpleNetworkStack::~SimpleNetworkStack() {
 	if (mThread.joinable()) {
 		mThread.request_stop();
 		mThread.join();
@@ -71,12 +70,12 @@ SimpleNetworkStack::~SimpleNetworkStack() {
 	curl_easy_cleanup(mHandle);
 }
 
-size_t SimpleNetworkStack::ResponseBufferWriteFunction(void* pContent, size_t pSize, size_t pNMemb, void* pUserP) {
+size_t ArcdpsExtension::SimpleNetworkStack::ResponseBufferWriteFunction(void* pContent, size_t pSize, size_t pNMemb, void* pUserP) {
 	static_cast<std::string*>(pUserP)->append(static_cast<char*>(pContent), pSize * pNMemb);
 	return pSize * pNMemb;
 }
 
-void SimpleNetworkStack::runner(const std::stop_token& pToken) {
+void ArcdpsExtension::SimpleNetworkStack::runner(const std::stop_token& pToken) {
 	while (true) {
 		std::unique_lock lock(mQueueMutex);
 
@@ -102,21 +101,21 @@ void SimpleNetworkStack::runner(const std::stop_token& pToken) {
 	}
 }
 
-void SimpleNetworkStack::QueueGet(const std::string& pUrl, const std::filesystem::path& pFilepath) {
+void ArcdpsExtension::SimpleNetworkStack::QueueGet(const std::string& pUrl, const std::filesystem::path& pFilepath) {
 	std::lock_guard lock(mQueueMutex);
 
 	mJobQueue.emplace(pUrl, std::monostate(), pFilepath);
 
 	mQueueCv.notify_one();
 }
-void SimpleNetworkStack::QueueGet(const std::string& pUrl, const SimpleNetworkStack::ResultFunc& pFunc, const std::filesystem::path& pFilepath) {
+void ArcdpsExtension::SimpleNetworkStack::QueueGet(const std::string& pUrl, const SimpleNetworkStack::ResultFunc& pFunc, const std::filesystem::path& pFilepath) {
 	std::lock_guard lock(mQueueMutex);
 
 	mJobQueue.emplace(pUrl, pFunc, pFilepath);
 
 	mQueueCv.notify_one();
 }
-void SimpleNetworkStack::QueueGet(const std::string& pUrl, std::promise<Result> pPromise, const std::filesystem::path& pFilepath) {
+void ArcdpsExtension::SimpleNetworkStack::QueueGet(const std::string& pUrl, std::promise<Result> pPromise, const std::filesystem::path& pFilepath) {
 	std::lock_guard lock(mQueueMutex);
 
 	mJobQueue.emplace(pUrl, std::move(pPromise), pFilepath);

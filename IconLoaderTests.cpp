@@ -9,6 +9,8 @@ namespace {
 	HMODULE EXE_HANDLE = NULL;
 } // namespace
 
+using namespace ArcdpsExtension;
+
 class IconLoaderTests : public ::testing::Test {
 public:
 	static void SetUpTestSuite() {
@@ -26,7 +28,7 @@ public:
 
 		EXE_HANDLE = GetModuleHandleA(NULL);
 
-		IconLoader::instance().Setup(EXE_HANDLE, D11_DEVICE);
+		ArcdpsExtension::IconLoader::instance().Setup(EXE_HANDLE, D11_DEVICE);
 
 		/* Delete cached downloaded file */
 		auto fullPath = std::filesystem::temp_directory_path();
@@ -51,7 +53,7 @@ public:
 
 TEST_F(IconLoaderTests, LoadFromFile) {
 	using namespace std::chrono_literals;
-	auto& iconLoader = IconLoader::instance();
+	auto& iconLoader = ArcdpsExtension::IconLoader::instance();
 
 	std::string file = TEST_DIR;
 	file.append("Alacrity.png");
@@ -74,7 +76,7 @@ TEST_F(IconLoaderTests, LoadFromFile) {
 
 TEST_F(IconLoaderTests, LoadFromUrl) {
 	using namespace std::chrono_literals;
-	auto& iconLoader = IconLoader::instance();
+	auto& iconLoader = ArcdpsExtension::IconLoader::instance();
 
 	iconLoader.RegisterUrl(2, "https://wiki.guildwars2.com/images/4/4c/Alacrity.png");
 
@@ -95,7 +97,7 @@ TEST_F(IconLoaderTests, LoadFromUrl) {
 
 TEST_F(IconLoaderTests, LoadFromGw2Dat) {
 	using namespace std::chrono_literals;
-	auto& iconLoader = IconLoader::instance();
+	auto& iconLoader = ArcdpsExtension::IconLoader::instance();
 
 	iconLoader.RegisterGw2Dat(4, "102484"); // https://assets.gw2dat.com/102484.png
 
@@ -116,7 +118,7 @@ TEST_F(IconLoaderTests, LoadFromGw2Dat) {
 
 TEST_F(IconLoaderTests, LoadFromResource) {
 	using namespace std::chrono_literals;
-	auto& iconLoader = IconLoader::instance();
+	auto& iconLoader = ArcdpsExtension::IconLoader::instance();
 
 	iconLoader.RegisterResource(3, ID_Alacrity);
 

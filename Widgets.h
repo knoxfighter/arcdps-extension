@@ -3,18 +3,11 @@
 #include "arcdps_structs.h"
 #include "rapidfuzz_amalgamated.hpp"
 
-#if __has_include(<imgui/imgui.h>)
-#include <imgui/imgui.h>
-#include <imgui/imgui_internal.h>
-#else
-#include "../imgui/imgui.h"
-#include "../imgui/imgui_internal.h"
-#endif
-
-
 #include <algorithm>
 #include <format>
 #include <functional>
+#include <imgui/imgui.h>
+#include <imgui/imgui_internal.h>
 #include <map>
 #include <ranges>
 

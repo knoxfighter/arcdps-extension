@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+using namespace ArcdpsExtension;
+
 namespace {
 	const std::filesystem::path TEMPFILE = std::filesystem::temp_directory_path() / "out.tmp";
 }

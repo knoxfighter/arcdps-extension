@@ -2,15 +2,15 @@
 
 #include <string>
 
-void CombatEventHandler::Event(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
+void ArcdpsExtension::CombatEventHandler::Event(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
 	mSequencer.ProcessEvent(pEvent, pSrc, pDst, pSkillname, pId, pRevision);
 }
 
-bool CombatEventHandler::EventsPending() {
+bool ArcdpsExtension::CombatEventHandler::EventsPending() {
 	return mSequencer.EventsPending();
 }
 
-void CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId) {
+void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId) {
 	Log(std::format("pId: {}", pId));
 	if (pEvent) {
 		mLastEventTime = pEvent->time;
@@ -159,7 +159,7 @@ void CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, con
 	}
 }
 
-void CombatEventHandler::BuffEvent(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId) {
+void ArcdpsExtension::CombatEventHandler::BuffEvent(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId) {
 	if (pEvent->buff_dmg) {
 		BuffDamage(mLastEventTime, pEvent, *pSrc, *pDst, pSkillname, pId);
 	} else {

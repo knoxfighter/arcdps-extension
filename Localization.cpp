@@ -2,7 +2,7 @@
 
 #include "ExtensionTranslations.h"
 
-Localization::Localization() {
+ArcdpsExtension::Localization::Localization() {
 	mCurrentTranslation = &mTranslations.at(mCurrentLanguage);
 
 	Load(GWL_ENG, EXTENSION_TRANSLATION_ENGLISH);
@@ -11,19 +11,19 @@ Localization::Localization() {
 	Load(GWL_FRE, EXTENSION_TRANSLATION_FRENCH);
 }
 
-const std::string& Localization::Translate(size_t pId) const {
+const std::string& ArcdpsExtension::Localization::Translate(size_t pId) const {
 	return mCurrentTranslation->at(pId);
 }
 
-void Localization::ChangeLanguage(gwlanguage pLang) {
+void ArcdpsExtension::Localization::ChangeLanguage(gwlanguage pLang) {
 	mCurrentLanguage = pLang;
 	mCurrentTranslation = &mTranslations.at(pLang);
 }
 
-void Localization::SChangeLanguage(gwlanguage pLang) {
+void ArcdpsExtension::Localization::SChangeLanguage(gwlanguage pLang) {
 	Localization::instance().ChangeLanguage(pLang);
 }
 
-void Localization::OverrideTranslation(gwlanguage pLanguage, size_t pTranslation, const std::string& pText) {
+void ArcdpsExtension::Localization::OverrideTranslation(gwlanguage pLanguage, size_t pTranslation, const std::string& pText) {
 	mTranslations.at(pLanguage).at(pTranslation) = pText;
 }

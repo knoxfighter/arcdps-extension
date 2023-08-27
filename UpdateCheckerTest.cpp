@@ -12,6 +12,8 @@
 #include <fstream>
 #include <queue>
 
+using namespace ArcdpsExtension;
+
 namespace {
 	constexpr char MOCK_RESPONSE_ALL_RELEASES[] = R"DELIMITER([
   {
