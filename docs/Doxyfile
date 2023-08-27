@@ -1,10 +1,9 @@
 # Doxyfile 1.9.8
 
 PROJECT_NAME           = ArcdpsExtension
-OUTPUT_DIRECTORY       = D:/ProgrammeSelbst/C++/arcdps-extension/docs
+OUTPUT_DIRECTORY       = docs
 ALLOW_UNICODE_NAMES    = YES
 EXTRACT_ALL            = YES
-INPUT                  = D:/ProgrammeSelbst/C++/arcdps-extension
 RECURSIVE              = YES
 EXCLUDE                = cmake-build
 DISABLE_INDEX          = YES
