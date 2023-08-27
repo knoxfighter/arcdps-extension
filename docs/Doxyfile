@@ -1,0 +1,11 @@
+# Doxyfile 1.9.8
+
+PROJECT_NAME           = ArcdpsExtension
+OUTPUT_DIRECTORY       = docs
+ALLOW_UNICODE_NAMES    = YES
+EXTRACT_ALL            = YES
+RECURSIVE              = YES
+EXCLUDE                = cmake-build
+DISABLE_INDEX          = YES
+GENERATE_TREEVIEW      = YES
+GENERATE_LATEX         = NO
