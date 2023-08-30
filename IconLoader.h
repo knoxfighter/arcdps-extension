@@ -28,73 +28,73 @@ namespace ArcdpsExtension {
 	concept IconLoaderKey = static_castable<T, IconLoaderKeyType>;
 
 	/**
- * Load icons in a separate thread.<br>
- * Always have an enum or any other list of numbers as unique ID.<br>
- * Make sure to call `Setup()` before you use this class.
- * <p>
- * Class-Internal flow:
- * @code
- * MainThread::Register()
- *   ↳ lock mThreadMutex
- *   ↳ mThreadQueue
- * ↓
- * IconLoaderThread::runner()
- *   ↳ Load()
- *   ↳ lock mLoadQueueMutex
- *   ↳ mLoadQueue
- * ↓
- * MainThread::Draw()
- *   ↳ lock mLoadQueueMutex
- *   ↳ extract from mLoadQueue
- *   ↳ mIcons
- * @endcode
- * </p>
- */
+	 * Load icons in a separate thread.<br>
+	 * Always have an enum or any other list of numbers as unique ID.<br>
+	 * Make sure to call `Setup()` before you use this class.
+	 * <p>
+	 * Class-Internal flow:
+	 * @code
+	 * MainThread::Register()
+	 *   ↳ lock mThreadMutex
+	 *   ↳ mThreadQueue
+	 * ↓
+	 * IconLoaderThread::runner()
+	 *   ↳ Load()
+	 *   ↳ lock mLoadQueueMutex
+	 *   ↳ mLoadQueue
+	 * ↓
+	 * MainThread::Draw()
+	 *   ↳ lock mLoadQueueMutex
+	 *   ↳ extract from mLoadQueue
+	 *   ↳ mIcons
+	 * @endcode
+	 * </p>
+	 */
 	class IconLoader final : public Singleton<IconLoader> {
 	public:
 		IconLoader();
 		~IconLoader() override;
 
 		/**
-	 * Call in `mod_init()`. If this is not called properly, it will crash when icons are loaded.
-	 * @param pDll The DLL of this module (the one to load resources from)
-	 * @param pD11Device The D3D11 device
-	 */
+		 * Call in `mod_init()`. If this is not called properly, it will crash when icons are loaded.
+		 * @param pDll The DLL of this module (the one to load resources from)
+		 * @param pD11Device The D3D11 device
+		 */
 		void Setup(HMODULE pDll, ID3D11Device* pD11Device);
 
 		/**
-	 * Register an Icon that will be loaded from a file.
-	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
-	 * @param pFilepath The Path to the file that will be loaded (has to exist, else nothing happens)
-	 */
+		 * Register an Icon that will be loaded from a file.
+		 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+		 * @param pFilepath The Path to the file that will be loaded (has to exist, else nothing happens)
+		 */
 		void RegisterFile(IconLoaderKey auto pName, const std::filesystem::path& pFilepath);
 
 		/**
-	 * Register an Icon that will be downloaded and then loaded. It will cache files in the Temp Dir.
-	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
-	 * @param pUrl The URL to download (has to be a full link, like `https://wiki.guildwars2.com/images/4/4c/Alacrity.png`)
-	 */
+		 * Register an Icon that will be downloaded and then loaded. It will cache files in the Temp Dir.
+		 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+		 * @param pUrl The URL to download (has to be a full link, like `https://wiki.guildwars2.com/images/4/4c/Alacrity.png`)
+		 */
 		void RegisterUrl(IconLoaderKey auto pName, const std::string& pUrl);
 
 		/**
-	 * Register an Icon that will be downloaded from gw2dat.com. It will cache files in the Temp Dir.
-	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
-	 * @param pId The ID to download from gw2dat.com (`.png` will be added to the id)
-	 */
+		 * Register an Icon that will be downloaded from gw2dat.com. It will cache files in the Temp Dir.
+		 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+		 * @param pId The ID to download from gw2dat.com (`.png` will be added to the id)
+		 */
 		void RegisterGw2Dat(IconLoaderKey auto pName, const std::string& pId);
 
 		/**
-	 * Register an Icon that will be loaded from the Resource of the module defined in Setup().
-	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
-	 * @param pId The ID of the resource to load (normally defined in resource.h)
-	 */
+		 * Register an Icon that will be loaded from the Resource of the module defined in Setup().
+		 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+		 * @param pId The ID of the resource to load (normally defined in resource.h)
+		 */
 		void RegisterResource(IconLoaderKey auto pName, UINT pId);
 
 		/**
-	 * Get the ResourceView* from a previously Registered Icon.
-	 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
-	 * @return either the ResourceView* or nullptr if loading failed or is in progress.
-	 */
+		 * Get the ResourceView* from a previously Registered Icon.
+		 * @param pName UID of the Icon (will be casted to `IconLoaderKeyType`)
+		 * @return either the ResourceView* or nullptr if loading failed or is in progress.
+		 */
 		ID3D11ShaderResourceView* Draw(IconLoaderKey auto pName);
 
 	private:

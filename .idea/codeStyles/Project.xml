@@ -4,6 +4,9 @@
     <CMakeCodeStyleSettings>
       <option name="FORCE_COMMANDS_CASE" value="0" />
     </CMakeCodeStyleSettings>
+    <Markdown>
+      <option name="WRAP_TEXT_IF_LONG" value="false" />
+    </Markdown>
     <Objective-C>
       <option name="SPACE_BEFORE_POINTER_IN_DECLARATION" value="false" />
       <option name="SPACE_AFTER_POINTER_IN_DECLARATION" value="true" />
@@ -61,6 +64,9 @@
         <option name="USE_TAB_CHARACTER" value="true" />
         <option name="SMART_TABS" value="true" />
       </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Markdown">
+      <option name="RIGHT_MARGIN" value="120" />
     </codeStyleSettings>
     <codeStyleSettings language="ObjectiveC">
       <indentOptions>

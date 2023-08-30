@@ -11,7 +11,7 @@
 
 namespace ArcdpsExtension {
 	/**
-	 * How to use:
+	 * How to use:<br>
 	 * Call `Load()` with your translations you want to add.
 	 * Things are added to the back of the list with all `Extension` based translations at the beginning.
 	 * So make sure, your IDs enum or whatever you use, starts with one higher than the last used one.

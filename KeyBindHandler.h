@@ -8,13 +8,12 @@
 
 namespace ArcdpsExtension {
 	/**
- * To Use:
- * - This class only works with arcdps, 
- * - Make sure you have set tha extern variables in `arcdps_structs.h`. Those are called here.
- * - The Singleton also has to be setup
- * - Call `Wnd` in `mod_wnd` (arcdps callback)
- * - 
- */
+	 * To Use:<br>
+	 * - This class only works with arcdps<br>
+	 * - Make sure you have set tha extern variables in `arcdps_structs.h`. Those are called here.<br>
+	 * - The Singleton also has to be setup<br>
+	 * - Call `Wnd` in `mod_wnd` (arcdps callback)<br>
+	 */
 	class KeyBindHandler : public Singleton<KeyBindHandler> {
 	public:
 		enum SubscriberFlags_ {
@@ -24,9 +23,9 @@ namespace ArcdpsExtension {
 		using SubscriberFlags = std::underlying_type_t<SubscriberFlags_>; // enum SubscriberFlags_
 
 		/**
-	 * The function that is called when a Key-combination is pressed.
-	 * \return boolean if the event should be consumed.
-	 */
+		 * The function that is called when a Key-combination is pressed.
+		 * \return boolean if the event should be consumed.
+		 */
 		using SubscriberFun = std::function<bool(const KeyBinds::Key&)>;
 
 		struct Subscriber {
@@ -36,35 +35,35 @@ namespace ArcdpsExtension {
 		};
 
 		/**
-	 * Subscribe a function to a Key that is called when the Key-combination is pressed.
-	 *
-	 * \return ID of the Subscription, use this in Unsubscribe.
-	 */
+	 	 * Subscribe a function to a Key that is called when the Key-combination is pressed.
+		 *
+		 * \return ID of the Subscription, use this in Unsubscribe.
+		 */
 		uint64_t Subscribe(Subscriber pSubscriber);
 
 		/**
-	 * Unsubscribe given Subscription ID
-	 */
+		 * Unsubscribe given Subscription ID
+		 */
 		void Unsubscribe(uint64_t pId);
 
 		/**
-	 * Update the Key of the given Subscription ID
-	 */
+		 * Update the Key of the given Subscription ID
+		 */
 		void UpdateKey(uint64_t pId, const KeyBinds::Key& pKey);
 
 		/**
-	 * Update all existing `pOldKey` tracked values to `pNewKey`
-	 */
+		 * Update all existing `pOldKey` tracked values to `pNewKey`
+		 */
 		void UpdateKeys(const KeyBinds::Key& pOldKey, const KeyBinds::Key& pNewKey);
 
 		/**
-	 * Call this in `mod_wnd`.
-	 */
+		 * Call this in `mod_wnd`.
+		 */
 		bool Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 		/**
-	 * Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper)
-	 */
+		 * Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper)
+		 */
 		static KeyBinds::Modifier GetArcdpsModifier();
 
 	private:

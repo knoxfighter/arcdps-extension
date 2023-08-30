@@ -90,8 +90,10 @@ ArcdpsExtension::IconLoader::IconLoader() {
 }
 
 ArcdpsExtension::IconLoader::~IconLoader() {
-	mThread.request_stop();
-	mThread.join();
+	if (mThread.joinable()) {
+		mThread.request_stop();
+		mThread.join();
+	}
 }
 
 void ArcdpsExtension::IconLoader::Setup(HMODULE pDll, ID3D11Device* pD11Device) {

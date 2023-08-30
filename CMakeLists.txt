@@ -38,6 +38,7 @@ TARGET_SOURCES(${PROJECT_NAME} INTERFACE
 		FILES
 		arcdps_structs.h
 		arcdps_structs_slim.h
+		ArcdpsExtension.h
 		CombatEventHandler.h
 		EventSequencer.h
 		ExtensionTranslations.h
