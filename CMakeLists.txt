@@ -14,7 +14,7 @@ FIND_PACKAGE(ArcdpsUnofficialExtras CONFIG REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
 
 ADD_LIBRARY(${PROJECT_NAME} STATIC)
-ADD_LIBRARY(${PROJECT_NAME}::extension ALIAS ${PROJECT_NAME})
+ADD_LIBRARY(${PROJECT_NAME}::ArcdpsExtension ALIAS ${PROJECT_NAME})
 
 # Use -MT / -MTd runtime library
 SET_PROPERTY(TARGET ArcdpsExtension PROPERTY
@@ -142,7 +142,7 @@ IF (BUILD_TESTS)
 	SET_PROPERTY(TARGET ${PROJECT_NAME}Tests PROPERTY
 			MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::extension GTest::gtest GTest::gtest_main)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE ArcdpsExtension::ArcdpsExtension GTest::gtest GTest::gtest_main)
 	IF (WIN32)
 		TARGET_LINK_LIBRARIES(${PROJECT_NAME}Tests PRIVATE Version.lib d3d11.lib)
 	ELSE ()
