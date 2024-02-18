@@ -121,6 +121,7 @@ INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArcdpsExtensionConfig.cmake
 )
 
 INSTALL(EXPORT ArcdpsExtensionTargets
+		NAMESPACE ArcdpsExtension::
 		FILE ArcdpsExtensionTargets.cmake
 		DESTINATION share/${PROJECT_NAME}
 )
