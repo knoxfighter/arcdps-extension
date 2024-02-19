@@ -35,6 +35,7 @@ ADD_COMPILE_DEFINITIONS(
 
 TARGET_SOURCES(${PROJECT_NAME} INTERFACE
 		FILE_SET HEADERS
+#		BASE_DIRS include
 		FILES
 		arcdps_structs.h
 		arcdps_structs_slim.h
@@ -108,6 +109,7 @@ INSTALL(TARGETS ${PROJECT_NAME}
 		EXPORT ArcdpsExtensionTargets
 		FILE_SET HEADERS
 		DESTINATION include/${PROJECT_NAME}
+		INCLUDES DESTINATION include
 )
 
 INCLUDE(CMakePackageConfigHelpers)
