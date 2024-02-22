@@ -3,14 +3,15 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.25)
 PROJECT(ArcdpsExtension CXX)
 
 OPTION(BUILD_TESTS "Build the GTest executable" OFF)
+OPTION(ARCDPS_EXTENSION_IMGUI "make imgui tools available" ON)
+OPTION(ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS "make tools available, that depend on arcdps-unofficial-extras" ON)
 
 ADD_DEFINITIONS(-DUNICODE)
 ADD_DEFINITIONS(-D_UNICODE)
 
-FIND_PACKAGE(imgui CONFIG REQUIRED)
+# TODO: only load dependencies if they are needed.
 FIND_PACKAGE(magic_enum CONFIG REQUIRED)
 FIND_PACKAGE(nlohmann_json CONFIG REQUIRED)
-FIND_PACKAGE(ArcdpsUnofficialExtras CONFIG REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
 
 ADD_LIBRARY(${PROJECT_NAME} STATIC)
@@ -27,27 +28,23 @@ TARGET_INCLUDE_DIRECTORIES(
 		$<INSTALL_INTERFACE:include>
 )
 
-ADD_COMPILE_DEFINITIONS(
+TARGET_COMPILE_DEFINITIONS(
+		${PROJECT_NAME}
+		PUBLIC
 		NOMINMAX
 		MAGIC_ENUM_RANGE_MAX=256
-		IMGUI_DEFINE_MATH_OPERATORS
 )
 
-TARGET_SOURCES(${PROJECT_NAME} INTERFACE
+# add general sources
+TARGET_SOURCES(${PROJECT_NAME} PUBLIC
 		FILE_SET HEADERS
-#		BASE_DIRS
 		FILES
 		arcdps_structs.h
 		arcdps_structs_slim.h
-		ArcdpsExtension.h
 		CombatEventHandler.h
 		EventSequencer.h
 		ExtensionTranslations.h
 		IconLoader.h
-		ImGui_Math.h
-		imgui_stdlib.h
-		KeyBindHandler.h
-		KeyInput.h
 		Localization.h
 		map.h
 		MobIDs.h
@@ -57,19 +54,7 @@ TARGET_SOURCES(${PROJECT_NAME} INTERFACE
 		SimpleNetworkStack.h
 		SimpleRingBuffer.h
 		Singleton.h
-		UpdateChecker.h
 		UpdateCheckerBase.h
-		Widgets.h
-		Windows/ComponentBase.h
-		Windows/Demo/DemoKeyBindComponent.h
-		Windows/Demo/DemoPositioningComponent.h
-		Windows/Demo/DemoTable.h
-		Windows/Demo/DemoTableWindow.h
-		Windows/Demo/DemoWindow.h
-		Windows/KeyBindComponent.h
-		Windows/MainTable.h
-		Windows/MainWindow.h
-		Windows/PositioningComponent.h
 )
 
 TARGET_SOURCES(${PROJECT_NAME}
@@ -78,32 +63,41 @@ TARGET_SOURCES(${PROJECT_NAME}
 		CombatEventHandler.cpp
 		EventSequencer.cpp
 		IconLoader.cpp
-		imgui_stdlib.cpp
-		KeyBindHandler.cpp
-		KeyInput.cpp
 		Localization.cpp
 		SimpleNetworkStack.cpp
 		Singleton.cpp
-		UpdateChecker.cpp
 		UpdateCheckerBase.cpp
-		Widgets.cpp
-		Windows/Demo/DemoKeyBindComponent.cpp
-		Windows/Demo/DemoPositioningComponent.cpp
-		Windows/Demo/DemoTable.cpp
-		Windows/Demo/DemoTableWindow.cpp
-		Windows/Demo/DemoWindow.cpp
-		Windows/KeyBindComponent.cpp
-		Windows/MainWindow.cpp
-		Windows/PositioningComponent.cpp
 )
+
+# add sources that depend on imgui
+IF (ARCDPS_EXTENSION_IMGUI)
+	INCLUDE(cmake/imgui-dep.cmake)
+ENDIF ()
+
+# add sources that depend on unofficial extras
+IF (ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS)
+	INCLUDE(cmake/unofficial-extras-dep.cmake)
+ENDIF ()
+
+# add sources that depend on imgui AND unofficial extras
+IF (ARCDPS_EXTENSION_IMGUI AND ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS)
+	TARGET_SOURCES(${PROJECT_NAME} PUBLIC
+			FILE_SET HEADERS
+			FILES
+			KeyInput.h
+	)
+
+	TARGET_SOURCES(${PROJECT_NAME}
+			PRIVATE
+			KeyInput.cpp
+	)
+ENDIF ()
 
 TARGET_COMPILE_FEATURES(${PROJECT_NAME} PUBLIC cxx_std_23)
 
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE imgui::imgui)
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE ArcdpsUnofficialExtras)
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE CURL::libcurl)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} PUBLIC magic_enum::magic_enum)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} PUBLIC nlohmann_json::nlohmann_json)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} PUBLIC CURL::libcurl)
 
 INCLUDE(GNUInstallDirs)
 INSTALL(TARGETS ${PROJECT_NAME}
@@ -113,7 +107,7 @@ INSTALL(TARGETS ${PROJECT_NAME}
 )
 
 INCLUDE(CMakePackageConfigHelpers)
-CONFIGURE_PACKAGE_CONFIG_FILE(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+CONFIGURE_PACKAGE_CONFIG_FILE(${CMAKE_CURRENT_SOURCE_DIR}/cmake/Config.cmake.in
 		${CMAKE_CURRENT_BINARY_DIR}/ArcdpsExtensionConfig.cmake
 		INSTALL_DESTINATION share/${PROJECT_NAME}
 )
