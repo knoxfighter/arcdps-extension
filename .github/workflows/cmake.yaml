@@ -28,7 +28,7 @@ jobs:
           # vcpkgDirectory: '${{ github.workspace }}/vcpkg'
 
           # The Git commit id of vcpkg to be checked out. This is only needed because we are not using a submodule.
-          vcpkgGitCommitId: '9c7c66471005cb132832786d5d65d83d2cf503ad'
+          vcpkgGitCommitId: '13bde2ff13192e1b2fdd37bd9b475c7665ae6ae5'
 
           # The vcpkg.json file, which will be part of cache key computation.
           #          vcpkgJsonGlob: '${{ github.workspace }}/vcpkg.json'
