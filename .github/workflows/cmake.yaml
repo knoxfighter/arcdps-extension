@@ -15,7 +15,7 @@ jobs:
         presets: [ release-windows-clang, release-windows ]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # install cmake and ninja
       - uses: lukka/get-cmake@latest
