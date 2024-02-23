@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <magic_enum.hpp>
+
 #include <array>
 
 namespace ArcdpsExtension {
@@ -259,10 +261,7 @@ namespace ArcdpsExtension {
 	});
 } // namespace ArcdpsExtension
 
-#if __has_include("magic_enum.hpp")
-#include <magic_enum.hpp>
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == magic_enum::enum_count<ArcdpsExtension::ExtensionTranslation>());
-#endif
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_GERMAN.size());
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_FRENCH.size());
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_SPANISH.size());
