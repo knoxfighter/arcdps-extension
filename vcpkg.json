@@ -3,13 +3,29 @@
   "name": "arcdps-extension",
   "version-string": "1.0.0",
   "dependencies": [
-    "arcdps-unofficial-extras",
     "magic-enum",
     "nlohmann-json",
-    "imgui",
     "gtest",
     "curl"
   ],
+  "default-features": [
+    "imgui",
+    "unofficial-extras"
+  ],
+  "features": {
+      "imgui": {
+        "description": "make imgui tools available",
+        "dependencies": [
+          "imgui"
+        ]
+      },
+      "unofficial-extras": {
+        "description": "make tools available, that depend on arcdps-unofficial-extras",
+        "dependencies": [
+          "arcdps-unofficial-extras"
+        ]
+      }
+    },
   "overrides": [
     {
       "name": "imgui",

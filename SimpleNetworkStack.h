@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
+
 #include <condition_variable>
 #include <curl/curl.h>
 #include <expected>
