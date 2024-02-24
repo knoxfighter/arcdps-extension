@@ -5,7 +5,6 @@
 #include <atlbase.h>
 #include <condition_variable>
 #include <d3d11.h>
-#include <d3d9.h>
 #include <filesystem>
 #include <map>
 #include <queue>

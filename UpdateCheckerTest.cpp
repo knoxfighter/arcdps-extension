@@ -12,6 +12,10 @@
 #include <fstream>
 #include <queue>
 
+#if ARCDPS_EXTENSION_IMGUI
+		static_assert(false);
+#endif
+
 using namespace ArcdpsExtension;
 
 namespace {

@@ -9,7 +9,6 @@ OPTION(ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS "make tools available, that depend on 
 ADD_DEFINITIONS(-DUNICODE)
 ADD_DEFINITIONS(-D_UNICODE)
 
-# TODO: only load dependencies if they are needed.
 FIND_PACKAGE(magic_enum CONFIG REQUIRED)
 FIND_PACKAGE(nlohmann_json CONFIG REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
@@ -39,6 +38,7 @@ TARGET_COMPILE_DEFINITIONS(
 TARGET_SOURCES(${PROJECT_NAME} PUBLIC
 		FILE_SET HEADERS
 		FILES
+		ArcdpsExtension.h
 		arcdps_structs.h
 		arcdps_structs_slim.h
 		CombatEventHandler.h
@@ -59,6 +59,7 @@ TARGET_SOURCES(${PROJECT_NAME} PUBLIC
 
 TARGET_SOURCES(${PROJECT_NAME}
 		PRIVATE
+		ArcdpsExtension.cpp
 		arcdps_structs.cpp
 		CombatEventHandler.cpp
 		EventSequencer.cpp
