@@ -37,6 +37,13 @@ namespace ArcdpsExtension {
 
 	protected:
 		/**
+		 * All events will call this before they are handled.
+		 * If you decide to override this function, make sure to also call the parent one, else all other callbacks are never called.
+		 * Parameters are 1to1 arcdps' parameters
+		 */
+		virtual void EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId);
+
+		/**
 		 * Agent is added to the tracking
 		 * @param pAccountName AccountName of the adedd agent
 		 * @param pCharacterName CharacterName of the added agent
@@ -320,7 +327,6 @@ namespace ArcdpsExtension {
 	private:
 		EventSequencer mSequencer;
 
-		void EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId);
 		void BuffEvent(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId);
 	};
 } // namespace ArcdpsExtension
