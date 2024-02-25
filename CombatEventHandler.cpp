@@ -10,7 +10,7 @@ bool ArcdpsExtension::CombatEventHandler::EventsPending() {
 	return mSequencer.EventsPending();
 }
 
-void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId) {
+void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t /*pRevision*/) {
 	Log(std::format("pId: {}", pId));
 	if (pEvent) {
 		mLastEventTime = pEvent->time;

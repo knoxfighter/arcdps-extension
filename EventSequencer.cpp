@@ -5,9 +5,9 @@
 void ArcdpsExtension::EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
 	std::lock_guard guard(mElementsMutex);
 	if (pId == 0) {
+		// if no events are queued call id=0 events directly
 		if (mElements.empty()) {
 			mCallback(pEv, pSrc, pDst, pSkillname, pId, pRevision);
-			// mPriorityElements.emplace(pEv, pSrc, pDst, pSkillname, mNextId, pRevision);
 			return;
 		}
 

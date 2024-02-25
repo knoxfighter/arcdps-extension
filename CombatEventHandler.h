@@ -16,7 +16,10 @@ namespace ArcdpsExtension {
 	class CombatEventHandler {
 	public:
 		explicit CombatEventHandler()
-			: mSequencer([this](cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision) -> uintptr_t { EventInternal(ev, src, dst, skillname, id); return 0; }) {
+			: mSequencer([this](cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision) -> uintptr_t { EventInternal(ev, src, dst, skillname, id, revision); return 0; }) {
+		}
+		virtual ~CombatEventHandler() {
+			Shutdown();
 		}
 
 		void Event(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision = 1);
@@ -41,7 +44,7 @@ namespace ArcdpsExtension {
 		 * If you decide to override this function, make sure to also call the parent one, else all other callbacks are never called.
 		 * Parameters are 1to1 arcdps' parameters
 		 */
-		virtual void EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId);
+		virtual void EventInternal(cbtevent* pEvent, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision);
 
 		/**
 		 * Agent is added to the tracking
