@@ -14,6 +14,12 @@
       <option name="SPACE_AFTER_REFERENCE_IN_DECLARATION" value="true" />
       <option name="SPACE_BEFORE_DICTIONARY_LITERAL_COLON" value="true" />
     </Objective-C>
+    <RiderCodeStyleSettings>
+      <option name="/Default/CodeStyle/CodeFormatting/CppClangFormat/EnableClangFormatSupport/@EntryValue" value="true" type="bool" />
+    </RiderCodeStyleSettings>
+    <clangFormatSettings>
+      <option name="ENABLED" value="true" />
+    </clangFormatSettings>
     <codeStyleSettings language="CMake">
       <indentOptions>
         <option name="USE_TAB_CHARACTER" value="true" />
