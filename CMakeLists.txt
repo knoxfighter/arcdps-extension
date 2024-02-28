@@ -123,7 +123,7 @@ INSTALL(EXPORT ArcdpsExtensionTargets
 		DESTINATION share/${PROJECT_NAME}
 )
 
-INSTALL(SCRIPT cmake/vs-version.cmake)
+INSTALL(FILES cmake/vs-version.cmake DESTINATION share/${PROJECT_NAME})
 
 IF (BUILD_TESTS)
 	FIND_PACKAGE(GTest CONFIG REQUIRED)
