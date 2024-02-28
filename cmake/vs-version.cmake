@@ -1,0 +1,3 @@
+FUNCTION(test)
+	MESSAGE(FATAL_ERROR "test was called!")
+ENDFUNCTION()
