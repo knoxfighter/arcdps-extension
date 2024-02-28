@@ -125,6 +125,9 @@ INSTALL(EXPORT ArcdpsExtensionTargets
 
 INSTALL(FILES cmake/vs-version.cmake DESTINATION share/${PROJECT_NAME})
 
+# install natvis file
+INSTALL(FILES SimpleRingBuffer.natvis DESTINATION .) # maybe share/${PROJECT_NAME} as destination (nlohman_json uses . though)
+
 IF (BUILD_TESTS)
 	FIND_PACKAGE(GTest CONFIG REQUIRED)
 	INCLUDE(GoogleTest)
