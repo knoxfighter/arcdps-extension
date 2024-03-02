@@ -40,7 +40,7 @@ function(test)
 		message(FATAL_ERROR "PRODUCT_NAME has to be defined!")
 	endif ()
 
-	configure_file(VersionInfo.rc.in VersionInfo.rc @ONLY)
+	configure_file("${CMAKE_CURRENT_FUNCTION_LIST_DIR}/VersionInfo.rc.in" VersionInfo.rc @ONLY)
 
 	message(FATAL_ERROR "test was called!")
 endfunction()
