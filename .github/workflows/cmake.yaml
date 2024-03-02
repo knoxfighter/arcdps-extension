@@ -10,7 +10,6 @@ jobs:
   build:
     strategy:
       matrix:
-        #        os: [ubuntu-latest, windows-latest]
         os: [ windows-latest ]
         presets: [ release-windows-clang, release-windows ]
     runs-on: ${{ matrix.os }}
@@ -28,12 +27,12 @@ jobs:
           # vcpkgDirectory: '${{ github.workspace }}/vcpkg'
 
           # The Git commit id of vcpkg to be checked out. This is only needed because we are not using a submodule.
-          vcpkgGitCommitId: '13bde2ff13192e1b2fdd37bd9b475c7665ae6ae5'
+          vcpkgGitCommitId: '215a2535590f1f63788ac9bd2ed58ad15e6afdff'
 
           # The vcpkg.json file, which will be part of cache key computation.
           #          vcpkgJsonGlob: '${{ github.workspace }}/vcpkg.json'
 
-          # don't run vcpkg install in the project, ket run-cmake do it.
+          # don't run vcpkg install in the project, let run-cmake do it.
           runVcpkgInstall: false
 
       - name: Run CMake with vcpkg.json manifest - Windows
