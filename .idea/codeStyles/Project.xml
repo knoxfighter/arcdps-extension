@@ -2,7 +2,7 @@
   <code_scheme name="Project" version="173">
     <option name="LINE_SEPARATOR" value="&#10;" />
     <CMakeCodeStyleSettings>
-      <option name="FORCE_COMMANDS_CASE" value="0" />
+      <option name="FORCE_COMMANDS_CASE" value="1" />
     </CMakeCodeStyleSettings>
     <Markdown>
       <option name="WRAP_TEXT_IF_LONG" value="false" />
