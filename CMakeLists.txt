@@ -123,7 +123,7 @@ INSTALL(EXPORT ArcdpsExtensionTargets
 		DESTINATION share/${PROJECT_NAME}
 )
 
-INSTALL(FILES cmake/vs-version.cmake DESTINATION share/${PROJECT_NAME})
+INSTALL(FILES cmake/vs-version.cmake cmake/VersionInfo.rc.in DESTINATION share/${PROJECT_NAME})
 
 # install natvis file
 INSTALL(FILES SimpleRingBuffer.natvis DESTINATION .) # maybe share/${PROJECT_NAME} as destination (nlohman_json uses . though)
