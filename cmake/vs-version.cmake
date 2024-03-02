@@ -1,8 +1,8 @@
-function(test)
+function(generate_version_file)
 	# set() all needed variables here, they are only set in function scope
 	set(options)
-	set(oneValueKeywords VERSION_MAJOR VERSION_MINOR VERSION_PATCH VERSION_REF INTERNAL_NAME COPYRIGHT ORIGINAL_FILENAME PRODUCT_NAME)
-	set(multiValueKeywords)
+	set(oneValueArgs VERSION_MAJOR VERSION_MINOR VERSION_PATCH VERSION_REF INTERNAL_NAME COPYRIGHT ORIGINAL_FILENAME PRODUCT_NAME)
+	set(multiValueArgs)
 
 	# cmake_parse_arguments
 	cmake_parse_arguments(PROJECT "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -40,7 +40,7 @@ function(test)
 		message(FATAL_ERROR "PRODUCT_NAME has to be defined!")
 	endif ()
 
-	configure_file("${CMAKE_CURRENT_FUNCTION_LIST_DIR}/VersionInfo.rc.in" VersionInfo.rc @ONLY)
+	configure_file("${CMAKE_CURRENT_FUNCTION_LIST_DIR}/VersionInfo.rc.in" "${CMAKE_CURRENT_BINARY_DIR}/VersionInfo.rc" @ONLY)
 
-	message(FATAL_ERROR "test was called!")
+	set(VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/VersionInfo.rc" PARENT_SCOPE)
 endfunction()
