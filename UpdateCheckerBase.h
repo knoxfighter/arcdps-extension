@@ -72,7 +72,7 @@ namespace ArcdpsExtension {
 
 		virtual std::optional<std::string> GetPathFromHModule(HMODULE pDll) noexcept;
 		std::unique_ptr<UpdateState> GetUpdateInternal(std::string&& pInstallPath, const std::optional<Version>& pCurrentVersion, std::string&& pRepo, bool pAllowPreRelease) noexcept;
-		virtual std::string GetVersionAsString(const Version& pVersion);
+		static std::string GetVersionAsString(const Version& pVersion);
 		virtual bool IsNewer(const Version& pRepoVersion, const Version& pCurrentVersion);
 		virtual void Log(std::string&& pMessage);
 		virtual Version ParseVersion(std::string_view versionString);
