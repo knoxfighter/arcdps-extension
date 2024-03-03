@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <expected>
 #include <filesystem>
 #include <mutex>
 #include <optional>
@@ -63,7 +64,7 @@ namespace ArcdpsExtension {
 			std::string DownloadUrl;
 		};
 
-		std::optional<Version> GetCurrentVersion(HMODULE dll) noexcept;
+		static std::expected<Version, std::string> GetCurrentVersion(HMODULE dll) noexcept;
 		void ClearFiles(HMODULE pDll) noexcept;
 		std::unique_ptr<UpdateState> CheckForUpdate(HMODULE pDll, const Version& pCurrentVersion, std::string&& pRepo, bool pAllowPreRelease) noexcept;
 		std::unique_ptr<UpdateState> GetInstallState(std::string&& pInstallPath, std::string&& pRepo, bool pAllowPreRelease) noexcept;

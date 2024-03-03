@@ -41,34 +41,30 @@ bool ArcdpsExtension::UpdateCheckerBase::UpdateState::ChangeStatus(Status pExpec
 	return true;
 }
 
-std::optional<ArcdpsExtension::UpdateCheckerBase::Version> ArcdpsExtension::UpdateCheckerBase::GetCurrentVersion(HMODULE pDll) noexcept {
+std::expected<ArcdpsExtension::UpdateCheckerBase::Version, std::string> ArcdpsExtension::UpdateCheckerBase::GetCurrentVersion(HMODULE pDll) noexcept {
 	// GetModuleFileName
 	TCHAR moduleFileName[MAX_PATH + 1]{};
 	if (!GetModuleFileName(pDll, moduleFileName, MAX_PATH)) {
-		Log(std::format("GetCurrentVersion: GetModuleFileName failed - {}", GetLastError()));
-		return std::nullopt;
+		return std::unexpected(std::format("GetCurrentVersion: GetModuleFileName failed - {}", GetLastError()));
 	}
 
 	// GetFileVersionInfoSize
 	DWORD dummy; // this will get set to 0 (wtf windows api)
 	DWORD versionInfoSize = GetFileVersionInfoSize(moduleFileName, &dummy);
 	if (versionInfoSize == 0) {
-		Log(std::format("GetCurrentVersion: GetFileVersionInfoSize failed - {}", GetLastError()));
-		return std::nullopt;
+		return std::unexpected(std::format("GetCurrentVersion: GetFileVersionInfoSize failed - {}", GetLastError()));
 	}
 	std::vector<BYTE> data(versionInfoSize);
 
 	// GetFileVersionInfo
 	if (!GetFileVersionInfo(moduleFileName, NULL, versionInfoSize, &data[0])) {
-		Log(std::format("GetCurrentVersion: GetFileVersionInfo failed - {}", GetLastError()));
-		return std::nullopt;
+		return std::unexpected(std::format("GetCurrentVersion: GetFileVersionInfo failed - {}", GetLastError()));
 	}
 
 	UINT randomPointer = 0;
 	VS_FIXEDFILEINFO* fixedFileInfo = nullptr;
-	if (!VerQueryValue(&data[0], TEXT("\\"), (void**) &fixedFileInfo, &randomPointer)) {
-		Log(std::format("GetCurrentVersion: VerQueryValue failed - {}", GetLastError()));
-		return std::nullopt;
+	if (!VerQueryValue(data.data(), TEXT("\\"), (void**) &fixedFileInfo, &randomPointer)) {
+		std::unexpected(std::format("GetCurrentVersion: VerQueryValue failed - {}", GetLastError()));
 	}
 
 	return Version({HIWORD(fixedFileInfo->dwProductVersionMS), LOWORD(fixedFileInfo->dwProductVersionMS), HIWORD(fixedFileInfo->dwProductVersionLS), LOWORD(fixedFileInfo->dwProductVersionLS)});
