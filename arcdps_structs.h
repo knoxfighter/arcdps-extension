@@ -8,7 +8,7 @@ bool is_player(const ag* new_player);
 
 typedef UINT (*WindowCallbackSignature)(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 typedef void (*CombatCallbackSignature)(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision);
-typedef void (*ImguiCallbackSignature)(uint32_t not_charsel_or_loading);
+typedef void (*ImguiCallbackSignature)(uint32_t not_charsel_or_loading, uint32_t hide_if_combat_or_ooc);
 typedef void (*OptionsEndCallbackSignature)();
 typedef void (*OptionsWindowsCallbackSignature)(const char* windowname);
 
