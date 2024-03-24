@@ -25,7 +25,7 @@ ArcdpsExtension::SimpleNetworkStack::Result ArcdpsExtension::SimpleNetworkStack:
 	if (auto res = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1l); res != CURLE_OK) {
 		return std::unexpected(Error{ErrorType::OptFollowLocationError, curl_easy_strerror(res)});
 	}
-	if (auto res = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, "ArcdpsExtension/1.0")) {
+	if (auto res = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, mUserAgent.c_str())) {
 		return std::unexpected(Error{ErrorType::OptUseragentError, curl_easy_strerror(res)});
 	}
 
