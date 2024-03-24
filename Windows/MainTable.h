@@ -19,6 +19,8 @@
 #include <string>
 #include <vector>
 
+#include <nlohmann/json.hpp>
+
 // Disable conversion warnings in this file
 #pragma warning(push)
 #pragma warning(disable : 4267)
@@ -164,12 +166,34 @@ namespace ArcdpsExtension {
 			bool operator==(const ImGuiID& pOther) const {
 				return UserID == pOther;
 			}
+
+			friend void to_json(nlohmann::json& nlohmann_json_j, const TableColumnSettings& nlohmann_json_t) {
+				nlohmann_json_j["WidthOrWeight"] = nlohmann_json_t.WidthOrWeight;
+				nlohmann_json_j["UserID"] = nlohmann_json_t.UserID;
+				nlohmann_json_j["DisplayOrder"] = nlohmann_json_t.DisplayOrder;
+				nlohmann_json_j["SortOrder"] = nlohmann_json_t.SortOrder;
+				nlohmann_json_j["SortDirection"] = nlohmann_json_t.SortDirection;
+				nlohmann_json_j["IsEnabled"] = nlohmann_json_t.IsEnabled;
+				nlohmann_json_j["IsStretch"] = nlohmann_json_t.IsStretch;
+			}
+
+			friend void from_json(const nlohmann::json& nlohmann_json_j, TableColumnSettings& nlohmann_json_t) {
+				nlohmann_json_j.at("WidthOrWeight").get_to(nlohmann_json_t.WidthOrWeight);
+				nlohmann_json_j.at("UserID").get_to(nlohmann_json_t.UserID);
+				nlohmann_json_j.at("DisplayOrder").get_to(nlohmann_json_t.DisplayOrder);
+				nlohmann_json_j.at("SortOrder").get_to(nlohmann_json_t.SortOrder);
+				nlohmann_json_t.SortDirection = nlohmann_json_j.at("SortDirection").get<ImU8>();
+				nlohmann_json_t.IsEnabled = nlohmann_json_j.at("IsEnabled").get<ImU8>();
+				nlohmann_json_t.IsStretch = nlohmann_json_j.at("IsStretch").get<ImU8>();
+			}
 		};
 		struct TableSettings {
 			ImU32 Version = 0;             // Is set to true if the ImGui Ini was migrated.
 			ImGuiTableFlags SaveFlags = 0; // Indicate data we want to save using the Resizable/Reorderable/Sortable/Hideable flags (could be using its own flags..)
 			float RefScale = 0;            // Reference scale to be able to rescale columns on font/dpi changes.
 			std::vector<TableColumnSettings> Columns;
+
+			NLOHMANN_DEFINE_TYPE_INTRUSIVE(TableSettings, Version, SaveFlags, RefScale, Columns)
 		};
 
 	protected:
