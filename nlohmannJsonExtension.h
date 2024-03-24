@@ -14,22 +14,21 @@
 	inline void from_json(const nlohmann::json& nlohmann_json_j, Type& nlohmann_json_t) { NLOHMANN_JSON_EXPAND(NLOHMANN_JSON_PASTE(NLOHMANN_JSON_FROM_NON_THROWING, __VA_ARGS__)) }
 
 
-namespace nlohmann {
-
-	template<class T>
-	void to_json(nlohmann::json& j, const std::optional<T>& v) {
-		if (v.has_value())
+// add support for std::optional (3.11.3), previously used code removed
+template<typename T>
+struct nlohmann::adl_serializer<std::optional<T>> {
+	static void to_json(nlohmann::json& j, const std::optional<T>& v) {
+		if (v.has_value()) {
 			j = v.value();
-		else
+		} else {
 			j = nullptr;
+		}
 	}
-
-	template<class T>
-	void from_json(const nlohmann::json& j, std::optional<T>& v) {
-		if (j.is_null())
+	static void from_json(const nlohmann::json& j, std::optional<T>& v) {
+		if(j.is_null()) {
 			v = std::nullopt;
-		else
+		} else {
 			v = j.get<T>();
+		}
 	}
-
-} // namespace nlohmann
+};
