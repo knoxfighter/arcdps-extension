@@ -100,6 +100,13 @@ namespace ArcdpsExtension {
 			mUserAgent = std::move(pUserAgent);
 		}
 
+		/**
+		 * URL encode a string. Wrapper for `curl_easy_escape`.
+		 * @param pStr string to encode
+		 * @return encoded string
+		 */
+		[[nodiscard]] std::string UrlEncode(std::string_view pStr) const;
+
 	private:
 		struct QueueElement {
 			using Variant = std::variant<std::monostate, ResultFunc, ResultPromise>;

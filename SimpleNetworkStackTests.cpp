@@ -91,3 +91,11 @@ TEST_F(SimpleNetworkStackTests, DownloadPromise) {
 	ASSERT_EQ(response.value().Code, 200);
 	ASSERT_TRUE(std::filesystem::exists(TEMPFILE));
 }
+
+TEST_F(SimpleNetworkStackTests, UrlEncode) {
+	auto& networkStack = SimpleNetworkStack::instance();
+	std::string testStr = "äöüß-:,";
+	std::string encodedStr = networkStack.UrlEncode(testStr);
+
+	ASSERT_EQ(encodedStr, "%C3%A4%C3%B6%C3%BC%C3%9F-%3A%2C");
+}

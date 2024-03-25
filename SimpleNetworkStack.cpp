@@ -121,3 +121,10 @@ void ArcdpsExtension::SimpleNetworkStack::QueueGet(const std::string& pUrl, std:
 
 	mQueueCv.notify_one();
 }
+std::string ArcdpsExtension::SimpleNetworkStack::UrlEncode(std::string_view pStr) const {
+	const char* escaped = curl_easy_escape(mHandle, pStr.data(), pStr.length());
+	if (escaped != nullptr) {
+		return escaped;
+	}
+	return "";
+}
