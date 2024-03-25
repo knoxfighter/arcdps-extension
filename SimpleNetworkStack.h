@@ -96,8 +96,8 @@ namespace ArcdpsExtension {
 		 * Set a different user-agent instead of the default "ArcdpsExtension/1.0"
 		 * @param pUserAgent value to set
 		 */
-		void SetUserAgent(std::string pUserAgent) {
-			mUserAgent = std::move(pUserAgent);
+		void SetUserAgent(const std::string& pUserAgent) {
+			mUserAgent = pUserAgent;
 		}
 
 		/**
