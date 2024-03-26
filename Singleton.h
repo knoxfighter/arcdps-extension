@@ -1,5 +1,5 @@
-// copied from MIT-Licensed project `gw2radial`
-// https://github.com/Friendly0Fire/GW2Radial
+// copied from MIT-Licensed project `GW2Common`
+// https://github.com/Friendly0Fire/GW2Common
 
 #pragma once
 
@@ -16,7 +16,7 @@ namespace ArcdpsExtension {
 	 */
 	class BaseSingleton {
 	public:
-		virtual ~BaseSingleton() {}
+		virtual ~BaseSingleton() = default;
 
 	protected:
 		static BaseSingleton* Store(std::unique_ptr<BaseSingleton>&& ptr);
@@ -32,7 +32,7 @@ namespace ArcdpsExtension {
 				singletons_.pop();
 		}
 
-		bool Empty() {
+		[[nodiscard]] bool Empty() const {
 			return singletons_.empty();
 		}
 
@@ -41,38 +41,41 @@ namespace ArcdpsExtension {
 
 		friend class BaseSingleton;
 	};
-	// Construct this in your main.cpp
 	extern SingletonManager g_singletonManagerInstance;
 
-	template<typename T, bool AutoInit = true>
+	template<typename T>
 	class Singleton : public BaseSingleton {
 	public:
-		static T& instance() {
-			if constexpr (AutoInit) {
-				if (!init_) {
-					init_ = true;
-					instance_ = (T*) Store(std::make_unique<T>());
-				}
-			} else {
-				if (!instance_)
-					throw std::logic_error("Singleton is not Auto Init and was not initialized.");
-			}
-			return *instance_;
-		}
-
 		template<typename T2 = T>
 		requires std::derived_from<T2, T>
-		static T& instance(std::unique_ptr<T2>&& i) {
+		static T2& instance() {
 			if (!init_) {
-				init_ = true;
-				instance_ = (T*) Store(std::move(i));
+				if constexpr (std::is_default_constructible_v<T2>) {
+					init_ = true;
+					instance_ = (T*) Store(std::make_unique<T2>());
+				} else
+					throw std::logic_error("Singleton is not default-constructible but was not explicitly initialized before access.");
 			}
-			return *instance_;
+
+			return *(T2*) instance_;
 		}
 
-		template<typename T2 = T>
+		template<typename T2 = T, typename... Args>
 		requires std::derived_from<T2, T>
-		static void instance(std::function<void(T&)> action) {
+		static T2& init(Args&&... args) {
+			init_ = true;
+			instance_ = (T*) Store(std::make_unique<T2>(std::forward<Args>(args)...));
+			return *(T2*) instance_;
+		}
+
+		template<typename T2>
+		requires std::derived_from<T2, T>
+		static void f(std::function<void(T2&)> action) {
+			if (instance_)
+				action(*(T2*) instance_);
+		}
+
+		static void f(std::function<void(T&)> action) {
 			if (instance_)
 				action(*instance_);
 		}
@@ -82,7 +85,7 @@ namespace ArcdpsExtension {
 				Clear(instance_);
 		}
 
-		virtual ~Singleton() {
+		~Singleton() override {
 			instance_ = nullptr;
 			init_ = false;
 		}
