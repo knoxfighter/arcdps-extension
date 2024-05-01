@@ -6,6 +6,7 @@
 #include <string>
 #include <thread>
 #include <Windows.h>
+#include <vector>
 
 // Expected usage is as follows:
 // - Optionally, create a new class that inherits from UpdateCheckerBase to modify the functionality, in case your addon
