@@ -2,6 +2,7 @@
 #include "magic_enum.hpp"
 #include "SimpleNetworkStack.h"
 
+#include <format>
 #include <iostream>
 #include <utility>
 
