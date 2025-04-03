@@ -5,7 +5,7 @@
 #include "../Localization.h"
 #include "../Widgets.h"
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 ArcdpsExtension::MainWindow::~MainWindow() {
 	mComponents.clear();
