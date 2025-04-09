@@ -68,6 +68,11 @@ namespace ArcdpsExtension {
 			  DefaultVisibility(pDefaultVisibility),
 			  Popup(pName) {}
 
+		template<typename E>
+		requires std::is_enum_v<E> && std::convertible_to<std::underlying_type_t<E>, ImU32>
+		MainTableColumn(E pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, bool pDefaultVisibility = true)
+			: MainTableColumn(std::to_underlying(pUserId), pName, pTexture, pCategory, pDefaultVisibility) {}
+
 		MainTableColumn(ImU32 pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, const std::function<std::string()>& pPopup, bool pDefaultVisibility = true)
 			: UserId(pUserId),
 			  Name(pName),
@@ -75,6 +80,11 @@ namespace ArcdpsExtension {
 			  Category(std::move(pCategory)),
 			  DefaultVisibility(pDefaultVisibility),
 			  Popup(pPopup) {}
+
+		template<typename E>
+		requires std::is_enum_v<E> && std::convertible_to<std::underlying_type_t<E>, ImU32>
+		MainTableColumn(E pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, const std::function<std::string()>& pPopup, bool pDefaultVisibility = true)
+			: MainTableColumn(std::to_underlying(pUserId), pName, pTexture, pCategory, pPopup, pDefaultVisibility) {}
 	};
 
 	enum MainTableFlags_ {
