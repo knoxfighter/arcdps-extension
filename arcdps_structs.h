@@ -38,8 +38,8 @@ struct ID3D11Device;
 struct ImGuiContext;
 
 /**
- * `dxver`: The used directx version (either 9 or 11)
- * `dxptr`: The pointer to the directx context. For dx9 `IDirect3DDevice9*`. For dx11 `IDXGISwapChain`.
+ * `dxver`: The used directx version (11)
+ * `dxptr`: The pointer to the directx context. For dx11 `IDXGISwapChain`.
  *
  * To get the Device from the Swapchain:
  * ```C++
