@@ -1,5 +1,8 @@
 #include "IconLoader.h"
+
+#if ARCDPS_EXTENSION_CURL
 #include "SimpleNetworkStack.h"
+#endif
 
 #include <magic_enum/magic_enum.hpp>
 
@@ -140,10 +143,14 @@ void ArcdpsExtension::IconLoader::QueueIcon::Load() {
 			LoadFile(std::get<std::filesystem::path>(mResource));
 			break;
 		case LoadWay::Url:
+#if ARCDPS_EXTENSION_CURL
 			LoadUrl(std::get<std::string>(mResource));
+#endif
 			break;
 		case LoadWay::Gw2Dat:
+#if ARCDPS_EXTENSION_CURL
 			LoadGw2Dat(std::get<std::string>(mResource));
+#endif
 			break;
 		case LoadWay::Resource:
 			LoadResource(std::get<UINT>(mResource));
@@ -192,6 +199,7 @@ void ArcdpsExtension::IconLoader::QueueIcon::LoadFile(const std::filesystem::pat
 	LoadFrame(pIDecodeFrame, pIWICFactory);
 }
 
+#if ARCDPS_EXTENSION_CURL
 void ArcdpsExtension::IconLoader::QueueIcon::LoadUrl(const std::string& pUrl) {
 	// build local path to cache
 	std::filesystem::path filepath = pUrl;
@@ -237,6 +245,7 @@ void ArcdpsExtension::IconLoader::QueueIcon::LoadGw2Dat(const std::string& pId) 
 
 	LoadUrl(url);
 }
+#endif
 
 void ArcdpsExtension::IconLoader::QueueIcon::LoadResource(UINT pId) {
 	HRSRC imageResHandle = FindResource(mIconLoader.mDll, MAKEINTRESOURCE(pId), L"PNG");

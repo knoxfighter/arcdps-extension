@@ -2,7 +2,10 @@
 
 #include "IconLoader.h"
 #include "Localization.h"
+
+#if ARCDPS_EXTENSION_CURL
 #include "SimpleNetworkStack.h"
+#endif
 
 #if ARCDPS_EXTENSION_IMGUI
 #include "Windows/PositioningComponent.h"
@@ -19,7 +22,10 @@ void ArcdpsExtension::Setup(HMODULE pDll, ID3D11Device* pD11Device) {
 #endif
 	IconLoader::instance().Setup(pDll, pD11Device);
 	Localization::instance();
+
+#if ARCDPS_EXTENSION_CURL
 	SimpleNetworkStack::instance();
+#endif
 
 	// needs imgui
 #if ARCDPS_EXTENSION_IMGUI

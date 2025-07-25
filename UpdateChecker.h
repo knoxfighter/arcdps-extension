@@ -1,8 +1,8 @@
 #pragma once
 
-#include "arcdps_structs.h"
 #include "Singleton.h"
 #include "UpdateCheckerBase.h"
+
 #include <filesystem>
 
 namespace ArcdpsExtension {

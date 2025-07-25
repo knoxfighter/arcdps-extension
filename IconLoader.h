@@ -129,8 +129,10 @@ namespace ArcdpsExtension {
 
 		private:
 			void LoadFile(const std::filesystem::path& pFilepath);
+#if ARCDPS_EXTENSION_CURL
 			void LoadUrl(const std::string& pUrl);
 			void LoadGw2Dat(const std::string& pId);
+#endif
 			void LoadResource(UINT pId);
 			void LoadFrame(const CComPtr<IWICBitmapFrameDecode>& pIDecodeFrame, const CComPtr<IWICImagingFactory>& pIWICFactory);
 			void DeviceLoad();

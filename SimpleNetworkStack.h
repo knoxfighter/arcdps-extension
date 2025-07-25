@@ -17,7 +17,7 @@ namespace ArcdpsExtension {
 	class SimpleNetworkStack final : public Singleton<SimpleNetworkStack> {
 	public:
 		SimpleNetworkStack();
-		~SimpleNetworkStack();
+		~SimpleNetworkStack() override;
 
 		struct Response {
 			std::string Message;

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 project(ArcdpsExtension CXX)
 
 option(BUILD_TESTS "Build the GTest executable" OFF)
+option(ARCDPS_EXTENSION_CURL "make tools available, that depend on curl" ON)
 option(ARCDPS_EXTENSION_IMGUI "make imgui tools available" ON)
 option(ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS "make tools available, that depend on arcdps-unofficial-extras" ON)
 
@@ -11,7 +12,6 @@ add_definitions(-D_UNICODE)
 
 find_package(magic_enum CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
-find_package(CURL REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
@@ -35,7 +35,8 @@ target_compile_definitions(
 )
 
 # add general sources
-target_sources(${PROJECT_NAME} PUBLIC
+target_sources(${PROJECT_NAME}
+		PUBLIC
 		FILE_SET HEADERS
 		FILES
 		ArcdpsExtension.h
@@ -51,7 +52,6 @@ target_sources(${PROJECT_NAME} PUBLIC
 		MumbleLink.h
 		nlohmannJsonExtension.h
 		rapidfuzz_amalgamated.hpp
-		SimpleNetworkStack.h
 		SimpleRingBuffer.h
 		Singleton.h
 		UpdateCheckerBase.h
@@ -65,7 +65,6 @@ target_sources(${PROJECT_NAME}
 		EventSequencer.cpp
 		IconLoader.cpp
 		Localization.cpp
-		SimpleNetworkStack.cpp
 		Singleton.cpp
 		UpdateCheckerBase.cpp
 )
@@ -82,7 +81,8 @@ endif ()
 
 # add sources that depend on imgui AND unofficial extras
 if (ARCDPS_EXTENSION_IMGUI AND ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS)
-	target_sources(${PROJECT_NAME} PUBLIC
+	target_sources(${PROJECT_NAME}
+			PUBLIC
 			FILE_SET HEADERS
 			FILES
 			KeyInput.h
@@ -94,11 +94,28 @@ if (ARCDPS_EXTENSION_IMGUI AND ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS)
 	)
 endif ()
 
+# add sources that depend on curl, also links curl
+if (ARCDPS_EXTENSION_CURL)
+	include(cmake/curl-dep.cmake)
+endif ()
+
+# add sources that depend on imgui AND curl
+if (ARCDPS_EXTENSION_CURL AND ARCDPS_EXTENSION_IMGUI)
+	target_sources(${PROJECT_NAME}
+			PUBLIC
+			FILE_SET HEADERS
+			FILES
+			UpdateChecker.h)
+
+	target_sources(${PROJECT_NAME}
+			PRIVATE
+			UpdateChecker.cpp)
+endif ()
+
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC magic_enum::magic_enum)
 target_link_libraries(${PROJECT_NAME} PUBLIC nlohmann_json::nlohmann_json)
-target_link_libraries(${PROJECT_NAME} PUBLIC CURL::libcurl)
 target_link_libraries(${PROJECT_NAME} PUBLIC Version.lib d3d11.lib)
 
 include(GNUInstallDirs)
@@ -129,7 +146,8 @@ install(FILES cmake/vs-version.cmake cmake/VersionInfo.rc.in DESTINATION share/$
 # install natvis file
 #INSTALL(FILES SimpleRingBuffer.natvis DESTINATION .) # maybe share/${PROJECT_NAME} as destination (nlohman_json uses . though)
 
-if (BUILD_TESTS)
+# when tests are build, curl should always be defined
+if (BUILD_TESTS AND ARCDPS_EXTENSION_CURL)
 	find_package(GTest CONFIG REQUIRED)
 	include(GoogleTest)
 	add_executable(

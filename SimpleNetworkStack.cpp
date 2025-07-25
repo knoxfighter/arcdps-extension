@@ -1,6 +1,6 @@
-#include <iostream>
-
 #include "SimpleNetworkStack.h"
+
+#include <iostream>
 
 ArcdpsExtension::SimpleNetworkStack::SimpleNetworkStack() {
 	mHandle = curl_easy_init();

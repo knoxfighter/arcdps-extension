@@ -64,7 +64,7 @@ std::expected<ArcdpsExtension::UpdateCheckerBase::Version, std::string> ArcdpsEx
 	UINT randomPointer = 0;
 	VS_FIXEDFILEINFO* fixedFileInfo = nullptr;
 	if (!VerQueryValue(data.data(), TEXT("\\"), (void**) &fixedFileInfo, &randomPointer)) {
-		std::unexpected(std::format("GetCurrentVersion: VerQueryValue failed - {}", GetLastError()));
+		return std::unexpected(std::format("GetCurrentVersion: VerQueryValue failed - {}", GetLastError()));
 	}
 
 	return Version({HIWORD(fixedFileInfo->dwProductVersionMS), LOWORD(fixedFileInfo->dwProductVersionMS), HIWORD(fixedFileInfo->dwProductVersionLS), LOWORD(fixedFileInfo->dwProductVersionLS)});

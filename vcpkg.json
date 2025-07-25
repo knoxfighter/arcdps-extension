@@ -5,12 +5,12 @@
   "dependencies": [
     "magic-enum",
     "nlohmann-json",
-    "gtest",
-    "curl"
+    "gtest"
   ],
   "default-features": [
     "imgui",
-    "unofficial-extras"
+    "unofficial-extras",
+    "curl"
   ],
   "features": {
       "imgui": {
@@ -23,6 +23,12 @@
         "description": "make tools available, that depend on arcdps-unofficial-extras",
         "dependencies": [
           "arcdps-unofficial-extras"
+        ]
+      },
+      "curl":{
+        "description": "make tools available, that depend on curl",
+        "dependencies": [
+          "curl"
         ]
       }
     },
