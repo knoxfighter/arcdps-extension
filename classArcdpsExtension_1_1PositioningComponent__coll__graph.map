@@ -1,0 +1,7 @@
+<map id="ArcdpsExtension::PositioningComponent" name="ArcdpsExtension::PositioningComponent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,168,233,208"/>
+<area shape="rect" id="Node000002" href="$classArcdpsExtension_1_1ComponentBase.html" title=" " alt="" coords="5,93,251,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,132,131,168,125,168,125,132"/>
+<area shape="rect" id="Node000003" href="$classArcdpsExtension_1_1MainWindow.html" title=" " alt="" coords="17,5,239,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,45,131,93,125,93,125,45"/>
+</map>

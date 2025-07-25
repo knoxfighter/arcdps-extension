@@ -1,11 +1,19 @@
 var namespaces_dup =
 [
+    [ "ArcdpsExtension", "namespaceArcdpsExtension.html", "namespaceArcdpsExtension" ],
     [ "ImGui", "namespaceImGui.html", [
       [ "InputText", "namespaceImGui.html#a1da680314eaf3f60ea2a42c76f3584b0", null ],
       [ "InputTextMultiline", "namespaceImGui.html#a81dd8855d2cec99457d2339498cc3c4a", null ],
       [ "InputTextWithHint", "namespaceImGui.html#a2c2b759553b77cfee680cf36bf0984f7", null ]
     ] ],
     [ "ImGuiEx", "namespaceImGuiEx.html", [
+      [ "KeyCodeInputFlags", "namespaceImGuiEx.html#a0eb2d9894da54d114b92219e015892d8", null ],
+      [ "KeyCodeInputFlags_", "namespaceImGuiEx.html#a6ed2e34092196101f0ab75ffda303d68", [
+        [ "KeyCodeInputFlags_NoModifier", "namespaceImGuiEx.html#a6ed2e34092196101f0ab75ffda303d68af4b4c1402d06dd4d96cc1309b7b96533", null ],
+        [ "KeyCodeInputFlags_NoMouse", "namespaceImGuiEx.html#a6ed2e34092196101f0ab75ffda303d68a701b02b80b359f77c185eaec7011fbbd", null ],
+        [ "KeyCodeInputFlags_OnlyGW2Keys", "namespaceImGuiEx.html#a6ed2e34092196101f0ab75ffda303d68a9911c1a9a6f5f4ee8e26a0975669b0c8", null ],
+        [ "KeyCodeInputFlags_FixedModifier", "namespaceImGuiEx.html#a6ed2e34092196101f0ab75ffda303d68ae8477aff92848454c35560804112c80e", null ]
+      ] ],
       [ "AlignedProgressBar", "namespaceImGuiEx.html#a816f20a444a938fd39c670f67d3300f2", null ],
       [ "AlignedTextColumn", "namespaceImGuiEx.html#a68e9442630b8c64f4fd93ccb0900ab84", null ],
       [ "BeginMenu", "namespaceImGuiEx.html#a663227fe46dd68301ebc6a579cd87456", null ],
@@ -15,32 +23,33 @@ var namespaces_dup =
       [ "BeginTable", "namespaceImGuiEx.html#a2503b76887667b646443cc4b394d7e54", null ],
       [ "BeginTableEx", "namespaceImGuiEx.html#ad35b975afa5a90575e6a015527412782", null ],
       [ "CloseKeyCodePopupState", "namespaceImGuiEx.html#ac42db620be0af5f878ae8e50177c545e", null ],
-      [ "GetKeyCodeInputKeyState", "namespaceImGuiEx.html#ad3863ed20f9e4deb81f451a8a25e5ef5", null ],
-      [ "KeyCodeInput", "namespaceImGuiEx.html#ab81ab30c30910740847ad4897f993c8b", null ],
+      [ "EnumCombo", "namespaceImGuiEx.html#a6f92d4417a224c202405fde8f9883f6c", null ],
+      [ "EnumCombo", "namespaceImGuiEx.html#a7fcd8fdc287d78999d929fb05a0f83c6", null ],
+      [ "EnumCombo", "namespaceImGuiEx.html#a73e91ea3489d22a23c0ace18053b6e0a", null ],
+      [ "EnumRadioButton", "namespaceImGuiEx.html#a538c304455e032f68b9210fc2aa5c5d4", null ],
+      [ "EnumRadioButton", "namespaceImGuiEx.html#aabac93463183f0de50deed46248591ad", null ],
+      [ "FilteredCombo", "namespaceImGuiEx.html#a4900cc330eb6f829cc1463d033e686ff", null ],
+      [ "FilteredCombo", "namespaceImGuiEx.html#ac84124bb2f6d24b2dbaed5e0b3864922", null ],
+      [ "GetKeyCodeInputKeyState", "namespaceImGuiEx.html#af24ac543a950b7fb516aa516b4c21280", null ],
+      [ "KeyCodeInput", "namespaceImGuiEx.html#a87095bac980080b5412ea3c064f09044", null ],
       [ "KeyCodeInputActiveFrame", "namespaceImGuiEx.html#ab5a5efe000bdeae4923399b5edf86699", null ],
-      [ "KeyCodeInputWndHandle", "namespaceImGuiEx.html#ace2df589bb946fed32e9cca599db3bac", null ],
+      [ "KeyCodeInputWndHandle", "namespaceImGuiEx.html#a055c747f57ad7bac5ffb4b23fd5450ed", null ],
       [ "KeyInput", "namespaceImGuiEx.html#a02dc1d0e8d5bf8c63bbb21339e416ea8", null ],
       [ "MenuItemTableColumnVisibility", "namespaceImGuiEx.html#addc8d6cf0c96f44bb72e81fdd3c92897", null ],
       [ "OpenKeyCodePopupState", "namespaceImGuiEx.html#a38c84d1aa305de5b8a30fa24e398c426", null ],
-      [ "requires", "namespaceImGuiEx.html#a527f2cf0ac60cb0c606ff3da63891128", null ],
+      [ "RadioButton", "namespaceImGuiEx.html#a589d30048da7d5a4b6daca3a021f8444", null ],
       [ "RestartKeyCodePopupState", "namespaceImGuiEx.html#a4d77cf39ecce54d4711ae1ae7672ec17", null ],
-      [ "Selectable", "namespaceImGuiEx.html#a57042330197910bfd61411c1b05797f9", null ],
+      [ "Selectable", "namespaceImGuiEx.html#a282884173d37e1c0a00110c5f37b39ff", null ],
       [ "Spinner", "namespaceImGuiEx.html#ad089af456defbeb50cfdfba61437dc76", null ],
       [ "SpinnerAligned", "namespaceImGuiEx.html#a29f894fcf0609d311e6e8bef7ca69d0b", null ],
       [ "TableFixFlags", "namespaceImGuiEx.html#ae2026c7f1fa9a0ef5bc5a581d660b5a4", null ],
       [ "TableGetCurrentRowRect", "namespaceImGuiEx.html#a810dca8cc6de6b9215a2c2f42435f628", null ],
       [ "TableHeader", "namespaceImGuiEx.html#a06952f92880bf320406f21421af3b4a1", null ],
       [ "TableIsMouseHoveringCurrentRow", "namespaceImGuiEx.html#a441d38f69d41418fc3664e884adbe5e2", null ],
+      [ "TextColored", "namespaceImGuiEx.html#a7a4e3b8299f89f699064cbc1934b3f7e", null ],
       [ "TreeNodeBehavior", "namespaceImGuiEx.html#a4be780d8891950a8ae8cb9df0276d4a9", null ],
       [ "TreeNodeEx", "namespaceImGuiEx.html#ac150a76ca6c38784d1c32e040b291e5e", null ],
-      [ "WindowReposition", "namespaceImGuiEx.html#a6726ec0cda66b92c76bd37e9439b74c0", null ],
-      [ "pPopupText", "namespaceImGuiEx.html#a6dbcdb94e557827e55cec688e37a0b24", null ],
-      [ "storage", "namespaceImGuiEx.html#aca906ff873dc72d3a01ee7ec17bd83ce", null ],
-      [ "values", "namespaceImGuiEx.html#a7164db4e0588349525dc634131a2138e", null ]
-    ] ],
-    [ "nlohmann", "namespacenlohmann.html", [
-      [ "from_json", "namespacenlohmann.html#ad5728536458885880cd16bdbad9c3a07", null ],
-      [ "to_json", "namespacenlohmann.html#a019dcba5d73b158e81276f0d2d17f1e0", null ]
+      [ "WindowReposition", "namespaceImGuiEx.html#a6726ec0cda66b92c76bd37e9439b74c0", null ]
     ] ],
     [ "rapidfuzz", "namespacerapidfuzz.html", "namespacerapidfuzz" ]
 ];

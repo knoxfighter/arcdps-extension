@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['weaponset_2944',['WeaponSet',['../arcdps__structs__slim_8h.html#ac9458561e91df2f3a053069969d08e26',1,'arcdps_structs_slim.h']]]
+  ['uiscaling_0',['UIScaling',['../MumbleLink_8h.html#ad95c5f34f5b9787c54deb4d1f12af284',1,'MumbleLink.h']]],
+  ['uistateflags_5f_1',['UiStateFlags_',['../MumbleLink_8h.html#a5575ed2ee42cefab4b0332633b8b43a6',1,'MumbleLink.h']]]
 ];

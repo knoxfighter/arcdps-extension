@@ -8,5 +8,5 @@ var classrapidfuzz_1_1SplittedSentenceView =
     [ "length", "classrapidfuzz_1_1SplittedSentenceView.html#a6ac50602e7b98abff4490c045389c033", null ],
     [ "size", "classrapidfuzz_1_1SplittedSentenceView.html#a7e0a4aec65781106167817b2619d8605", null ],
     [ "word_count", "classrapidfuzz_1_1SplittedSentenceView.html#afed18b13021484421fa7fd248d9be5ba", null ],
-    [ "words", "classrapidfuzz_1_1SplittedSentenceView.html#a66bb935fbe406da9d20713280d6e28fa", null ]
+    [ "words", "classrapidfuzz_1_1SplittedSentenceView.html#a87804bb43863b6fe1dc437ecac3fd9cf", null ]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['opcode_2032',['Opcode',['../structrapidfuzz_1_1Opcode.html',1,'rapidfuzz']]],
-  ['opcodes_2033',['Opcodes',['../classrapidfuzz_1_1Opcodes.html',1,'rapidfuzz']]]
+  ['patternmatchvector_0',['PatternMatchVector',['../structrapidfuzz_1_1common_1_1PatternMatchVector.html',1,'rapidfuzz::common']]],
+  ['positioningcomponent_1',['PositioningComponent',['../classArcdpsExtension_1_1PositioningComponent.html',1,'ArcdpsExtension']]],
+  ['positioningcomponentimguihook_2',['PositioningComponentImGuiHook',['../classArcdpsExtension_1_1PositioningComponentImGuiHook.html',1,'ArcdpsExtension']]]
 ];

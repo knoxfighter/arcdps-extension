@@ -1,9 +1,17 @@
 <map id="Windows/Demo/DemoKeyBindComponent.h" name="Windows/Demo/DemoKeyBindComponent.h">
-<area shape="rect" id="node1" title=" " alt="" coords="230,5,450,47"/>
-<area shape="rect" id="node2" href="$KeyBindComponent_8h.html" title=" " alt="" coords="253,95,427,121"/>
-<area shape="rect" id="node3" href="$ComponentBase_8h.html" title=" " alt="" coords="5,177,147,203"/>
-<area shape="rect" id="node4" href="$arcdps__structs__slim_8h.html" title=" " alt="" coords="171,177,346,203"/>
-<area shape="rect" id="node6" href="$KeyInput_8h.html" title=" " alt="" coords="370,177,473,203"/>
-<area shape="rect" id="node7" title=" " alt="" coords="497,169,666,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="225,259,292,285"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,450,45"/>
+<area shape="rect" id="Node000002" href="$KeyBindComponent_8h.html" title=" " alt="" coords="253,93,427,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="343,46,343,79,337,79,337,46"/>
+<area shape="rect" id="Node000003" href="$ComponentBase_8h.html" title=" " alt="" coords="5,174,147,199"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="302,121,128,173,127,168,301,116"/>
+<area shape="rect" id="Node000004" href="$arcdps__structs__slim_8h.html" title=" " alt="" coords="171,174,346,199"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="330,121,282,166,279,163,326,117"/>
+<area shape="rect" id="Node000006" href="$KeyInput_8h.html" title=" " alt="" coords="370,174,473,199"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="354,117,401,163,398,166,350,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="497,167,666,207"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="376,116,511,160,510,165,374,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="225,262,292,287"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="261,200,261,248,256,248,256,200"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="337,255,506,295"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="424,200,424,241,419,241,419,200"/>
 </map>

@@ -1,13 +1,24 @@
 <map id="rapidfuzz_amalgamated.hpp" name="rapidfuzz_amalgamated.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="281,5,489,32"/>
-<area shape="rect" id="node2" href="$Widgets_8h.html" title=" " alt="" coords="342,80,429,107"/>
-<area shape="rect" id="node3" href="$UpdateChecker_8cpp.html" title=" " alt="" coords="5,155,152,181"/>
-<area shape="rect" id="node4" href="$Widgets_8cpp.html" title=" " alt="" coords="177,155,279,181"/>
-<area shape="rect" id="node5" href="$MainTable_8h.html" title=" " alt="" coords="304,155,467,181"/>
-<area shape="rect" id="node10" href="$MainWindow_8cpp.html" title=" " alt="" coords="491,155,685,181"/>
-<area shape="rect" id="node11" href="$PositioningComponent_8cpp.html" title=" " alt="" coords="709,155,968,181"/>
-<area shape="rect" id="node6" href="$DemoTable_8h.html" title=" " alt="" coords="279,229,492,256"/>
-<area shape="rect" id="node7" href="$DemoTable_8cpp.html" title=" " alt="" coords="137,304,365,331"/>
-<area shape="rect" id="node8" href="$DemoTableWindow_8h.html" title=" " alt="" coords="389,304,653,331"/>
-<area shape="rect" id="node9" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="382,379,661,405"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="281,5,489,31"/>
+<area shape="rect" id="Node000002" href="$Widgets_8h.html" title=" " alt="" coords="342,79,429,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="388,44,388,79,383,79,383,44"/>
+<area shape="rect" id="Node000003" href="$UpdateChecker_8cpp.html" title=" " alt="" coords="5,152,152,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,108,129,155,128,149,328,103"/>
+<area shape="rect" id="Node000004" href="$Widgets_8cpp.html" title=" " alt="" coords="177,152,279,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="349,112,255,154,253,149,346,107"/>
+<area shape="rect" id="Node000005" href="$MainTable_8h.html" title=" " alt="" coords="304,152,467,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="388,118,388,152,383,152,383,118"/>
+<area shape="rect" id="Node000010" href="$MainWindow_8cpp.html" title=" " alt="" coords="491,152,685,177"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="431,106,556,149,554,154,430,111"/>
+<area shape="rect" id="Node000011" href="$PositioningComponent_8cpp.html" title=" " alt="" coords="709,152,968,177"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="443,99,766,149,765,155,442,104"/>
+<area shape="rect" id="Node000006" href="$DemoTable_8h.html" title=" " alt="" coords="279,225,492,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="388,191,388,225,383,225,383,191"/>
+<area shape="rect" id="Node000007" href="$DemoTable_8cpp.html" title=" " alt="" coords="119,299,347,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="350,259,259,301,257,296,348,254"/>
+<area shape="rect" id="Node000008" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="330,372,609,397"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="392,264,400,293,413,323,434,349,456,370,452,374,430,353,408,325,395,295,387,265"/>
+<area shape="rect" id="Node000009" href="$DemoTableWindow_8h.html" title=" " alt="" coords="423,299,687,324"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="426,254,528,296,526,301,424,258"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="532,335,485,374,482,370,529,330"/>
 </map>

@@ -1,10 +1,20 @@
 <map id="KeyBindHandler.h" name="KeyBindHandler.h">
-<area shape="rect" id="node1" title=" " alt="" coords="139,5,276,32"/>
-<area shape="rect" id="node2" href="$Singleton_8h.html" title=" " alt="" coords="160,80,255,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="279,80,373,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="117,155,197,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="221,155,298,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="323,155,380,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="404,155,491,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="216,5,353,31"/>
+<area shape="rect" id="Node000002" href="$Singleton_8h.html" title=" " alt="" coords="160,86,255,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,33,230,78,227,74,271,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,167,92,192"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="250,33,201,53,150,81,104,119,69,158,65,154,101,115,147,76,199,48,248,28"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="279,79,448,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="298,29,337,67,333,71,294,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="473,86,566,111"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="320,28,473,79,472,84,318,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="117,167,197,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,113,174,156,169,154,198,110"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="185,114,85,163,83,158,183,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="221,167,298,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="217,110,246,154,242,156,213,113"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="323,167,380,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="230,109,319,158,317,162,227,114"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="404,167,491,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="243,109,400,160,399,165,241,114"/>
 </map>

@@ -1,0 +1,33 @@
+<map id="ArcdpsExtension::BaseSingleton" name="ArcdpsExtension::BaseSingleton">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,237,236,262"/>
+<area shape="rect" id="Node000002" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,5,502,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,223,158,186,191,140,234,94,283,55,306,43,308,48,285,60,237,98,196,144,162,189,138,226"/>
+<area shape="rect" id="Node000004" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,69,502,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,225,203,172,241,143,283,119,312,107,314,112,285,124,244,148,206,176,146,229"/>
+<area shape="rect" id="Node000006" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,133,502,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="163,229,283,183,322,171,323,176,285,188,165,234"/>
+<area shape="rect" id="Node000008" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,197,502,237"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="246,232,303,226,304,231,247,238"/>
+<area shape="rect" id="Node000010" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,261,502,301"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="247,261,304,267,303,273,246,266"/>
+<area shape="rect" id="Node000012" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,325,502,365"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="165,265,285,311,323,323,322,328,283,316,163,270"/>
+<area shape="rect" id="Node000014" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="303,389,502,429"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="146,270,206,323,244,351,285,375,314,387,312,392,283,380,241,355,203,327,142,274"/>
+<area shape="rect" id="Node000016" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="284,454,521,479"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="138,273,161,310,194,356,236,401,285,439,313,451,311,456,283,444,233,405,190,359,157,313,133,275"/>
+<area shape="rect" id="Node000003" href="$classArcdpsExtension_1_1DemoTableWindow.html" title=" " alt="" coords="583,5,794,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,23,583,23,583,28,516,28"/>
+<area shape="rect" id="Node000005" href="$classArcdpsExtension_1_1DemoWindow.html" title=" " alt="" coords="574,77,803,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="516,87,574,87,574,92,516,92"/>
+<area shape="rect" id="Node000007" href="$classArcdpsExtension_1_1IconLoader.html" title=" " alt="" coords="584,141,793,166"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="516,151,584,151,584,156,516,156"/>
+<area shape="rect" id="Node000009" href="$classArcdpsExtension_1_1KeyBindHandler.html" title=" " alt="" coords="593,197,784,237"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="516,215,593,215,593,220,516,220"/>
+<area shape="rect" id="Node000011" href="$classArcdpsExtension_1_1Localization.html" title=" " alt="" coords="581,269,797,294"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="516,279,581,279,581,284,516,284"/>
+<area shape="rect" id="Node000013" href="$classArcdpsExtension_1_1SimpleNetworkStack.html" title=" " alt="" coords="569,325,808,365"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="516,343,569,343,569,348,516,348"/>
+<area shape="rect" id="Node000015" href="$classArcdpsExtension_1_1UpdateChecker.html" title=" " alt="" coords="570,397,807,422"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="516,407,570,407,570,412,516,412"/>
+</map>

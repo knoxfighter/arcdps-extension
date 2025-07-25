@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['decomposedset_1994',['DecomposedSet',['../structrapidfuzz_1_1DecomposedSet.html',1,'rapidfuzz']]],
-  ['demokeybindcomponent_1995',['DemoKeyBindComponent',['../classDemoKeyBindComponent.html',1,'']]],
-  ['demopositioningcomponent_1996',['DemoPositioningComponent',['../classDemoPositioningComponent.html',1,'']]],
-  ['demotable_1997',['DemoTable',['../classDemoTable.html',1,'']]],
-  ['demotablewindow_1998',['DemoTableWindow',['../classDemoTableWindow.html',1,'']]],
-  ['demowindow_1999',['DemoWindow',['../classDemoWindow.html',1,'']]]
+  ['demokeybindcomponent_0',['DemoKeyBindComponent',['../classArcdpsExtension_1_1DemoKeyBindComponent.html',1,'ArcdpsExtension']]],
+  ['demopositioningcomponent_1',['DemoPositioningComponent',['../classArcdpsExtension_1_1DemoPositioningComponent.html',1,'ArcdpsExtension']]],
+  ['demotable_2',['DemoTable',['../classArcdpsExtension_1_1DemoTable.html',1,'ArcdpsExtension']]],
+  ['demotablewindow_3',['DemoTableWindow',['../classArcdpsExtension_1_1DemoTableWindow.html',1,'ArcdpsExtension']]],
+  ['demowindow_4',['DemoWindow',['../classArcdpsExtension_1_1DemoWindow.html',1,'ArcdpsExtension']]]
 ];

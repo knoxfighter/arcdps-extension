@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['zane_1953',['Zane',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450aecb1a1189a6aa1b568d3b4f29c89784c',1,'MobIDs.h']]],
-  ['zhaitansreach_1954',['ZhaitansReach',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a12af644508fdca677ef003a4c25ca8cb',1,'MobIDs.h']]],
-  ['zommoros_1955',['Zommoros',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aedc4727cf35cfdb071b2672aed8dfee2',1,'MobIDs.h']]]
+  ['your_20plugin_0',['Update your plugin',['../md_Readme.html#autotoc_md6',1,'']]],
+  ['your_20project_1',['add to your project',['../md_Readme.html#autotoc_md2',1,'']]]
 ];

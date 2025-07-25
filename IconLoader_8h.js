@@ -1,7 +1,7 @@
 var IconLoader_8h =
 [
-    [ "IconLoader", "classIconLoader.html", "classIconLoader" ],
-    [ "IconLoaderKeyType", "IconLoader_8h.html#a0f30cc7f5fef7c609866605f6fed2cdd", null ],
-    [ "IconLoaderKey", "IconLoader_8h.html#a9b7cea43b1565c974b5b6ab25e460248", null ],
-    [ "static_castable", "IconLoader_8h.html#adff96770787c079e9f23c1ccb9712edd", null ]
+    [ "ArcdpsExtension::IconLoader", "classArcdpsExtension_1_1IconLoader.html", "classArcdpsExtension_1_1IconLoader" ],
+    [ "ArcdpsExtension::static_castable", "conceptArcdpsExtension_1_1static__castable.html", null ],
+    [ "ArcdpsExtension::IconLoaderKey", "conceptArcdpsExtension_1_1IconLoaderKey.html", null ],
+    [ "IconLoaderKeyType", "IconLoader_8h.html#acbc42d01061d9d6f8fa7578eaced2ef3", null ]
 ];

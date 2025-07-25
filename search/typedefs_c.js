@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tablecolumnidx_2908',['TableColumnIdx',['../MainTable_8h.html#aceacd37fb95dff7201c51da3c868f954',1,'MainTable.h']]]
+  ['subscriberflags_0',['SubscriberFlags',['../classArcdpsExtension_1_1KeyBindHandler.html#a17e7ee1ce96a68689541c617d9366396',1,'ArcdpsExtension::KeyBindHandler']]],
+  ['subscriberfun_1',['SubscriberFun',['../classArcdpsExtension_1_1KeyBindHandler.html#ae53b4b44e4975b31fb2e0da0084c5035',1,'ArcdpsExtension::KeyBindHandler']]]
 ];

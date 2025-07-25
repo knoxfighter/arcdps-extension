@@ -1,5 +1,5 @@
 var DemoTable_8h =
 [
-    [ "Row", "structRow.html", "structRow" ],
-    [ "DemoTable", "classDemoTable.html", "classDemoTable" ]
+    [ "ArcdpsExtension::Row", "structArcdpsExtension_1_1Row.html", "structArcdpsExtension_1_1Row" ],
+    [ "ArcdpsExtension::DemoTable", "classArcdpsExtension_1_1DemoTable.html", "classArcdpsExtension_1_1DemoTable" ]
 ];

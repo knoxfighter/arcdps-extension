@@ -1,7 +1,0 @@
-<map id="ComponentBase" name="ComponentBase">
-<area shape="rect" id="node1" title=" " alt="" coords="146,5,275,32"/>
-<area shape="rect" id="node2" href="$classKeyBindComponent.html" title=" " alt="" coords="34,80,185,107"/>
-<area shape="rect" id="node4" href="$classPositioningComponent.html" title=" " alt="" coords="227,80,397,107"/>
-<area shape="rect" id="node3" href="$classDemoKeyBindComponent.html" title=" " alt="" coords="5,155,195,181"/>
-<area shape="rect" id="node5" href="$classDemoPositioningComponent.html" title=" " alt="" coords="219,155,427,181"/>
-</map>

@@ -1,0 +1,9 @@
+<map id="ArcdpsExtension::DemoTableWindow" name="ArcdpsExtension::DemoTableWindow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="129,167,339,207"/>
+<area shape="rect" id="Node000002" href="$classArcdpsExtension_1_1MainWindow.html" title=" " alt="" coords="5,86,228,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,117,210,164,207,169,142,122"/>
+<area shape="rect" id="Node000003" href="$classArcdpsExtension_1_1Singleton.html" title=" " alt="" coords="252,79,451,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="316,129,262,169,258,164,313,125"/>
+<area shape="rect" id="Node000004" href="$classArcdpsExtension_1_1BaseSingleton.html" title=" " alt="" coords="236,5,467,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="354,44,354,79,349,79,349,44"/>
+</map>

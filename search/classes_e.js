@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['table_2064',['Table',['../structMainTable_1_1Table.html',1,'MainTable']]],
-  ['tablecolumn_2065',['TableColumn',['../structMainTable_1_1TableColumn.html',1,'MainTable']]],
-  ['tablecolumnsettings_2066',['TableColumnSettings',['../structMainTable_1_1TableColumnSettings.html',1,'MainTable']]],
-  ['tablesettings_2067',['TableSettings',['../structMainTable_1_1TableSettings.html',1,'MainTable']]]
+  ['updatechecker_0',['UpdateChecker',['../classArcdpsExtension_1_1UpdateChecker.html',1,'ArcdpsExtension']]],
+  ['updatecheckerbase_1',['UpdateCheckerBase',['../classArcdpsExtension_1_1UpdateCheckerBase.html',1,'ArcdpsExtension']]],
+  ['updatestate_2',['UpdateState',['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html',1,'ArcdpsExtension::UpdateCheckerBase']]]
 ];

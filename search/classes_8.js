@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['levenshteinbitmatrix_2018',['LevenshteinBitMatrix',['../structrapidfuzz_1_1detail_1_1LevenshteinBitMatrix.html',1,'rapidfuzz::detail']]],
-  ['levenshteinweighttable_2019',['LevenshteinWeightTable',['../structrapidfuzz_1_1LevenshteinWeightTable.html',1,'rapidfuzz']]],
-  ['linkedmem_2020',['LinkedMem',['../structLinkedMem.html',1,'']]],
-  ['llcsbitmatrix_2021',['LLCSBitMatrix',['../structrapidfuzz_1_1detail_1_1LLCSBitMatrix.html',1,'rapidfuzz::detail']]],
-  ['localization_2022',['Localization',['../classLocalization.html',1,'']]]
+  ['maintable_0',['MainTable',['../classArcdpsExtension_1_1MainTable.html',1,'ArcdpsExtension']]],
+  ['maintablecolumn_1',['MainTableColumn',['../structArcdpsExtension_1_1MainTableColumn.html',1,'ArcdpsExtension']]],
+  ['mainwindow_2',['MainWindow',['../classArcdpsExtension_1_1MainWindow.html',1,'ArcdpsExtension']]],
+  ['mapelem_3',['MapElem',['../structrapidfuzz_1_1common_1_1PatternMatchVector_1_1MapElem.html',1,'rapidfuzz::common::PatternMatchVector']]],
+  ['matrix_4',['Matrix',['../structrapidfuzz_1_1common_1_1Matrix.html',1,'rapidfuzz::common']]],
+  ['matrix_3c_20uint64_5ft_20_3e_5',['Matrix&lt; uint64_t &gt;',['../structrapidfuzz_1_1common_1_1Matrix.html',1,'rapidfuzz::common']]],
+  ['matrixvectorview_6',['MatrixVectorView',['../structrapidfuzz_1_1common_1_1MatrixVectorView.html',1,'rapidfuzz::common']]],
+  ['mumblecontext_7',['MumbleContext',['../structMumbleContext.html',1,'']]]
 ];

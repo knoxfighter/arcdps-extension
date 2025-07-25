@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCombatEventHandler.html" title=" " alt="" coords="5,5,167,32"/>
+<area shape="rect" id="Node000000" href="$classArcdpsExtension_1_1ComponentBase.html" title=" " alt="" coords="5,45,251,70"/>
+<area shape="rect" id="Node000001" href="$classArcdpsExtension_1_1KeyBindComponent.html" title=" " alt="" coords="309,5,499,45"/>
+<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="251,40,308,34,309,39,251,46"/>
+<area shape="rect" id="Node000003" href="$classArcdpsExtension_1_1PositioningComponent.html" title=" " alt="" coords="299,69,509,109"/>
+<area shape="poly" id="edge21_Node000000_Node000003" title=" " alt="" coords="252,69,299,74,298,80,251,74"/>
+<area shape="rect" id="Node000002" href="$classArcdpsExtension_1_1DemoKeyBindComponent.html" title=" " alt="" coords="581,5,783,45"/>
+<area shape="poly" id="edge20_Node000001_Node000002" title=" " alt="" coords="513,23,581,23,581,28,513,28"/>
+<area shape="rect" id="Node000004" href="$classArcdpsExtension_1_1DemoPositioningComponent.html" title=" " alt="" coords="557,69,807,109"/>
+<area shape="poly" id="edge22_Node000003_Node000004" title=" " alt="" coords="523,87,557,87,557,92,523,92"/>
 </map>

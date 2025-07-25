@@ -1,6 +1,9 @@
 <map id="Windows/Demo/DemoPositioningComponent.h" name="Windows/Demo/DemoPositioningComponent.h">
-<area shape="rect" id="node1" title=" " alt="" coords="288,5,527,47"/>
-<area shape="rect" id="node2" href="$DemoPositioningComponent_8cpp.html" title=" " alt="" coords="5,95,244,136"/>
-<area shape="rect" id="node3" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="268,102,547,129"/>
-<area shape="rect" id="node4" href="$DemoWindow_8cpp.html" title=" " alt="" coords="571,102,817,129"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="288,5,527,45"/>
+<area shape="rect" id="Node000002" href="$DemoPositioningComponent_8cpp.html" title=" " alt="" coords="5,93,244,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="333,52,187,96,186,91,331,47"/>
+<area shape="rect" id="Node000003" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="268,101,547,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="410,59,410,100,405,100,405,59"/>
+<area shape="rect" id="Node000004" href="$DemoWindow_8cpp.html" title=" " alt="" coords="571,101,817,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="484,47,657,98,655,103,482,52"/>
 </map>

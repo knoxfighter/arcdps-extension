@@ -1,0 +1,7 @@
+<map id="ArcdpsExtension::DemoTable" name="ArcdpsExtension::DemoTable">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,197,216,223"/>
+<area shape="rect" id="Node000002" href="$classArcdpsExtension_1_1MainTable.html" title=" " alt="" coords="9,108,213,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,162,113,197,108,197,108,162"/>
+<area shape="rect" id="Node000003" href="$structArcdpsExtension_1_1MainTable_1_1Table.html" title=" " alt="" coords="5,5,216,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,59,113,108,108,108,108,59"/>
+</map>

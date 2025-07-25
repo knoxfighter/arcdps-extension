@@ -1,4 +1,5 @@
 <map id="Windows/Demo/DemoTableWindow.h" name="Windows/Demo/DemoTableWindow.h">
-<area shape="rect" id="node1" title=" " alt="" coords="13,5,277,32"/>
-<area shape="rect" id="node2" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="5,80,284,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,5,277,31"/>
+<area shape="rect" id="Node000002" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="5,79,284,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,44,147,79,142,79,142,44"/>
 </map>

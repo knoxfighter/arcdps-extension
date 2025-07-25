@@ -1,4 +1,7 @@
 <map id="ExtensionTranslations.h" name="ExtensionTranslations.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,181,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="65,80,121,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="110,5,286,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,228,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,33,142,72,138,68,183,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="251,79,307,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,29,258,68,254,72,209,33"/>
 </map>

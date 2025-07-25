@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['windowcallbacksignature_2913',['WindowCallbackSignature',['../arcdps__structs_8h.html#a2e6939d3847fc22ab0b3e1b13174e028',1,'arcdps_structs.h']]]
+  ['value_5ftype_0',['value_type',['../classArcdpsExtension_1_1RingBuffer_1_1RingBufferIterator.html#a17b91fb1ec26d82c119cb9c2fedf5317',1,'ArcdpsExtension::RingBuffer::RingBufferIterator']]],
+  ['version_1',['Version',['../classArcdpsExtension_1_1UpdateCheckerBase.html#abcb7e4e741257871068e35baa0e9918b',1,'ArcdpsExtension::UpdateCheckerBase']]]
 ];

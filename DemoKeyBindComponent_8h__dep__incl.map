@@ -1,6 +1,5 @@
 <map id="Windows/Demo/DemoKeyBindComponent.h" name="Windows/Demo/DemoKeyBindComponent.h">
-<area shape="rect" id="node1" title=" " alt="" coords="279,5,499,47"/>
-<area shape="rect" id="node2" href="$DemoKeyBindComponent_8cpp.html" title=" " alt="" coords="5,95,225,136"/>
-<area shape="rect" id="node3" href="$DemoTableWindow_8cpp.html" title=" " alt="" coords="249,102,528,129"/>
-<area shape="rect" id="node4" href="$DemoWindow_8cpp.html" title=" " alt="" coords="553,102,798,129"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,225,45"/>
+<area shape="rect" id="Node000002" href="$DemoKeyBindComponent_8cpp.html" title=" " alt="" coords="5,93,225,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,59,118,93,113,93,113,59"/>
 </map>

@@ -1,6 +1,0 @@
-<map id="UpdateChecker" name="UpdateChecker">
-<area shape="rect" id="node1" title=" " alt="" coords="124,155,245,181"/>
-<area shape="rect" id="node2" href="$classUpdateCheckerBase.html" title=" " alt="" coords="5,80,159,107"/>
-<area shape="rect" id="node3" href="$classSingleton.html" title=" " alt="" coords="183,80,395,107"/>
-<area shape="rect" id="node4" href="$classBaseSingleton.html" title=" " alt="" coords="231,5,346,32"/>
-</map>
