@@ -1,13 +1,19 @@
 #include "DemoTableWindow.h"
 
+#if ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 #include "DemoKeyBindComponent.h"
-#include "DemoPositioningComponent.h"
+#endif // ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 
-#include "../../KeyBindHandler.h"
+#include "DemoTable.h"
+#include "DemoPositioningComponent.h"
 
 ArcdpsExtension::DemoTableWindow::DemoTableWindow() : MainWindow() {
 	CreateComponent<DemoPositioningComponent>();
+
+#if ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 	CreateComponent<DemoKeyBindComponent>();
+#endif // ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
+
 	mTable = std::make_unique<DemoTable>(this);
 }
 

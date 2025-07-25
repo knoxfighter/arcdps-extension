@@ -1,13 +1,15 @@
 #include "DemoWindow.h"
 
+#if ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 #include "DemoKeyBindComponent.h"
+#endif // ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 #include "DemoPositioningComponent.h"
-
-#include "../../KeyBindHandler.h"
 
 ArcdpsExtension::DemoWindow::DemoWindow() : MainWindow() {
 	CreateComponent<DemoPositioningComponent>();
+#if ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 	CreateComponent<DemoKeyBindComponent>();
+#endif // ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 }
 
 bool& ArcdpsExtension::DemoWindow::GetOpenVar() {

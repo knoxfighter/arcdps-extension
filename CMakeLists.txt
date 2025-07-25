@@ -86,11 +86,15 @@ if (ARCDPS_EXTENSION_IMGUI AND ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS)
 			FILE_SET HEADERS
 			FILES
 			KeyInput.h
+			Windows/Demo/DemoKeyBindComponent.h
+			Windows/KeyBindComponent.h
 	)
 
 	target_sources(${PROJECT_NAME}
 			PRIVATE
 			KeyInput.cpp
+			Windows/Demo/DemoKeyBindComponent.cpp
+			Windows/KeyBindComponent.cpp
 	)
 endif ()
 
@@ -105,11 +109,13 @@ if (ARCDPS_EXTENSION_CURL AND ARCDPS_EXTENSION_IMGUI)
 			PUBLIC
 			FILE_SET HEADERS
 			FILES
-			UpdateChecker.h)
+			UpdateChecker.h
+	)
 
 	target_sources(${PROJECT_NAME}
 			PRIVATE
-			UpdateChecker.cpp)
+			UpdateChecker.cpp
+	)
 endif ()
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
