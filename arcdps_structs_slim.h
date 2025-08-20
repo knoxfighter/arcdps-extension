@@ -260,7 +260,16 @@ enum class SpecializationId : uint32_t {
 	Revenant_Vindicator = 0x45,
 	Engineer_Mechanist = 0x46,
 	Thief_Specter = 0x47,
-	Ranger_Untamed = 0x48
+	Ranger_Untamed = 0x48,
+	Mesmer_Troubadour = 0x49,
+	Warrior_Paragon = 0x4a,
+	Engineer_Amalgam = 0x4b,
+	Necromancer_Ritualist = 0x4c,
+	Thief_Antiquary = 0x4d,
+	Ranger_Galeshot = 0x4e,
+	Revenant_Conduit = 0x4f,
+	Elementalist_Evoker = 0x50,
+	Guardian_Luminary = 0x51,
 };
 
 enum class WeaponSet {
