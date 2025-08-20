@@ -1,5 +1,14 @@
 var NAVTREEINDEX10 =
 {
+"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933afe5565247e1ca13c3c223dadc888ee29":[4,0,0,32,22],
+"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977f":[4,0,0,34],
+"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977fa59cc2fcee3935f42ec7b1d6ecdc99c60":[4,0,0,34,0],
+"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977fa8818ea517ab6650fc08d450e1b727ac8":[4,0,0,34,1],
+"namespaceArcdpsExtension.html#acbc42d01061d9d6f8fa7578eaced2ef3":[4,0,0,28],
+"namespaceArcdpsExtension.html#ae26b7966fb8e78c0aa172659a26d6544":[4,0,0,29],
+"namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4":[4,0,0,35],
+"namespaceArcdpsExtension.html#ae81b67f164150aa3ea5030f07055e045":[4,0,0,31],
+"namespaceArcdpsExtension.html#aedfa3adf91472c13c4fee432deb229ec":[4,0,0,30],
 "namespaceImGui.html":[4,0,1],
 "namespaceImGui.html#a1da680314eaf3f60ea2a42c76f3584b0":[4,0,1,0],
 "namespaceImGui.html#a2c2b759553b77cfee680cf36bf0984f7":[4,0,1,2],
@@ -240,14 +249,5 @@ var NAVTREEINDEX10 =
 "structArcdpsExtension_1_1MainTable_1_1Table.html#a21c2b49d9bea6602ba7fcd3148583d89":[6,0,0,13,0,86],
 "structArcdpsExtension_1_1MainTable_1_1Table.html#a226e8d16e6c4bbb555708e9ec95231c4":[4,0,0,13,0,9],
 "structArcdpsExtension_1_1MainTable_1_1Table.html#a226e8d16e6c4bbb555708e9ec95231c4":[6,0,0,13,0,9],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a25204538a547756e1ccc659891670f66":[6,0,0,13,0,94],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a25204538a547756e1ccc659891670f66":[4,0,0,13,0,94],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a2730d26dbb04c417b33a12b96abbcbff":[4,0,0,13,0,44],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a2730d26dbb04c417b33a12b96abbcbff":[6,0,0,13,0,44],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a27f2184d09c6199d9b80b008de8da532":[4,0,0,13,0,103],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a27f2184d09c6199d9b80b008de8da532":[6,0,0,13,0,103],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a313a351f2971d989d6438a14f3549cc1":[6,0,0,13,0,99],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a313a351f2971d989d6438a14f3549cc1":[4,0,0,13,0,99],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a3196e206901bd1b2c1b961194ee4a683":[4,0,0,13,0,64],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a3196e206901bd1b2c1b961194ee4a683":[6,0,0,13,0,64]
+"structArcdpsExtension_1_1MainTable_1_1Table.html#a25204538a547756e1ccc659891670f66":[6,0,0,13,0,94]
 };

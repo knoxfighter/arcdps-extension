@@ -24,10 +24,11 @@ var searchData=
   ['mesmer_5fillusions_21',['Mesmer_Illusions',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093afe2038f18a8449f5d0b0534e4e029582',1,'arcdps_structs_slim.h']]],
   ['mesmer_5finspiration_22',['Mesmer_Inspiration',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a823a504ea66be24dc05475f984a1d120',1,'arcdps_structs_slim.h']]],
   ['mesmer_5fmirage_23',['Mesmer_Mirage',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a08d2b1e8915fbc141b5f7edaeb64ab4c',1,'arcdps_structs_slim.h']]],
-  ['mesmer_5fvirtuoso_24',['Mesmer_Virtuoso',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a74c90f7f2560998c9280a1356cf68512',1,'arcdps_structs_slim.h']]],
-  ['messenger_25',['Messenger',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ad185bd88744161980aa2d317f6dba5f2',1,'MobIDs.h']]],
-  ['ministerli_26',['MinisterLi',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a0534e53a9ac5b097ec6f9f896098f6cf',1,'MobIDs.h']]],
-  ['ministerlicm_27',['MinisterLiCM',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a87450faa1d03490af8ab77e74ffa191d',1,'MobIDs.h']]],
-  ['mordremoth_28',['Mordremoth',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450af64b8574649fbbe59d27c6d663cca1c4',1,'MobIDs.h']]],
-  ['mursaatoverseer_29',['MursaatOverseer',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a74b8c12f528d867150321eba7287984f',1,'MobIDs.h']]]
+  ['mesmer_5ftroubadour_24',['Mesmer_Troubadour',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a42853528d4141b8abaea194ec6718d56',1,'arcdps_structs_slim.h']]],
+  ['mesmer_5fvirtuoso_25',['Mesmer_Virtuoso',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a74c90f7f2560998c9280a1356cf68512',1,'arcdps_structs_slim.h']]],
+  ['messenger_26',['Messenger',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ad185bd88744161980aa2d317f6dba5f2',1,'MobIDs.h']]],
+  ['ministerli_27',['MinisterLi',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a0534e53a9ac5b097ec6f9f896098f6cf',1,'MobIDs.h']]],
+  ['ministerlicm_28',['MinisterLiCM',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a87450faa1d03490af8ab77e74ffa191d',1,'MobIDs.h']]],
+  ['mordremoth_29',['Mordremoth',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450af64b8574649fbbe59d27c6d663cca1c4',1,'MobIDs.h']]],
+  ['mursaatoverseer_30',['MursaatOverseer',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a74b8c12f528d867150321eba7287984f',1,'MobIDs.h']]]
 ];

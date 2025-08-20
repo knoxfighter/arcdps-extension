@@ -234,7 +234,9 @@ var NAVTREEINDEX2 =
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a06876b49388b5b449d4e4ecc94bf4f7c":[7,0,5,17,15],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a08d2b1e8915fbc141b5f7edaeb64ab4c":[7,0,5,17,59],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a0b16a654a964f7ff356a8ff56b157e64":[7,0,5,17,46],
+"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a0e0a6b57906029a6f0b4a4dbc9b6edc5":[7,0,5,17,76],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a163849d7361498a9e55cf380f566fa65":[7,0,5,17,31],
+"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1aae74bf26a55e5ed0d92c1d5ffaa5f9":[7,0,5,17,75],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1bc5ac645ad4505976c307a384447443":[7,0,5,17,22],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1d407a0154a7793c045b3df9399d8d7c":[7,0,5,17,28],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1e63a86e35790a1d280769fbf6be339e":[7,0,5,17,32],
@@ -244,10 +246,8 @@ var NAVTREEINDEX2 =
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a22f1e73a6b5491cb9896f2fb1111eb2e":[7,0,5,17,52],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a247c8614af82f2697075f2c10f315a8e":[7,0,5,17,35],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a2510410d4f5d761f2f6e22671ef75928":[7,0,5,17,30],
+"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a25560c2ab3389579fbdda17350964e93":[7,0,5,17,80],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a2936a5aed4763162422365b06a4dee17":[7,0,5,17,4],
 "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a2999999a94a926f07de9d6460326bb3d":[7,0,5,17,3],
-"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a29b491f3b3a6518c3529011696e09c67":[7,0,5,17,8],
-"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a2d7557760d9d837f2468941d04b2e602":[7,0,5,17,68],
-"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a2d87c7c996eaf78e18af09c6cf404640":[7,0,5,17,29],
-"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a32a4a3a53e17e8e9d75eb988dde75e4d":[7,0,5,17,25]
+"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a29b491f3b3a6518c3529011696e09c67":[7,0,5,17,8]
 };

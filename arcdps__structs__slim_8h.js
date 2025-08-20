@@ -248,7 +248,16 @@ var arcdps__structs__slim_8h =
       [ "Revenant_Vindicator", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093ac60bd03a1627fa193d56946ada97374e", null ],
       [ "Engineer_Mechanist", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093aad8922ba46f6b15ac2b5c791d8e7c123", null ],
       [ "Thief_Specter", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a42bdb1731cfe074e1a0e8be410870078", null ],
-      [ "Ranger_Untamed", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093ac8842b7a21dbfbdfdbe6a1cfa1e163d0", null ]
+      [ "Ranger_Untamed", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093ac8842b7a21dbfbdfdbe6a1cfa1e163d0", null ],
+      [ "Mesmer_Troubadour", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a42853528d4141b8abaea194ec6718d56", null ],
+      [ "Warrior_Paragon", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093abfbc94393500eb0df55003d94c891ebb", null ],
+      [ "Engineer_Amalgam", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1aae74bf26a55e5ed0d92c1d5ffaa5f9", null ],
+      [ "Necromancer_Ritualist", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a0e0a6b57906029a6f0b4a4dbc9b6edc5", null ],
+      [ "Thief_Antiquary", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a97a4617c63b220b2f84c9e82c3cdcb7e", null ],
+      [ "Ranger_Galeshot", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a511cc8012eb2456409cda635cbd8d65d", null ],
+      [ "Revenant_Conduit", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a3c9a6b74b64a6dd0a1e9839ed754ea8e", null ],
+      [ "Elementalist_Evoker", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a25560c2ab3389579fbdda17350964e93", null ],
+      [ "Guardian_Luminary", "arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a77852a4327d3f0297136d9f0bee3bc0c", null ]
     ] ],
     [ "WeaponSet", "arcdps__structs__slim_8h.html#ac9458561e91df2f3a053069969d08e26", [
       [ "WaterFirst", "arcdps__structs__slim_8h.html#ac9458561e91df2f3a053069969d08e26a0efde94dcfef2c5f1c772a6bf55d5db9", null ],
