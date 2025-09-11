@@ -2698,9 +2698,13 @@ namespace ArcdpsExtension {
 		const ImVec2 avail_size = ImGui::GetContentRegionAvail();
 		ImVec2 actual_outer_size = ImGui::CalcItemSize(outer_size, ImMax(avail_size.x, 1.0f), use_child_window ? ImMax(avail_size.y, 1.0f) : 0.0f);
 		ImRect outer_rect(outer_window->DC.CursorPos, outer_window->DC.CursorPos + actual_outer_size);
+
 		if (use_child_window && ImGui::IsClippedEx(outer_rect, 0, false)) {
 			ImGui::ItemSize(outer_rect);
-			return false;
+			// This causes issues with the killproof.me plugin.
+			// Removing this return will fix those, if you find issues with the removal of this return tell me.
+			// ~knox
+			// return false;
 		}
 
 		// Acquire storage for the table
