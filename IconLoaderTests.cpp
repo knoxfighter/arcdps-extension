@@ -28,7 +28,7 @@ public:
 
 		EXE_HANDLE = GetModuleHandleA(NULL);
 
-		ArcdpsExtension::IconLoader::instance().Setup(EXE_HANDLE, D11_DEVICE);
+		ArcdpsExtension::IconLoader::init(EXE_HANDLE, D11_DEVICE);
 
 		/* Delete cached downloaded file */
 		auto fullPath = std::filesystem::temp_directory_path();

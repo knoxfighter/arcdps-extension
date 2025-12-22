@@ -88,7 +88,10 @@ namespace {
 	};
 } // namespace
 
-ArcdpsExtension::IconLoader::IconLoader() {
+ArcdpsExtension::IconLoader::IconLoader(HMODULE pDll, ID3D11Device* pD11Device) {
+	mDll = pDll;
+	mD11Device = pD11Device;
+
 	mThread = std::move(std::jthread([this](std::stop_token pToken) {
 		runner(std::move(pToken));
 	}));
@@ -99,11 +102,6 @@ ArcdpsExtension::IconLoader::~IconLoader() {
 		mThread.request_stop();
 		mThread.join();
 	}
-}
-
-void ArcdpsExtension::IconLoader::Setup(HMODULE pDll, ID3D11Device* pD11Device) {
-	mDll = pDll;
-	mD11Device = pD11Device;
 }
 
 void ArcdpsExtension::IconLoader::runner(std::stop_token pToken) {

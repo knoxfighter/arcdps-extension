@@ -29,7 +29,8 @@ namespace ArcdpsExtension {
 	/**
 	 * Load icons in a separate thread.<br>
 	 * Always have an enum or any other list of numbers as unique ID.<br>
-	 * Make sure to call `Setup()` before you use this class.
+	 * Make sure to call `IconLoader::init(HMODULE, ID3D11Device*)` before you use this class.
+	 * If `instance()` is called without `init()`, an exception is thrown.
 	 * <p>
 	 * Class-Internal flow:
 	 * @code
@@ -51,15 +52,14 @@ namespace ArcdpsExtension {
 	 */
 	class IconLoader final : public Singleton<IconLoader> {
 	public:
-		IconLoader();
-		~IconLoader() override;
-
 		/**
-		 * Call in `mod_init()`. If this is not called properly, it will crash when icons are loaded.
+		 * Call `IconLoader::init(HMODULE, ID3D11Device*)` in `mod_init()`.
+		 * If this is not called properly, it will crash when icons are loaded.
 		 * @param pDll The DLL of this module (the one to load resources from)
 		 * @param pD11Device The D3D11 device
 		 */
-		void Setup(HMODULE pDll, ID3D11Device* pD11Device);
+		IconLoader(HMODULE pDll, ID3D11Device* pD11Device);
+		~IconLoader() override;
 
 		/**
 		 * Register an Icon that will be loaded from a file.
