@@ -1,7 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#ab825ebc7653f30fe47db9593cd95b050":[5,0,0,13,1,31],
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#ab825ebc7653f30fe47db9593cd95b050":[3,0,0,13,1,31],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#acda9286c29a0ee38aa01e379f5df2b44":[3,0,0,13,1,34],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#acda9286c29a0ee38aa01e379f5df2b44":[5,0,0,13,1,34],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#adc17c79a7463553e719372831da0e2ab":[5,0,0,13,1,40],
@@ -249,5 +247,7 @@ var NAVTREEINDEX12 =
 "structrapidfuzz_1_1LevenshteinWeightTable.html#af0e3eeaa421f7547baf65ea78a934ef2":[3,0,3,7,0],
 "structrapidfuzz_1_1Opcode.html":[5,0,2,8],
 "structrapidfuzz_1_1Opcode.html":[3,0,3,8],
-"structrapidfuzz_1_1Opcode.html#a0dd997391c3d2b5bea5b0cf3f45b9b53":[5,0,2,8,6]
+"structrapidfuzz_1_1Opcode.html#a0dd997391c3d2b5bea5b0cf3f45b9b53":[5,0,2,8,6],
+"structrapidfuzz_1_1Opcode.html#a0dd997391c3d2b5bea5b0cf3f45b9b53":[3,0,3,8,6],
+"structrapidfuzz_1_1Opcode.html#a21f360ecc1bda259fc91c21688896c42":[3,0,3,8,1]
 };

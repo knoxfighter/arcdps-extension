@@ -1,7 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"map_8h.html#a97bb1ed1e123af1e6b4a158a47fec167":[6,0,24,226],
-"map_8h.html#a981cfb088165e536948cb7106fa81d58":[6,0,24,227],
 "map_8h.html#a9923fa3c3fdf8bc51c55e6ac96b9aac2":[6,0,24,195],
 "map_8h.html#a9ada704eb1c187f2b495c90e527c1520":[6,0,24,213],
 "map_8h.html#a9b506fb6d9777a1165ff4df7bae19360":[6,0,24,308],
@@ -249,5 +247,7 @@ var NAVTREEINDEX9 =
 "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933afa4204fdaef65ecd85ee2dd3e080f9f2":[3,0,0,32,20],
 "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933afe5565247e1ca13c3c223dadc888ee29":[3,0,0,32,22],
 "namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977f":[3,0,0,34],
-"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977fa59cc2fcee3935f42ec7b1d6ecdc99c60":[3,0,0,34,0]
+"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977fa59cc2fcee3935f42ec7b1d6ecdc99c60":[3,0,0,34,0],
+"namespaceArcdpsExtension.html#a7283c029cf330ab09361a3ccb4f5977fa8818ea517ab6650fc08d450e1b727ac8":[3,0,0,34,1],
+"namespaceArcdpsExtension.html#acbc42d01061d9d6f8fa7578eaced2ef3":[3,0,0,28]
 };

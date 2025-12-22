@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"classrapidfuzz_1_1Editops.html#aac0f8cbba14de92122a5795be0a31201":[3,0,3,5,0],
-"classrapidfuzz_1_1Editops.html#aac0f8cbba14de92122a5795be0a31201":[5,0,2,5,0],
 "classrapidfuzz_1_1Editops.html#ac70019382f81c499c77d3db8b85ef958":[5,0,2,5,1],
 "classrapidfuzz_1_1Editops.html#ac70019382f81c499c77d3db8b85ef958":[3,0,3,5,1],
 "classrapidfuzz_1_1Editops.html#ae6d914227044d314ca8b1f251224fae1":[5,0,2,5,9],
@@ -249,5 +247,7 @@ var NAVTREEINDEX7 =
 "imgui__stdlib_8cpp.html":[6,0,16],
 "imgui__stdlib_8h.html":[6,0,17],
 "imgui__stdlib_8h.html#a1da680314eaf3f60ea2a42c76f3584b0":[6,0,17,0],
-"imgui__stdlib_8h.html#a2c2b759553b77cfee680cf36bf0984f7":[6,0,17,2]
+"imgui__stdlib_8h.html#a2c2b759553b77cfee680cf36bf0984f7":[6,0,17,2],
+"imgui__stdlib_8h.html#a81dd8855d2cec99457d2339498cc3c4a":[6,0,17,1],
+"imgui__stdlib_8h_source.html":[6,0,17]
 };

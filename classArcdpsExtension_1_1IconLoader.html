@@ -131,12 +131,10 @@ Collaboration diagram for ArcdpsExtension::IconLoader:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaf40246ea846d14fc92794b6125ab4de" id="r_aaf40246ea846d14fc92794b6125ab4de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#aaf40246ea846d14fc92794b6125ab4de">IconLoader</a> ()</td></tr>
-<tr class="separator:aaf40246ea846d14fc92794b6125ab4de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1125bafece81d1dcf5c4be67295aac36" id="r_a1125bafece81d1dcf5c4be67295aac36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#a1125bafece81d1dcf5c4be67295aac36">IconLoader</a> (HMODULE pDll, ID3D11Device *pD11Device)</td></tr>
+<tr class="separator:a1125bafece81d1dcf5c4be67295aac36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49c75ac7fae07a5031890955de7672ee" id="r_a49c75ac7fae07a5031890955de7672ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#a49c75ac7fae07a5031890955de7672ee">~IconLoader</a> () override</td></tr>
 <tr class="separator:a49c75ac7fae07a5031890955de7672ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb41f0381592ec5e73fe31ece875205f" id="r_abb41f0381592ec5e73fe31ece875205f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#abb41f0381592ec5e73fe31ece875205f">Setup</a> (HMODULE pDll, ID3D11Device *pD11Device)</td></tr>
-<tr class="separator:abb41f0381592ec5e73fe31ece875205f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31fb67ac7d0798d2780e56ab89d966b3" id="r_a31fb67ac7d0798d2780e56ab89d966b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#a31fb67ac7d0798d2780e56ab89d966b3">RegisterFile</a> (IconLoaderKey auto pName, const std::filesystem::path &amp;pFilepath)</td></tr>
 <tr class="separator:a31fb67ac7d0798d2780e56ab89d966b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3c1eeb8ff33a1abec19f8e4a092988" id="r_aad3c1eeb8ff33a1abec19f8e4a092988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1IconLoader.html#aad3c1eeb8ff33a1abec19f8e4a092988">RegisterUrl</a> (IconLoaderKey auto pName, const std::string &amp;pUrl)</td></tr>
@@ -176,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Load icons in a separate thread.<br  />
  Always have an enum or any other list of numbers as unique ID.<br  />
- Make sure to call <code><a class="el" href="classArcdpsExtension_1_1IconLoader.html#abb41f0381592ec5e73fe31ece875205f">Setup()</a></code> before you use this class. </p>
+ Make sure to call <code>IconLoader::init(HMODULE, ID3D11Device*)</code> before you use this class. If <code><a class="el" href="classArcdpsExtension_1_1Singleton.html#a9ebbc05b86311b39eab1d66e49eada9a">instance()</a></code> is called without <code><a class="el" href="classArcdpsExtension_1_1Singleton.html#a85dfec777a5ded07cd904598198fc687">init()</a></code>, an exception is thrown. </p>
 <p>Class-Internal flow: </p><div class="fragment"><div class="line">MainThread::Register()</div>
 <div class="line">  ↳ lock mThreadMutex</div>
 <div class="line">  ↳ mThreadQueue</div>
@@ -192,8 +190,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">  ↳ mIcons</div>
 <div class="ttc" id="aclassArcdpsExtension_1_1IconLoader_html_a9af7e72d3e108c697c536b5424137d60"><div class="ttname"><a href="classArcdpsExtension_1_1IconLoader.html#a9af7e72d3e108c697c536b5424137d60">ArcdpsExtension::IconLoader::Draw</a></div><div class="ttdeci">ID3D11ShaderResourceView * Draw(IconLoaderKey auto pName)</div><div class="ttdef"><b>Definition</b> IconLoader.h:194</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaf40246ea846d14fc92794b6125ab4de" name="aaf40246ea846d14fc92794b6125ab4de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf40246ea846d14fc92794b6125ab4de">&#9670;&#160;</a></span>IconLoader()</h2>
+<a id="a1125bafece81d1dcf5c4be67295aac36" name="a1125bafece81d1dcf5c4be67295aac36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1125bafece81d1dcf5c4be67295aac36">&#9670;&#160;</a></span>IconLoader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,11 +199,29 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">ArcdpsExtension::IconLoader::IconLoader </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">HMODULE&#160;</td>
+          <td class="paramname"><em>pDll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">ID3D11Device *&#160;</td>
+          <td class="paramname"><em>pD11Device</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Call <code>IconLoader::init(HMODULE, ID3D11Device*)</code> in <code>mod_init()</code>. If this is not called properly, it will crash when icons are loaded. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDll</td><td>The DLL of this module (the one to load resources from) </td></tr>
+    <tr><td class="paramname">pD11Device</td><td>The D3D11 device </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -355,7 +371,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Register an Icon that will be loaded from the Resource of the module defined in <a class="el" href="classArcdpsExtension_1_1IconLoader.html#abb41f0381592ec5e73fe31ece875205f">Setup()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Register an Icon that will be loaded from the Resource of the module defined in <a class="el" href="namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4">Setup()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pName</td><td>UID of the Icon (will be casted to <code>IconLoaderKeyType</code>) </td></tr>
     <tr><td class="paramname">pId</td><td>The ID of the resource to load (normally defined in <a class="el" href="resource_8h.html">resource.h</a>) </td></tr>
@@ -394,41 +410,6 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">pName</td><td>UID of the Icon (will be casted to <code>IconLoaderKeyType</code>) </td></tr>
     <tr><td class="paramname">pUrl</td><td>The URL to download (has to be a full link, like <code><a href="https://wiki.guildwars2.com/images/4/4c/Alacrity.png">https://wiki.guildwars2.com/images/4/4c/Alacrity.png</a></code>) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="abb41f0381592ec5e73fe31ece875205f" name="abb41f0381592ec5e73fe31ece875205f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb41f0381592ec5e73fe31ece875205f">&#9670;&#160;</a></span>Setup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ArcdpsExtension::IconLoader::Setup </td>
-          <td>(</td>
-          <td class="paramtype">HMODULE&#160;</td>
-          <td class="paramname"><em>pDll</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ID3D11Device *&#160;</td>
-          <td class="paramname"><em>pD11Device</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call in <code>mod_init()</code>. If this is not called properly, it will crash when icons are loaded. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pDll</td><td>The DLL of this module (the one to load resources from) </td></tr>
-    <tr><td class="paramname">pD11Device</td><td>The D3D11 device </td></tr>
   </table>
   </dd>
 </dl>

@@ -9,7 +9,7 @@ var searchData=
   ['set_5fsrc_5flen_6',['set_src_len',['../classrapidfuzz_1_1Opcodes.html#af4205cd9fc6d3ef28a7b8c76c080a338',1,'rapidfuzz::Opcodes::set_src_len()'],['../classrapidfuzz_1_1Editops.html#ae7f99aec555041838fea906986937232',1,'rapidfuzz::Editops::set_src_len()']]],
   ['setmaxheightcursorpos_7',['setmaxheightcursorpos',['../classArcdpsExtension_1_1DemoTableWindow.html#af8767f3be4c30cb0cdf442fe3b941a69',1,'ArcdpsExtension::DemoTableWindow::SetMaxHeightCursorPos()'],['../classArcdpsExtension_1_1DemoWindow.html#a38d64e2583030b7cbae63e9d8b335c00',1,'ArcdpsExtension::DemoWindow::SetMaxHeightCursorPos()'],['../classArcdpsExtension_1_1MainWindow.html#a78fb17a0e3654a496cd585156e1a3816',1,'ArcdpsExtension::MainWindow::SetMaxHeightCursorPos()']]],
   ['setspecificcolumnsetup_8',['SetSpecificColumnSetup',['../classArcdpsExtension_1_1MainTable.html#ae3494ace7f41b2d37dbe4e434f84aaa1',1,'ArcdpsExtension::MainTable']]],
-  ['setup_9',['setup',['../classArcdpsExtension_1_1IconLoader.html#abb41f0381592ec5e73fe31ece875205f',1,'ArcdpsExtension::IconLoader::Setup()'],['../namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4',1,'ArcdpsExtension::Setup()']]],
+  ['setup_9',['Setup',['../namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4',1,'ArcdpsExtension']]],
   ['setupcolumn_10',['SetupColumn',['../classArcdpsExtension_1_1MainTable.html#ab2a191208ea46c287955bb659a97bdb4',1,'ArcdpsExtension::MainTable']]],
   ['setupscrollfreeze_11',['SetupScrollFreeze',['../classArcdpsExtension_1_1MainTable.html#a758f7601a08d1962824b3ec5b4ba7f44',1,'ArcdpsExtension::MainTable']]],
   ['setuptestsuite_12',['SetUpTestSuite',['../classIconLoaderTests.html#adba0991b72358716ee3f9119082941ec',1,'IconLoaderTests']]],
