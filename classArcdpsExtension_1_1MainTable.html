@@ -279,7 +279,7 @@ class ArcdpsExtension::MainTable&lt; MaxColumnCount &gt;</div><p>This class also
 <li>Call <code><a class="el" href="classArcdpsExtension_1_1MainTable.html#ac75ffb896146ef266b94cfa55848688f">DrawColumnSetupMenu()</a></code> in <code>DrawContextMenu()</code> if you want to hide your columns.</li>
 <li>Use <code>MigrateSettings</code> when you made changes to the table, that need the settings to be migrated. NEVER migrate within the Settings object itself, cause that would be too early.</li>
 </ul>
-<p>Hoe do settings work:<br  />
+<p>How do settings work:<br  />
  Settings are still similar to how <a class="el" href="namespaceImGui.html">ImGui</a> has designed them to be. The biggest difference is that columns are now saved based on the UserID instead of the index. The uniqueness of that ID has to be handled by the caller. When Migrating settings, delete what you removed, when adding new elements, only migrate the (still indexbased) DisplayOrder. When removing elements, only migrate the DisplayOrder as well. That is not all, there are some weird byproducts with the TableFlags and the SavedFlags.<br  />
  !!! TEST THE SETTINGS MIGRATION REALLY WELL, IT IS SOMETIMES UNPREDICTABLE !!! </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
@@ -1847,6 +1847,10 @@ template&lt;size_t MaxColumnCount = 64&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>This is called, when the table has to be resorted!</p><ul>
+<li>mColumnSortSpecs is guaranteed to be a valid pointer.</li>
+<li>mSortNeeded is already set back to false. </li>
+</ul>
 
 <p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTable.html#a9742a446b497c47b6f78f6a25ce26033">ArcdpsExtension::DemoTable</a>.</p>
 
