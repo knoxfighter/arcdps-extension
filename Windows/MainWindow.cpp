@@ -212,11 +212,7 @@ void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
 	ImGui::Separator();
 
 	auto& appearAsInOptionOpt = getAppearAsInOption();
-	if (appearAsInOptionOpt) {
-		mAppearAsInOptionTextBuffer = appearAsInOptionOpt.value();
-	} else {
-		mAppearAsInOptionTextBuffer = "";
-	}
+	mAppearAsInOptionTextBuffer = appearAsInOptionOpt.value_or("");
 	if (ImGui::InputText(std::format("{}###appearAsInOption", Localization::STranslate(ET_AppearAsInOption)).c_str(), &mAppearAsInOptionTextBuffer)) {
 		if (mAppearAsInOptionTextBuffer.empty()) {
 			appearAsInOptionOpt.reset();
@@ -226,11 +222,7 @@ void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
 	}
 
 	auto& titleOpt = getTitle();
-	if (titleOpt) {
-		mTitleBuffer = titleOpt.value();
-	} else {
-		mTitleBuffer = "";
-	}
+	mTitleBuffer = titleOpt.value_or("");
 	if (ImGui::InputText(std::format("{}###titleBar", Localization::STranslate(ET_TitleBarText)).c_str(), &mTitleBuffer)) {
 		if (mTitleBuffer.empty()) {
 			titleOpt.reset();

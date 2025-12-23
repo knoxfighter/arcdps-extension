@@ -115,7 +115,7 @@ namespace ArcdpsExtension {
 	 * - Call `DrawColumnSetupMenu()` in `DrawContextMenu()` if you want to hide your columns.
 	 * - Use `MigrateSettings` when you made changes to the table, that need the settings to be migrated. NEVER migrate within the Settings object itself, cause that would be too early.
 	 *
-	 * Hoe do settings work:<br>
+	 * How do settings work:<br>
 	 * Settings are still similar to how ImGui has designed them to be.
 	 * The biggest difference is that columns are now saved based on the UserID instead of the index.
 	 * The uniqueness of that ID has to be handled by the caller.
@@ -210,11 +210,11 @@ namespace ArcdpsExtension {
 		// Draw Rows here
 		virtual void DrawRows(TableColumnIdx pFirstColumnIndex) = 0;
 
-		/*
-	 * This is called, when the table has to be resorted!
-	 * - mColumnSortSpecs is guaranteed to be a valid pointer.
-	 * - mSortNeeded is already set back to false.
-	 */
+		/**
+		 * This is called, when the table has to be resorted!
+		 * - mColumnSortSpecs is guaranteed to be a valid pointer.
+		 * - mSortNeeded is already set back to false.
+		 */
 		virtual void Sort(const ImGuiTableColumnSortSpecs* mColumnSortSpecs) = 0;
 
 		virtual void DrawStyleSubMenu();
@@ -232,27 +232,27 @@ namespace ArcdpsExtension {
 		virtual bool& getShowHeaderAsText() = 0;
 
 		/**
-	 * Set this to true if you want to use the feature "custom columns".
-	 * Set a custom column setup with `SetSpecificColumnSetup`.
-	 * If you want to go back to normal columns call `ResetSpecificColumnSetup`.
-	 * While custom columns are active the settings saving is disabled.
-	 */
+		 * Set this to true if you want to use the feature "custom columns".
+		 * Set a custom column setup with `SetSpecificColumnSetup`.
+		 * If you want to go back to normal columns call `ResetSpecificColumnSetup`.
+		 * While custom columns are active the settings saving is disabled.
+		 */
 		virtual bool getCustomColumnsFeatureActive() { return false; }
 		virtual bool& getCustomColumnsActive() { return mCustomColumnsActiveTemp; }
 		// Used to ignore the first N columns, so they are not changed.
 		virtual int getCustomColumnsFirstColumn() { return 0; }
 
 		/**
-	 * Called when the migration of this TableSetting should be done.
-	 *
-	 * Also migrate the settings when you ADD new columns, else they have the absolute default values (which will show them)
-	 */
+		 * Called when the migration of this TableSetting should be done.
+		 *
+		 * Also migrate the settings when you ADD new columns, else they have the absolute default values (which will show them)
+		 */
 		virtual void MigrateSettings() {}
 
 		/**
-	 * Get the name of each column category.
-	 * Categories are defined in `MainTableColumn`.
-	 */
+		 * Get the name of each column category.
+		 * Categories are defined in `MainTableColumn`.
+		 */
 		virtual const char* getCategoryName(const std::string& pCat) = 0;
 
 	private:
@@ -279,20 +279,20 @@ namespace ArcdpsExtension {
 		// Utilities to control ImGui, use these instead of ImGui directly!
 	protected:
 		/**
-	 * Set the next Row, will call `ImGui::TableNextRow`
-	 */
+		 * Set the next Row, will call `ImGui::TableNextRow`
+		 */
 		void NextRow(ImGuiTableRowFlags row_flags = 0, float min_row_height = 0.0f); // append into the first cell of a new row.
 
 		/**
-	 * Set the next column, will call `ImGui::TableNextColumn`
-	 */
+		 * Set the next column, will call `ImGui::TableNextColumn`
+		 */
 		bool NextColumn();
 
 		/**
-	 * Call this at the end of each Row.
-	 * This is used to calculate max-heights.
-	 * Only call it on rows, you want to add to the max displayed amount. (e.g. killproof.me plugin doesn't add linked account rows)
-	 */
+		 * Call this at the end of each Row.
+		 * This is used to calculate max-heights.
+		 * Only call it on rows, you want to add to the max displayed amount. (e.g. killproof.me plugin doesn't add linked account rows)
+		 */
 		void EndMaxHeightRow();
 
 		// Return NULL if no sort specs (most often when ImGuiTableFlags_Sortable is not set)
@@ -307,18 +307,18 @@ namespace ArcdpsExtension {
 		void ColumnHeader(const char* label, bool show_label, ImTextureID texture, Alignment alignment, const char* popupText);
 
 		/**
-	 * Print text aligned to the current column.
-	 * Use so text is aligned within the table.
-	 * Alternatively use `ImGui::Text()` directly.
-	 */
+		 * Print text aligned to the current column.
+		 * Use so text is aligned within the table.
+		 * Alternatively use `ImGui::Text()` directly.
+		 */
 		void AlignedTextColumn(const char* text);
 		void AlignedTextColumn(const std::string& text);
 		template<typename... Args>
 		void AlignedTextColumn(std::string_view format, Args&&... args);
 
 		/**
-	 * Aligned Spinner
-	 */
+		 * Aligned Spinner
+		 */
 		bool SpinnerAligned(const char* label, float radius, float thickness, const ImU32& color);
 
 		void ApplySpecificColumnSetup();
@@ -337,13 +337,13 @@ namespace ArcdpsExtension {
 		ImRect GetCellBgRect(int column_n);
 
 		/**
-	 * Check if the current table column is hovered.
-	 */
+		 * Check if the current table column is hovered.
+		 */
 		bool IsCurrentColumnHovered();
 
 		/**
-	 * Check if the current table row is hovered.
-	 */
+		 * Check if the current table row is hovered.
+		 */
 		bool IsCurrentRowHovered();
 
 		int GetColumnIndex();
@@ -743,8 +743,8 @@ namespace ArcdpsExtension {
 		if (Begin(getTableId().c_str(), mColumns.size(), tableFlags, outerSize, 0,
 				  getShowScrollbar() ? 0 : ImGuiWindowFlags_NoScrollbar)) {
 			/**
-		 * HEADER
-		 */
+			 * HEADER
+			 */
 			TableColumnIdx first = 0;
 			for (int i = 0; i <= mTable.ColumnsCount; ++i) {
 				if (mTable.EnabledMaskByDisplayOrder.test(i)) {
@@ -779,8 +779,8 @@ namespace ArcdpsExtension {
 			}
 
 			/**
-		 * SORTING
-		 */
+			 * SORTING
+			 */
 			if (ImGuiTableSortSpecs* sortSpecs = GetSortSpecs()) {
 				if (sortSpecs->SpecsDirty) {
 					mSortNeeded = true;
@@ -795,8 +795,8 @@ namespace ArcdpsExtension {
 			}
 
 			/**
-		 * CONTENT
-		 */
+			 * CONTENT
+			 */
 			mCurrentRow = 0;
 			DrawRows(first);
 
