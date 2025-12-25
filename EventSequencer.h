@@ -101,7 +101,7 @@ namespace ArcdpsExtension {
 				mThreadRunning = false;
 				Runner<false>();
 
-				if (First && mElements.begin()->Id != 0) {
+				if (First && item.value().Id != 0) {
 					++mNextId;
 				}
 			}
