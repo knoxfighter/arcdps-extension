@@ -5,19 +5,7 @@
 
 void ArcdpsExtension::EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
 	std::lock_guard guard(mElementsMutex);
-	if (pId == 0) {
-		// if no events are queued call id=0 events directly
-		if (mElements.empty()) {
-			mCallback(pEv, pSrc, pDst, pSkillname, pId, pRevision);
-			return;
-		}
-
-		// insert it in the prio queue
-		mElements.emplace(pEv, pSrc, pDst, pSkillname, mLastId, pRevision);
-	} else {
-		mLastId = pId;
-		mElements.emplace(pEv, pSrc, pDst, pSkillname, pId, pRevision);
-	}
+	mElements.emplace(pEv, pSrc, pDst, pSkillname, pId, pRevision);
 }
 
 bool ArcdpsExtension::EventSequencer::EventsPending() const {
@@ -28,7 +16,6 @@ void ArcdpsExtension::EventSequencer::Reset() {
 	std::unique_lock guard(mElementsMutex);
 	mElements.clear();
 	mNextId = 2;
-	mLastId = 2;
 }
 
 ArcdpsExtension::EventSequencer::EventSequencer(const CallbackSignature& pCallback) : mCallback(pCallback) {

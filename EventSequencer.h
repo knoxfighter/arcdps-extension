@@ -87,14 +87,13 @@ namespace ArcdpsExtension {
 		std::mutex mElementsMutex;
 		std::jthread mThread;
 		uint64_t mNextId = 2; // Events start with ID 2 for some reason (it is always like that and no plans to change)
-		uint64_t mLastId = 2;
 		bool mThreadRunning = false;
 
 		template<bool First = true>
 		void Runner() {
 			std::unique_lock guard(mElementsMutex);
 
-			if (!mElements.empty() && mElements.begin()->Id == mNextId) {
+			if (!mElements.empty() && (!mElements.begin()->Id || mElements.begin()->Id == mNextId)) {
 				mThreadRunning = true;
 				auto item = mElements.extract(mElements.begin());
 				guard.unlock();
@@ -102,7 +101,7 @@ namespace ArcdpsExtension {
 				mThreadRunning = false;
 				Runner<false>();
 
-				if constexpr (First) {
+				if (First && mElements.begin()->Id != 0) {
 					++mNextId;
 				}
 			}
