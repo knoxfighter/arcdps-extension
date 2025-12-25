@@ -2,7 +2,7 @@
 
 #include "arcdps_structs_slim.h"
 
-#include <cstdlib>
+#include <condition_variable>
 #include <functional>
 #include <mutex>
 #include <set>
@@ -13,7 +13,7 @@ namespace ArcdpsExtension {
 	public:
 		typedef std::function<uintptr_t(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision)> CallbackSignature;
 
-		explicit EventSequencer(const CallbackSignature& pCallback);
+		explicit EventSequencer(CallbackSignature  pCallback);
 		virtual ~EventSequencer();
 
 		// delete copy and move
@@ -85,29 +85,11 @@ namespace ArcdpsExtension {
 		const CallbackSignature mCallback;
 		std::multiset<Event> mElements;
 		std::mutex mElementsMutex;
+		std::condition_variable_any mNewElement;
 		std::jthread mThread;
 		uint64_t mNextId = 2; // Events start with ID 2 for some reason (it is always like that and no plans to change)
-		uint64_t mLastId = 2;
 		bool mThreadRunning = false;
 
-		template<bool First = true>
-		void Runner() {
-			std::unique_lock guard(mElementsMutex);
-
-			if (!mElements.empty() && mElements.begin()->Id == mNextId) {
-				mThreadRunning = true;
-				auto item = mElements.extract(mElements.begin());
-				guard.unlock();
-				EventInternal(item.value());
-				mThreadRunning = false;
-				Runner<false>();
-
-				if constexpr (First) {
-					++mNextId;
-				}
-			}
-		}
-
-		void EventInternal(Event& pElem);
+		void EventInternal(Event& pElem) const;
 	};
 } // namespace ArcdpsExtension
