@@ -90,16 +90,18 @@ namespace ArcdpsExtension {
 		bool mThreadRunning = false;
 
 		template<bool First = true>
-		void Runner() {
+		void Runner(uint64_t idToProcess) {
 			std::unique_lock guard(mElementsMutex);
 
-			if (!mElements.empty() && (!mElements.begin()->Id || mElements.begin()->Id == mNextId)) {
+			// Process events with the expected ID or events with ID 0 as long as it's the first iteration, to avoid picking up events with ID 0 when calling Runner<false);
+			// For events with ID 0, Runner<false>(0) will process all events with ID 0
+			if (!mElements.empty() && (mElements.begin()->Id == idToProcess || (mElements.begin()->Id == 0 && First))) {
 				mThreadRunning = true;
 				auto item = mElements.extract(mElements.begin());
 				guard.unlock();
 				EventInternal(item.value());
 				mThreadRunning = false;
-				Runner<false>();
+				Runner<false>(item.value().Id);
 
 				if (First && item.value().Id != 0) {
 					++mNextId;

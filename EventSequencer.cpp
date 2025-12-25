@@ -23,7 +23,7 @@ ArcdpsExtension::EventSequencer::EventSequencer(const CallbackSignature& pCallba
 	mThread = std::jthread([this](std::stop_token stoken) {
 		while (!stoken.stop_requested()) {
 			while (!stoken.stop_requested() && !mElements.empty()) {
-				Runner();
+				Runner(mNextId);
 			}
 
 			if (stoken.stop_requested()) return;
