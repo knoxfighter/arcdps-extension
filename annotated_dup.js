@@ -70,6 +70,7 @@ var annotated_dup =
     [ "ag", "structag.html", "structag" ],
     [ "arcdps_exports", "structarcdps__exports.html", "structarcdps__exports" ],
     [ "cbtevent", "structcbtevent.html", "structcbtevent" ],
+    [ "EventSequencerTests", "classEventSequencerTests.html", null ],
     [ "IconLoaderTests", "classIconLoaderTests.html", null ],
     [ "Identity", "structIdentity.html", "structIdentity" ],
     [ "InputTextCallback_UserData", "structInputTextCallback__UserData.html", "structInputTextCallback__UserData" ],

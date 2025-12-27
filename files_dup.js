@@ -11,6 +11,7 @@ var files_dup =
     [ "CombatEventHandler.h", "CombatEventHandler_8h.html", "CombatEventHandler_8h" ],
     [ "EventSequencer.cpp", "EventSequencer_8cpp.html", null ],
     [ "EventSequencer.h", "EventSequencer_8h.html", "EventSequencer_8h" ],
+    [ "EventSequencerTests.cpp", "EventSequencerTests_8cpp.html", "EventSequencerTests_8cpp" ],
     [ "ExtensionTranslations.h", "ExtensionTranslations_8h.html", "ExtensionTranslations_8h" ],
     [ "IconLoader.cpp", "IconLoader_8cpp.html", null ],
     [ "IconLoader.h", "IconLoader_8h.html", "IconLoader_8h" ],

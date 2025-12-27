@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('EventSequencer_8h.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="arcdps__structs__slim_8h_source.html">arcdps_structs_slim.h</a>&quot;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
@@ -112,19 +112,19 @@ Include dependency graph for EventSequencer.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="EventSequencer_8h__incl.png" border="0" usemap="#aEventSequencer_8h" alt=""/></div>
 <map name="aEventSequencer_8h" id="aEventSequencer_8h">
-<area shape="rect" title=" " alt="" coords="305,5,444,31"/>
+<area shape="rect" title=" " alt="" coords="383,5,521,31"/>
 <area shape="rect" href="arcdps__structs__slim_8h.html" title=" " alt="" coords="5,79,168,104"/>
-<area shape="poly" title=" " alt="" coords="329,33,147,78,146,73,328,28"/>
-<area shape="rect" title=" " alt="" coords="193,79,258,104"/>
-<area shape="poly" title=" " alt="" coords="352,33,263,75,261,70,350,28"/>
-<area shape="rect" title=" " alt="" coords="282,79,369,104"/>
-<area shape="poly" title=" " alt="" coords="369,33,343,69,339,66,364,29"/>
-<area shape="rect" title=" " alt="" coords="393,79,457,104"/>
-<area shape="poly" title=" " alt="" coords="385,29,411,66,407,69,381,33"/>
-<area shape="rect" title=" " alt="" coords="481,79,524,104"/>
-<area shape="poly" title=" " alt="" coords="397,28,471,69,468,74,394,33"/>
-<area shape="rect" title=" " alt="" coords="548,79,612,104"/>
-<area shape="poly" title=" " alt="" coords="409,28,536,72,534,77,407,33"/>
+<area shape="poly" title=" " alt="" coords="394,33,160,79,159,73,393,28"/>
+<area shape="rect" title=" " alt="" coords="193,79,335,104"/>
+<area shape="poly" title=" " alt="" coords="423,33,308,76,307,71,421,28"/>
+<area shape="rect" title=" " alt="" coords="359,79,446,104"/>
+<area shape="poly" title=" " alt="" coords="446,33,421,69,416,66,442,29"/>
+<area shape="rect" title=" " alt="" coords="471,79,535,104"/>
+<area shape="poly" title=" " alt="" coords="463,29,489,66,484,69,458,33"/>
+<area shape="rect" title=" " alt="" coords="559,79,601,104"/>
+<area shape="poly" title=" " alt="" coords="474,28,548,69,546,74,471,33"/>
+<area shape="rect" title=" " alt="" coords="625,79,689,104"/>
+<area shape="poly" title=" " alt="" coords="486,28,613,72,611,77,484,33"/>
 <area shape="rect" title=" " alt="" coords="53,152,120,177"/>
 <area shape="poly" title=" " alt="" coords="89,104,89,138,84,138,84,104"/>
 </map>
@@ -134,11 +134,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="EventSequencer_8h__dep__incl.png" border="0" usemap="#aEventSequencer_8hdep" alt=""/></div>
 <map name="aEventSequencer_8hdep" id="aEventSequencer_8hdep">
-<area shape="rect" title=" " alt="" coords="123,5,261,31"/>
+<area shape="rect" title=" " alt="" coords="216,5,355,31"/>
 <area shape="rect" href="CombatEventHandler_8h.html" title=" " alt="" coords="13,79,185,104"/>
-<area shape="poly" title=" " alt="" coords="168,41,116,81,112,76,165,37"/>
+<area shape="poly" title=" " alt="" coords="244,38,130,81,128,76,242,33"/>
 <area shape="rect" href="EventSequencer_8cpp.html" title=" " alt="" coords="209,79,362,104"/>
-<area shape="poly" title=" " alt="" coords="219,37,272,76,268,81,216,41"/>
+<area shape="poly" title=" " alt="" coords="288,44,288,79,283,79,283,44"/>
+<area shape="rect" href="EventSequencerTests_8cpp.html" title=" " alt="" coords="387,79,573,104"/>
+<area shape="poly" title=" " alt="" coords="330,33,449,76,447,81,328,38"/>
 <area shape="rect" href="CombatEventHandler_8cpp.html" title=" " alt="" coords="5,152,192,177"/>
 <area shape="poly" title=" " alt="" coords="101,118,101,152,96,152,96,118"/>
 </map>
@@ -151,6 +153,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1EventSequencer.html">ArcdpsExtension::EventSequencer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArcdpsExtension_1_1EventSequencer_1_1Event.html">ArcdpsExtension::EventSequencer::Event</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArcdpsExtension_1_1EventSequencer_1_1Event_1_1CbtEvent.html">ArcdpsExtension::EventSequencer::Event::CbtEvent</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArcdpsExtension_1_1EventSequencer_1_1Event_1_1Agent.html">ArcdpsExtension::EventSequencer::Event::Agent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>

@@ -11,7 +11,7 @@ var searchData=
   ['cachedtokensetratio_8',['CachedTokenSetRatio',['../structrapidfuzz_1_1fuzz_1_1CachedTokenSetRatio.html',1,'rapidfuzz::fuzz']]],
   ['cachedtokensortratio_9',['CachedTokenSortRatio',['../structrapidfuzz_1_1fuzz_1_1CachedTokenSortRatio.html',1,'rapidfuzz::fuzz']]],
   ['cachedwratio_10',['CachedWRatio',['../structrapidfuzz_1_1fuzz_1_1CachedWRatio.html',1,'rapidfuzz::fuzz']]],
-  ['cbtevent_11',['cbtevent',['../structcbtevent.html',1,'']]],
+  ['cbtevent_11',['cbtevent',['../structArcdpsExtension_1_1EventSequencer_1_1Event_1_1CbtEvent.html',1,'ArcdpsExtension::EventSequencer::Event::CbtEvent'],['../structcbtevent.html',1,'cbtevent']]],
   ['charhashtable_12',['CharHashTable',['../structrapidfuzz_1_1common_1_1CharHashTable.html',1,'rapidfuzz::common']]],
   ['charhashtable_3c_20chart1_2c_20bool_20_3e_13',['CharHashTable&lt; CharT1, bool &gt;',['../structrapidfuzz_1_1common_1_1CharHashTable.html',1,'rapidfuzz::common']]],
   ['charhashtable_3c_20chart1_2c_20valuetype_2c_201_20_3e_14',['CharHashTable&lt; CharT1, ValueType, 1 &gt;',['../structrapidfuzz_1_1common_1_1CharHashTable_3_01CharT1_00_01ValueType_00_011_01_4.html',1,'rapidfuzz::common']]],

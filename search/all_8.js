@@ -31,7 +31,7 @@ var searchData=
   ['imguiex_28',['ImGuiEx',['../namespaceImGuiEx.html',1,'']]],
   ['imguivers_29',['imguivers',['../structarcdps__exports.html#a4e892142ef6ea7f312e6c24dc949267e',1,'arcdps_exports']]],
   ['indexwithinenabledset_30',['IndexWithinEnabledSet',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a61cbc796eac725da12a72c802596898a',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['init_31',['init',['../classArcdpsExtension_1_1Singleton.html#a85dfec777a5ded07cd904598198fc687',1,'ArcdpsExtension::Singleton::init()'],['../classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1',1,'ArcdpsExtension::MainWindow::Init()']]],
+  ['init_31',['init',['../classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1',1,'ArcdpsExtension::MainWindow::Init()'],['../classArcdpsExtension_1_1Singleton.html#a85dfec777a5ded07cd904598198fc687',1,'ArcdpsExtension::Singleton::init()']]],
   ['inithookfunction_32',['InitHookFunction',['../classArcdpsExtension_1_1MainWindow.html#a91344efdd1c3bafaa2a15dc06cbad2cd',1,'ArcdpsExtension::MainWindow']]],
   ['initstretchweightorwidth_33',['InitStretchWeightOrWidth',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a21da4d1bb215ac992574a583ec17fc24',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['innercliprect_34',['InnerClipRect',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a8a4c45a3b0fdb7e022f6de7a401989e6',1,'ArcdpsExtension::MainTable::Table']]],
