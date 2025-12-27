@@ -13,7 +13,7 @@ namespace ArcdpsExtension {
 	public:
 		typedef std::function<uintptr_t(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision)> CallbackSignature;
 
-		explicit EventSequencer(CallbackSignature  pCallback);
+		explicit EventSequencer(CallbackSignature pCallback);
 		virtual ~EventSequencer();
 
 		// delete copy and move
@@ -23,19 +23,18 @@ namespace ArcdpsExtension {
 		EventSequencer& operator=(EventSequencer&& pOther) noexcept = delete;
 
 		struct Event {
-			struct : cbtevent {
+			struct CbtEvent : cbtevent {
 				bool Present = false;
-			} Ev;
+			};
 
-			struct : ag {
+			struct Agent : ag {
 				std::string NameStorage;
 				bool Present = false;
-			} Source;
+			};
 
-			struct : ag {
-				std::string NameStorage;
-				bool Present = false;
-			} Destination;
+			CbtEvent Ev;
+			Agent Source;
+			Agent Destination;
 
 			const char* Skillname; // Skill names are guaranteed to be valid for the lifetime of the process so copying pointer is fine
 			uint64_t Id;
@@ -73,10 +72,11 @@ namespace ArcdpsExtension {
 		void ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision);
 
 		[[nodiscard]] bool EventsPending() const;
+
 		/**
-	 * Deletes all pending Events and resets all counters.
-	 * This has no live api uses. Only use in tests!
-	 */
+		 * Deletes all pending Events and resets all counters.
+		 * This has no live api uses. Only use in tests!
+		 */
 		void Reset();
 
 		void Shutdown();
