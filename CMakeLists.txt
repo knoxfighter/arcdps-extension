@@ -171,6 +171,7 @@ if (BUILD_TESTS AND ARCDPS_EXTENSION_CURL)
 			SimpleRingBufferTests.cpp
 			SimpleNetworkStackTests.cpp
 			IconLoaderTests.cpp
+			EventSequencerTests.cpp
 			test/tests.rc
 			test/resource.h
 	)
