@@ -15,6 +15,7 @@ var Widgets_8h =
     [ "FilteredCombo", "Widgets_8h.html#a4900cc330eb6f829cc1463d033e686ff", null ],
     [ "FilteredCombo", "Widgets_8h.html#ac84124bb2f6d24b2dbaed5e0b3864922", null ],
     [ "MenuItemTableColumnVisibility", "Widgets_8h.html#addc8d6cf0c96f44bb72e81fdd3c92897", null ],
+    [ "OptionalSetting", "Widgets_8h.html#a7666779ab01547995c98994ffd1a430b", null ],
     [ "RadioButton", "Widgets_8h.html#a589d30048da7d5a4b6daca3a021f8444", null ],
     [ "Selectable", "Widgets_8h.html#a282884173d37e1c0a00110c5f37b39ff", null ],
     [ "Spinner", "Widgets_8h.html#ad089af456defbeb50cfdfba61437dc76", null ],

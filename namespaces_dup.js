@@ -37,6 +37,7 @@ var namespaces_dup =
       [ "KeyInput", "namespaceImGuiEx.html#a02dc1d0e8d5bf8c63bbb21339e416ea8", null ],
       [ "MenuItemTableColumnVisibility", "namespaceImGuiEx.html#addc8d6cf0c96f44bb72e81fdd3c92897", null ],
       [ "OpenKeyCodePopupState", "namespaceImGuiEx.html#a38c84d1aa305de5b8a30fa24e398c426", null ],
+      [ "OptionalSetting", "namespaceImGuiEx.html#a7666779ab01547995c98994ffd1a430b", null ],
       [ "RadioButton", "namespaceImGuiEx.html#a589d30048da7d5a4b6daca3a021f8444", null ],
       [ "RestartKeyCodePopupState", "namespaceImGuiEx.html#a4d77cf39ecce54d4711ae1ae7672ec17", null ],
       [ "Selectable", "namespaceImGuiEx.html#a282884173d37e1c0a00110c5f37b39ff", null ],

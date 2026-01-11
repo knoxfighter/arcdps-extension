@@ -203,6 +203,9 @@ requires std::is_enum_v&lt;E&gt;</td></tr>
 <tr class="memitem:a7a4e3b8299f89f699064cbc1934b3f7e" id="r_a7a4e3b8299f89f699064cbc1934b3f7e"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
 <tr class="memitem:a7a4e3b8299f89f699064cbc1934b3f7e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a7a4e3b8299f89f699064cbc1934b3f7e">TextColored</a> (const ImVec4 &amp;col, const std::string &amp;fmt, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a7a4e3b8299f89f699064cbc1934b3f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7666779ab01547995c98994ffd1a430b" id="r_a7666779ab01547995c98994ffd1a430b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7666779ab01547995c98994ffd1a430b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a7666779ab01547995c98994ffd1a430b">OptionalSetting</a> (std::optional&lt; T &gt; &amp;setting, const char *title, const char *checkboxLabel, std::function&lt; T()&gt; constructValue, std::function&lt; void()&gt; children)</td></tr>
+<tr class="separator:a7666779ab01547995c98994ffd1a430b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4900cc330eb6f829cc1463d033e686ff" id="r_a4900cc330eb6f829cc1463d033e686ff"><td class="memTemplParams" colspan="2">template&lt;std::ranges::viewable_range T, typename ValueType  = std::ranges::views::all_t&lt;T&gt;&gt; </td></tr>
 <tr class="memitem:a4900cc330eb6f829cc1463d033e686ff"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a4900cc330eb6f829cc1463d033e686ff">FilteredCombo</a> (const char *pLabel, const T &amp;pContainer, ValueType &amp;pCurrent, bool *pPopupOpen=nullptr)</td></tr>
 <tr class="separator:a4900cc330eb6f829cc1463d033e686ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1153,6 +1156,65 @@ requires (!std::ranges::viewable_range&lt;T&gt;)</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7666779ab01547995c98994ffd1a430b" name="a7666779ab01547995c98994ffd1a430b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7666779ab01547995c98994ffd1a430b">&#9670;&#160;</a></span>OptionalSetting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGuiEx::OptionalSetting </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>setting</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>checkboxLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; T()&gt;&#160;</td>
+          <td class="paramname"><em>constructValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>children</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Component to show an optional setting. This is a checkbox that when checked, will enable the children components.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setting</td><td>Reference to an optional that saves some setting. This is normally something out of the saved settings object. </td></tr>
+    <tr><td class="paramname">title</td><td>The title shown for this setting, it will be shown at the front. </td></tr>
+    <tr><td class="paramname">checkboxLabel</td><td>Some imgui id for the checkbox component. Should always start with <code>###</code>, else the string is actually shown. </td></tr>
+    <tr><td class="paramname">constructValue</td><td>A function that is called to get the initial value that is put into the optional. </td></tr>
+    <tr><td class="paramname">children</td><td>Called to render whatever components you want to use. When the option is none, All components in here should be disabled, also ImGuiItemFlags_Disabled is set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

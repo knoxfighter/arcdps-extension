@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"structrapidfuzz_1_1EditOp.html#a58318bcec6cd13c7aedfc5a667d9b297":[3,0,3,4,3],
+"structrapidfuzz_1_1EditOp.html#a58318bcec6cd13c7aedfc5a667d9b297":[5,0,2,4,3],
 "structrapidfuzz_1_1EditOp.html#ad73c0bd05903284ddfbaffd6e05743c4":[5,0,2,4,1],
 "structrapidfuzz_1_1EditOp.html#ad73c0bd05903284ddfbaffd6e05743c4":[3,0,3,4,1],
 "structrapidfuzz_1_1LevenshteinWeightTable.html":[5,0,2,7],

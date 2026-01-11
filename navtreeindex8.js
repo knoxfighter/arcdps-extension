@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"group__Fuzz.html#gaef2447fac84ea8f23ce4803bf9284a62":[2,1,13],
 "group__Fuzz.html#gaf3233dbb354b88066dc51bf1f27dbdee":[2,1,10],
 "group__Fuzz.html#gafa3f916422723699b5352d73c5d2335f":[2,1,25],
 "hierarchy.html":[5,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "map_8h.html#a9298a7f771a539038de2ed46eb901efd":[6,0,25,350],
 "map_8h.html#a92b9eee4abff5e727c713a96a969be0f":[6,0,25,338],
 "map_8h.html#a9310351831ae7f5045fbb2ab3ba7f0c1":[6,0,25,293],
-"map_8h.html#a932ddcb044ba1a132cc9f14c171b3730":[6,0,25,286],
-"map_8h.html#a93b123889bcdcb00f1ade1a646aa2f41":[6,0,25,267]
+"map_8h.html#a932ddcb044ba1a132cc9f14c171b3730":[6,0,25,286]
 };
