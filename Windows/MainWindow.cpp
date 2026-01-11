@@ -171,31 +171,15 @@ void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
 	ImGui::Checkbox(Localization::STranslate(ET_Scrollbar).c_str(), &GetShowScrollbar());
 
 	// padding
-	ImGui::TextUnformatted(Localization::STranslate(ET_Padding).c_str());
-	ImGui::SameLine();
 	auto& padding = getPadding();
-	mPaddingActive = padding.has_value();
-	if (ImGui::Checkbox("##paddingCheckbox", &mPaddingActive)) {
-		if (mPaddingActive == true) {
-			padding = ImVec2();
-		} else {
-			padding.reset();
+	ImGuiEx::OptionalSetting<ImVec2>(padding, Localization::STranslate(ET_Padding).c_str(), "##paddingCheckbox", [] { return ImVec2(); }, [&]() {
+		ImVec2 paddingBuffer = padding.value_or(ImVec2());
+		if (ImGui::DragFloat2("###paddingInputFloat", &paddingBuffer.x, 0.1f, 0, FLT_MAX, "%1.f")) {
+			paddingBuffer.x = std::clamp(paddingBuffer.x, 0.f, FLT_MAX);
+			paddingBuffer.y = std::clamp(paddingBuffer.y, 0.f, FLT_MAX);
+			padding.emplace(paddingBuffer);
 		}
-	}
-	ImGui::SameLine();
-	if (!padding) {
-		ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
-	}
-	mPaddingBuffer[0] = padding ? padding.value().x : 0.f;
-	mPaddingBuffer[1] = padding ? padding.value().y : 0.f;
-	if (ImGui::DragFloat2("##paddingInputFloat", mPaddingBuffer, 0.1f, 0, FLT_MAX, "%1.f")) {
-		auto& value = padding.value();
-		value.x = mPaddingBuffer[0] >= 0 ? mPaddingBuffer[0] : 0;
-		value.y = mPaddingBuffer[1] >= 0 ? mPaddingBuffer[1] : 0;
-	}
-	if (!padding) {
-		ImGui::PopItemFlag();
-	}
+	});
 
 	ImGui::Separator();
 

@@ -189,6 +189,38 @@ namespace ImGuiEx {
 	void KeyInput(const char* label, const char* id, char* buffer, size_t bufSize, WPARAM& keyContainer, const char* notSetText);
 #endif
 
+	/**
+	 * Component to show an optional setting. This is a checkbox that when checked, will enable the children components.
+	 *
+	 * @param setting Reference to an optional that saves some setting. This is normally something out of the saved settings object.
+	 * @param title The title shown for this setting, it will be shown at the front.
+	 * @param checkboxLabel Some imgui id for the checkbox component. Should always start with `###`, else the string is actually shown.
+	 * @param constructValue A function that is called to get the initial value that is put into the optional.
+	 * @param children Called to render whatever components you want to use. When the option is none, All components in here should be disabled, also ImGuiItemFlags_Disabled is set.
+	 */
+	template<typename T>
+	void OptionalSetting(std::optional<T>& setting, const char* title, const char* checkboxLabel, std::function<T()> constructValue, std::function<void()> children) {
+		ImGui::TextUnformatted(title);
+		ImGui::SameLine();
+		bool settingActive = setting.has_value();
+
+		if (ImGui::Checkbox(checkboxLabel, &settingActive)) {
+			if (settingActive) {
+				setting = constructValue();
+			} else {
+				setting.reset();
+			}
+		}
+		ImGui::SameLine();
+
+		ImGui::PushItemFlag(ImGuiItemFlags_Disabled, !settingActive);
+
+		children();
+
+		// Pop ImGuiItemFlags_Disabled
+		ImGui::PopItemFlag();
+	}
+
 
 	// This code is derived from an issue in the ImGui github repo: https://github.com/ocornut/imgui/issues/1658#issuecomment-886171438
 	// Therefore the original code is licensed under the same license as ImGui (MIT)

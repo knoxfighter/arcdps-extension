@@ -192,7 +192,6 @@ namespace ArcdpsExtension {
 
 	private:
 		bool mPaddingActive = false;
-		float mPaddingBuffer[2]{};
 		float mMaxHeightCursorPos = 0.f;
 		std::string mAppearAsInOptionTextBuffer;
 		std::string mTitleBuffer;
