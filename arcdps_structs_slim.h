@@ -161,6 +161,7 @@ enum cbtcustomskill {
 /* language */
 enum gwlanguage {
 	GWL_ENG = 0,
+	GWL_KR = 1, // Unsupported by the game
 	GWL_FRE = 2,
 	GWL_GEM = 3,
 	GWL_SPA = 4,

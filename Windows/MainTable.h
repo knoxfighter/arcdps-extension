@@ -837,7 +837,7 @@ namespace ArcdpsExtension {
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
 	void MainTable<MaxColumnCount>::DrawColumnSetupSubMenu() {
 		if (getCustomColumnsFeatureActive()) {
-			if (ImGui::Checkbox(Localization::STranslate(ET_ShowBasedOnMap).c_str(), &getCustomColumnsActive())) {
+			if (ImGui::Checkbox(Localization::STranslate(ET_UseCustomColumns).c_str(), &getCustomColumnsActive())) {
 				if (getCustomColumnsActive()) {
 					mSpecificColumnsUpdate = true;
 					mSpecificColumnsActive = true;

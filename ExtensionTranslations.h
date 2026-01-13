@@ -46,7 +46,8 @@ namespace ArcdpsExtension {
 		ET_ThisPanelCorner,
 		ET_AnchorWindow,
 		ET_ColumnSetup,
-		ET_ShowBasedOnMap,
+		/// This is used to fix the column setup, currently used by kp.me plugin to show columns based on the current map.
+		ET_UseCustomColumns,
 		ET_AlternatingRowBg,
 		ET_HighlightHoveredRow,
 		ET_MaxDisplayed,
@@ -97,7 +98,7 @@ namespace ArcdpsExtension {
 			"This panel corner",                                      // ET_ThisPanelCorner
 			"Anchor window",                                          // ET_AnchorWindow
 			"Column Setup",                                           // ET_ColumnSetup
-			"Show Columns based on map",                              // ET_ShowBasedOnMap
+			"Use Custom Columns",                                     // ET_UseCustomColumns
 			"Alternating Row Background",                             // ET_AlternatingRowBg
 			"Highlight hovered row",                                  // ET_HighlightHoveredRow
 			"max displayed",                                          // ET_MaxDisplayed
@@ -107,55 +108,55 @@ namespace ArcdpsExtension {
 			"Show header with text instead of images",                // ET_SettingsShowHeaderText
 	});
 
-	const auto EXTENSION_TRANSLATION_GERMAN = std::to_array({
-			"Links",                                                        // ET_Left,
-			"Rechts",                                                       // ET_Right,
-			"Zentriert",                                                    // ET_Center,
-			"Standard",                                                     // ET_Unaligned,
-			"Manuell",                                                      // ET_PositionManual,
-			"Relativ zum Bildschirm",                                       // ET_PositionScreenRelative,
-			"Relativ zu einem anderen Fenster",                             // ET_PositionWindowRelative,
-			"Unbekannt",                                                    // ET_Unknown,
-			"Oben-Links",                                                   // ET_CornerPositionTopLeft,
-			"Oben-Rechts",                                                  // ET_CornerPositionTopRight,
-			"Unten-Links",                                                  // ET_CornerPositionBottomLeft,
-			"Unten-Rechts",                                                 // ET_CornerPositionBottomRight,
-			"Passe Fenster an Inhalt an",                                   // ET_SizingPolicySizeToContent,
-			"Passe Inhalt an Fenster an",                                   // ET_SizingPolicySizeContentToWindow,
-			(const char*) u8"Manuelle Fenstergröße",                        // ET_SizingPolicyManualWindowSize,
-			"Tastenbelegung",                                               // ET_KeyInputPopupName,
-			"Anwenden",                                                     // ET_ApplyButton,
-			"Abbrechen",                                                    // ET_CancelButton,
-			"Eine neue Version für das {} ist verfügbar.",                  // ET_UpdateDesc,
-			"Aktuelle Version",                                             // ET_UpdateCurrentVersion,
-			"Neue Version",                                                 // ET_UpdateNewVersion,
-			(const char*) u8"Öffne Download Seite",                         // ET_UpdateOpenPage,
-			"Automatisch Aktualisieren",                                    // ET_UpdateAutoButton,
-			"Aktualisierung im Gange",                                      // ET_UpdateInProgress,
-			"Aktualisierung beendet, starte das Spiel neu zum Aktivieren.", // ET_UpdateRestartPending,
-			"Aktualisierung fehlgeschlagen, bitte update manuell.",         // ET_UpdateError,
-			"Style",                                                        // ET_Style
-			"Titelleiste",                                                  // ET_TitleBar
-			"Hintergrund",                                                  // ET_Background
-			"Scrollleiste",                                                 // ET_Scrollbar
-			"Padding",                                                      // ET_Padding
-			(const char*) u8"Größenregeln",                                 // ET_SizingPolicy
-			"Optionstext",                                                  // ET_AppearAsInOption
-			"Titelleiste Text",                                             // ET_TitleBarText
-			(const char*) u8"Tastenkürzel",                                 // ET_Shortcut
-			"Position",                                                     // ET_Position
-			"Ecke des anzuheftenden Fensters",                              // ET_FromAnchorPanelCorner
-			"Ecke des aktuellen Fensters",                                  // ET_ThisPanelCorner
-			"Anzuheftendes Fenster",                                        // ET_AnchorWindow
-			"Spalteneinstellung",                                           // ET_ColumnSetup
-			"Zeige Spalten basierend auf der aktuellen Karte.",             // ET_ShowBasedOnMap
-			"Abwechselnder Zeilenhintergrund",                              // ET_AlternatingRowBg
-			"Markiere die aktuelle Zeile",                                  // ET_HighlightHoveredRow
-			"Maximale Anzahl an Zeilen",                                    // ET_MaxDisplayed
-			"Ausrichtung der Kopfzeile",                                    // ET_HeaderAlignment
-			"Ausrichtung des Inhalts",                                      // ET_ColumnAlignment
-			"Sprache",                                                      // ET_Language
-			"Zeige Text anstatt von Icons in der Kopfzeile",                // ET_SettingsShowHeaderText
+	constexpr auto EXTENSION_TRANSLATION_GERMAN = std::to_array({
+			u8"Links",                                                        // ET_Left,
+			u8"Rechts",                                                       // ET_Right,
+			u8"Zentriert",                                                    // ET_Center,
+			u8"Standard",                                                     // ET_Unaligned,
+			u8"Manuell",                                                      // ET_PositionManual,
+			u8"Relativ zum Bildschirm",                                       // ET_PositionScreenRelative,
+			u8"Relativ zu einem anderen Fenster",                             // ET_PositionWindowRelative,
+			u8"Unbekannt",                                                    // ET_Unknown,
+			u8"Oben-Links",                                                   // ET_CornerPositionTopLeft,
+			u8"Oben-Rechts",                                                  // ET_CornerPositionTopRight,
+			u8"Unten-Links",                                                  // ET_CornerPositionBottomLeft,
+			u8"Unten-Rechts",                                                 // ET_CornerPositionBottomRight,
+			u8"Passe Fenster an Inhalt an",                                   // ET_SizingPolicySizeToContent,
+			u8"Passe Inhalt an Fenster an",                                   // ET_SizingPolicySizeContentToWindow,
+			u8"Manuelle Fenstergröße",                                        // ET_SizingPolicyManualWindowSize,
+			u8"Tastenbelegung",                                               // ET_KeyInputPopupName,
+			u8"Anwenden",                                                     // ET_ApplyButton,
+			u8"Abbrechen",                                                    // ET_CancelButton,
+			u8"Eine neue Version für das {} ist verfügbar.",                  // ET_UpdateDesc,
+			u8"Aktuelle Version",                                             // ET_UpdateCurrentVersion,
+			u8"Neue Version",                                                 // ET_UpdateNewVersion,
+			u8"Öffne Download Seite",                                         // ET_UpdateOpenPage,
+			u8"Automatisch Aktualisieren",                                    // ET_UpdateAutoButton,
+			u8"Aktualisierung im Gange",                                      // ET_UpdateInProgress,
+			u8"Aktualisierung beendet, starte das Spiel neu zum Aktivieren.", // ET_UpdateRestartPending,
+			u8"Aktualisierung fehlgeschlagen, bitte update manuell.",         // ET_UpdateError,
+			u8"Style",                                                        // ET_Style
+			u8"Titelleiste",                                                  // ET_TitleBar
+			u8"Hintergrund",                                                  // ET_Background
+			u8"Scrollleiste",                                                 // ET_Scrollbar
+			u8"Padding",                                                      // ET_Padding
+			u8"Größenregeln",                                                 // ET_SizingPolicy
+			u8"Optionstext",                                                  // ET_AppearAsInOption
+			u8"Titelleiste Text",                                             // ET_TitleBarText
+			u8"Tastenkürzel",                                                 // ET_Shortcut
+			u8"Position",                                                     // ET_Position
+			u8"Ecke des anzuheftenden Fensters",                              // ET_FromAnchorPanelCorner
+			u8"Ecke des aktuellen Fensters",                                  // ET_ThisPanelCorner
+			u8"Anzuheftendes Fenster",                                        // ET_AnchorWindow
+			u8"Spalteneinstellung",                                           // ET_ColumnSetup
+			u8"Benutzerdefinierte Spalten verwenden",                         // ET_UseCustomColumns
+			u8"Abwechselnder Zeilenhintergrund",                              // ET_AlternatingRowBg
+			u8"Markiere die aktuelle Zeile",                                  // ET_HighlightHoveredRow
+			u8"Maximale Anzahl an Zeilen",                                    // ET_MaxDisplayed
+			u8"Ausrichtung der Kopfzeile",                                    // ET_HeaderAlignment
+			u8"Ausrichtung des Inhalts",                                      // ET_ColumnAlignment
+			u8"Sprache",                                                      // ET_Language
+			u8"Zeige Text anstatt von Icons in der Kopfzeile",                // ET_SettingsShowHeaderText
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_FRENCH = std::to_array({
@@ -199,7 +200,7 @@ namespace ArcdpsExtension {
 			u8"Ce coin de panneau",                                                            // ET_ThisPanelCorner
 			u8"Fenêtre d'ancrage",                                                             // ET_AnchorWindow
 			u8"Configuration des colonnes",                                                    // ET_ColumnSetup
-			u8"Afficher les colonnes en fonction de la carte",                                 // ET_ShowBasedOnMap
+			u8"Utiliser des colonnes personnalisées",                                          // ET_UseCustomColumns
 			u8"Fond à rangs alternés",                                                         // ET_AlternatingRowBg
 			u8"Mettre en surbrillance la ligne survolée",                                      // ET_HighlightHoveredRow
 			u8"max affiché",                                                                   // ET_MaxDisplayed
@@ -250,7 +251,7 @@ namespace ArcdpsExtension {
 			u8"Esta esquina del panel",                                                       // ET_ThisPanelCorner
 			u8"Ventana de anclaje",                                                           // ET_AnchorWindow
 			u8"Configuración de la columna",                                                  // ET_ColumnSetup
-			u8"Mostrar columnas basadas en el mapa",                                          // ET_ShowBasedOnMap
+			u8"Usar columnas personalizadas",                                                 // ET_UseCustomColumns
 			u8"Fondo de filas alternas",                                                      // ET_AlternatingRowBg
 			u8"Resaltar la fila que se ha desplazado",                                        // ET_HighlightHoveredRow
 			u8"máximo mostrado",                                                              // ET_MaxDisplayed
@@ -259,9 +260,61 @@ namespace ArcdpsExtension {
 			u8"Idioma",                                                                       // ET_Language
 			u8"Mostrar la cabecera con texto en lugar de imágenes",                           // ET_SettingsShowHeaderText
 	});
+
+	constexpr auto EXTENSION_TRANSLATION_CHINESE = std::to_array({
+			u8"居左",                                    // ET_Left,
+			u8"居右",                                    // ET_Right,
+			u8"居中",                                    // ET_Center,
+			u8"不对齐",                                  // ET_Unaligned,
+			u8"手动调整",                                // ET_PositionManual,
+			u8"屏幕相对位置",                            // ET_PositionScreenRelative,
+			u8"窗口相对位置",                            // ET_PositionWindowRelative,
+			u8"未知",                                    // ET_Unknown,
+			u8"左上方",                                  // ET_CornerPositionTopLeft,
+			u8"右上方",                                  // ET_CornerPositionTopRight,
+			u8"左下方",                                  // ET_CornerPositionBottomLeft,
+			u8"右下方",                                  // ET_CornerPositionBottomRight,
+			u8"根据内容自动调整窗口大小",                // ET_SizingPolicySizeToContent,
+			u8"根据窗口大小调整内容大小",                // ET_SizingPolicySizeContentToWindow,
+			u8"手动调整窗口大小",                        // ET_SizingPolicyManualWindowSize,
+			u8"KeyBind",                                 // ET_KeyInputPopupName,
+			u8"Apply",                                   // ET_ApplyButton,
+			u8"Cancel",                                  // ET_CancelButton,
+			u8"Bufff监控有新的更新",                     // ET_UpdateDesc,
+			u8"现版本",                                  // ET_UpdateCurrentVersion,
+			u8"新版本",                                  // ET_UpdateNewVersion,
+			u8"打开下载页面",                            // ET_UpdateOpenPage,
+			u8"自动更新",                                // ET_UpdateAutoButton,
+			u8"正在进行自动更新",                        // ET_UpdateInProgress,
+			u8"自动更新完成，请重开游戏",                // ET_UpdateRestartPending,
+			u8"自动更新失败，请手动更新",                // ET_UpdateError,
+			u8"外观设置",                                // ET_Style
+			u8"标题栏显示内容",                          // ET_TitleBar
+			u8"显示背景",                                // ET_Background
+			u8"滚动条",                                  // ET_Scrollbar
+			u8"填充",                                    // ET_Padding
+			u8"大小设置",                                // ET_SizingPolicy
+			u8"出现在选项中",                            // ET_AppearAsInOption
+			u8"标题栏显示内容",                          // ET_TitleBarText
+			u8"快捷键",                                  // ET_Shortcut
+			u8"位置",                                    // ET_Position
+			u8"从窗口角落的",                            // ET_FromAnchorPanelCorner
+			u8"到窗口角落的",                            // ET_ThisPanelCorner
+			u8"Anchor window",                           // ET_AnchorWindow
+			u8"Column Setup",                            // ET_ColumnSetup
+			u8"Show Columns based on map",               // ET_UseCustomColumns
+			u8"交替行显示背景",                          // ET_AlternatingRowBg
+			u8"Highlight hovered row",                   // ET_HighlightHoveredRow
+			u8"最大显示数量",                            // ET_MaxDisplayed
+			u8"Header Alignment",                        // ET_HeaderAlignment
+			u8"Column Alignment",                        // ET_ColumnAlignment
+			u8"Language",                                // ET_Language
+			u8"Show header with text instead of images", // ET_SettingsShowHeaderText
+	});
 } // namespace ArcdpsExtension
 
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == magic_enum::enum_count<ArcdpsExtension::ExtensionTranslation>());
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_GERMAN.size());
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_FRENCH.size());
 static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_SPANISH.size());
+static_assert(ArcdpsExtension::EXTENSION_TRANSLATION_ENGLISH.size() == ArcdpsExtension::EXTENSION_TRANSLATION_CHINESE.size());

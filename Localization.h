@@ -44,19 +44,14 @@ namespace ArcdpsExtension {
 			return Localization::instance().Translate(pId);
 		}
 
-		void AddTranslation(gwlanguage pLang, const char* pText) {
-			auto& translation = mTranslations.at(pLang);
-			translation.emplace_back(pText);
-		}
-
 		void AddTranslation(gwlanguage pLang, const char8_t* pText) {
-			auto& translation = mTranslations.at(pLang);
-			translation.emplace_back(reinterpret_cast<const char*>(pText));
+			AddTranslation(pLang, reinterpret_cast<const char*>(pText));
 		}
 
-		void AddTranslation(gwlanguage pLang, const std::string& pText) {
+		template<typename... Args>
+		void AddTranslation(gwlanguage pLang, Args&&... args) {
 			auto& translation = mTranslations.at(pLang);
-			translation.emplace_back(pText);
+			translation.emplace_back(std::forward<Args>(args)...);
 		}
 
 		void Load(gwlanguage pLang, const std::ranges::common_range auto& pRange) {
@@ -68,23 +63,21 @@ namespace ArcdpsExtension {
 		void ChangeLanguage(gwlanguage pLang);
 		static void SChangeLanguage(gwlanguage pLang);
 
-		void OverrideTranslation(gwlanguage pLanguage, size_t pTranslation, const std::string& pText);
+		template<typename... Args>
+		void OverrideTranslation(gwlanguage pLanguage, size_t pTranslation, Args&&... args) {
+			mTranslations.at(pLanguage).at(pTranslation) = std::move(std::string(std::forward<Args...>(args...)));
+		}
 
-		template<typename E>
+		template<typename E, typename... Args>
 		requires std::is_enum_v<E>
-		const std::string& OverrideTranslation(gwlanguage pLanguage, E pTranslation, const std::string& pText) {
-			return OverrideTranslation(pLanguage, static_cast<std::underlying_type_t<E>>(pTranslation), pText);
+		void OverrideTranslation(gwlanguage pLanguage, E pTranslation, Args&&... args) {
+			OverrideTranslation(pLanguage, static_cast<std::underlying_type_t<E>>(pTranslation), std::forward<Args...>(args...));
 		}
 
-		template<typename Num>
+		template<typename Num, typename... Args>
 		requires std::is_integral_v<Num> && (!std::same_as<Num, size_t>)
-		void OverrideTranslation(gwlanguage pLanguage, Num pTranslation, const std::string& pText) {
-			return OverrideTranslation(pLanguage, static_cast<size_t>(pTranslation), pText);
-		}
-
-		template<typename T>
-		void OverrideTranslation(gwlanguage pLanguage, T pTranslation, const std::string& pText) {
-			return OverrideTranslation(pLanguage, pTranslation, pText);
+		void OverrideTranslation(gwlanguage pLanguage, Num pTranslation, Args&&... args) {
+			OverrideTranslation(pLanguage, static_cast<size_t>(pTranslation), std::forward<Args...>(args...));
 		}
 
 	private:

@@ -172,6 +172,7 @@ if (BUILD_TESTS AND ARCDPS_EXTENSION_CURL)
 			SimpleNetworkStackTests.cpp
 			IconLoaderTests.cpp
 			EventSequencerTests.cpp
+			LocalizationTests.cpp
 			test/tests.rc
 			test/resource.h
 	)
