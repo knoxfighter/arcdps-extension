@@ -73,7 +73,7 @@ var namespaceArcdpsExtension =
       [ "ET_ThisPanelCorner", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a525e65df11716c33875766d95a8013a6", null ],
       [ "ET_AnchorWindow", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933aa63df8691511baac4bb5a09688cdcd34", null ],
       [ "ET_ColumnSetup", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a486c10e9ba55b2bdff0bfda254e63129", null ],
-      [ "ET_ShowBasedOnMap", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a262311cf6c90bddc044bb02d6d85076a", null ],
+      [ "ET_UseCustomColumns", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a454e1e745c9ee8c6938bbb1b2a51c5bd", null ],
       [ "ET_AlternatingRowBg", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a4e8df674e16da3702dd62ac3d52cd1ed", null ],
       [ "ET_HighlightHoveredRow", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a2f765e0292565302c505f639e3ad0378", null ],
       [ "ET_MaxDisplayed", "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933adb13644281b3cea9579083ef7da97fe6", null ],
@@ -92,9 +92,10 @@ var namespaceArcdpsExtension =
     ] ],
     [ "Setup", "namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4", null ],
     [ "Shutdown", "namespaceArcdpsExtension.html#a33e1145df7f28bc795dd4d6a96cc44c7", null ],
+    [ "EXTENSION_TRANSLATION_CHINESE", "namespaceArcdpsExtension.html#ad0538ffc06edaa9d7c9dbb5ebc814c40", null ],
     [ "EXTENSION_TRANSLATION_ENGLISH", "namespaceArcdpsExtension.html#a4bc31a9830f78772c99b385e76ddc5bd", null ],
     [ "EXTENSION_TRANSLATION_FRENCH", "namespaceArcdpsExtension.html#a4229a80a5f0ce50da50421d40faee0d0", null ],
-    [ "EXTENSION_TRANSLATION_GERMAN", "namespaceArcdpsExtension.html#a3cff53ff73744af013572ae747c9fe7a", null ],
+    [ "EXTENSION_TRANSLATION_GERMAN", "namespaceArcdpsExtension.html#ac1140cf487351d17cbc58383ab30f588", null ],
     [ "EXTENSION_TRANSLATION_SPANISH", "namespaceArcdpsExtension.html#a45a042fe079b2e6dc48c1242382563a5", null ],
     [ "g_singletonManagerInstance", "namespaceArcdpsExtension.html#a3ecff187e5aab7c7921057b9992a15a6", null ]
 ];

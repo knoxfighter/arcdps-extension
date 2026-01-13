@@ -143,29 +143,26 @@ requires std::is_enum_v&lt;E&gt;</td></tr>
 requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</td></tr>
 <tr class="memitem:acee4c8a9f300b24a3ef2a1cdaa0ad265"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#acee4c8a9f300b24a3ef2a1cdaa0ad265">Translate</a> (Num pId) const</td></tr>
 <tr class="separator:acee4c8a9f300b24a3ef2a1cdaa0ad265"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af550fa73c80432bf5fca1879eca5c1b1" id="r_af550fa73c80432bf5fca1879eca5c1b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#af550fa73c80432bf5fca1879eca5c1b1">AddTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, const char *pText)</td></tr>
-<tr class="separator:af550fa73c80432bf5fca1879eca5c1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9aaaa4b9794cb967d4abe7c8102e885" id="r_ab9aaaa4b9794cb967d4abe7c8102e885"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ab9aaaa4b9794cb967d4abe7c8102e885">AddTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, const char8_t *pText)</td></tr>
 <tr class="separator:ab9aaaa4b9794cb967d4abe7c8102e885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad216f365f4b4aa720020bee6c002e4b6" id="r_ad216f365f4b4aa720020bee6c002e4b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ad216f365f4b4aa720020bee6c002e4b6">AddTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, const std::string &amp;pText)</td></tr>
-<tr class="separator:ad216f365f4b4aa720020bee6c002e4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a999f2156d3a088891a92dfef7dcdaa90" id="r_a999f2156d3a088891a92dfef7dcdaa90"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a999f2156d3a088891a92dfef7dcdaa90"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a999f2156d3a088891a92dfef7dcdaa90">AddTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a999f2156d3a088891a92dfef7dcdaa90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adad787663090359876bc1c172b7577c7" id="r_adad787663090359876bc1c172b7577c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#adad787663090359876bc1c172b7577c7">Load</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, const std::ranges::common_range auto &amp;pRange)</td></tr>
 <tr class="separator:adad787663090359876bc1c172b7577c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7500bbcb479cb42cf55e9dbfcf411b53" id="r_a7500bbcb479cb42cf55e9dbfcf411b53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a7500bbcb479cb42cf55e9dbfcf411b53">ChangeLanguage</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang)</td></tr>
 <tr class="separator:a7500bbcb479cb42cf55e9dbfcf411b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2530a958ff2264b834a5e6151d6c32d" id="r_ad2530a958ff2264b834a5e6151d6c32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ad2530a958ff2264b834a5e6151d6c32d">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, size_t pTranslation, const std::string &amp;pText)</td></tr>
-<tr class="separator:ad2530a958ff2264b834a5e6151d6c32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e024de8afaf1285d9346e2ccdcf7744" id="r_a9e024de8afaf1285d9346e2ccdcf7744"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; <br />
+<tr class="memitem:a2d6047ca2eb55fa17aff932039ff9ad5" id="r_a2d6047ca2eb55fa17aff932039ff9ad5"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a2d6047ca2eb55fa17aff932039ff9ad5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a2d6047ca2eb55fa17aff932039ff9ad5">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, size_t pTranslation, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a2d6047ca2eb55fa17aff932039ff9ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ec116befb746574ab71bf6dc67faed" id="r_ab6ec116befb746574ab71bf6dc67faed"><td class="memTemplParams" colspan="2">template&lt;typename E , typename... Args&gt; <br />
 requires std::is_enum_v&lt;E&gt;</td></tr>
-<tr class="memitem:a9e024de8afaf1285d9346e2ccdcf7744"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a9e024de8afaf1285d9346e2ccdcf7744">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, E pTranslation, const std::string &amp;pText)</td></tr>
-<tr class="separator:a9e024de8afaf1285d9346e2ccdcf7744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a186e9ecd3f32f0ffb781871b6b3cd91a" id="r_a186e9ecd3f32f0ffb781871b6b3cd91a"><td class="memTemplParams" colspan="2">template&lt;typename Num &gt; <br />
+<tr class="memitem:ab6ec116befb746574ab71bf6dc67faed"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ab6ec116befb746574ab71bf6dc67faed">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, E pTranslation, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:ab6ec116befb746574ab71bf6dc67faed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81efd5d1a39b7dd6dd7805e1e044b930" id="r_a81efd5d1a39b7dd6dd7805e1e044b930"><td class="memTemplParams" colspan="2">template&lt;typename Num , typename... Args&gt; <br />
 requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</td></tr>
-<tr class="memitem:a186e9ecd3f32f0ffb781871b6b3cd91a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a186e9ecd3f32f0ffb781871b6b3cd91a">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, Num pTranslation, const std::string &amp;pText)</td></tr>
-<tr class="separator:a186e9ecd3f32f0ffb781871b6b3cd91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a751bdc52561581938e1e0174775c5e" id="r_a7a751bdc52561581938e1e0174775c5e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7a751bdc52561581938e1e0174775c5e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a7a751bdc52561581938e1e0174775c5e">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, T pTranslation, const std::string &amp;pText)</td></tr>
-<tr class="separator:a7a751bdc52561581938e1e0174775c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81efd5d1a39b7dd6dd7805e1e044b930"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a81efd5d1a39b7dd6dd7805e1e044b930">OverrideTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLanguage, Num pTranslation, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a81efd5d1a39b7dd6dd7805e1e044b930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classArcdpsExtension_1_1Singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classArcdpsExtension_1_1Singleton')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classArcdpsExtension_1_1Singleton.html">ArcdpsExtension::Singleton&lt; Localization &gt;</a></td></tr>
 <tr class="memitem:ae758636b9fa627d617c44429ba39af55 inherit pub_methods_classArcdpsExtension_1_1Singleton" id="r_ae758636b9fa627d617c44429ba39af55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Singleton.html#ae758636b9fa627d617c44429ba39af55">~Singleton</a> () override</td></tr>
 <tr class="separator:ae758636b9fa627d617c44429ba39af55 inherit pub_methods_classArcdpsExtension_1_1Singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,11 +220,13 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af550fa73c80432bf5fca1879eca5c1b1" name="af550fa73c80432bf5fca1879eca5c1b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af550fa73c80432bf5fca1879eca5c1b1">&#9670;&#160;</a></span>AddTranslation() <span class="overload">[1/3]</span></h2>
+<a id="a999f2156d3a088891a92dfef7dcdaa90" name="a999f2156d3a088891a92dfef7dcdaa90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a999f2156d3a088891a92dfef7dcdaa90">&#9670;&#160;</a></span>AddTranslation() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -241,8 +240,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -260,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a id="ab9aaaa4b9794cb967d4abe7c8102e885" name="ab9aaaa4b9794cb967d4abe7c8102e885"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9aaaa4b9794cb967d4abe7c8102e885">&#9670;&#160;</a></span>AddTranslation() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9aaaa4b9794cb967d4abe7c8102e885">&#9670;&#160;</a></span>AddTranslation() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,42 +277,6 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char8_t *&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad216f365f4b4aa720020bee6c002e4b6" name="ad216f365f4b4aa720020bee6c002e4b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad216f365f4b4aa720020bee6c002e4b6">&#9670;&#160;</a></span>AddTranslation() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ArcdpsExtension::Localization::AddTranslation </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a>&#160;</td>
-          <td class="paramname"><em>pLang</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>pText</em>&#160;</td>
         </tr>
         <tr>
@@ -385,20 +348,20 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a9e024de8afaf1285d9346e2ccdcf7744" name="a9e024de8afaf1285d9346e2ccdcf7744"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e024de8afaf1285d9346e2ccdcf7744">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[1/4]</span></h2>
+<a id="ab6ec116befb746574ab71bf6dc67faed" name="ab6ec116befb746574ab71bf6dc67faed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ec116befb746574ab71bf6dc67faed">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E &gt; <br />
+template&lt;typename E , typename... Args&gt; <br />
 requires std::is_enum_v&lt;E&gt;</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; ArcdpsExtension::Localization::OverrideTranslation </td>
+          <td class="memname">void ArcdpsExtension::Localization::OverrideTranslation </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a>&#160;</td>
           <td class="paramname"><em>pLanguage</em>, </td>
@@ -412,8 +375,8 @@ requires std::is_enum_v&lt;E&gt;</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -430,13 +393,13 @@ requires std::is_enum_v&lt;E&gt;</div>
 
 </div>
 </div>
-<a id="a186e9ecd3f32f0ffb781871b6b3cd91a" name="a186e9ecd3f32f0ffb781871b6b3cd91a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a186e9ecd3f32f0ffb781871b6b3cd91a">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[2/4]</span></h2>
+<a id="a81efd5d1a39b7dd6dd7805e1e044b930" name="a81efd5d1a39b7dd6dd7805e1e044b930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81efd5d1a39b7dd6dd7805e1e044b930">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Num &gt; <br />
+template&lt;typename Num , typename... Args&gt; <br />
 requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</div>
 <table class="mlabels">
   <tr>
@@ -457,8 +420,8 @@ requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -475,11 +438,16 @@ requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&
 
 </div>
 </div>
-<a id="ad2530a958ff2264b834a5e6151d6c32d" name="ad2530a958ff2264b834a5e6151d6c32d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2530a958ff2264b834a5e6151d6c32d">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[3/4]</span></h2>
+<a id="a2d6047ca2eb55fa17aff932039ff9ad5" name="a2d6047ca2eb55fa17aff932039ff9ad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6047ca2eb55fa17aff932039ff9ad5">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ArcdpsExtension::Localization::OverrideTranslation </td>
@@ -496,47 +464,8 @@ requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7a751bdc52561581938e1e0174775c5e" name="a7a751bdc52561581938e1e0174775c5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a751bdc52561581938e1e0174775c5e">&#9670;&#160;</a></span>OverrideTranslation() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ArcdpsExtension::Localization::OverrideTranslation </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a>&#160;</td>
-          <td class="paramname"><em>pLanguage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>pTranslation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pText</em>&#160;</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

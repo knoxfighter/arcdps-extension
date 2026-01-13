@@ -25,6 +25,7 @@ var files_dup =
     [ "KeyInput.h", "KeyInput_8h.html", "KeyInput_8h" ],
     [ "Localization.cpp", "Localization_8cpp.html", null ],
     [ "Localization.h", "Localization_8h.html", "Localization_8h" ],
+    [ "LocalizationTests.cpp", "LocalizationTests_8cpp.html", "LocalizationTests_8cpp" ],
     [ "map.h", "map_8h.html", "map_8h" ],
     [ "MobIDs.h", "MobIDs_8h.html", "MobIDs_8h" ],
     [ "MumbleLink.h", "MumbleLink_8h.html", "MumbleLink_8h" ],

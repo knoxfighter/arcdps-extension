@@ -31,5 +31,6 @@ var searchData=
   ['gwl_5feng_28',['GWL_ENG',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a5b601e0e6750a7c7171d763fa1ac2064',1,'arcdps_structs_slim.h']]],
   ['gwl_5ffre_29',['GWL_FRE',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7ad60b1f420ebd8fd78f2706b7da6ffd6d',1,'arcdps_structs_slim.h']]],
   ['gwl_5fgem_30',['GWL_GEM',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a2f9b20cfca510b38762cc379eb1df431',1,'arcdps_structs_slim.h']]],
-  ['gwl_5fspa_31',['GWL_SPA',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a020c60370cafe5e3c91bbab4f3db33b5',1,'arcdps_structs_slim.h']]]
+  ['gwl_5fkr_31',['GWL_KR',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a90bcae86bbe45807b51b2e8462467277',1,'arcdps_structs_slim.h']]],
+  ['gwl_5fspa_32',['GWL_SPA',['../arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a020c60370cafe5e3c91bbab4f3db33b5',1,'arcdps_structs_slim.h']]]
 ];

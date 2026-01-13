@@ -41,7 +41,7 @@ var ExtensionTranslations_8h =
       [ "ET_ThisPanelCorner", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a525e65df11716c33875766d95a8013a6", null ],
       [ "ET_AnchorWindow", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933aa63df8691511baac4bb5a09688cdcd34", null ],
       [ "ET_ColumnSetup", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a486c10e9ba55b2bdff0bfda254e63129", null ],
-      [ "ET_ShowBasedOnMap", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a262311cf6c90bddc044bb02d6d85076a", null ],
+      [ "ET_UseCustomColumns", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a454e1e745c9ee8c6938bbb1b2a51c5bd", null ],
       [ "ET_AlternatingRowBg", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a4e8df674e16da3702dd62ac3d52cd1ed", null ],
       [ "ET_HighlightHoveredRow", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a2f765e0292565302c505f639e3ad0378", null ],
       [ "ET_MaxDisplayed", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933adb13644281b3cea9579083ef7da97fe6", null ],
@@ -50,8 +50,9 @@ var ExtensionTranslations_8h =
       [ "ET_Language", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a37fc1e3c3b122165c95d1cb275ca1ce9", null ],
       [ "ET_SettingsShowHeaderText", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933abff98a7cea2b7433f9b113ff15742044", null ]
     ] ],
+    [ "EXTENSION_TRANSLATION_CHINESE", "ExtensionTranslations_8h.html#ad0538ffc06edaa9d7c9dbb5ebc814c40", null ],
     [ "EXTENSION_TRANSLATION_ENGLISH", "ExtensionTranslations_8h.html#a4bc31a9830f78772c99b385e76ddc5bd", null ],
     [ "EXTENSION_TRANSLATION_FRENCH", "ExtensionTranslations_8h.html#a4229a80a5f0ce50da50421d40faee0d0", null ],
-    [ "EXTENSION_TRANSLATION_GERMAN", "ExtensionTranslations_8h.html#a3cff53ff73744af013572ae747c9fe7a", null ],
+    [ "EXTENSION_TRANSLATION_GERMAN", "ExtensionTranslations_8h.html#ac1140cf487351d17cbc58383ab30f588", null ],
     [ "EXTENSION_TRANSLATION_SPANISH", "ExtensionTranslations_8h.html#a45a042fe079b2e6dc48c1242382563a5", null ]
 ];
