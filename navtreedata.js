@@ -95,19 +95,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ArcdpsExtension_8cpp.html",
-"MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a0e62d76d3605e000a73922e31f30f784",
-"MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aeb893767d9933481c50a25d8484e6173",
-"arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a1aae74bf26a55e5ed0d92c1d5ffaa5f9",
-"classArcdpsExtension_1_1CombatEventHandler.html#a150741558ba7c628ab9c1ccc78c59d08",
-"classArcdpsExtension_1_1KeyBindHandler.html",
-"classArcdpsExtension_1_1PositioningComponent.html#a75bad596010043f061c9086997dc4e79",
-"classrapidfuzz_1_1Editops.html#a5da35d19f1b7c467d3b4ea07b346372a",
-"group__Fuzz.html#gabc2ec33c2f0c2e324c0088e18e75c88c",
-"map_8h.html#a9310351831ae7f5045fbb2ab3ba7f0c1",
-"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933abff98a7cea2b7433f9b113ff15742044",
-"structArcdpsExtension_1_1MainTable_1_1Table.html#a19fb2e8c2bf4ba3c3fde93fc34521037",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a7c6784a1450b45f635ea4cb2d1b155ef",
-"structrapidfuzz_1_1EditOp.html#a0e6162741406f9819c31e69464a5e6f1"
+"MobIDs_8h.html#aa4183a394aa4e7600297584922235450afb6ba492b8fa0b264ad5fc016cb1123a",
+"MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ade9f7f7abdbdaaf597ccff006ebd69a9",
+"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3",
+"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7",
+"classArcdpsExtension_1_1KeyBindComponent.html#a358e915992c2bf5f14c29b499e805212",
+"classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
+"classArcdpsExtension_1_1UpdateCheckerBase.html#ae4227ae184549c1da9e480c44bfaf8e7",
+"group__Common.html#gae2560c1cedf7acfca47c75a03bbff2b7",
+"map_8h.html#a896e802a6df0ad3a28978b02273508da",
+"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a46fedd93d3fc9853c085edf37a419a65",
+"structArcdpsExtension_1_1MainTableColumn.html#ac1ea41052e9e778f1bed0296bcafd1be",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b054b61b203f2e66733b97375b5ce6d",
+"structrapidfuzz_1_1CachedLevenshtein.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -135,14 +135,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a374341af45316c0bb27efa954db0232d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119cad395eb4076a65faab2e3de9966b" id="r_a119cad395eb4076a65faab2e3de9966b"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a119cad395eb4076a65faab2e3de9966b">Translate</a> (size_t pId) const</td></tr>
 <tr class="separator:a119cad395eb4076a65faab2e3de9966b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada103e7be351d827d0c1c40e15e05d3c" id="r_ada103e7be351d827d0c1c40e15e05d3c"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ada103e7be351d827d0c1c40e15e05d3c">Translate</a> (auto lang, size_t pId) const</td></tr>
+<tr class="separator:ada103e7be351d827d0c1c40e15e05d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dda2f9cc58ee8148950f2178f5f3422" id="r_a1dda2f9cc58ee8148950f2178f5f3422"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; <br />
 requires std::is_enum_v&lt;E&gt;</td></tr>
 <tr class="memitem:a1dda2f9cc58ee8148950f2178f5f3422"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a1dda2f9cc58ee8148950f2178f5f3422">Translate</a> (E pId) const</td></tr>
 <tr class="separator:a1dda2f9cc58ee8148950f2178f5f3422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d23f87a1a82cdd887ee4661f76117b7" id="r_a1d23f87a1a82cdd887ee4661f76117b7"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; <br />
+requires std::is_enum_v&lt;E&gt;</td></tr>
+<tr class="memitem:a1d23f87a1a82cdd887ee4661f76117b7"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a1d23f87a1a82cdd887ee4661f76117b7">Translate</a> (auto lang, E pId) const</td></tr>
+<tr class="separator:a1d23f87a1a82cdd887ee4661f76117b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee4c8a9f300b24a3ef2a1cdaa0ad265" id="r_acee4c8a9f300b24a3ef2a1cdaa0ad265"><td class="memTemplParams" colspan="2">template&lt;typename Num &gt; <br />
 requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</td></tr>
 <tr class="memitem:acee4c8a9f300b24a3ef2a1cdaa0ad265"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#acee4c8a9f300b24a3ef2a1cdaa0ad265">Translate</a> (Num pId) const</td></tr>
 <tr class="separator:acee4c8a9f300b24a3ef2a1cdaa0ad265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9178a49ef856294a36fb29736d68894b" id="r_a9178a49ef856294a36fb29736d68894b"><td class="memTemplParams" colspan="2">template&lt;typename Num &gt; <br />
+requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</td></tr>
+<tr class="memitem:a9178a49ef856294a36fb29736d68894b"><td class="memTemplItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#a9178a49ef856294a36fb29736d68894b">Translate</a> (auto lang, Num pId) const</td></tr>
+<tr class="separator:a9178a49ef856294a36fb29736d68894b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9aaaa4b9794cb967d4abe7c8102e885" id="r_ab9aaaa4b9794cb967d4abe7c8102e885"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ab9aaaa4b9794cb967d4abe7c8102e885">AddTranslation</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang, const char8_t *pText)</td></tr>
 <tr class="separator:ab9aaaa4b9794cb967d4abe7c8102e885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a999f2156d3a088891a92dfef7dcdaa90" id="r_a999f2156d3a088891a92dfef7dcdaa90"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
@@ -172,9 +182,9 @@ requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac4d9ab128554aba1bc3a7b83bc9eb45c" id="r_ac4d9ab128554aba1bc3a7b83bc9eb45c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac4d9ab128554aba1bc3a7b83bc9eb45c"><td class="memTemplItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ac4d9ab128554aba1bc3a7b83bc9eb45c">STranslate</a> (T pId)</td></tr>
-<tr class="separator:ac4d9ab128554aba1bc3a7b83bc9eb45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8747d5e6f0dcaf8b951cf28dc360a6b" id="r_af8747d5e6f0dcaf8b951cf28dc360a6b"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:af8747d5e6f0dcaf8b951cf28dc360a6b"><td class="memTemplItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#af8747d5e6f0dcaf8b951cf28dc360a6b">STranslate</a> (Args... args)</td></tr>
+<tr class="separator:af8747d5e6f0dcaf8b951cf28dc360a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45006e2a2ac74d2328721f37791c33a" id="r_ad45006e2a2ac74d2328721f37791c33a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Localization.html#ad45006e2a2ac74d2328721f37791c33a">SChangeLanguage</a> (<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> pLang)</td></tr>
 <tr class="separator:ad45006e2a2ac74d2328721f37791c33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classArcdpsExtension_1_1Singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classArcdpsExtension_1_1Singleton')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classArcdpsExtension_1_1Singleton.html">ArcdpsExtension::Singleton&lt; Localization &gt;</a></td></tr>
@@ -199,7 +209,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>How to use:<br  />
- Call <code><a class="el" href="classArcdpsExtension_1_1Localization.html#adad787663090359876bc1c172b7577c7">Load()</a></code> with your translations you want to add. Things are added to the back of the list with all <code>Extension</code> based translations at the beginning. So make sure, your IDs enum or whatever you use, starts with one higher than the last used one. Also make sure you add all 4 translations and they are of the same size. Call it within <code>mod_init</code> or as early as possible.</p>
+ Call <code><a class="el" href="classArcdpsExtension_1_1Localization.html#adad787663090359876bc1c172b7577c7">Load()</a></code> with your translations you want to add. Things are added to the back of the list with all <code>Extension</code> based translations at the beginning. So make sure, your IDs enum or whatever you use, starts with one higher than the last used one. Also make sure you add all 5 translations and they are of the same size. Call it within <code>mod_init</code> or as early as possible.</p>
 <p>Call <code>ChangeLanguage</code> when you want to change the language. Call it once to setup the language the user has in <code>mod_init</code> </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a374341af45316c0bb27efa954db0232d" name="a374341af45316c0bb27efa954db0232d"></a>
@@ -508,13 +518,13 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="ac4d9ab128554aba1bc3a7b83bc9eb45c" name="ac4d9ab128554aba1bc3a7b83bc9eb45c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4d9ab128554aba1bc3a7b83bc9eb45c">&#9670;&#160;</a></span>STranslate()</h2>
+<a id="af8747d5e6f0dcaf8b951cf28dc360a6b" name="af8747d5e6f0dcaf8b951cf28dc360a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8747d5e6f0dcaf8b951cf28dc360a6b">&#9670;&#160;</a></span>STranslate()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -522,8 +532,8 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static const std::string &amp; ArcdpsExtension::Localization::STranslate </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>pId</em></td><td>)</td>
+          <td class="paramtype">Args...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -536,8 +546,122 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a1d23f87a1a82cdd887ee4661f76117b7" name="a1d23f87a1a82cdd887ee4661f76117b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d23f87a1a82cdd887ee4661f76117b7">&#9670;&#160;</a></span>Translate() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; <br />
+requires std::is_enum_v&lt;E&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ArcdpsExtension::Localization::Translate </td>
+          <td>(</td>
+          <td class="paramtype">auto&#160;</td>
+          <td class="paramname"><em>lang</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">E&#160;</td>
+          <td class="paramname"><em>pId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9178a49ef856294a36fb29736d68894b" name="a9178a49ef856294a36fb29736d68894b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9178a49ef856294a36fb29736d68894b">&#9670;&#160;</a></span>Translate() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Num &gt; <br />
+requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ArcdpsExtension::Localization::Translate </td>
+          <td>(</td>
+          <td class="paramtype">auto&#160;</td>
+          <td class="paramname"><em>lang</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Num&#160;</td>
+          <td class="paramname"><em>pId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada103e7be351d827d0c1c40e15e05d3c" name="ada103e7be351d827d0c1c40e15e05d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada103e7be351d827d0c1c40e15e05d3c">&#9670;&#160;</a></span>Translate() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ArcdpsExtension::Localization::Translate </td>
+          <td>(</td>
+          <td class="paramtype">auto&#160;</td>
+          <td class="paramname"><em>lang</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1dda2f9cc58ee8148950f2178f5f3422" name="a1dda2f9cc58ee8148950f2178f5f3422"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dda2f9cc58ee8148950f2178f5f3422">&#9670;&#160;</a></span>Translate() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dda2f9cc58ee8148950f2178f5f3422">&#9670;&#160;</a></span>Translate() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,7 +690,7 @@ requires std::is_enum_v&lt;E&gt;</div>
 </div>
 </div>
 <a id="acee4c8a9f300b24a3ef2a1cdaa0ad265" name="acee4c8a9f300b24a3ef2a1cdaa0ad265"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee4c8a9f300b24a3ef2a1cdaa0ad265">&#9670;&#160;</a></span>Translate() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acee4c8a9f300b24a3ef2a1cdaa0ad265">&#9670;&#160;</a></span>Translate() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -595,7 +719,7 @@ requires std::is_integral_v&lt;Num&gt; &amp;&amp; (!std::same_as&lt;Num, size_t&
 </div>
 </div>
 <a id="a119cad395eb4076a65faab2e3de9966b" name="a119cad395eb4076a65faab2e3de9966b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a119cad395eb4076a65faab2e3de9966b">&#9670;&#160;</a></span>Translate() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a119cad395eb4076a65faab2e3de9966b">&#9670;&#160;</a></span>Translate() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

@@ -15,6 +15,7 @@ var searchData=
   ['fraenirofjormag_12',['FraenirOfJormag',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a70c8c4f75ddc2a89b6ac3e103bacc31e',1,'MobIDs.h']]],
   ['freezie_13',['Freezie',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a4a505b64d8a0d24377ef3022be658f69',1,'MobIDs.h']]],
   ['freeziesfrozenheart_14',['FreeziesFrozenHeart',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ad7eec97b913d8d9092e92e87b7061b0f',1,'MobIDs.h']]],
-  ['frostlegioncrusher_15',['FrostLegionCrusher',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aaa109ac21bcf24e426fc3a6f1af0cef1',1,'MobIDs.h']]],
-  ['frostlegionmusketeer_16',['FrostLegionMusketeer',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a6e37819e36beb085c164c828b4194df7',1,'MobIDs.h']]]
+  ['french_15',['French',['../namespaceArcdpsExtension.html#a01498d49a450d475d3e3cf8dc7604fdaaad225f707802ba118c22987186dd38e8',1,'ArcdpsExtension']]],
+  ['frostlegioncrusher_16',['FrostLegionCrusher',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aaa109ac21bcf24e426fc3a6f1af0cef1',1,'MobIDs.h']]],
+  ['frostlegionmusketeer_17',['FrostLegionMusketeer',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a6e37819e36beb085c164c828b4194df7',1,'MobIDs.h']]]
 ];

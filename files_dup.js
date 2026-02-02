@@ -23,7 +23,7 @@ var files_dup =
     [ "KeyBindHandler.h", "KeyBindHandler_8h.html", "KeyBindHandler_8h" ],
     [ "KeyInput.cpp", "KeyInput_8cpp.html", "KeyInput_8cpp" ],
     [ "KeyInput.h", "KeyInput_8h.html", "KeyInput_8h" ],
-    [ "Localization.cpp", "Localization_8cpp.html", null ],
+    [ "Localization.cpp", "Localization_8cpp.html", "Localization_8cpp" ],
     [ "Localization.h", "Localization_8h.html", "Localization_8h" ],
     [ "LocalizationTests.cpp", "LocalizationTests_8cpp.html", "LocalizationTests_8cpp" ],
     [ "map.h", "map_8h.html", "map_8h" ],

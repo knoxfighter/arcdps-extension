@@ -16,7 +16,7 @@ var searchData=
   ['fireelemental_13',['FireElemental',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a8771bf9e9843c1bad82858ffe92147ca',1,'MobIDs.h']]],
   ['fireimp_14',['FireImp',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a4cc0038f925540caa69884b5809795f7',1,'MobIDs.h']]],
   ['first_15',['first',['../classrapidfuzz_1_1IteratorView.html#a7f830f913cf3b5a2d684d1783fbac1bb',1,'rapidfuzz::IteratorView']]],
-  ['flags_16',['flags',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a33129a5e2886eff90bd4847c844d0ab4',1,'ArcdpsExtension::MainTable::Table::Flags'],['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#afb803bcd775b76b075fe79f17adcaf73',1,'ArcdpsExtension::MainTable::TableColumn::Flags'],['../structArcdpsExtension_1_1KeyBindHandler_1_1Subscriber.html#adb6ebd8619fe7764b3b97899f71a31e6',1,'ArcdpsExtension::KeyBindHandler::Subscriber::Flags']]],
+  ['flags_16',['flags',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#afb803bcd775b76b075fe79f17adcaf73',1,'ArcdpsExtension::MainTable::TableColumn::Flags'],['../structArcdpsExtension_1_1MainTable_1_1Table.html#a33129a5e2886eff90bd4847c844d0ab4',1,'ArcdpsExtension::MainTable::Table::Flags'],['../structArcdpsExtension_1_1KeyBindHandler_1_1Subscriber.html#adb6ebd8619fe7764b3b97899f71a31e6',1,'ArcdpsExtension::KeyBindHandler::Subscriber::Flags']]],
   ['fleshwurm_17',['FleshWurm',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a77b92583591a233fdf186ee9e668ff5c',1,'MobIDs.h']]],
   ['fluxanomaly1_18',['FluxAnomaly1',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a55f67a9e01b56fa33ab6d29f0e218dde',1,'MobIDs.h']]],
   ['fluxanomaly2_19',['FluxAnomaly2',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a9c67b9258b649d89f30e6b55529e6f80',1,'MobIDs.h']]],
@@ -33,9 +33,10 @@ var searchData=
   ['freezerowsrequest_30',['FreezeRowsRequest',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a0bd59084781784db7f67613330687e3e',1,'ArcdpsExtension::MainTable::Table']]],
   ['freezie_31',['Freezie',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a4a505b64d8a0d24377ef3022be658f69',1,'MobIDs.h']]],
   ['freeziesfrozenheart_32',['FreeziesFrozenHeart',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ad7eec97b913d8d9092e92e87b7061b0f',1,'MobIDs.h']]],
-  ['from_5fjson_33',['from_json',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#aba54567a7ac59ac215aca79906df71cf',1,'ArcdpsExtension::MainTable::TableColumnSettings::from_json'],['../structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html#a8a0f6db572a58d91dcef1ee25d51196d',1,'nlohmann::adl_serializer&lt; std::optional&lt; T &gt; &gt;::from_json()']]],
-  ['frostlegioncrusher_34',['FrostLegionCrusher',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aaa109ac21bcf24e426fc3a6f1af0cef1',1,'MobIDs.h']]],
-  ['frostlegionmusketeer_35',['FrostLegionMusketeer',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a6e37819e36beb085c164c828b4194df7',1,'MobIDs.h']]],
-  ['fun_36',['Fun',['../structArcdpsExtension_1_1KeyBindHandler_1_1Subscriber.html#a12176ee17261817798936a765aabe4cf',1,'ArcdpsExtension::KeyBindHandler::Subscriber']]],
-  ['fuzz_37',['Fuzz',['../group__Fuzz.html',1,'']]]
+  ['french_33',['French',['../namespaceArcdpsExtension.html#a01498d49a450d475d3e3cf8dc7604fdaaad225f707802ba118c22987186dd38e8',1,'ArcdpsExtension']]],
+  ['from_5fjson_34',['from_json',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#aba54567a7ac59ac215aca79906df71cf',1,'ArcdpsExtension::MainTable::TableColumnSettings::from_json'],['../structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html#a8a0f6db572a58d91dcef1ee25d51196d',1,'nlohmann::adl_serializer&lt; std::optional&lt; T &gt; &gt;::from_json()']]],
+  ['frostlegioncrusher_35',['FrostLegionCrusher',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63aaa109ac21bcf24e426fc3a6f1af0cef1',1,'MobIDs.h']]],
+  ['frostlegionmusketeer_36',['FrostLegionMusketeer',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a6e37819e36beb085c164c828b4194df7',1,'MobIDs.h']]],
+  ['fun_37',['Fun',['../structArcdpsExtension_1_1KeyBindHandler_1_1Subscriber.html#a12176ee17261817798936a765aabe4cf',1,'ArcdpsExtension::KeyBindHandler::Subscriber']]],
+  ['fuzz_38',['Fuzz',['../group__Fuzz.html',1,'']]]
 ];

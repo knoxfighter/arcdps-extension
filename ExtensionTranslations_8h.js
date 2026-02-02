@@ -48,7 +48,9 @@ var ExtensionTranslations_8h =
       [ "ET_HeaderAlignment", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933aa74fbdaf17ba97129719dfce4e4d3fde", null ],
       [ "ET_ColumnAlignment", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933af78373f2b85a68e91e586a1b889e200d", null ],
       [ "ET_Language", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a37fc1e3c3b122165c95d1cb275ca1ce9", null ],
-      [ "ET_SettingsShowHeaderText", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933abff98a7cea2b7433f9b113ff15742044", null ]
+      [ "ET_SettingsShowHeaderText", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933abff98a7cea2b7433f9b113ff15742044", null ],
+      [ "ET_LanguageName", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a1c45d4022e112516c3705241fefd757a", null ],
+      [ "ET_LikeInGame", "ExtensionTranslations_8h.html#a6998431fecc1df50998647659d658933a7bb19fdc9517bc9de4c234c1ecbca131", null ]
     ] ],
     [ "EXTENSION_TRANSLATION_CHINESE", "ExtensionTranslations_8h.html#ad0538ffc06edaa9d7c9dbb5ebc814c40", null ],
     [ "EXTENSION_TRANSLATION_ENGLISH", "ExtensionTranslations_8h.html#a4bc31a9830f78772c99b385e76ddc5bd", null ],

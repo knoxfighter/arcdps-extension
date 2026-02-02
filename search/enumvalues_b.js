@@ -8,5 +8,6 @@ var searchData=
   ['lavaelemental2_5',['LavaElemental2',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a58ff474cafe60962484b603ff9b760e7',1,'MobIDs.h']]],
   ['left_6',['Left',['../arcdps__structs_8h.html#acdfaca60ec19c0265bac2692d7982726a945d5e233cf7d6240f6b783b36a374ff',1,'arcdps_structs.h']]],
   ['lgolem_7',['LGolem',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450aba6dfc470832e29b971e72ca61c5d513',1,'MobIDs.h']]],
-  ['lightthieves_8',['LightThieves',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a9f551c14ba9f96f546c38e29dc3d79d0',1,'MobIDs.h']]]
+  ['lightthieves_8',['LightThieves',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a9f551c14ba9f96f546c38e29dc3d79d0',1,'MobIDs.h']]],
+  ['likegame_9',['LikeGame',['../namespaceArcdpsExtension.html#a01498d49a450d475d3e3cf8dc7604fdaa23df3c214013dd0b00cd4e15a5f3132c',1,'ArcdpsExtension']]]
 ];
