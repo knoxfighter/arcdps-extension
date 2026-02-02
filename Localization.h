@@ -15,7 +15,7 @@ namespace ArcdpsExtension {
 	 * Call `Load()` with your translations you want to add.
 	 * Things are added to the back of the list with all `Extension` based translations at the beginning.
 	 * So make sure, your IDs enum or whatever you use, starts with one higher than the last used one.
-	 * Also make sure you add all 4 translations and they are of the same size.
+	 * Also make sure you add all 5 translations and they are of the same size.
 	 * Call it within `mod_init` or as early as possible.
 	 *
 	 * Call `ChangeLanguage` when you want to change the language.
@@ -26,11 +26,19 @@ namespace ArcdpsExtension {
 		Localization();
 
 		[[nodiscard]] const std::string& Translate(size_t pId) const;
+		[[nodiscard]] const std::string& Translate(auto lang, size_t pId) const {
+			return mTranslations.at(static_cast<size_t>(lang)).at(pId);
+		}
 
 		template<typename E>
 		requires std::is_enum_v<E>
 		[[nodiscard]] const std::string& Translate(E pId) const {
-			return Translate(static_cast<std::underlying_type_t<E>>(pId));
+			return Translate(std::to_underlying(pId));
+		}
+		template<typename E>
+		requires std::is_enum_v<E>
+		[[nodiscard]] const std::string& Translate(auto lang, E pId) const {
+			return Translate(lang, std::to_underlying(pId));
 		}
 
 		template<typename Num>
@@ -38,10 +46,15 @@ namespace ArcdpsExtension {
 		[[nodiscard]] const std::string& Translate(Num pId) const {
 			return Translate(static_cast<size_t>(pId));
 		}
+		template<typename Num>
+		requires std::is_integral_v<Num> && (!std::same_as<Num, size_t>)
+		[[nodiscard]] const std::string& Translate(auto lang, Num pId) const {
+			return Translate(lang, static_cast<size_t>(pId));
+		}
 
-		template<typename T>
-		[[nodiscard]] static const std::string& STranslate(T pId) {
-			return Localization::instance().Translate(pId);
+		template<typename... Args>
+		[[nodiscard]] static const std::string& STranslate(Args... args) {
+			return Localization::instance().Translate(std::forward<Args>(args)...);
 		}
 
 		void AddTranslation(gwlanguage pLang, const char8_t* pText) {
@@ -85,4 +98,17 @@ namespace ArcdpsExtension {
 		gwlanguage mCurrentLanguage = GWL_ENG;
 		std::vector<std::string>* mCurrentTranslation;
 	};
+
+	// Same as arcdps' gwlanguage, but contains LikeGame option instead of KR.
+	// Use this in your settings object and handle LikeGame manually.
+	enum class LanguageSetting {
+		English = 0,
+		LikeGame = 1,
+		French = 2,
+		German = 3,
+		Spanish = 4,
+		Chinese = 5,
+	};
 } // namespace ArcdpsExtension
+
+std::string to_string(ArcdpsExtension::LanguageSetting pLang);

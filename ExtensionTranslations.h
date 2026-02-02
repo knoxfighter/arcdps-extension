@@ -55,6 +55,8 @@ namespace ArcdpsExtension {
 		ET_ColumnAlignment,
 		ET_Language,
 		ET_SettingsShowHeaderText,
+		ET_LanguageName,
+		ET_LikeInGame,
 	};
 
 	constexpr auto EXTENSION_TRANSLATION_ENGLISH = std::to_array({
@@ -106,6 +108,8 @@ namespace ArcdpsExtension {
 			"Column Alignment",                                       // ET_ColumnAlignment
 			"Language",                                               // ET_Language
 			"Show header with text instead of images",                // ET_SettingsShowHeaderText
+			"English",                                                // ET_LanguageName
+			"Same as game",                                           // ET_LikeInGame
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_GERMAN = std::to_array({
@@ -157,6 +161,8 @@ namespace ArcdpsExtension {
 			u8"Ausrichtung des Inhalts",                                      // ET_ColumnAlignment
 			u8"Sprache",                                                      // ET_Language
 			u8"Zeige Text anstatt von Icons in der Kopfzeile",                // ET_SettingsShowHeaderText
+			u8"Deutsch",                                                      // ET_LanguageName
+			u8"Wie im Spiel",                                                 // ET_LikeInGame
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_FRENCH = std::to_array({
@@ -208,6 +214,8 @@ namespace ArcdpsExtension {
 			u8"Alignement des colonnes",                                                       // ET_ColumnAlignment
 			u8"Langue",                                                                        // ET_Language
 			u8"Afficher l'en-tête avec du texte au lieu des images",                           // ET_SettingsShowHeaderText
+			u8"Français",                                                                      // ET_LanguageName
+			u8"Comme dans le jeu",                                                             // ET_LikeInGame
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_SPANISH = std::to_array({
@@ -259,6 +267,8 @@ namespace ArcdpsExtension {
 			u8"Alineación de columnas",                                                       // ET_ColumnAlignment
 			u8"Idioma",                                                                       // ET_Language
 			u8"Mostrar la cabecera con texto en lugar de imágenes",                           // ET_SettingsShowHeaderText
+			u8"Español",                                                                      // ET_LanguageName
+			u8"Como en el juego",                                                             // ET_LikeInGame
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_CHINESE = std::to_array({
@@ -310,6 +320,8 @@ namespace ArcdpsExtension {
 			u8"Column Alignment",                        // ET_ColumnAlignment
 			u8"Language",                                // ET_Language
 			u8"Show header with text instead of images", // ET_SettingsShowHeaderText
+			u8"Chinese",                                 // ET_LanguageName
+			u8"Same as game",                            // ET_LikeInGame
 	});
 } // namespace ArcdpsExtension
 

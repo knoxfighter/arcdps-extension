@@ -20,6 +20,16 @@ TEST(LocalizationTests, BaseTranslations) {
 	ASSERT_EQ(localization.Translate(ET_Left), "居左");
 }
 
+TEST(LocalizationTests, BaseTranslationsLang) {
+	Localization localization;
+
+	ASSERT_EQ(localization.Translate(LanguageSetting::English, ET_Left), "Left");
+	ASSERT_EQ(localization.Translate(LanguageSetting::German, ET_Left), "Links");
+	ASSERT_EQ(localization.Translate(LanguageSetting::French, ET_Left), "Gauche");
+	ASSERT_EQ(localization.Translate(LanguageSetting::Spanish, ET_Left), "Izquierda");
+	ASSERT_EQ(localization.Translate(LanguageSetting::Chinese, ET_Left), "居左");
+}
+
 TEST(LocalizationTests, BaseTranslationsSpecialChars) {
 	Localization localization;
 

@@ -3,6 +3,7 @@
 #ifndef ARCDPS_EXTENSION_NO_LANG_H
 #include "ExtensionTranslations.h"
 #include "Localization.h"
+
 std::string to_string(Alignment alignment) {
 	switch (alignment) {
 		case Alignment::Left: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_Left);
