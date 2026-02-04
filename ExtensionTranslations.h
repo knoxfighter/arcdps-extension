@@ -272,56 +272,56 @@ namespace ArcdpsExtension {
 	});
 
 	constexpr auto EXTENSION_TRANSLATION_CHINESE = std::to_array({
-			u8"居左",                                    // ET_Left,
-			u8"居右",                                    // ET_Right,
-			u8"居中",                                    // ET_Center,
-			u8"不对齐",                                  // ET_Unaligned,
-			u8"手动调整",                                // ET_PositionManual,
-			u8"屏幕相对位置",                            // ET_PositionScreenRelative,
-			u8"窗口相对位置",                            // ET_PositionWindowRelative,
-			u8"未知",                                    // ET_Unknown,
-			u8"左上方",                                  // ET_CornerPositionTopLeft,
-			u8"右上方",                                  // ET_CornerPositionTopRight,
-			u8"左下方",                                  // ET_CornerPositionBottomLeft,
-			u8"右下方",                                  // ET_CornerPositionBottomRight,
-			u8"根据内容自动调整窗口大小",                // ET_SizingPolicySizeToContent,
-			u8"根据窗口大小调整内容大小",                // ET_SizingPolicySizeContentToWindow,
-			u8"手动调整窗口大小",                        // ET_SizingPolicyManualWindowSize,
-			u8"KeyBind",                                 // ET_KeyInputPopupName,
-			u8"Apply",                                   // ET_ApplyButton,
-			u8"Cancel",                                  // ET_CancelButton,
-			u8"Bufff监控有新的更新",                     // ET_UpdateDesc,
-			u8"现版本",                                  // ET_UpdateCurrentVersion,
-			u8"新版本",                                  // ET_UpdateNewVersion,
-			u8"打开下载页面",                            // ET_UpdateOpenPage,
-			u8"自动更新",                                // ET_UpdateAutoButton,
-			u8"正在进行自动更新",                        // ET_UpdateInProgress,
-			u8"自动更新完成，请重开游戏",                // ET_UpdateRestartPending,
-			u8"自动更新失败，请手动更新",                // ET_UpdateError,
-			u8"外观设置",                                // ET_Style
-			u8"标题栏显示内容",                          // ET_TitleBar
-			u8"显示背景",                                // ET_Background
-			u8"滚动条",                                  // ET_Scrollbar
-			u8"填充",                                    // ET_Padding
-			u8"大小设置",                                // ET_SizingPolicy
-			u8"出现在选项中",                            // ET_AppearAsInOption
-			u8"标题栏显示内容",                          // ET_TitleBarText
-			u8"快捷键",                                  // ET_Shortcut
-			u8"位置",                                    // ET_Position
-			u8"从窗口角落的",                            // ET_FromAnchorPanelCorner
-			u8"到窗口角落的",                            // ET_ThisPanelCorner
-			u8"Anchor window",                           // ET_AnchorWindow
-			u8"Column Setup",                            // ET_ColumnSetup
-			u8"Show Columns based on map",               // ET_UseCustomColumns
-			u8"交替行显示背景",                          // ET_AlternatingRowBg
-			u8"Highlight hovered row",                   // ET_HighlightHoveredRow
-			u8"最大显示数量",                            // ET_MaxDisplayed
-			u8"Header Alignment",                        // ET_HeaderAlignment
-			u8"Column Alignment",                        // ET_ColumnAlignment
-			u8"Language",                                // ET_Language
-			u8"Show header with text instead of images", // ET_SettingsShowHeaderText
-			u8"Chinese",                                 // ET_LanguageName
-			u8"Same as game",                            // ET_LikeInGame
+			u8"居左",                     // ET_Left,
+			u8"居右",                     // ET_Right,
+			u8"居中",                     // ET_Center,
+			u8"不对齐",                   // ET_Unaligned,
+			u8"手动调整",                 // ET_PositionManual,
+			u8"屏幕相对位置",             // ET_PositionScreenRelative,
+			u8"窗口相对位置",             // ET_PositionWindowRelative,
+			u8"未知",                     // ET_Unknown,
+			u8"左上方",                   // ET_CornerPositionTopLeft,
+			u8"右上方",                   // ET_CornerPositionTopRight,
+			u8"左下方",                   // ET_CornerPositionBottomLeft,
+			u8"右下方",                   // ET_CornerPositionBottomRight,
+			u8"根据内容自动调整窗口大小", // ET_SizingPolicySizeToContent,
+			u8"根据窗口大小调整内容大小", // ET_SizingPolicySizeContentToWindow,
+			u8"手动调整窗口大小",         // ET_SizingPolicyManualWindowSize,
+			u8"快捷键",                   // ET_KeyInputPopupName,
+			u8"应用",                     // ET_ApplyButton,
+			u8"取消",                     // ET_CancelButton,
+			u8"Bufff监控有新的更新",      // ET_UpdateDesc,
+			u8"现版本",                   // ET_UpdateCurrentVersion,
+			u8"新版本",                   // ET_UpdateNewVersion,
+			u8"打开下载页面",             // ET_UpdateOpenPage,
+			u8"自动更新",                 // ET_UpdateAutoButton,
+			u8"正在进行自动更新",         // ET_UpdateInProgress,
+			u8"自动更新完成，请重开游戏", // ET_UpdateRestartPending,
+			u8"自动更新失败，请手动更新", // ET_UpdateError,
+			u8"外观设置",                 // ET_Style
+			u8"标题栏显示内容",           // ET_TitleBar
+			u8"显示背景",                 // ET_Background
+			u8"滚动条",                   // ET_Scrollbar
+			u8"填充",                     // ET_Padding
+			u8"大小设置",                 // ET_SizingPolicy
+			u8"出现在选项中",             // ET_AppearAsInOption
+			u8"标题栏显示内容",           // ET_TitleBarText
+			u8"快捷键",                   // ET_Shortcut
+			u8"位置",                     // ET_Position
+			u8"从窗口角落的",             // ET_FromAnchorPanelCorner
+			u8"到窗口角落的",             // ET_ThisPanelCorner
+			u8"基准窗口",                 // ET_AnchorWindow
+			u8"列设置",                   // ET_ColumnSetup
+			u8"使用自定义列设置",         // ET_UseCustomColumns
+			u8"交替行显示背景",           // ET_AlternatingRowBg
+			u8"高亮显示鼠标悬停的行",     // ET_HighlightHoveredRow
+			u8"最大显示数量",             // ET_MaxDisplayed
+			u8"标题对齐方式",             // ET_HeaderAlignment
+			u8"列对齐方式",               // ET_ColumnAlignment
+			u8"语言",                     // ET_Language
+			u8"文字显示替代图标显示",     // ET_SettingsShowHeaderText
+			u8"简体中文",                 // ET_LanguageName
+			u8"与游戏一致",               // ET_LikeInGame
 	});
 } // namespace ArcdpsExtension
 
