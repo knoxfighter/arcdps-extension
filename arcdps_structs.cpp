@@ -4,7 +4,7 @@
 #include "ExtensionTranslations.h"
 #include "Localization.h"
 
-std::string to_string(Alignment alignment) {
+std::string_view to_string(Alignment alignment) {
 	switch (alignment) {
 		case Alignment::Left: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_Left);
 		case Alignment::Center: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_Center);
@@ -14,7 +14,7 @@ std::string to_string(Alignment alignment) {
 	}
 }
 
-std::string to_string(Position position) {
+std::string_view to_string(Position position) {
 	switch (position) {
 		case Position::Manual: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_PositionManual);
 		case Position::ScreenRelative: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_PositionScreenRelative);
@@ -23,7 +23,7 @@ std::string to_string(Position position) {
 	}
 }
 
-std::string to_string(CornerPosition position) {
+std::string_view to_string(CornerPosition position) {
 	switch (position) {
 		case CornerPosition::TopLeft: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_CornerPositionTopLeft);
 		case CornerPosition::TopRight: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_CornerPositionTopRight);
@@ -33,7 +33,7 @@ std::string to_string(CornerPosition position) {
 	}
 }
 
-std::string to_string(SizingPolicy sizingPolicy) {
+std::string_view to_string(SizingPolicy sizingPolicy) {
 	switch (sizingPolicy) {
 		case SizingPolicy::SizeToContent: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_SizingPolicySizeToContent);
 		case SizingPolicy::SizeContentToWindow: return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::ET_SizingPolicySizeContentToWindow);
@@ -42,7 +42,7 @@ std::string to_string(SizingPolicy sizingPolicy) {
 	}
 }
 #else
-std::string to_string(Alignment alignment) {
+std::string_view to_string(Alignment alignment) {
 	switch (alignment) {
 		case Alignment::Left: return "Left";
 		case Alignment::Center: return "Center";
@@ -52,7 +52,7 @@ std::string to_string(Alignment alignment) {
 	}
 }
 
-std::string to_string(Position position) {
+std::string_view to_string(Position position) {
 	switch (position) {
 		case Position::Manual: return "Manual";
 		case Position::ScreenRelative: return "Screen Relative";
@@ -61,7 +61,7 @@ std::string to_string(Position position) {
 	}
 }
 
-std::string to_string(CornerPosition position) {
+std::string_view to_string(CornerPosition position) {
 	switch (position) {
 		case CornerPosition::TopLeft: return "Top-Left";
 		case CornerPosition::TopRight: return "Top-Right";
@@ -71,7 +71,7 @@ std::string to_string(CornerPosition position) {
 	}
 }
 
-std::string to_string(SizingPolicy sizingPolicy) {
+std::string_view to_string(SizingPolicy sizingPolicy) {
 	switch (sizingPolicy) {
 		case SizingPolicy::SizeToContent: return "Size to Content";
 		case SizingPolicy::SizeContentToWindow: return "Size Content to Window";

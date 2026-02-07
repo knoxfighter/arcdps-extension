@@ -827,7 +827,7 @@ namespace ArcdpsExtension {
 	template<size_t MaxColumnCount>
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
 	void MainTable<MaxColumnCount>::DrawColumnSetupMenu() {
-		if (ImGui::BeginMenu(Localization::STranslate(ET_ColumnSetup).c_str())) {
+		if (ImGui::BeginMenu(Localization::STranslate(ET_ColumnSetup).data())) {
 			DrawColumnSetupSubMenu();
 
 			ImGui::EndMenu();
@@ -838,7 +838,7 @@ namespace ArcdpsExtension {
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
 	void MainTable<MaxColumnCount>::DrawColumnSetupSubMenu() {
 		if (getCustomColumnsFeatureActive()) {
-			if (ImGui::Checkbox(Localization::STranslate(ET_UseCustomColumns).c_str(), &getCustomColumnsActive())) {
+			if (ImGui::Checkbox(Localization::STranslate(ET_UseCustomColumns).data(), &getCustomColumnsActive())) {
 				if (getCustomColumnsActive()) {
 					mSpecificColumnsUpdate = true;
 					mSpecificColumnsActive = true;
@@ -869,17 +869,17 @@ namespace ArcdpsExtension {
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
 	void MainTable<MaxColumnCount>::DrawStyleSubMenu() {
 		ImGui::Separator();
-		ImGui::Checkbox(Localization::STranslate(ET_AlternatingRowBg).c_str(), &getShowAlternatingBackground());
-		ImGui::Checkbox(Localization::STranslate(ET_HighlightHoveredRow).c_str(), &getHighlightHoveredRows());
-		ImGui::Checkbox(Localization::STranslate(ET_SettingsShowHeaderText).c_str(), &getShowHeaderAsText());
+		ImGui::Checkbox(Localization::STranslate(ET_AlternatingRowBg).data(), &getShowAlternatingBackground());
+		ImGui::Checkbox(Localization::STranslate(ET_HighlightHoveredRow).data(), &getHighlightHoveredRows());
+		ImGui::Checkbox(Localization::STranslate(ET_SettingsShowHeaderText).data(), &getShowHeaderAsText());
 		int& maxDisplayed = getMaxDisplayed();
-		if (ImGui::InputInt(Localization::STranslate(ET_MaxDisplayed).c_str(), &maxDisplayed)) {
+		if (ImGui::InputInt(Localization::STranslate(ET_MaxDisplayed).data(), &maxDisplayed)) {
 			if (maxDisplayed < 0) {
 				maxDisplayed = 0;
 			}
 		}
-		ImGuiEx::EnumCombo(Localization::STranslate(ET_HeaderAlignment).c_str(), getHeaderAlignment(), {Alignment::Left, Alignment::Center, Alignment::Right});
-		ImGuiEx::EnumCombo(Localization::STranslate(ET_ColumnAlignment).c_str(), getAlignment(), {Alignment::Left, Alignment::Center, Alignment::Right});
+		ImGuiEx::EnumCombo(Localization::STranslate(ET_HeaderAlignment).data(), getHeaderAlignment(), {Alignment::Left, Alignment::Center, Alignment::Right});
+		ImGuiEx::EnumCombo(Localization::STranslate(ET_ColumnAlignment).data(), getAlignment(), {Alignment::Left, Alignment::Center, Alignment::Right});
 	}
 
 	template<size_t MaxColumnCount>

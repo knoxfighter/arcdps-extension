@@ -12,7 +12,7 @@ ArcdpsExtension::Localization::Localization() {
 	Load(GWL_CN, EXTENSION_TRANSLATION_CHINESE);
 }
 
-const std::string& ArcdpsExtension::Localization::Translate(size_t pId) const {
+std::string_view ArcdpsExtension::Localization::Translate(size_t pId) const {
 	return mCurrentTranslation->at(pId);
 }
 
@@ -25,7 +25,7 @@ void ArcdpsExtension::Localization::SChangeLanguage(gwlanguage pLang) {
 	Localization::instance().ChangeLanguage(pLang);
 }
 
-std::string to_string(ArcdpsExtension::LanguageSetting pLang) {
+std::string_view to_string(ArcdpsExtension::LanguageSetting pLang) {
 	switch (pLang) {
 		case ArcdpsExtension::LanguageSetting::English:
 			return ArcdpsExtension::Localization::STranslate(ArcdpsExtension::LanguageSetting::English, ArcdpsExtension::ET_LanguageName);

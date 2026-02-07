@@ -90,7 +90,7 @@ void ArcdpsExtension::MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWi
 		}
 
 		if (!(mainWindowFlags & MainWindowFlags_NoStyleMenu)) {
-			if (ImGui::BeginMenu(Localization::STranslate(ET_Style).c_str())) {
+			if (ImGui::BeginMenu(Localization::STranslate(ET_Style).data())) {
 				DrawStyleSettingsSubMenu();
 
 				for (const auto& drawStyleSubMenuHook : mDrawStyleSubMenuHooks | std::ranges::views::reverse) {
@@ -166,13 +166,13 @@ float ArcdpsExtension::MainWindow::GetMaxCursorPos() {
 }
 
 void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
-	ImGui::Checkbox(Localization::STranslate(ET_TitleBar).c_str(), &getShowTitleBar());
-	ImGui::Checkbox(Localization::STranslate(ET_Background).c_str(), &getShowBackground());
-	ImGui::Checkbox(Localization::STranslate(ET_Scrollbar).c_str(), &GetShowScrollbar());
+	ImGui::Checkbox(Localization::STranslate(ET_TitleBar).data(), &getShowTitleBar());
+	ImGui::Checkbox(Localization::STranslate(ET_Background).data(), &getShowBackground());
+	ImGui::Checkbox(Localization::STranslate(ET_Scrollbar).data(), &GetShowScrollbar());
 
 	// padding
 	auto& padding = getPadding();
-	ImGuiEx::OptionalSetting<ImVec2>(padding, Localization::STranslate(ET_Padding).c_str(), "##paddingCheckbox", [] { return ImVec2(); }, [&]() {
+	ImGuiEx::OptionalSetting<ImVec2>(padding, Localization::STranslate(ET_Padding).data(), "##paddingCheckbox", [] { return ImVec2(); }, [&]() {
 		ImVec2 paddingBuffer = padding.value_or(ImVec2());
 		if (ImGui::DragFloat2("###paddingInputFloat", &paddingBuffer.x, 0.1f, 0, FLT_MAX, "%1.f")) {
 			paddingBuffer.x = std::clamp(paddingBuffer.x, 0.f, FLT_MAX);
@@ -184,7 +184,7 @@ void ArcdpsExtension::MainWindow::DrawStyleSettingsSubMenu() {
 	ImGui::Separator();
 
 	// sizing policy
-	ImGui::TextUnformatted(Localization::STranslate(ET_SizingPolicy).c_str());
+	ImGui::TextUnformatted(Localization::STranslate(ET_SizingPolicy).data());
 	ImGui::SameLine();
 	auto& sizingPolicy = getSizingPolicy();
 	ImGuiEx::EnumCombo("##sizingPolicyEnumCombo", sizingPolicy, magic_enum::enum_values<SizingPolicy>());

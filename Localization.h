@@ -25,35 +25,39 @@ namespace ArcdpsExtension {
 	public:
 		Localization();
 
-		[[nodiscard]] const std::string& Translate(size_t pId) const;
-		[[nodiscard]] const std::string& Translate(auto lang, size_t pId) const {
+		[[nodiscard]] std::string_view Translate(size_t pId) const;
+		[[nodiscard]] std::string_view Translate(auto lang, size_t pId) const {
 			return mTranslations.at(static_cast<size_t>(lang)).at(pId);
 		}
 
 		template<typename E>
 		requires std::is_enum_v<E>
-		[[nodiscard]] const std::string& Translate(E pId) const {
+		[[nodiscard]] std::string_view Translate(E pId) const {
 			return Translate(std::to_underlying(pId));
 		}
 		template<typename E>
 		requires std::is_enum_v<E>
-		[[nodiscard]] const std::string& Translate(auto lang, E pId) const {
+		[[nodiscard]] std::string_view Translate(auto lang, E pId) const {
 			return Translate(lang, std::to_underlying(pId));
 		}
 
 		template<typename Num>
 		requires std::is_integral_v<Num> && (!std::same_as<Num, size_t>)
-		[[nodiscard]] const std::string& Translate(Num pId) const {
+		[[nodiscard]] std::string_view Translate(Num pId) const {
 			return Translate(static_cast<size_t>(pId));
 		}
 		template<typename Num>
 		requires std::is_integral_v<Num> && (!std::same_as<Num, size_t>)
-		[[nodiscard]] const std::string& Translate(auto lang, Num pId) const {
+		[[nodiscard]] std::string_view Translate(auto lang, Num pId) const {
 			return Translate(lang, static_cast<size_t>(pId));
 		}
 
+		/**
+		 *
+		 * @return null terminated string_view. Use .data() instead of c_str() if you need a const char*
+		 */
 		template<typename... Args>
-		[[nodiscard]] static const std::string& STranslate(Args... args) {
+		[[nodiscard]] static std::string_view STranslate(Args... args) {
 			return Localization::instance().Translate(std::forward<Args>(args)...);
 		}
 
@@ -111,4 +115,4 @@ namespace ArcdpsExtension {
 	};
 } // namespace ArcdpsExtension
 
-std::string to_string(ArcdpsExtension::LanguageSetting pLang);
+std::string_view to_string(ArcdpsExtension::LanguageSetting pLang);

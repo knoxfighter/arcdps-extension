@@ -68,7 +68,7 @@ enum class Alignment {
 	Unaligned,
 };
 
-std::string to_string(Alignment alignment);
+std::string_view to_string(Alignment alignment);
 
 enum class Position {
 	Manual,
@@ -76,7 +76,7 @@ enum class Position {
 	WindowRelative,
 };
 
-std::string to_string(Position position);
+std::string_view to_string(Position position);
 
 enum class CornerPosition {
 	TopLeft,
@@ -85,7 +85,7 @@ enum class CornerPosition {
 	BottomRight,
 };
 
-std::string to_string(CornerPosition position);
+std::string_view to_string(CornerPosition position);
 
 enum class SizingPolicy {
 	SizeToContent,
@@ -93,4 +93,4 @@ enum class SizingPolicy {
 	ManualWindowSize,
 };
 
-std::string to_string(SizingPolicy sizingPolicy);
+std::string_view to_string(SizingPolicy sizingPolicy);

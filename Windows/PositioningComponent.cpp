@@ -25,7 +25,7 @@ void ArcdpsExtension::PositioningComponent::PreDrawHookFunction(ImGuiWindowFlags
 }
 
 void ArcdpsExtension::PositioningComponent::DrawPositionSettingsSubMenu() {
-	if (ImGui::BeginMenu(Localization::STranslate(ET_Position).c_str())) {
+	if (ImGui::BeginMenu(Localization::STranslate(ET_Position).data())) {
 		Position& position = getPositionMode();
 		CornerPosition& cornerPosition = getCornerPosition();
 		ImVec2& windowVector = getCornerVector();
@@ -33,17 +33,17 @@ void ArcdpsExtension::PositioningComponent::DrawPositionSettingsSubMenu() {
 		CornerPosition& selfPanelCornerPosition = getSelfPanelCorner();
 		ImGuiID& anchorWindowId = getFromWindowId();
 
-		ImGuiEx::RadioButton(to_string(Position::Manual).c_str(), position, Position::Manual);
+		ImGuiEx::RadioButton(to_string(Position::Manual).data(), position, Position::Manual);
 
-		ImGuiEx::RadioButton(to_string(Position::ScreenRelative).c_str(), position, Position::ScreenRelative);
+		ImGuiEx::RadioButton(to_string(Position::ScreenRelative).data(), position, Position::ScreenRelative);
 		if (position == Position::ScreenRelative) {
 			ImGui::Indent(15.f);
 
 			ImGui::PushID("cornerPositionRadioButton");
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), cornerPosition, CornerPosition::TopLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), cornerPosition, CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), cornerPosition, CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), cornerPosition, CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).data(), cornerPosition, CornerPosition::TopLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).data(), cornerPosition, CornerPosition::TopRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).data(), cornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).data(), cornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
 			ImGui::PushItemWidth(80.f);
@@ -54,24 +54,24 @@ void ArcdpsExtension::PositioningComponent::DrawPositionSettingsSubMenu() {
 			ImGui::Unindent(15.f);
 		}
 
-		ImGuiEx::RadioButton(to_string(Position::WindowRelative).c_str(), position, Position::WindowRelative);
+		ImGuiEx::RadioButton(to_string(Position::WindowRelative).data(), position, Position::WindowRelative);
 		if (position == Position::WindowRelative) {
 			ImGui::Indent(15.f);
 
-			ImGui::TextUnformatted(Localization::STranslate(ET_FromAnchorPanelCorner).c_str());
+			ImGui::TextUnformatted(Localization::STranslate(ET_FromAnchorPanelCorner).data());
 			ImGui::PushID("anchorPanelCornerPositionRadioButton");
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), anchorPanelCornerPosition, CornerPosition::TopLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), anchorPanelCornerPosition, CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), anchorPanelCornerPosition, CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), anchorPanelCornerPosition, CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).data(), anchorPanelCornerPosition, CornerPosition::TopLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).data(), anchorPanelCornerPosition, CornerPosition::TopRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).data(), anchorPanelCornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).data(), anchorPanelCornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
-			ImGui::TextUnformatted(Localization::STranslate(ET_ThisPanelCorner).c_str());
+			ImGui::TextUnformatted(Localization::STranslate(ET_ThisPanelCorner).data());
 			ImGui::PushID("selfPanelCornerPositionRadioButton");
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).c_str(), selfPanelCornerPosition, CornerPosition::TopLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).c_str(), selfPanelCornerPosition, CornerPosition::TopRight);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).c_str(), selfPanelCornerPosition, CornerPosition::BottomLeft);
-			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).c_str(), selfPanelCornerPosition, CornerPosition::BottomRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopLeft).data(), selfPanelCornerPosition, CornerPosition::TopLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::TopRight).data(), selfPanelCornerPosition, CornerPosition::TopRight);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomLeft).data(), selfPanelCornerPosition, CornerPosition::BottomLeft);
+			ImGuiEx::RadioButton(to_string(CornerPosition::BottomRight).data(), selfPanelCornerPosition, CornerPosition::BottomRight);
 			ImGui::PopID();
 
 			ImGui::PushItemWidth(80.f);
@@ -90,7 +90,7 @@ void ArcdpsExtension::PositioningComponent::DrawPositionSettingsSubMenu() {
 				}
 			}
 
-			if (ImGui::BeginCombo(Localization::STranslate(ET_AnchorWindow).c_str(), selectedWindowName.c_str()) == true) {
+			if (ImGui::BeginCombo(Localization::STranslate(ET_AnchorWindow).data(), selectedWindowName.data()) == true) {
 				// This doesn't return the same thing as RootWindow interestingly enough, RootWindow returns a "higher" parent
 				ImGuiWindow* parent = ImGui::GetCurrentWindowRead();
 				while (parent->ParentWindow != nullptr) {

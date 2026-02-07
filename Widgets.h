@@ -49,7 +49,7 @@ namespace ImGuiEx {
 	template<typename E>
 	requires std::is_enum_v<E>
 	bool Selectable(E& storage, E value) {
-		const bool selected = ImGui::Selectable(to_string(value).c_str());
+		const bool selected = ImGui::Selectable(to_string(value).data());
 		if (selected) {
 			storage = value;
 		}
@@ -62,7 +62,7 @@ namespace ImGuiEx {
 	template<typename E, std::ranges::range R>
 	requires(std::is_enum_v<E> && std::same_as<std::ranges::range_value_t<R>, E>)
 	bool EnumCombo(const char* label, E& storage, const R& values, const std::map<E, std::function<const std::string&()>>& pPopupText = {}) {
-		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
+		if (ImGui::BeginCombo(label, to_string(storage).data())) {
 			bool selected = false;
 			for (const E& val : values) {
 				if (ImGuiEx::Selectable(storage, val)) {
@@ -87,8 +87,8 @@ namespace ImGuiEx {
 
 	template<typename E>
 	requires(std::is_enum_v<E>)
-	bool EnumCombo(const char* label, E& storage, const std::initializer_list<E>& values, const std::map<E, std::function<const std::string&()>>& pPopupText = {}) {
-		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
+	bool EnumCombo(const char* label, E& storage, const std::initializer_list<E>& values, const std::map<E, std::function<std::string()>>& pPopupText = {}) {
+		if (ImGui::BeginCombo(label, to_string(storage).data())) {
 			bool selected = false;
 			for (const E& val : values) {
 				if (ImGuiEx::Selectable(storage, val)) {
@@ -118,8 +118,8 @@ namespace ImGuiEx {
 	 */
 	template<typename E>
 	requires std::is_enum_v<E>
-	bool EnumCombo(const char* label, E& storage, E lastElement, const std::map<uint64_t, std::function<const std::string&()>>& pPopupText = {}) {
-		if (ImGui::BeginCombo(label, to_string(storage).c_str())) {
+	bool EnumCombo(const char* label, E& storage, E lastElement, const std::map<uint64_t, std::function<std::string()>>& pPopupText = {}) {
+		if (ImGui::BeginCombo(label, to_string(storage).data())) {
 			bool selected = false;
 			for (uint64_t i = 0; i < static_cast<uint64_t>(lastElement); ++i) {
 				if (ImGuiEx::Selectable(storage, static_cast<E>(i))) {
@@ -143,7 +143,7 @@ namespace ImGuiEx {
 	template<typename E>
 	requires std::is_enum_v<E>
 	bool EnumRadioButton(int& buttonStorage, E value) {
-		return ImGui::RadioButton(to_string(value).c_str(), &buttonStorage, static_cast<int>(value));
+		return ImGui::RadioButton(to_string(value).data(), &buttonStorage, static_cast<int>(value));
 	}
 
 	template<typename E>
@@ -168,7 +168,7 @@ namespace ImGuiEx {
 	}
 
 	template<class... Args>
-	void TextColored(const ImVec4& col, const std::string& fmt, Args&&... args) {
+	void TextColored(const ImVec4& col, std::string_view fmt, Args&&... args) {
 		ImGui::PushStyleColor(ImGuiCol_Text, col);
 		ImGui::TextEx(std::vformat(fmt, std::make_format_args(args...)).c_str(), NULL, ImGuiTextFlags_NoWidthForLargeClippedText); // Skip formatting
 		ImGui::PopStyleColor();

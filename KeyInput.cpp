@@ -8,8 +8,8 @@
 #include "Localization.h"
 
 #define POPUP_NAME_TEXT Localization::STranslate(ET_KeyInputPopupName)
-#define APPLY_TEXT Localization::STranslate(ET_ApplyButton).c_str()
-#define CANCEL_TEXT Localization::STranslate(ET_CancelButton).c_str()
+#define APPLY_TEXT Localization::STranslate(ET_ApplyButton).data()
+#define CANCEL_TEXT Localization::STranslate(ET_CancelButton).data()
 #else
 #define POPUP_NAME_TEXT "KeyBind"
 #define APPLY_TEXT "Apply"
@@ -195,11 +195,11 @@ namespace ImGuiEx {
 		}
 
 		std::string keyStr = to_string(keyContainerCopy, pLanguage, pHkl);
-		ImVec2 textSize = ImGui::CalcTextSize(reinterpret_cast<const char*>(keyStr.c_str()));
+		ImVec2 textSize = ImGui::CalcTextSize(keyStr.c_str());
 		keyStr.append("##");
 		keyStr.append(pLabel);
 
-		std::string popupName = POPUP_NAME_TEXT;
+		std::string popupName = std::string(POPUP_NAME_TEXT);
 		popupName.append(" - ");
 		popupName.append(pLabel);
 

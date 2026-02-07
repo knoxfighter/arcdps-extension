@@ -28,7 +28,7 @@ void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pU
 			ImGuiEx::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), Localization::STranslate(ET_UpdateDesc), pPluginName);
 			ImGuiEx::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "{}: {}.{}.{}", Localization::STranslate(ET_UpdateCurrentVersion), currentVersion[0], currentVersion[1], currentVersion[2]);
 			ImGuiEx::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "{}: {}.{}.{}", Localization::STranslate(ET_UpdateNewVersion), newVersion[0], newVersion[1], newVersion[2]);
-			if (ImGui::Button(Localization::STranslate(ET_UpdateOpenPage).c_str())) {
+			if (ImGui::Button(Localization::STranslate(ET_UpdateOpenPage).data())) {
 				std::thread([pRepoReleaseLink]() {
 					ShellExecuteA(nullptr, nullptr, pRepoReleaseLink.c_str(), nullptr, nullptr, SW_SHOW);
 				}).detach();
@@ -36,21 +36,21 @@ void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pU
 
 			switch (updateStatus) {
 				case Status::UpdateAvailable: {
-					if (ImGui::Button(Localization::STranslate(ET_UpdateAutoButton).c_str())) {
+					if (ImGui::Button(Localization::STranslate(ET_UpdateAutoButton).data())) {
 						PerformInstallOrUpdate(*pUpdateState);
 					}
 					break;
 				}
 				case Status::UpdateInProgress: {
-					ImGui::TextUnformatted(Localization::STranslate(ET_UpdateInProgress).c_str());
+					ImGui::TextUnformatted(Localization::STranslate(ET_UpdateInProgress).data());
 					break;
 				}
 				case Status::UpdateSuccessful: {
-					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateRestartPending).c_str());
+					ImGui::TextColored(ImVec4(0.f, 1.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateRestartPending).data());
 					break;
 				}
 				case Status::UpdateError: {
-					ImGui::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateError).c_str());
+					ImGui::TextColored(ImVec4(1.f, 0.f, 0.f, 1.f), "%s", Localization::STranslate(ET_UpdateError).data());
 				}
 				// nothing to print when user doesn't want to update
 				case Status::Unknown:
