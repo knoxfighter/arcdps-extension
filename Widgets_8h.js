@@ -9,7 +9,7 @@ var Widgets_8h =
     [ "BeginTable", "Widgets_8h.html#a2503b76887667b646443cc4b394d7e54", null ],
     [ "EnumCombo", "Widgets_8h.html#a6f92d4417a224c202405fde8f9883f6c", null ],
     [ "EnumCombo", "Widgets_8h.html#a7e24a4297ab6103471c1c5291833ee22", null ],
-    [ "EnumCombo", "Widgets_8h.html#a73e91ea3489d22a23c0ace18053b6e0a", null ],
+    [ "EnumCombo", "Widgets_8h.html#a5f9e61d8249d3d69bd63fc6c97e95a0a", null ],
     [ "EnumRadioButton", "Widgets_8h.html#a538c304455e032f68b9210fc2aa5c5d4", null ],
     [ "EnumRadioButton", "Widgets_8h.html#aabac93463183f0de50deed46248591ad", null ],
     [ "FilteredCombo", "Widgets_8h.html#a4900cc330eb6f829cc1463d033e686ff", null ],
