@@ -24,7 +24,7 @@ var namespaces_dup =
       [ "BeginTableEx", "namespaceImGuiEx.html#ad35b975afa5a90575e6a015527412782", null ],
       [ "CloseKeyCodePopupState", "namespaceImGuiEx.html#ac42db620be0af5f878ae8e50177c545e", null ],
       [ "EnumCombo", "namespaceImGuiEx.html#a6f92d4417a224c202405fde8f9883f6c", null ],
-      [ "EnumCombo", "namespaceImGuiEx.html#a7fcd8fdc287d78999d929fb05a0f83c6", null ],
+      [ "EnumCombo", "namespaceImGuiEx.html#a7e24a4297ab6103471c1c5291833ee22", null ],
       [ "EnumCombo", "namespaceImGuiEx.html#a73e91ea3489d22a23c0ace18053b6e0a", null ],
       [ "EnumRadioButton", "namespaceImGuiEx.html#a538c304455e032f68b9210fc2aa5c5d4", null ],
       [ "EnumRadioButton", "namespaceImGuiEx.html#aabac93463183f0de50deed46248591ad", null ],
@@ -47,7 +47,7 @@ var namespaces_dup =
       [ "TableGetCurrentRowRect", "namespaceImGuiEx.html#a810dca8cc6de6b9215a2c2f42435f628", null ],
       [ "TableHeader", "namespaceImGuiEx.html#a06952f92880bf320406f21421af3b4a1", null ],
       [ "TableIsMouseHoveringCurrentRow", "namespaceImGuiEx.html#a441d38f69d41418fc3664e884adbe5e2", null ],
-      [ "TextColored", "namespaceImGuiEx.html#a7a4e3b8299f89f699064cbc1934b3f7e", null ],
+      [ "TextColored", "namespaceImGuiEx.html#ad612f9c168c9ad7b1b8a4afbed13ec79", null ],
       [ "TreeNodeBehavior", "namespaceImGuiEx.html#a4be780d8891950a8ae8cb9df0276d4a9", null ],
       [ "TreeNodeEx", "namespaceImGuiEx.html#ac150a76ca6c38784d1c32e040b291e5e", null ],
       [ "WindowReposition", "namespaceImGuiEx.html#a6726ec0cda66b92c76bd37e9439b74c0", null ]

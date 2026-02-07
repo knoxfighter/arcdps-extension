@@ -8,7 +8,7 @@ var Widgets_8h =
     [ "BeginPopupContextWindow", "Widgets_8h.html#afe13eb53cd35901c010f2ec275f1981f", null ],
     [ "BeginTable", "Widgets_8h.html#a2503b76887667b646443cc4b394d7e54", null ],
     [ "EnumCombo", "Widgets_8h.html#a6f92d4417a224c202405fde8f9883f6c", null ],
-    [ "EnumCombo", "Widgets_8h.html#a7fcd8fdc287d78999d929fb05a0f83c6", null ],
+    [ "EnumCombo", "Widgets_8h.html#a7e24a4297ab6103471c1c5291833ee22", null ],
     [ "EnumCombo", "Widgets_8h.html#a73e91ea3489d22a23c0ace18053b6e0a", null ],
     [ "EnumRadioButton", "Widgets_8h.html#a538c304455e032f68b9210fc2aa5c5d4", null ],
     [ "EnumRadioButton", "Widgets_8h.html#aabac93463183f0de50deed46248591ad", null ],
@@ -23,7 +23,7 @@ var Widgets_8h =
     [ "TableGetCurrentRowRect", "Widgets_8h.html#a810dca8cc6de6b9215a2c2f42435f628", null ],
     [ "TableHeader", "Widgets_8h.html#a06952f92880bf320406f21421af3b4a1", null ],
     [ "TableIsMouseHoveringCurrentRow", "Widgets_8h.html#a441d38f69d41418fc3664e884adbe5e2", null ],
-    [ "TextColored", "Widgets_8h.html#a7a4e3b8299f89f699064cbc1934b3f7e", null ],
+    [ "TextColored", "Widgets_8h.html#ad612f9c168c9ad7b1b8a4afbed13ec79", null ],
     [ "TreeNodeEx", "Widgets_8h.html#ac150a76ca6c38784d1c32e040b291e5e", null ],
     [ "WindowReposition", "Widgets_8h.html#a6726ec0cda66b92c76bd37e9439b74c0", null ]
 ];

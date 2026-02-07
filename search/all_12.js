@@ -135,7 +135,7 @@ var searchData=
   ['store_132',['Store',['../classArcdpsExtension_1_1BaseSingleton.html#a62cac7fcd01c209a3e4014ed8c0486a9',1,'ArcdpsExtension::BaseSingleton']]],
   ['storm_133',['Storm',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63afdcf3cdc04f367257c92382e032b6293',1,'MobIDs.h']]],
   ['str_134',['Str',['../structInputTextCallback__UserData.html#af4af934be464cc04c79ee922e697e2d8',1,'InputTextCallback_UserData']]],
-  ['stranslate_135',['STranslate',['../classArcdpsExtension_1_1Localization.html#af8747d5e6f0dcaf8b951cf28dc360a6b',1,'ArcdpsExtension::Localization']]],
+  ['stranslate_135',['STranslate',['../classArcdpsExtension_1_1Localization.html#a1b690d14678f9750aea8576c5d02e8d8',1,'ArcdpsExtension::Localization']]],
   ['stretchweight_136',['StretchWeight',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#acda9286c29a0ee38aa01e379f5df2b44',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['strike_137',['Strike',['../classArcdpsExtension_1_1CombatEventHandler.html#a7640b5abc3824d2e87fbcf8fe7cf841b',1,'ArcdpsExtension::CombatEventHandler']]],
   ['stringaffix_138',['StringAffix',['../structrapidfuzz_1_1StringAffix.html',1,'rapidfuzz']]],

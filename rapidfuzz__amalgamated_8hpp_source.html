@@ -1614,7 +1614,7 @@ $(document).ready(function(){initNavTree('rapidfuzz__amalgamated_8hpp_source.htm
 <div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> CharT1&gt;</div>
 <div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>    <span class="keyword">struct </span>CachedHamming {</div>
 <div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Sentence1&gt;</div>
-<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span>        CachedHamming(<span class="keyword">const</span> Sentence1&amp; s1_) : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#a48b76b3a7c7567cd25fd675ea002f54a">to_string</a>(s1_)) {}</div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span>        CachedHamming(<span class="keyword">const</span> Sentence1&amp; s1_) : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#af7f5ee4df72f764b37096dc122ebac47">to_string</a>(s1_)) {}</div>
 <div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span> </div>
 <div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> InputIt1&gt;</div>
 <div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>        CachedHamming(InputIt1 first1, InputIt1 last1) : s1(first1, last1) {}</div>
@@ -1813,7 +1813,7 @@ $(document).ready(function(){initNavTree('rapidfuzz__amalgamated_8hpp_source.htm
 <div class="line"><a id="l01605" name="l01605"></a><span class="lineno"> 1605</span>    <span class="keyword">struct </span>CachedIndel {</div>
 <div class="line"><a id="l01606" name="l01606"></a><span class="lineno"> 1606</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Sentence1&gt;</div>
 <div class="line"><a id="l01607" name="l01607"></a><span class="lineno"> 1607</span>        CachedIndel(<span class="keyword">const</span> Sentence1&amp; s1_)</div>
-<div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span>            : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#a48b76b3a7c7567cd25fd675ea002f54a">to_string</a>(s1_)), PM(common::<a class="code hl_function" href="group__Common.html#gad23c50fb34b029cf986f52d8a40b3517">to_begin</a>(s1), common::<a class="code hl_function" href="group__Common.html#gabff304b79563702fe08cd20880a4e0d9">to_end</a>(s1)) {}</div>
+<div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span>            : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#af7f5ee4df72f764b37096dc122ebac47">to_string</a>(s1_)), PM(common::<a class="code hl_function" href="group__Common.html#gad23c50fb34b029cf986f52d8a40b3517">to_begin</a>(s1), common::<a class="code hl_function" href="group__Common.html#gabff304b79563702fe08cd20880a4e0d9">to_end</a>(s1)) {}</div>
 <div class="line"><a id="l01609" name="l01609"></a><span class="lineno"> 1609</span> </div>
 <div class="line"><a id="l01610" name="l01610"></a><span class="lineno"> 1610</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> InputIt1&gt;</div>
 <div class="line"><a id="l01611" name="l01611"></a><span class="lineno"> 1611</span>        CachedIndel(InputIt1 first1, InputIt1 last1) : s1(first1, last1), PM(first1, last1) {}</div>
@@ -2636,7 +2636,7 @@ $(document).ready(function(){initNavTree('rapidfuzz__amalgamated_8hpp_source.htm
 <div class="line"><a id="l02643" name="l02643"></a><span class="lineno"> 2643</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Sentence1&gt;</div>
 <div class="foldopen" id="foldopen02644" data-start="{" data-end="}">
 <div class="line"><a id="l02644" name="l02644"></a><span class="lineno"><a class="line" href="structrapidfuzz_1_1CachedLevenshtein.html#a4a85290a81494dfc74cfae2abb650539"> 2644</a></span>        <a class="code hl_function" href="structrapidfuzz_1_1CachedLevenshtein.html#a4a85290a81494dfc74cfae2abb650539">CachedLevenshtein</a>(<span class="keyword">const</span> Sentence1&amp; s1_, <a class="code hl_struct" href="structrapidfuzz_1_1LevenshteinWeightTable.html">LevenshteinWeightTable</a> aWeights = {1, 1, 1})</div>
-<div class="line"><a id="l02645" name="l02645"></a><span class="lineno"> 2645</span>            : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#a48b76b3a7c7567cd25fd675ea002f54a">to_string</a>(s1_)),</div>
+<div class="line"><a id="l02645" name="l02645"></a><span class="lineno"> 2645</span>            : s1(common::<a class="code hl_function" href="arcdps__structs_8cpp.html#af7f5ee4df72f764b37096dc122ebac47">to_string</a>(s1_)),</div>
 <div class="line"><a id="l02646" name="l02646"></a><span class="lineno"> 2646</span>              PM(common::to_begin(s1), common::to_end(s1)),</div>
 <div class="line"><a id="l02647" name="l02647"></a><span class="lineno"> 2647</span>              weights(aWeights) {}</div>
 </div>
@@ -5148,7 +5148,7 @@ $(document).ready(function(){initNavTree('rapidfuzz__amalgamated_8hpp_source.htm
 </div>
 </div>
 </div>
-<div class="ttc" id="aarcdps__structs_8cpp_html_a48b76b3a7c7567cd25fd675ea002f54a"><div class="ttname"><a href="arcdps__structs_8cpp.html#a48b76b3a7c7567cd25fd675ea002f54a">to_string</a></div><div class="ttdeci">std::string to_string(Alignment alignment)</div><div class="ttdef"><b>Definition</b> arcdps_structs.cpp:7</div></div>
+<div class="ttc" id="aarcdps__structs_8cpp_html_af7f5ee4df72f764b37096dc122ebac47"><div class="ttname"><a href="arcdps__structs_8cpp.html#af7f5ee4df72f764b37096dc122ebac47">to_string</a></div><div class="ttdeci">std::string_view to_string(Alignment alignment)</div><div class="ttdef"><b>Definition</b> arcdps_structs.cpp:7</div></div>
 <div class="ttc" id="aclassrapidfuzz_1_1Editops_html"><div class="ttname"><a href="classrapidfuzz_1_1Editops.html">rapidfuzz::Editops</a></div><div class="ttdef"><b>Definition</b> rapidfuzz_amalgamated.hpp:212</div></div>
 <div class="ttc" id="aclassrapidfuzz_1_1Editops_html_a09f449a780282456f0d30081130e3b90"><div class="ttname"><a href="classrapidfuzz_1_1Editops.html#a09f449a780282456f0d30081130e3b90">rapidfuzz::Editops::inverse</a></div><div class="ttdeci">Editops inverse() const</div><div class="ttdef"><b>Definition</b> rapidfuzz_amalgamated.hpp:304</div></div>
 <div class="ttc" id="aclassrapidfuzz_1_1Editops_html_a103876bc1dfe71ca34458752e6232ef3"><div class="ttname"><a href="classrapidfuzz_1_1Editops.html#a103876bc1dfe71ca34458752e6232ef3">rapidfuzz::Editops::Editops</a></div><div class="ttdeci">Editops(Editops &amp;&amp;other) noexcept</div><div class="ttdef"><b>Definition</b> rapidfuzz_amalgamated.hpp:228</div></div>

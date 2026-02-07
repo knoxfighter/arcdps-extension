@@ -8,10 +8,10 @@ var classArcdpsExtension_1_1Localization =
     [ "OverrideTranslation", "classArcdpsExtension_1_1Localization.html#ab6ec116befb746574ab71bf6dc67faed", null ],
     [ "OverrideTranslation", "classArcdpsExtension_1_1Localization.html#a81efd5d1a39b7dd6dd7805e1e044b930", null ],
     [ "OverrideTranslation", "classArcdpsExtension_1_1Localization.html#a2d6047ca2eb55fa17aff932039ff9ad5", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#a1d23f87a1a82cdd887ee4661f76117b7", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#a9178a49ef856294a36fb29736d68894b", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#ada103e7be351d827d0c1c40e15e05d3c", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#a1dda2f9cc58ee8148950f2178f5f3422", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#acee4c8a9f300b24a3ef2a1cdaa0ad265", null ],
-    [ "Translate", "classArcdpsExtension_1_1Localization.html#a119cad395eb4076a65faab2e3de9966b", null ]
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#ad41211c2d7f700e67408ebc08f5c0e4a", null ],
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#a65f35cfaec8442f5533dc749bb4a5ed5", null ],
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#a12830127095e7782103095e3745055da", null ],
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#a7e6e1815f14e8c930bcf8dce477669a6", null ],
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#a616fed6dc97ca67e67b389720d828697", null ],
+    [ "Translate", "classArcdpsExtension_1_1Localization.html#ae2a45baabae2e2481f85848165edf91b", null ]
 ];
