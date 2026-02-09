@@ -1,10 +1,20 @@
+#include "arcdps_structs_slim.h"
 #include "EventSequencer.h"
-#include "Singleton.h"
 
+#include <algorithm>
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
+#include <cstring>
 #include <gtest/gtest.h>
-#include <print>
+#include <limits>
+#include <mutex>
 #include <random>
 #include <ranges>
+#include <string>
+#include <thread>
+#include <utility>
+#include <vector>
 
 using namespace ArcdpsExtension;
 

@@ -1,8 +1,11 @@
 #pragma once
 #include "arcdps_structs_slim.h"
 
-#include <string>
-#include <Windows.h>
+#include <cstdint>
+#include <string_view>
+#include <windows.h>
+
+struct ImGuiContext;
 
 bool is_player(const ag* new_player);
 
@@ -33,9 +36,6 @@ typedef void (*FreeSignature)(void*);
 
 typedef arcdps_exports* (*ModInitSignature)();
 typedef uintptr_t (*ModReleaseSignature)();
-
-struct ID3D11Device;
-struct ImGuiContext;
 
 /**
  * `dxver`: The used directx version (11)

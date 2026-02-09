@@ -1,7 +1,12 @@
 #pragma once
 
+#include "../arcdps_structs.h"
 #include "ComponentBase.h"
 #include "MainWindow.h"
+
+#include <imgui/imgui.h>
+#include <imgui/imgui_internal.h>
+#include <vector>
 
 namespace ArcdpsExtension {
 	class PositioningComponent : public ComponentBase {

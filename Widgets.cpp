@@ -1,13 +1,15 @@
-#ifndef IMGUI_DEFINE_MATH_OPERATORS
-#define IMGUI_DEFINE_MATH_OPERATORS
-#endif
-
 #include "Widgets.h"
+
+#include "ImGui_Math.h"
 
 #include <cstdlib>
 #include <stdexcept>
+#include <cassert>
+#include <imgui/imgui_internal.h>
+#include <cstdarg>
 
-#include "ImGui_Math.h"
+// Windows
+#include <wtypes.h>
 
 #pragma warning(push)
 // disable warning for implicit conversion (for now)

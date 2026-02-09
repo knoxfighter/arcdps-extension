@@ -4,12 +4,25 @@
 #include "rapidfuzz_amalgamated.hpp"
 
 #include <algorithm>
+#include <cfloat>
+#include <concepts>
+#include <cstdint>
+#include <cstring>
 #include <format>
 #include <functional>
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
+#include <initializer_list>
 #include <map>
+#include <optional>
 #include <ranges>
+#include <string>
+#include <string_view>
+#include <tuple>
+#include <type_traits>
+#include <utility>
+#include <vector>
+#include <windows.h>
 
 namespace ImGuiEx {
 	bool Spinner(const char* label, float radius, float thickness, const ImU32& color);

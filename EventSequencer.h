@@ -2,10 +2,13 @@
 
 #include "arcdps_structs_slim.h"
 
+#include <compare>
 #include <condition_variable>
+#include <cstdint>
 #include <functional>
 #include <mutex>
 #include <set>
+#include <string>
 #include <thread>
 
 namespace ArcdpsExtension {

@@ -1,6 +1,13 @@
 #include "SimpleNetworkStack.h"
 
+#include "Singleton.h"
+
+#include <expected>
+#include <filesystem>
+#include <future>
 #include <gtest/gtest.h>
+#include <string>
+#include <type_traits>
 
 using namespace ArcdpsExtension;
 

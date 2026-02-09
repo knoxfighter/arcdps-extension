@@ -2,18 +2,25 @@
 
 #include "Singleton.h"
 
-#include <atlbase.h>
 #include <condition_variable>
-#include <d3d11.h>
+#include <cstdint>
 #include <filesystem>
-#include <map>
+#include <mutex>
 #include <queue>
-#include <ranges>
+#include <stop_token>
+#include <string>
 #include <thread>
+#include <unordered_map>
 #include <utility>
 #include <variant>
+#include <vector>
+
+// Windows
+#include <atlbase.h>
+#include <d3d11.h>
+#include <dxgiformat.h>
 #include <wincodec.h>
-#include <Windows.h>
+#include <windows.h>
 
 namespace ArcdpsExtension {
 	template<typename From, typename To>

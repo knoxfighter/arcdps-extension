@@ -1,13 +1,22 @@
 #include "UpdateCheckerBase.h"
 
 #include <cassert>
+#include <cctype>
 #include <charconv>
+#include <compare>
+#include <cstdio>
+#include <cstdlib>
+#include <exception>
 #include <filesystem>
 #include <format>
-#include <fstream>
-#include <optional>
-
 #include <nlohmann/json.hpp>
+#include <optional>
+#include <system_error>
+#include <type_traits>
+
+// Windows
+#include <vcruntime.h>
+#include <windows.h>
 
 ArcdpsExtension::UpdateCheckerBase::UpdateState::UpdateState(const std::optional<Version>& pVersion, std::string&& pInstallPath)
 	: CurrentVersion(pVersion), InstallPath(std::move(pInstallPath)) {}

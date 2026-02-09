@@ -1,8 +1,14 @@
 #pragma once
 
 #include "../../Singleton.h"
+#include "../../arcdps_structs.h"
 #include "../MainWindow.h"
 #include "DemoTable.h"
+
+#include <imgui/imgui.h>
+#include <memory>
+#include <optional>
+#include <string>
 
 namespace ArcdpsExtension {
 	class DemoTableWindow final : public MainWindow, public Singleton<DemoTableWindow> {

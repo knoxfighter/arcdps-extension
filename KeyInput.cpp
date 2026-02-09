@@ -1,7 +1,16 @@
 #include "KeyInput.h"
 
+#include <ArcdpsUnofficialExtras/Definitions.h>
+#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
+#include <ArcdpsUnofficialExtras/KeyBindsTranslation.h>
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <cfloat>
+#include <cstddef>
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
+#include <optional>
+#include <string>
+#include <utility>
 
 #ifndef ARCDPS_EXTENSION_NO_LANG_H
 #include "ExtensionTranslations.h"

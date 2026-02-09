@@ -1,11 +1,21 @@
 #include "MainWindow.h"
 
+#include "../arcdps_structs.h"
 #include "../ExtensionTranslations.h"
 #include "../imgui_stdlib.h"
 #include "../Localization.h"
 #include "../Widgets.h"
+#include "ComponentBase.h"
 
+#include <algorithm>
+#include <array>
+#include <cfloat>
+#include <cstdint>
+#include <format>
+#include <imgui/imgui_internal.h>
 #include <magic_enum/magic_enum.hpp>
+#include <ranges>
+#include <string_view>
 
 ArcdpsExtension::MainWindow::~MainWindow() {
 	mComponents.clear();

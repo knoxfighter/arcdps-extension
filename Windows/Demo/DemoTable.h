@@ -1,8 +1,13 @@
 #pragma once
 
 #include "../MainTable.h"
-
+#include "../MainWindow.h"
 #include "../../arcdps_structs.h"
+
+#include <functional>
+#include <imgui/imgui.h>
+#include <string>
+#include <vector>
 
 namespace ArcdpsExtension {
 	using std::string_literals::operator""s;

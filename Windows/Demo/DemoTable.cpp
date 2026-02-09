@@ -1,5 +1,11 @@
 #include "DemoTable.h"
 
+#include "../MainTable.h"
+#include "../../arcdps_structs.h"
+
+#include <algorithm>
+#include <compare>
+
 Alignment& ArcdpsExtension::DemoTable::getAlignment() {
 	return mAlignment;
 }

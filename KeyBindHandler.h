@@ -2,9 +2,12 @@
 
 #include "Singleton.h"
 
-#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <cstdint>
 #include <functional>
-#include <Windows.h>
+#include <type_traits>
+#include <unordered_map>
+#include <windows.h>
 
 namespace ArcdpsExtension {
 	/**

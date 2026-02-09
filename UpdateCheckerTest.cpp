@@ -11,6 +11,15 @@
 #include <filesystem>
 #include <fstream>
 #include <queue>
+#include <cassert>
+#include <windows.h>
+#include <cstddef>
+#include <memory>
+#include <string>
+#include <mutex>
+#include <optional>
+#include <tuple>
+#include <utility>
 
 using namespace ArcdpsExtension;
 

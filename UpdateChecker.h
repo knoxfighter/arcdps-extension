@@ -3,7 +3,8 @@
 #include "Singleton.h"
 #include "UpdateCheckerBase.h"
 
-#include <filesystem>
+#include <memory>
+#include <string>
 
 namespace ArcdpsExtension {
 	/**

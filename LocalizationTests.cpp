@@ -1,5 +1,6 @@
 #include "ExtensionTranslations.h"
 #include "Localization.h"
+#include "arcdps_structs_slim.h"
 
 #include <gtest/gtest.h>
 

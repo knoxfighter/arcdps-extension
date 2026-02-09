@@ -1,10 +1,19 @@
 #include "PositioningComponent.h"
 
+#include "../arcdps_structs.h"
 #include "../ExtensionTranslations.h"
 #include "../Localization.h"
 #include "../Widgets.h"
+#include "ComponentBase.h"
+#include "MainWindow.h"
 
 #include <algorithm>
+#include <cfloat>
+#include <cstddef>
+#include <imgui/imgui_internal.h>
+#include <string>
+#include <type_traits>
+#include <utility>
 
 ArcdpsExtension::PositioningComponent::PositioningComponent(MainWindow* pMainWindow) : ComponentBase(pMainWindow) {
 	pMainWindow->RegisterPreDrawHook([this](ImGuiWindowFlags& PH1) {

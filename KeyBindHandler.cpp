@@ -3,7 +3,11 @@
 #include "arcdps_structs.h"
 
 #include <format>
+#include <ArcdpsUnofficialExtras/KeyBindHelper.h>
 #include <ranges>
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <optional>
+#include <utility>
 
 uint64_t ArcdpsExtension::KeyBindHandler::Subscribe(Subscriber pSubscriber) {
 	uint64_t newId = getNewId();

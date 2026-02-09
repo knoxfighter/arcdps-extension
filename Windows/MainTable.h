@@ -1,26 +1,20 @@
 #pragma once
 
-#ifndef IMGUI_DEFINE_MATH_OPERATORS
-#define IMGUI_DEFINE_MATH_OPERATORS
-#endif
-
-#include "MainWindow.h"
-
 #include "../arcdps_structs.h"
 #include "../ExtensionTranslations.h"
 #include "../ImGui_Math.h"
 #include "../Localization.h"
 #include "../Widgets.h"
+#include "MainWindow.h"
 
 #include <algorithm>
 #include <atomic>
 #include <bitset>
 #include <functional>
 #include <map>
+#include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-
-#include <nlohmann/json.hpp>
 
 // Disable conversion warnings in this file
 #pragma warning(push)
@@ -521,7 +515,7 @@ namespace ArcdpsExtension {
 			bool HostSkipItems; // Backup of InnerWindow->SkipItem at the end of BeginTable(), because we will overwrite InnerWindow->SkipItem on a per-column basis
 
 			IMGUI_API Table() {
-				memset(this, 0, sizeof(*this));
+				memset(static_cast<void*>(this), 0, sizeof(*this));
 				LastFrameActive = -1;
 			}
 			IMGUI_API ~Table() { IM_FREE(RawData); }
@@ -1963,13 +1957,13 @@ namespace ArcdpsExtension {
 						ImDrawChannel* channel = &splitter->_Channels[n];
 						IM_ASSERT(channel->_CmdBuffer.Size == 1 && merge_clip_rect.Contains(ImRect(channel->_CmdBuffer[0].ClipRect)));
 						channel->_CmdBuffer[0].ClipRect = merge_clip_rect.ToVec4();
-						memcpy(dst_tmp++, channel, sizeof(ImDrawChannel));
+						memcpy(static_cast<void*>(dst_tmp++), channel, sizeof(ImDrawChannel));
 					}
 				}
 
 				// Make sure Bg2DrawChannelUnfrozen appears in the middle of our groups (whereas Bg0/Bg1 and Bg2 frozen are fixed to 0 and 1)
 				if (merge_group_n == 1 && has_freeze_v)
-					memcpy(dst_tmp++, &splitter->_Channels[mTable.Bg2DrawChannelUnfrozen], sizeof(ImDrawChannel));
+					memcpy(static_cast<void*>(dst_tmp++), &splitter->_Channels[mTable.Bg2DrawChannelUnfrozen], sizeof(ImDrawChannel));
 			}
 
 			// Append unmergeable channels that we didn't reorder at the end of the list
@@ -1977,11 +1971,11 @@ namespace ArcdpsExtension {
 				if (!remaining_mask.TestBit(n))
 					continue;
 				ImDrawChannel* channel = &splitter->_Channels[n];
-				memcpy(dst_tmp++, channel, sizeof(ImDrawChannel));
+				memcpy(static_cast<void*>(dst_tmp++), channel, sizeof(ImDrawChannel));
 				remaining_count--;
 			}
 			IM_ASSERT(dst_tmp == g.DrawChannelsTempMergeBuffer.Data + g.DrawChannelsTempMergeBuffer.Size);
-			memcpy(splitter->_Channels.Data + LEADING_DRAW_CHANNELS, g.DrawChannelsTempMergeBuffer.Data, (splitter->_Count - LEADING_DRAW_CHANNELS) * sizeof(ImDrawChannel));
+			memcpy(static_cast<void*>(splitter->_Channels.Data + LEADING_DRAW_CHANNELS), g.DrawChannelsTempMergeBuffer.Data, (splitter->_Count - LEADING_DRAW_CHANNELS) * sizeof(ImDrawChannel));
 		}
 	}
 

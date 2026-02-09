@@ -1,8 +1,8 @@
 #include "EventSequencer.h"
 
-#include <algorithm>
 #include <chrono>
-#include <utility>
+#include <stop_token>
+#include <type_traits>
 
 void ArcdpsExtension::EventSequencer::ProcessEvent(cbtevent* pEv, ag* pSrc, ag* pDst, const char* pSkillname, uint64_t pId, uint64_t pRevision) {
 	std::lock_guard guard(mElementsMutex);

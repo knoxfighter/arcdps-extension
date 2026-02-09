@@ -10,6 +10,8 @@
 
 #include "imgui_stdlib.h"
 
+#include <imgui/imgui.h>
+
 struct InputTextCallback_UserData {
 	std::string* Str;
 	ImGuiInputTextCallback ChainCallback;

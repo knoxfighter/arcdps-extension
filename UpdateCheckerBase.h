@@ -3,12 +3,15 @@
 #include <array>
 #include <expected>
 #include <filesystem>
+#include <memory>
 #include <mutex>
 #include <optional>
 #include <string>
+#include <string_view>
 #include <thread>
+#include <tuple>
 #include <vector>
-#include <Windows.h>
+#include <windows.h>
 
 namespace ArcdpsExtension {
 	// Expected usage is as follows:

@@ -1,7 +1,12 @@
 #pragma once
 
+#include "../../arcdps_structs.h"
 #include "../../Singleton.h"
 #include "../MainWindow.h"
+
+#include <imgui/imgui.h>
+#include <optional>
+#include <string>
 
 namespace ArcdpsExtension {
 	class DemoWindow final : public MainWindow, public Singleton<DemoWindow> {

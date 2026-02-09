@@ -8,6 +8,7 @@
 #include <memory>
 #include <stack>
 #include <stdexcept>
+#include <type_traits>
 
 namespace ArcdpsExtension {
 	/**
