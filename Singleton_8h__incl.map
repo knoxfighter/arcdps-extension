@@ -1,13 +1,15 @@
 <map id="Singleton.h" name="Singleton.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="213,5,307,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="258,5,353,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,85,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,33,94,77,92,72,225,28"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,33,100,78,98,73,263,28"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="110,79,197,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,33,184,73,181,69,241,28"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="282,33,191,75,189,70,280,28"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="221,79,299,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="263,31,263,65,257,65,257,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="300,32,277,69,272,66,296,30"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="323,79,381,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="276,29,328,68,325,72,273,33"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="315,30,339,66,335,69,311,32"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="405,79,491,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="291,28,405,71,404,76,289,33"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="329,28,414,70,411,75,327,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="515,79,607,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="347,28,508,72,506,78,346,33"/>
 </map>

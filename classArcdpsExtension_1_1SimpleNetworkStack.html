@@ -354,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">        std::cout &lt;&lt; response.value().Code &lt;&lt; <span class="stringliteral">&quot; --&gt; &quot;</span> &lt;&lt; response.value().Message &lt;&lt; std::endl;</div>
 <div class="line">    }</div>
 <div class="line">});</div>
-<div class="ttc" id="aclassArcdpsExtension_1_1SimpleNetworkStack_html_ac6dac82c4c5a6d8e618188b3e6e20d61"><div class="ttname"><a href="classArcdpsExtension_1_1SimpleNetworkStack.html#ac6dac82c4c5a6d8e618188b3e6e20d61">ArcdpsExtension::SimpleNetworkStack::Result</a></div><div class="ttdeci">std::expected&lt; Response, Error &gt; Result</div><div class="ttdef"><b>Definition</b> SimpleNetworkStack.h:38</div></div>
+<div class="ttc" id="aclassArcdpsExtension_1_1SimpleNetworkStack_html_ac6dac82c4c5a6d8e618188b3e6e20d61"><div class="ttname"><a href="classArcdpsExtension_1_1SimpleNetworkStack.html#ac6dac82c4c5a6d8e618188b3e6e20d61">ArcdpsExtension::SimpleNetworkStack::Result</a></div><div class="ttdeci">std::expected&lt; Response, Error &gt; Result</div><div class="ttdef"><b>Definition</b> SimpleNetworkStack.h:44</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pUrl</td><td>The URL to call </td></tr>
@@ -442,7 +442,7 @@ Additional Inherited Members</h2></td></tr>
  Usage: </p><div class="fragment"><div class="line">std::promise&lt;SimpleNetworkStack::Result&gt; promise;</div>
 <div class="line"><span class="keyword">auto</span> future = barrier.get_future();</div>
 <div class="line"><a class="code hl_function" href="classArcdpsExtension_1_1SimpleNetworkStack.html#a67d5a6f454b4f59b32f3c0f78a623f8a">QueueGet</a>(<span class="stringliteral">&quot;https://example.com/&quot;</span>, std::move(promise));</div>
-<div class="ttc" id="aclassArcdpsExtension_1_1SimpleNetworkStack_html_a67d5a6f454b4f59b32f3c0f78a623f8a"><div class="ttname"><a href="classArcdpsExtension_1_1SimpleNetworkStack.html#a67d5a6f454b4f59b32f3c0f78a623f8a">ArcdpsExtension::SimpleNetworkStack::QueueGet</a></div><div class="ttdeci">void QueueGet(const std::string &amp;pUrl, const std::filesystem::path &amp;pFilepath=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> SimpleNetworkStack.cpp:103</div></div>
+<div class="ttc" id="aclassArcdpsExtension_1_1SimpleNetworkStack_html_a67d5a6f454b4f59b32f3c0f78a623f8a"><div class="ttname"><a href="classArcdpsExtension_1_1SimpleNetworkStack.html#a67d5a6f454b4f59b32f3c0f78a623f8a">ArcdpsExtension::SimpleNetworkStack::QueueGet</a></div><div class="ttdeci">void QueueGet(const std::string &amp;pUrl, const std::filesystem::path &amp;pFilepath=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> SimpleNetworkStack.cpp:105</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pUrl</td><td>The URL to call </td></tr>

@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3":[6,0,4,8,5],
-"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30":[6,0,4,8,2],
 "arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002":[6,0,4,8,12],
 "arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead964f54e607aae6893dd6e12d73b30b7":[6,0,4,8,3],
 "arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaf01b4d65c1156833148f8a3c640ab241":[6,0,4,8,6],
@@ -245,9 +243,11 @@ var NAVTREEINDEX3 =
 "arcdps__structs__slim_8h_source.html":[6,0,4],
 "classArcdpsExtension_1_1BaseSingleton.html":[3,0,0,0],
 "classArcdpsExtension_1_1BaseSingleton.html":[5,0,0,0],
-"classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[3,0,0,0,0],
 "classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[5,0,0,0,0],
+"classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[3,0,0,0,0],
 "classArcdpsExtension_1_1CombatEventHandler.html":[5,0,0,1],
 "classArcdpsExtension_1_1CombatEventHandler.html":[3,0,0,1],
-"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[5,0,0,1,35]
+"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[3,0,0,1,35],
+"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[5,0,0,1,35],
+"classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817":[5,0,0,1,28]
 };

@@ -102,32 +102,42 @@ $(document).ready(function(){initNavTree('KeyBindHandler_8h.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Singleton_8h_source.html">Singleton.h</a>&quot;</code><br />
-<code>#include &lt;ArcdpsUnofficialExtras/KeyBindHelper.h&gt;</code><br />
+<code>#include &lt;ArcdpsUnofficialExtras/KeyBindStructs.h&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
-<code>#include &lt;Windows.h&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;windows.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for KeyBindHandler.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="KeyBindHandler_8h__incl.png" border="0" usemap="#aKeyBindHandler_8h" alt=""/></div>
 <map name="aKeyBindHandler_8h" id="aKeyBindHandler_8h">
-<area shape="rect" title=" " alt="" coords="216,5,353,31"/>
-<area shape="rect" href="Singleton_8h.html" title=" " alt="" coords="160,86,255,111"/>
-<area shape="poly" title=" " alt="" coords="275,33,230,78,227,74,271,29"/>
+<area shape="rect" title=" " alt="" coords="444,5,581,31"/>
+<area shape="rect" href="Singleton_8h.html" title=" " alt="" coords="257,86,352,111"/>
+<area shape="poly" title=" " alt="" coords="483,33,349,84,347,79,481,28"/>
 <area shape="rect" title=" " alt="" coords="5,167,92,192"/>
-<area shape="poly" title=" " alt="" coords="250,33,201,53,150,81,104,119,69,158,65,154,101,115,147,76,199,48,248,28"/>
-<area shape="rect" title=" " alt="" coords="279,79,448,119"/>
-<area shape="poly" title=" " alt="" coords="298,29,337,67,333,71,294,33"/>
-<area shape="rect" title=" " alt="" coords="473,86,566,111"/>
-<area shape="poly" title=" " alt="" coords="320,28,473,79,472,84,318,33"/>
+<area shape="poly" title=" " alt="" coords="444,32,350,52,247,81,155,121,81,162,78,157,153,117,245,76,348,46,443,27"/>
+<area shape="rect" title=" " alt="" coords="515,167,607,192"/>
+<area shape="poly" title=" " alt="" coords="479,33,446,52,431,64,419,80,412,99,419,117,432,128,453,140,507,160,506,165,451,145,429,133,414,120,407,99,414,77,427,61,443,47,477,28"/>
+<area shape="rect" title=" " alt="" coords="428,79,597,119"/>
+<area shape="poly" title=" " alt="" coords="515,31,515,65,510,65,510,31"/>
+<area shape="rect" title=" " alt="" coords="622,86,689,111"/>
+<area shape="poly" title=" " alt="" coords="535,29,624,77,621,82,532,33"/>
+<area shape="rect" title=" " alt="" coords="713,86,837,111"/>
+<area shape="poly" title=" " alt="" coords="552,28,725,80,723,85,550,33"/>
+<area shape="rect" title=" " alt="" coords="862,86,953,111"/>
+<area shape="poly" title=" " alt="" coords="582,26,708,46,851,76,863,79,861,85,849,81,707,51,581,31"/>
 <area shape="rect" title=" " alt="" coords="117,167,197,192"/>
-<area shape="poly" title=" " alt="" coords="202,113,174,156,169,154,198,110"/>
-<area shape="poly" title=" " alt="" coords="185,114,85,163,83,158,183,109"/>
+<area shape="poly" title=" " alt="" coords="284,114,192,162,189,158,282,109"/>
+<area shape="poly" title=" " alt="" coords="268,114,100,165,98,160,267,109"/>
 <area shape="rect" title=" " alt="" coords="221,167,298,192"/>
-<area shape="poly" title=" " alt="" coords="217,110,246,154,242,156,213,113"/>
+<area shape="poly" title=" " alt="" coords="300,113,275,156,271,153,296,110"/>
 <area shape="rect" title=" " alt="" coords="323,167,380,192"/>
-<area shape="poly" title=" " alt="" coords="230,109,319,158,317,162,227,114"/>
+<area shape="poly" title=" " alt="" coords="314,110,340,153,335,156,309,113"/>
 <area shape="rect" title=" " alt="" coords="404,167,491,192"/>
-<area shape="poly" title=" " alt="" coords="243,109,400,160,399,165,241,114"/>
+<area shape="poly" title=" " alt="" coords="327,109,416,158,413,162,324,114"/>
+<area shape="poly" title=" " alt="" coords="343,109,511,160,509,165,341,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">

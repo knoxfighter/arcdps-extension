@@ -1,6 +1,5 @@
 var Widgets_8cpp =
 [
-    [ "IMGUI_DEFINE_MATH_OPERATORS", "Widgets_8cpp.html#adf4d73301961430d50d7edd96f92ce38", null ],
     [ "AlignedProgressBar", "Widgets_8cpp.html#a816f20a444a938fd39c670f67d3300f2", null ],
     [ "AlignedTextColumn", "Widgets_8cpp.html#a68e9442630b8c64f4fd93ccb0900ab84", null ],
     [ "BeginMenu", "Widgets_8cpp.html#a663227fe46dd68301ebc6a579cd87456", null ],

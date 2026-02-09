@@ -2,9 +2,9 @@ var namespaces_dup =
 [
     [ "ArcdpsExtension", "namespaceArcdpsExtension.html", "namespaceArcdpsExtension" ],
     [ "ImGui", "namespaceImGui.html", [
-      [ "InputText", "namespaceImGui.html#a1da680314eaf3f60ea2a42c76f3584b0", null ],
-      [ "InputTextMultiline", "namespaceImGui.html#a81dd8855d2cec99457d2339498cc3c4a", null ],
-      [ "InputTextWithHint", "namespaceImGui.html#a2c2b759553b77cfee680cf36bf0984f7", null ]
+      [ "InputText", "namespaceImGui.html#a27fe05fc98111a29564a22400096b91f", null ],
+      [ "InputTextMultiline", "namespaceImGui.html#af8c6be5f8ecd879edf7fee6769976329", null ],
+      [ "InputTextWithHint", "namespaceImGui.html#ad95e19f8707e06a0ae8b06374bbe9ec1", null ]
     ] ],
     [ "ImGuiEx", "namespaceImGuiEx.html", [
       [ "KeyCodeInputFlags", "namespaceImGuiEx.html#a0eb2d9894da54d114b92219e015892d8", null ],

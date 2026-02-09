@@ -1,13 +1,11 @@
 var NAVTREEINDEX13 =
 {
-"structrapidfuzz_1_1CachedLevenshtein.html":[5,0,2,3],
-"structrapidfuzz_1_1CachedLevenshtein.html":[3,0,3,3],
-"structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db":[5,0,2,3,9],
 "structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db":[3,0,3,3,9],
-"structrapidfuzz_1_1CachedLevenshtein.html#a2cd4c220a17e6e636a9ed8b77abbb5b3":[3,0,3,3,6],
+"structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db":[5,0,2,3,9],
 "structrapidfuzz_1_1CachedLevenshtein.html#a2cd4c220a17e6e636a9ed8b77abbb5b3":[5,0,2,3,6],
-"structrapidfuzz_1_1CachedLevenshtein.html#a3c9ed352f1df544c7db1760f4a3dab3c":[5,0,2,3,1],
+"structrapidfuzz_1_1CachedLevenshtein.html#a2cd4c220a17e6e636a9ed8b77abbb5b3":[3,0,3,3,6],
 "structrapidfuzz_1_1CachedLevenshtein.html#a3c9ed352f1df544c7db1760f4a3dab3c":[3,0,3,3,1],
+"structrapidfuzz_1_1CachedLevenshtein.html#a3c9ed352f1df544c7db1760f4a3dab3c":[5,0,2,3,1],
 "structrapidfuzz_1_1CachedLevenshtein.html#a4a85290a81494dfc74cfae2abb650539":[5,0,2,3,0],
 "structrapidfuzz_1_1CachedLevenshtein.html#a4a85290a81494dfc74cfae2abb650539":[3,0,3,3,0],
 "structrapidfuzz_1_1CachedLevenshtein.html#a52ca90f6e99bd873713da09bdf47193c":[5,0,2,3,5],

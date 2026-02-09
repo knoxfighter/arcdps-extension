@@ -7,7 +7,6 @@ var MainTable_8h =
     [ "ArcdpsExtension::MainTable< MaxColumnCount >::TableColumn", "structArcdpsExtension_1_1MainTable_1_1TableColumn.html", "structArcdpsExtension_1_1MainTable_1_1TableColumn" ],
     [ "ArcdpsExtension::MainTable< MaxColumnCount >::Table", "structArcdpsExtension_1_1MainTable_1_1Table.html", "structArcdpsExtension_1_1MainTable_1_1Table" ],
     [ "ArcdpsExtension::SmallerThanMaxColumnAmount", "conceptArcdpsExtension_1_1SmallerThanMaxColumnAmount.html", null ],
-    [ "IMGUI_DEFINE_MATH_OPERATORS", "MainTable_8h.html#adf4d73301961430d50d7edd96f92ce38", null ],
     [ "MainTableFlags", "MainTable_8h.html#ae26b7966fb8e78c0aa172659a26d6544", null ],
     [ "TableColumnIdx", "MainTable_8h.html#ae81b67f164150aa3ea5030f07055e045", null ],
     [ "MainTableFlags_", "MainTable_8h.html#a65eef77cfe403da1e2d2207dab27c92c", [

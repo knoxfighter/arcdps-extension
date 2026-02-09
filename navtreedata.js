@@ -95,19 +95,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ArcdpsExtension_8cpp.html",
-"MobIDs_8h.html#aa4183a394aa4e7600297584922235450afb6ba492b8fa0b264ad5fc016cb1123a",
-"MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ade9f7f7abdbdaaf597ccff006ebd69a9",
-"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3",
-"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7",
-"classArcdpsExtension_1_1KeyBindComponent.html#a358e915992c2bf5f14c29b499e805212",
-"classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
-"classArcdpsExtension_1_1UpdateCheckerBase.html#ae4227ae184549c1da9e480c44bfaf8e7",
-"group__Common.html#gae2560c1cedf7acfca47c75a03bbff2b7",
-"map_8h.html#a896e802a6df0ad3a28978b02273508da",
-"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a46fedd93d3fc9853c085edf37a419a65",
-"structArcdpsExtension_1_1MainTableColumn.html#ac1ea41052e9e778f1bed0296bcafd1be",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b054b61b203f2e66733b97375b5ce6d",
-"structrapidfuzz_1_1CachedLevenshtein.html"
+"MobIDs_8h.html#aa4183a394aa4e7600297584922235450afcbab72c9778ae00ca2bea7571ac403e",
+"MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ae105e39f83ffa443a7bc4748d028ae83",
+"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002",
+"classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817",
+"classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
+"classArcdpsExtension_1_1MainWindow.html#af7b35e1f8506700866be73e5e425ea47",
+"classIconLoaderTests.html",
+"group__Fuzz.html",
+"map_8h.html#a8d2b5f33e3867a550a3d542312735c0d",
+"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a4e8df674e16da3702dd62ac3d52cd1ed",
+"structArcdpsExtension_1_1MainTableColumn.html#ad15687745a413927f5d5d443ff37bb5d",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b18abd414ce16fd8b96cf702e094ef6",
+"structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,11 +1,12 @@
 <map id="arcdps_structs.h" name="arcdps_structs.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="157,5,285,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="184,5,312,31"/>
 <area shape="rect" id="Node000002" href="$arcdps__structs__slim_8h.html" title=" " alt="" coords="5,79,168,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,33,122,74,120,70,198,28"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="192,79,251,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,31,224,65,219,65,219,31"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="275,79,368,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="239,29,295,68,292,73,236,33"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="53,152,120,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,104,89,138,84,138,84,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,33,127,75,124,71,221,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="112,152,179,177"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="242,33,164,142,159,139,237,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="243,79,341,104"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="258,30,280,66,275,68,253,32"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="365,79,456,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="275,28,373,71,370,75,273,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,103,129,140,125,143,94,106"/>
 </map>

@@ -1,7 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b054b61b203f2e66733b97375b5ce6d":[5,0,0,13,1,9],
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b18abd414ce16fd8b96cf702e094ef6":[5,0,0,13,1,24],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b18abd414ce16fd8b96cf702e094ef6":[3,0,0,13,1,24],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a40b01e86e914a6729d37f9e92a9cc0e0":[5,0,0,13,1,6],
 "structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a40b01e86e914a6729d37f9e92a9cc0e0":[3,0,0,13,1,6],
@@ -249,5 +247,7 @@ var NAVTREEINDEX12 =
 "structcbtevent.html#ae0b17f28f9f7a0476e50776c27b84201":[5,0,5,11],
 "structcbtevent.html#ae0e55ef8c67adda018066e0370a259e0":[5,0,5,12],
 "structcbtevent.html#ae55800927aa8b2f25e86be0429f8c1ff":[5,0,5,9],
-"structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html":[5,0,1,0]
+"structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html":[5,0,1,0],
+"structrapidfuzz_1_1CachedLevenshtein.html":[5,0,2,3],
+"structrapidfuzz_1_1CachedLevenshtein.html":[3,0,3,3]
 };

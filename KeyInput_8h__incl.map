@@ -1,5 +1,11 @@
 <map id="KeyInput.h" name="KeyInput.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="45,5,135,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="309,5,399,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,175,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,31,93,65,87,65,87,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,33,167,77,166,72,315,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="199,79,368,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="346,33,311,70,307,67,342,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="393,86,459,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="367,29,408,74,404,77,363,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="483,86,574,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="380,28,492,78,490,83,378,33"/>
 </map>
