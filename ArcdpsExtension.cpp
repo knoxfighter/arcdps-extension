@@ -2,6 +2,7 @@
 
 #include "IconLoader.h"
 #include "Localization.h"
+#include "Singleton.h"
 
 #if ARCDPS_EXTENSION_CURL
 #include "SimpleNetworkStack.h"
@@ -14,6 +15,8 @@
 #if ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 #include "KeyBindHandler.h"
 #endif
+
+#include <imgui/imgui_internal.h>
 
 #if ARCDPS_EXTENSION_IMGUI
 void ArcdpsExtension::Setup(HMODULE pDll, ID3D11Device* pD11Device, ImGuiContext* pImGuiContext) {

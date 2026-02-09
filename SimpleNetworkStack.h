@@ -3,13 +3,19 @@
 #include "Singleton.h"
 
 #include <condition_variable>
+#include <cstddef>
 #include <curl/curl.h>
 #include <expected>
 #include <filesystem>
 #include <functional>
 #include <future>
+#include <mutex>
 #include <queue>
+#include <stop_token>
+#include <string>
+#include <string_view>
 #include <thread>
+#include <type_traits>
 #include <utility>
 #include <variant>
 

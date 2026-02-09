@@ -1,6 +1,9 @@
 #pragma once
 
-#include <ArcdpsUnofficialExtras/KeyBindsTranslation.h>
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <ArcdpsUnofficialExtras/Definitions.h>
+#include <cstdint>
+#include <windows.h>
 
 /**
  * How to use:

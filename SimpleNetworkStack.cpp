@@ -1,13 +1,15 @@
 #include "SimpleNetworkStack.h"
 
 #include <iostream>
+#include <cstdio>
+#include <stdexcept>
 
 ArcdpsExtension::SimpleNetworkStack::SimpleNetworkStack() {
 	mHandle = curl_easy_init();
 
 	if (!mHandle) {
 		std::cout << "curl_easy_init() failed" << std::endl;
-		exit(1);
+		throw std::runtime_error("Failed to initialize libcurl");
 	}
 
 	mThread = std::move(std::jthread([this](const std::stop_token& stopToken) {

@@ -505,3 +505,4 @@ vcpkg_installed/
 
 # local overrides
 Directory.Build.props
+CMakeUserPresets.json

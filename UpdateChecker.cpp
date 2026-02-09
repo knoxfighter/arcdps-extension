@@ -5,11 +5,20 @@
 #include "SimpleNetworkStack.h"
 #include "Widgets.h"
 
-#if __has_include(<imgui/imgui.h>)
 #include <imgui/imgui.h>
-#else
-#include "../imgui/imgui.h"
-#endif
+#include <expected>
+#include <format>
+#include <future>
+#include <magic_enum/magic_enum.hpp>
+#include <optional>
+#include <string_view>
+#include <thread>
+#include <mutex>
+#include <type_traits>
+
+// Windows
+#include <shellapi.h>
+#include <winuser.h>
 
 void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
 	if (!pUpdateState) {

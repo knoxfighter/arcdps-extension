@@ -1,7 +1,7 @@
 #pragma once
 
 #include <d3d11.h>
-#include <Windows.h>
+#include <windows.h>
 
 #if ARCDPS_EXTENSION_IMGUI
 #include <imgui/imgui.h>

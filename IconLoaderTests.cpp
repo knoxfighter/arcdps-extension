@@ -1,7 +1,21 @@
 #include "IconLoader.h"
+
+#include "Singleton.h"
 #include "test/resource.h"
 
+#include <chrono>
+#include <cstddef>
+#include <filesystem>
 #include <gtest/gtest.h>
+#include <string>
+#include <thread>
+
+// Windows
+#include <d3d11.h>
+#include <d3dcommon.h>
+#include <intsafe.h>
+#include <libloaderapi.h>
+#include <windows.h>
 
 namespace {
 	ID3D11Device* D11_DEVICE = nullptr;

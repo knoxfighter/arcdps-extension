@@ -1,8 +1,8 @@
 #pragma once
 
 #include "ComponentBase.h"
-
 #include "../arcdps_structs.h"
+#include "../arcdps_structs_slim.h"
 
 #include <functional>
 #include <imgui/imgui.h>
@@ -10,6 +10,7 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 namespace ArcdpsExtension {

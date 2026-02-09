@@ -4,11 +4,26 @@
 #include "SimpleNetworkStack.h"
 #endif
 
-#include <magic_enum/magic_enum.hpp>
-
+#include <cstddef>
 #include <format>
 #include <iostream>
+#include <magic_enum/magic_enum.hpp>
+#include <stdexcept>
+#include <string_view>
+#include <type_traits>
 #include <utility>
+
+// Windows
+#include <combaseapi.h>
+#include <d3dcommon.h>
+#include <intsafe.h>
+#include <libloaderapi.h>
+#include <minwinbase.h>
+#include <objbase.h>
+#include <sdkddkver.h>
+#include <winerror.h>
+#include <winuser.h>
+#include <wtypesbase.h>
 
 namespace {
 	void Log(const std::string& pText) {

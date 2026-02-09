@@ -1,11 +1,15 @@
 #pragma once
 
 #include "ComponentBase.h"
-
 #include "../arcdps_structs_slim.h"
-#include "../KeyInput.h"
 
 #include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <cstddef>
+#include <cstdint>
+
+// Windows
+#include <windows.h>
+#include <winuser.h>
 
 namespace ArcdpsExtension {
 	class KeyBindComponent : public ComponentBase {

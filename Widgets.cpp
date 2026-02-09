@@ -3,11 +3,17 @@
 #endif
 
 #include "Widgets.h"
+#include "ImGui_Math.h"
 
 #include <cstdlib>
 #include <stdexcept>
+#include <cassert>
+#include <imgui/imgui_internal.h>
+#include <cstdarg>
 
-#include "ImGui_Math.h"
+// Windows
+#include <winuser.h>
+#include <wtypes.h>
 
 #pragma warning(push)
 // disable warning for implicit conversion (for now)

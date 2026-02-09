@@ -1,10 +1,14 @@
 #include "KeyBindComponent.h"
 
-#include "MainWindow.h"
-
 #include "../ExtensionTranslations.h"
 #include "../KeyBindHandler.h"
 #include "../Localization.h"
+#include "ComponentBase.h"
+#include "KeyInput.h"
+#include "MainWindow.h"
+
+#include <ArcdpsUnofficialExtras/Definitions.h>
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
 
 /**
  * This does only work with arcdps modifiers.

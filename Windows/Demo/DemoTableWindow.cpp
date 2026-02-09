@@ -4,8 +4,11 @@
 #include "DemoKeyBindComponent.h"
 #endif // ARCDPS_EXTENSION_UNOFFICIAL_EXTRAS
 
-#include "DemoTable.h"
+#include "../MainWindow.h"
 #include "DemoPositioningComponent.h"
+#include "DemoTable.h"
+
+#include <imgui/imgui_internal.h>
 
 ArcdpsExtension::DemoTableWindow::DemoTableWindow() : MainWindow() {
 	CreateComponent<DemoPositioningComponent>();

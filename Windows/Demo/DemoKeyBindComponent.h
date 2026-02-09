@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../KeyBindComponent.h"
+#include "../MainWindow.h"
+
+#include <ArcdpsUnofficialExtras/KeyBindStructs.h>
 
 namespace ArcdpsExtension {
 	class DemoKeyBindComponent final : public KeyBindComponent {

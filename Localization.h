@@ -5,8 +5,11 @@
 
 #include <array>
 #include <concepts>
+#include <cstddef>
 #include <string>
+#include <string_view>
 #include <type_traits>
+#include <utility>
 #include <vector>
 
 namespace ArcdpsExtension {

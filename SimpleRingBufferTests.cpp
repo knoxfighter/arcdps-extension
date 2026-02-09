@@ -1,9 +1,10 @@
 #include "SimpleRingBuffer.h"
 
-#include <gtest/gtest.h>
-
 #include <algorithm>
+#include <cstdint>
+#include <gtest/gtest.h>
 #include <ranges>
+#include <vector>
 
 using namespace ArcdpsExtension;
 

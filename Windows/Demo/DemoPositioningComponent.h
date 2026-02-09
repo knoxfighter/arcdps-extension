@@ -1,6 +1,10 @@
 #pragma once
 
+#include "../MainWindow.h"
 #include "../PositioningComponent.h"
+#include "arcdps_structs.h"
+
+#include <imgui/imgui.h>
 
 namespace ArcdpsExtension {
 	class DemoPositioningComponent final : public PositioningComponent {
