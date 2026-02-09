@@ -4,7 +4,6 @@
 #include <concepts>
 #include <cstddef>
 #include <iterator>
-#include <malloc.h>
 #include <ostream>
 
 namespace ArcdpsExtension {

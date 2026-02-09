@@ -1,26 +1,20 @@
 #pragma once
 
-#ifndef IMGUI_DEFINE_MATH_OPERATORS
-#define IMGUI_DEFINE_MATH_OPERATORS
-#endif
-
-#include "MainWindow.h"
-
 #include "../arcdps_structs.h"
 #include "../ExtensionTranslations.h"
 #include "../ImGui_Math.h"
 #include "../Localization.h"
 #include "../Widgets.h"
+#include "MainWindow.h"
 
 #include <algorithm>
 #include <atomic>
 #include <bitset>
 #include <functional>
 #include <map>
+#include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-
-#include <nlohmann/json.hpp>
 
 // Disable conversion warnings in this file
 #pragma warning(push)

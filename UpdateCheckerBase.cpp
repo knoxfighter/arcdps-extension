@@ -15,10 +15,8 @@
 #include <type_traits>
 
 // Windows
-#include <errhandlingapi.h>
-#include <libloaderapi.h>
 #include <vcruntime.h>
-#include <winver.h>
+#include <windows.h>
 
 ArcdpsExtension::UpdateCheckerBase::UpdateState::UpdateState(const std::optional<Version>& pVersion, std::string&& pInstallPath)
 	: CurrentVersion(pVersion), InstallPath(std::move(pInstallPath)) {}

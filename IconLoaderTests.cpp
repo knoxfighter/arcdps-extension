@@ -13,8 +13,6 @@
 // Windows
 #include <d3d11.h>
 #include <d3dcommon.h>
-#include <intsafe.h>
-#include <libloaderapi.h>
 #include <windows.h>
 
 namespace {
@@ -92,7 +90,7 @@ TEST_F(IconLoaderTests, LoadFromUrl) {
 	using namespace std::chrono_literals;
 	auto& iconLoader = ArcdpsExtension::IconLoader::instance();
 
-	iconLoader.RegisterUrl(2, "https://wiki.guildwars2.com/images/4/4c/Alacrity.png");
+	iconLoader.RegisterUrl(2, "https://assets.gw2dat.com/102484.png");
 
 	const auto& begin = std::chrono::steady_clock::now();
 	while (true) {

@@ -6,10 +6,7 @@
 #include <ArcdpsUnofficialExtras/KeyBindStructs.h>
 #include <cstddef>
 #include <cstdint>
-
-// Windows
 #include <windows.h>
-#include <winuser.h>
 
 namespace ArcdpsExtension {
 	class KeyBindComponent : public ComponentBase {

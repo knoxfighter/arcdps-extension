@@ -9,10 +9,6 @@
 #include <optional>
 #include <utility>
 
-// Windows
-#include <intsafe.h>
-#include <winuser.h>
-
 uint64_t ArcdpsExtension::KeyBindHandler::Subscribe(Subscriber pSubscriber) {
 	uint64_t newId = getNewId();
 	mSubscribers.try_emplace(newId, pSubscriber);

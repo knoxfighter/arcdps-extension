@@ -16,7 +16,7 @@
 #include <vector>
 
 // Windows
-#include <atlcomcli.h>
+#include <atlbase.h>
 #include <d3d11.h>
 #include <dxgiformat.h>
 #include <wincodec.h>

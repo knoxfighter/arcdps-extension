@@ -16,9 +16,9 @@
 #include "KeyBindHandler.h"
 #endif
 
+#if ARCDPS_EXTENSION_IMGUI
 #include <imgui/imgui_internal.h>
 
-#if ARCDPS_EXTENSION_IMGUI
 void ArcdpsExtension::Setup(HMODULE pDll, ID3D11Device* pD11Device, ImGuiContext* pImGuiContext) {
 #else
 void ArcdpsExtension::Setup(HMODULE pDll, ID3D11Device* pD11Device) {

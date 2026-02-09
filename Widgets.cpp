@@ -1,8 +1,5 @@
-#ifndef IMGUI_DEFINE_MATH_OPERATORS
-#define IMGUI_DEFINE_MATH_OPERATORS
-#endif
-
 #include "Widgets.h"
+
 #include "ImGui_Math.h"
 
 #include <cstdlib>
@@ -12,7 +9,6 @@
 #include <cstdarg>
 
 // Windows
-#include <winuser.h>
 #include <wtypes.h>
 
 #pragma warning(push)

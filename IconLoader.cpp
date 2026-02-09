@@ -14,16 +14,10 @@
 #include <utility>
 
 // Windows
-#include <combaseapi.h>
 #include <d3dcommon.h>
-#include <intsafe.h>
-#include <libloaderapi.h>
-#include <minwinbase.h>
 #include <objbase.h>
-#include <sdkddkver.h>
-#include <winerror.h>
-#include <winuser.h>
-#include <wtypesbase.h>
+#include <windows.h>
+#include <wtypes.h>
 
 namespace {
 	void Log(const std::string& pText) {

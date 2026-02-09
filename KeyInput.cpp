@@ -12,10 +12,6 @@
 #include <string>
 #include <utility>
 
-// Windows api
-#include <intsafe.h>
-#include <winuser.h>
-
 #ifndef ARCDPS_EXTENSION_NO_LANG_H
 #include "ExtensionTranslations.h"
 #include "Localization.h"

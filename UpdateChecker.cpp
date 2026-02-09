@@ -17,8 +17,8 @@
 #include <type_traits>
 
 // Windows
+#include <windows.h>
 #include <shellapi.h>
-#include <winuser.h>
 
 void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
 	if (!pUpdateState) {
