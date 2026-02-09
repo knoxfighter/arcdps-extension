@@ -14,6 +14,7 @@
 #include <map>
 #include <nlohmann/json.hpp>
 #include <string>
+#include <utility>
 #include <vector>
 
 // Disable conversion warnings in this file
@@ -48,38 +49,41 @@ namespace ArcdpsExtension {
 	 * > ImGuiTableFlags_ContextMenuInBody -> This is not needed with this class.
 	 */
 	struct MainTableColumn {
+		using GetTextFunc = std::function<std::string_view()>;
+		using GetTextureFunc = std::function<void*()>;
+
 		ImU32 UserId = 0;
-		std::function<std::string()> Name;
-		std::function<void*()> Texture;
+		GetTextFunc Name;
+		GetTextureFunc Texture;
 		std::string Category; // The category for this Column in context menu. `0` is top-level. Only one sublevel is currently supported, e.g. `1.1`.
 		bool DefaultVisibility = true;
-		std::function<std::string()> Popup;
+		GetTextFunc Popup;
 
-		MainTableColumn(ImU32 pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, bool pDefaultVisibility = true)
+		MainTableColumn(ImU32 pUserId, GetTextFunc pName, GetTextureFunc pTexture, std::string pCategory, bool pDefaultVisibility = true)
 			: UserId(pUserId),
 			  Name(pName),
-			  Texture(pTexture),
+			  Texture(std::move(pTexture)),
 			  Category(std::move(pCategory)),
 			  DefaultVisibility(pDefaultVisibility),
-			  Popup(pName) {}
+			  Popup(std::move(pName)) {}
 
 		template<typename E>
 		requires std::is_enum_v<E> && std::convertible_to<std::underlying_type_t<E>, ImU32>
-		MainTableColumn(E pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, bool pDefaultVisibility = true)
-			: MainTableColumn(std::to_underlying(pUserId), pName, pTexture, pCategory, pDefaultVisibility) {}
+		MainTableColumn(E pUserId, GetTextFunc pName, GetTextureFunc pTexture, std::string pCategory, bool pDefaultVisibility = true)
+			: MainTableColumn(std::to_underlying(pUserId), std::move(pName), std::move(pTexture), std::move(pCategory), pDefaultVisibility) {}
 
-		MainTableColumn(ImU32 pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, const std::function<std::string()>& pPopup, bool pDefaultVisibility = true)
+		MainTableColumn(ImU32 pUserId, GetTextFunc pName, GetTextureFunc pTexture, std::string pCategory, GetTextFunc  pPopup, bool pDefaultVisibility = true)
 			: UserId(pUserId),
-			  Name(pName),
-			  Texture(pTexture),
+			  Name(std::move(pName)),
+			  Texture(std::move(pTexture)),
 			  Category(std::move(pCategory)),
 			  DefaultVisibility(pDefaultVisibility),
-			  Popup(pPopup) {}
+			  Popup(std::move(pPopup)) {}
 
 		template<typename E>
 		requires std::is_enum_v<E> && std::convertible_to<std::underlying_type_t<E>, ImU32>
-		MainTableColumn(E pUserId, const std::function<std::string()>& pName, const std::function<void*()>& pTexture, std::string pCategory, const std::function<std::string()>& pPopup, bool pDefaultVisibility = true)
-			: MainTableColumn(std::to_underlying(pUserId), pName, pTexture, pCategory, pPopup, pDefaultVisibility) {}
+		MainTableColumn(E pUserId, GetTextFunc pName, GetTextureFunc pTexture, std::string pCategory, GetTextFunc pPopup, bool pDefaultVisibility = true)
+			: MainTableColumn(std::to_underlying(pUserId), std::move(pName), std::move(pTexture), std::move(pCategory), std::move(pPopup), pDefaultVisibility) {}
 	};
 
 	enum MainTableFlags_ {
@@ -298,8 +302,8 @@ namespace ArcdpsExtension {
 
 		// See "COLUMN SIZING POLICIES" comments at the top of this file
 		// If (init_width_or_weight <= 0.0f) it is ignored
-		void SetupColumn(const char* label, ImGuiTableColumnFlags flags, float init_width_or_weight, ImGuiID user_id);
-		void ColumnHeader(const char* label, bool show_label, ImTextureID texture, Alignment alignment, const char* popupText);
+		void SetupColumn(std::string_view label, ImGuiTableColumnFlags flags, float init_width_or_weight, ImGuiID user_id);
+		void ColumnHeader(std::string_view label, bool show_label, ImTextureID texture, Alignment alignment, std::string_view popupText);
 
 		/**
 		 * Print text aligned to the current column.
@@ -759,7 +763,7 @@ namespace ArcdpsExtension {
 				if (!column.DefaultVisibility) {
 					columnFlags |= ImGuiTableColumnFlags_DefaultHide;
 				}
-				SetupColumn(column.Name().c_str(), columnFlags, 0, column.UserId);
+				SetupColumn(column.Name(), columnFlags, 0, column.UserId);
 			}
 
 			// freeze header
@@ -769,7 +773,7 @@ namespace ArcdpsExtension {
 
 			for (const auto& column : mColumns) {
 				if (NextColumn()) {
-					ColumnHeader(column.Name().c_str(), false, column.Texture(), getHeaderAlignment(), column.Popup().c_str());
+					ColumnHeader(column.Name(), false, column.Texture(), getHeaderAlignment(), column.Popup());
 				}
 			}
 
@@ -3091,7 +3095,7 @@ namespace ArcdpsExtension {
 			column.IsEnabledNextFrame = !column.IsEnabled;
 
 		if (ImGui::IsItemHovered()) {
-			ImGui::SetTooltip("%s", mColumns.at(TableColumnIdx).Popup().c_str());
+			ImGui::SetTooltip("%s", std::string(mColumns.at(TableColumnIdx).Popup()).c_str());
 		}
 	}
 
@@ -3151,7 +3155,7 @@ namespace ArcdpsExtension {
 
 	template<size_t MaxColumnCount>
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
-	void MainTable<MaxColumnCount>::SetupColumn(const char* label, ImGuiTableColumnFlags flags, float init_width_or_weight, ImGuiID user_id) {
+	void MainTable<MaxColumnCount>::SetupColumn(std::string_view label, ImGuiTableColumnFlags flags, float init_width_or_weight, ImGuiID user_id) {
 		IM_ASSERT(mTable.IsLayoutLocked == false && "Need to call call TableSetupColumn() before first row!");
 		IM_ASSERT((flags & ImGuiTableColumnFlags_StatusMask_) == 0 && "Illegal to pass StatusMask values to TableSetupColumn()");
 		if (mTable.DeclColumnsCount >= mTable.ColumnsCount) {
@@ -3204,15 +3208,15 @@ namespace ArcdpsExtension {
 
 		// Store name (append with zero-terminator in contiguous buffer)
 		column->NameOffset = -1;
-		if (label != NULL && label[0] != 0) {
+		if (!label.empty()) {
 			column->NameOffset = (ImS16) mTable.ColumnsNames.size();
-			mTable.ColumnsNames.append(label, label + strlen(label) + 1);
+			mTable.ColumnsNames.append(label.data(), label.data() + label.size());
 		}
 	}
 
 	template<size_t MaxColumnCount>
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
-	void MainTable<MaxColumnCount>::ColumnHeader(const char* label, bool show_label, ImTextureID texture, Alignment alignment, const char* popupText) {
+	void MainTable<MaxColumnCount>::ColumnHeader(std::string_view label, bool show_label, ImTextureID texture, Alignment alignment, std::string_view popupText) {
 		// TODO change eventually (to line height or something)
 		const float image_size = 16.f;
 
@@ -3231,10 +3235,7 @@ namespace ArcdpsExtension {
 		TableColumn* column = &mTable.Columns[column_n];
 
 		// Label
-		if (label == NULL)
-			label = "";
-		const char* label_end = ImGui::FindRenderedTextEnd(label);
-		ImVec2 label_size = ImGui::CalcTextSize(label, label_end, true);
+		ImVec2 label_size = ImGui::CalcTextSize(label.data(), label.data() + label.size(), true);
 		ImVec2 label_pos = window->DC.CursorPos;
 
 		// If we already got a row height, there's use that.
@@ -3276,7 +3277,7 @@ namespace ArcdpsExtension {
 
 		// Keep header highlighted when context menu is open.
 		const bool selected = (mTable.IsContextPopupOpen && mTable.ContextPopupColumn == column_n && mTable.InstanceInteracted == mTable.InstanceCurrent);
-		ImGuiID id = window->GetID(label);
+		ImGuiID id = window->GetID(label.data(), label.data() + label.size());
 		ImRect bb(cell_r.Min.x, cell_r.Min.y, cell_r.Max.x, ImMax(cell_r.Max.y, cell_r.Min.y + label_height + g.Style.CellPadding.y * 2.0f));
 		ImGui::ItemSize(ImVec2(0.0f, label_height)); // Don't declare unclipped width, it'll be fed ContentMaxPosHeadersIdeal
 		if (!ImGui::ItemAdd(bb, id))
@@ -3371,7 +3372,7 @@ namespace ArcdpsExtension {
 				case Alignment::Unaligned: break;
 			}
 
-			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label, label_end, &label_size);
+			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label.data(), label.data() + label.size(), &label_size);
 		} else {
 			float newX = label_pos.x;
 
@@ -3399,7 +3400,7 @@ namespace ArcdpsExtension {
 		// if (text_clipped && hovered && g.HoveredIdNotActiveTimer > g.TooltipSlowDelay)
 		// ImGui::SetTooltip("%.*s", (int)(label_end - label), label);
 		if (ImGui::IsItemHovered()) {
-			ImGui::SetTooltip("%s", popupText);
+			ImGui::SetTooltip("%s", std::string(popupText).c_str());
 		}
 
 		// We don't use BeginPopupContextItem() because we want the popup to stay up even after the column is hidden
