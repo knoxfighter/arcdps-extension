@@ -2,7 +2,7 @@ var searchData=
 [
   ['iconloader_0',['IconLoader',['../classArcdpsExtension_1_1IconLoader.html#a1125bafece81d1dcf5c4be67295aac36',1,'ArcdpsExtension::IconLoader']]],
   ['if_1',['if',['../UpdateCheckerTest_8cpp.html#aa6f8b807ca7cb3600600a27c8dbe41ad',1,'UpdateCheckerTest.cpp']]],
-  ['init_2',['init',['../classArcdpsExtension_1_1Singleton.html#a85dfec777a5ded07cd904598198fc687',1,'ArcdpsExtension::Singleton::init()'],['../classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1',1,'ArcdpsExtension::MainWindow::Init()']]],
+  ['init_2',['init',['../classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1',1,'ArcdpsExtension::MainWindow::Init()'],['../classArcdpsExtension_1_1Singleton.html#a85dfec777a5ded07cd904598198fc687',1,'ArcdpsExtension::Singleton::init()']]],
   ['inputtext_3',['InputText',['../namespaceImGui.html#a27fe05fc98111a29564a22400096b91f',1,'ImGui']]],
   ['inputtextmultiline_4',['InputTextMultiline',['../namespaceImGui.html#af8c6be5f8ecd879edf7fee6769976329',1,'ImGui']]],
   ['inputtextwithhint_5',['InputTextWithHint',['../namespaceImGui.html#ad95e19f8707e06a0ae8b06374bbe9ec1',1,'ImGui']]],

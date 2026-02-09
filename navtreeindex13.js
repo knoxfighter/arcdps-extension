@@ -1,5 +1,9 @@
 var NAVTREEINDEX13 =
 {
+"structcbtevent.html#ae55800927aa8b2f25e86be0429f8c1ff":[5,0,5,9],
+"structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html":[5,0,1,0],
+"structrapidfuzz_1_1CachedLevenshtein.html":[5,0,2,3],
+"structrapidfuzz_1_1CachedLevenshtein.html":[3,0,3,3],
 "structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db":[3,0,3,3,9],
 "structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db":[5,0,2,3,9],
 "structrapidfuzz_1_1CachedLevenshtein.html#a2cd4c220a17e6e636a9ed8b77abbb5b3":[5,0,2,3,6],

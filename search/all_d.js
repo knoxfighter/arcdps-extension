@@ -1,7 +1,7 @@
 var searchData=
 [
   ['n_5fcontentlocal_0',['n_contentlocal',['../arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688',1,'arcdps_structs_slim.h']]],
-  ['name_1',['name',['../structag.html#af323df89742c08047731d243fdd30d97',1,'ag::name'],['../structLinkedMem.html#a7697b0186d770c5779c259ea3205c7d0',1,'LinkedMem::name'],['../structIdentity.html#a5307c371054154600f94fededbd9431f',1,'Identity::name'],['../structArcdpsExtension_1_1MainTableColumn.html#a8a432651735868f7ec75414a7ef3f6b2',1,'ArcdpsExtension::MainTableColumn::Name']]],
+  ['name_1',['name',['../structag.html#af323df89742c08047731d243fdd30d97',1,'ag::name'],['../structLinkedMem.html#a7697b0186d770c5779c259ea3205c7d0',1,'LinkedMem::name'],['../structIdentity.html#a5307c371054154600f94fededbd9431f',1,'Identity::name'],['../structArcdpsExtension_1_1MainTableColumn.html#a8594612cea4ad41f52a7fc978f16d7c8',1,'ArcdpsExtension::MainTableColumn::Name']]],
   ['nameoffset_2',['NameOffset',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a655011fdbbd0861c77dccfc3c77237a9',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['namestorage_3',['NameStorage',['../structArcdpsExtension_1_1EventSequencer_1_1Event_1_1Agent.html#aa10ccdbf5dd490ff736d7b4c1bef1c16',1,'ArcdpsExtension::EventSequencer::Event::Agent']]],
   ['narella_4',['Narella',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a8bf845205a24641665fb7ba4fd0f2c29',1,'MobIDs.h']]],

@@ -24,7 +24,7 @@ var searchData=
   ['clear_21',['clear',['../classArcdpsExtension_1_1RingBuffer.html#a9605b3f624cd9b9b66b1f5a0d1756454',1,'ArcdpsExtension::RingBuffer::Clear()'],['../classArcdpsExtension_1_1BaseSingleton.html#a4278575ceb0ba8a1f5d4e18d522cb56a',1,'ArcdpsExtension::BaseSingleton::Clear()']]],
   ['clearfiles_22',['ClearFiles',['../classArcdpsExtension_1_1UpdateCheckerBase.html#aa043944c763bf02e3baab3b73171938b',1,'ArcdpsExtension::UpdateCheckerBase']]],
   ['closekeycodepopupstate_23',['CloseKeyCodePopupState',['../namespaceImGuiEx.html#ac42db620be0af5f878ae8e50177c545e',1,'ImGuiEx']]],
-  ['columnheader_24',['ColumnHeader',['../classArcdpsExtension_1_1MainTable.html#a764403e776927f498d82a026bc594911',1,'ArcdpsExtension::MainTable']]],
+  ['columnheader_24',['ColumnHeader',['../classArcdpsExtension_1_1MainTable.html#abea1dae69ee0155c0e9a45573793a1f1',1,'ArcdpsExtension::MainTable']]],
   ['combateventhandler_25',['CombatEventHandler',['../classArcdpsExtension_1_1CombatEventHandler.html#a82626ba7b7bd9c571e8cb7a44cf8da91',1,'ArcdpsExtension::CombatEventHandler']]],
   ['componentbase_26',['ComponentBase',['../classArcdpsExtension_1_1ComponentBase.html#a75efa92f819252750ccf0895d2eeb3a0',1,'ArcdpsExtension::ComponentBase']]],
   ['constmatrixvectorview_27',['constmatrixvectorview',['../structrapidfuzz_1_1common_1_1ConstMatrixVectorView.html#a61b9902e82c7db619f129bc176ea81d8',1,'rapidfuzz::common::ConstMatrixVectorView::ConstMatrixVectorView(const T *vector, int64_t cols)'],['../structrapidfuzz_1_1common_1_1ConstMatrixVectorView.html#a5b7a13957114e7d470b7575791bfbe90',1,'rapidfuzz::common::ConstMatrixVectorView::ConstMatrixVectorView(const MatrixVectorView&lt; T &gt; &amp;other)']]],

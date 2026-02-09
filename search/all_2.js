@@ -155,7 +155,7 @@ var searchData=
   ['column3_152',['Column3',['../structArcdpsExtension_1_1Row.html#aee32fecc4837b6d4ea4bbeaae5d9a316',1,'ArcdpsExtension::Row']]],
   ['column4_153',['Column4',['../structArcdpsExtension_1_1Row.html#a300c333e17f398f3469829b791c3a0e1',1,'ArcdpsExtension::Row']]],
   ['columnbitmask_154',['ColumnBitMask',['../classArcdpsExtension_1_1MainTable.html#a02d94456eae9031160d762f21b4b1b8e',1,'ArcdpsExtension::MainTable']]],
-  ['columnheader_155',['ColumnHeader',['../classArcdpsExtension_1_1MainTable.html#a764403e776927f498d82a026bc594911',1,'ArcdpsExtension::MainTable']]],
+  ['columnheader_155',['ColumnHeader',['../classArcdpsExtension_1_1MainTable.html#abea1dae69ee0155c0e9a45573793a1f1',1,'ArcdpsExtension::MainTable']]],
   ['columns_156',['columns',['../structArcdpsExtension_1_1MainTable_1_1TableSettings.html#a7476ea66bb2fec37349e7533df4d41df',1,'ArcdpsExtension::MainTable::TableSettings::Columns'],['../structArcdpsExtension_1_1MainTable_1_1Table.html#a07d1eaed6b69ba7e2d12d2d4ac32add5',1,'ArcdpsExtension::MainTable::Table::Columns']]],
   ['columnsautofitwidth_157',['ColumnsAutoFitWidth',['../structArcdpsExtension_1_1MainTable_1_1Table.html#ad18265e4593bec50b569b71f7551d0a6',1,'ArcdpsExtension::MainTable::Table']]],
   ['columnscount_158',['ColumnsCount',['../structArcdpsExtension_1_1MainTable_1_1Table.html#ac510f2d6f817679dbaf5a95b1e2b9b5f',1,'ArcdpsExtension::MainTable::Table']]],

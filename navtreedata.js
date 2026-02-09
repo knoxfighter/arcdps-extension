@@ -105,9 +105,9 @@ var NAVTREEINDEX =
 "group__Fuzz.html",
 "map_8h.html#a8d2b5f33e3867a550a3d542312735c0d",
 "namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a4e8df674e16da3702dd62ac3d52cd1ed",
-"structArcdpsExtension_1_1MainTableColumn.html#ad15687745a413927f5d5d443ff37bb5d",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a3b18abd414ce16fd8b96cf702e094ef6",
-"structrapidfuzz_1_1CachedLevenshtein.html#a1d6127d28b1a8a57589e72bca24156db"
+"structArcdpsExtension_1_1MainTableColumn.html#aba6064eba789adac5fa6b9ac66e1e58a",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a2524b8ecb27412d9ca617a9acb28aeb8",
+"structcbtevent.html#ae55800927aa8b2f25e86be0429f8c1ff"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -27,7 +27,7 @@ var searchData=
   ['settingsloadedflags_24',['SettingsLoadedFlags',['../structArcdpsExtension_1_1MainTable_1_1Table.html#af1d3ccbeeb17411263050205210f5ed1',1,'ArcdpsExtension::MainTable::Table']]],
   ['settingsoffset_25',['SettingsOffset',['../structArcdpsExtension_1_1MainTable_1_1Table.html#ac0920a999dcaeaa0109916136edb7989',1,'ArcdpsExtension::MainTable::Table']]],
   ['setup_26',['Setup',['../namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4',1,'ArcdpsExtension']]],
-  ['setupcolumn_27',['SetupColumn',['../classArcdpsExtension_1_1MainTable.html#ab2a191208ea46c287955bb659a97bdb4',1,'ArcdpsExtension::MainTable']]],
+  ['setupcolumn_27',['SetupColumn',['../classArcdpsExtension_1_1MainTable.html#a7217d4c9d993825b4801e75a73442aa5',1,'ArcdpsExtension::MainTable']]],
   ['setupscrollfreeze_28',['SetupScrollFreeze',['../classArcdpsExtension_1_1MainTable.html#a758f7601a08d1962824b3ec5b4ba7f44',1,'ArcdpsExtension::MainTable']]],
   ['setuptestsuite_29',['setuptestsuite',['../classEventSequencerTests.html#aaa8defcec6c27cd5c9a3a468d92611ab',1,'EventSequencerTests::SetUpTestSuite()'],['../classIconLoaderTests.html#adba0991b72358716ee3f9119082941ec',1,'IconLoaderTests::SetUpTestSuite()']]],
   ['setuseragent_30',['SetUserAgent',['../classArcdpsExtension_1_1SimpleNetworkStack.html#a7f9076a77e31e3512ad8cf051b532366',1,'ArcdpsExtension::SimpleNetworkStack']]],

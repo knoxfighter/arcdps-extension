@@ -10,7 +10,7 @@ var searchData=
   ['setmaxheightcursorpos_7',['setmaxheightcursorpos',['../classArcdpsExtension_1_1DemoTableWindow.html#af8767f3be4c30cb0cdf442fe3b941a69',1,'ArcdpsExtension::DemoTableWindow::SetMaxHeightCursorPos()'],['../classArcdpsExtension_1_1DemoWindow.html#a38d64e2583030b7cbae63e9d8b335c00',1,'ArcdpsExtension::DemoWindow::SetMaxHeightCursorPos()'],['../classArcdpsExtension_1_1MainWindow.html#a78fb17a0e3654a496cd585156e1a3816',1,'ArcdpsExtension::MainWindow::SetMaxHeightCursorPos()']]],
   ['setspecificcolumnsetup_8',['SetSpecificColumnSetup',['../classArcdpsExtension_1_1MainTable.html#ae3494ace7f41b2d37dbe4e434f84aaa1',1,'ArcdpsExtension::MainTable']]],
   ['setup_9',['Setup',['../namespaceArcdpsExtension.html#ae2e262959279d355e06a56e2227e1bc4',1,'ArcdpsExtension']]],
-  ['setupcolumn_10',['SetupColumn',['../classArcdpsExtension_1_1MainTable.html#ab2a191208ea46c287955bb659a97bdb4',1,'ArcdpsExtension::MainTable']]],
+  ['setupcolumn_10',['SetupColumn',['../classArcdpsExtension_1_1MainTable.html#a7217d4c9d993825b4801e75a73442aa5',1,'ArcdpsExtension::MainTable']]],
   ['setupscrollfreeze_11',['SetupScrollFreeze',['../classArcdpsExtension_1_1MainTable.html#a758f7601a08d1962824b3ec5b4ba7f44',1,'ArcdpsExtension::MainTable']]],
   ['setuptestsuite_12',['setuptestsuite',['../classEventSequencerTests.html#aaa8defcec6c27cd5c9a3a468d92611ab',1,'EventSequencerTests::SetUpTestSuite()'],['../classIconLoaderTests.html#adba0991b72358716ee3f9119082941ec',1,'IconLoaderTests::SetUpTestSuite()']]],
   ['setuseragent_13',['SetUserAgent',['../classArcdpsExtension_1_1SimpleNetworkStack.html#a7f9076a77e31e3512ad8cf051b532366',1,'ArcdpsExtension::SimpleNetworkStack']]],
