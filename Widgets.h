@@ -74,7 +74,7 @@ namespace ImGuiEx {
 	 */
 	template<typename E, std::ranges::range R>
 	requires(std::is_enum_v<E> && std::same_as<std::ranges::range_value_t<R>, E>)
-	bool EnumCombo(const char* label, E& storage, const R& values, const std::map<E, std::function<const std::string&()>>& pPopupText = {}) {
+	bool EnumCombo(const char* label, E& storage, const R& values, const std::map<E, std::function<std::string()>>& pPopupText = {}) {
 		if (ImGui::BeginCombo(label, to_string(storage).data())) {
 			bool selected = false;
 			for (const E& val : values) {
