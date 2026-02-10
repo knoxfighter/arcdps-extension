@@ -23,7 +23,7 @@ var namespaces_dup =
       [ "BeginTable", "namespaceImGuiEx.html#a2503b76887667b646443cc4b394d7e54", null ],
       [ "BeginTableEx", "namespaceImGuiEx.html#ad35b975afa5a90575e6a015527412782", null ],
       [ "CloseKeyCodePopupState", "namespaceImGuiEx.html#ac42db620be0af5f878ae8e50177c545e", null ],
-      [ "EnumCombo", "namespaceImGuiEx.html#a6f92d4417a224c202405fde8f9883f6c", null ],
+      [ "EnumCombo", "namespaceImGuiEx.html#a5776613c16da6472054e5bb1337bee8b", null ],
       [ "EnumCombo", "namespaceImGuiEx.html#a7e24a4297ab6103471c1c5291833ee22", null ],
       [ "EnumCombo", "namespaceImGuiEx.html#a5f9e61d8249d3d69bd63fc6c97e95a0a", null ],
       [ "EnumRadioButton", "namespaceImGuiEx.html#a538c304455e032f68b9210fc2aa5c5d4", null ],

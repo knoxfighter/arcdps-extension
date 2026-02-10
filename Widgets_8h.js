@@ -7,7 +7,7 @@ var Widgets_8h =
     [ "BeginMenuChild", "Widgets_8h.html#a1c66c544affbdc7853c0b6694593772f", null ],
     [ "BeginPopupContextWindow", "Widgets_8h.html#afe13eb53cd35901c010f2ec275f1981f", null ],
     [ "BeginTable", "Widgets_8h.html#a2503b76887667b646443cc4b394d7e54", null ],
-    [ "EnumCombo", "Widgets_8h.html#a6f92d4417a224c202405fde8f9883f6c", null ],
+    [ "EnumCombo", "Widgets_8h.html#a5776613c16da6472054e5bb1337bee8b", null ],
     [ "EnumCombo", "Widgets_8h.html#a7e24a4297ab6103471c1c5291833ee22", null ],
     [ "EnumCombo", "Widgets_8h.html#a5f9e61d8249d3d69bd63fc6c97e95a0a", null ],
     [ "EnumRadioButton", "Widgets_8h.html#a538c304455e032f68b9210fc2aa5c5d4", null ],

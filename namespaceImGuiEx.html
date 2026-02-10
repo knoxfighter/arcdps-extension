@@ -177,10 +177,10 @@ Functions</h2></td></tr>
 requires std::is_enum_v&lt;E&gt;</td></tr>
 <tr class="memitem:a282884173d37e1c0a00110c5f37b39ff"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a282884173d37e1c0a00110c5f37b39ff">Selectable</a> (E &amp;storage, E value)</td></tr>
 <tr class="separator:a282884173d37e1c0a00110c5f37b39ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f92d4417a224c202405fde8f9883f6c" id="r_a6f92d4417a224c202405fde8f9883f6c"><td class="memTemplParams" colspan="2">template&lt;typename E , std::ranges::range R&gt; <br />
+<tr class="memitem:a5776613c16da6472054e5bb1337bee8b" id="r_a5776613c16da6472054e5bb1337bee8b"><td class="memTemplParams" colspan="2">template&lt;typename E , std::ranges::range R&gt; <br />
 requires (std::is_enum_v&lt;E&gt; &amp;&amp; std::same_as&lt;std::ranges::range_value_t&lt;R&gt;, E&gt;)</td></tr>
-<tr class="memitem:a6f92d4417a224c202405fde8f9883f6c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a6f92d4417a224c202405fde8f9883f6c">EnumCombo</a> (const char *label, E &amp;storage, const R &amp;values, const std::map&lt; E, std::function&lt; const std::string &amp;()&gt; &gt; &amp;pPopupText={})</td></tr>
-<tr class="separator:a6f92d4417a224c202405fde8f9883f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5776613c16da6472054e5bb1337bee8b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a5776613c16da6472054e5bb1337bee8b">EnumCombo</a> (const char *label, E &amp;storage, const R &amp;values, const std::map&lt; E, std::function&lt; std::string()&gt; &gt; &amp;pPopupText={})</td></tr>
+<tr class="separator:a5776613c16da6472054e5bb1337bee8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e24a4297ab6103471c1c5291833ee22" id="r_a7e24a4297ab6103471c1c5291833ee22"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; <br />
 requires (std::is_enum_v&lt;E&gt;)</td></tr>
 <tr class="memitem:a7e24a4297ab6103471c1c5291833ee22"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a7e24a4297ab6103471c1c5291833ee22">EnumCombo</a> (const char *label, E &amp;storage, const std::initializer_list&lt; E &gt; &amp;values, const std::map&lt; E, std::function&lt; std::string()&gt; &gt; &amp;pPopupText={})</td></tr>
@@ -610,8 +610,8 @@ requires (!std::ranges::viewable_range&lt;T&gt;)</td></tr>
 
 </div>
 </div>
-<a id="a6f92d4417a224c202405fde8f9883f6c" name="a6f92d4417a224c202405fde8f9883f6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f92d4417a224c202405fde8f9883f6c">&#9670;&#160;</a></span>EnumCombo() <span class="overload">[1/3]</span></h2>
+<a id="a5776613c16da6472054e5bb1337bee8b" name="a5776613c16da6472054e5bb1337bee8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5776613c16da6472054e5bb1337bee8b">&#9670;&#160;</a></span>EnumCombo() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -640,7 +640,7 @@ requires (std::is_enum_v&lt;E&gt; &amp;&amp; std::same_as&lt;std::ranges::range_
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::map&lt; E, std::function&lt; const std::string &amp;()&gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::map&lt; E, std::function&lt; std::string()&gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>pPopupText</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
