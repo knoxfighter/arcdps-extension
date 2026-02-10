@@ -49,7 +49,7 @@ void ArcdpsExtension::DemoWindow::newRow() {
 	++mCurrentRow;
 }
 
-const std::string& ArcdpsExtension::DemoWindow::getTitleDefault() {
+std::string_view ArcdpsExtension::DemoWindow::getTitleDefault() {
 	return mTitleDefault;
 }
 
@@ -57,7 +57,7 @@ std::optional<std::string>& ArcdpsExtension::DemoWindow::getTitle() {
 	return mTitle;
 }
 
-const std::string& ArcdpsExtension::DemoWindow::getWindowID() {
+std::string_view ArcdpsExtension::DemoWindow::getWindowID() {
 	return mWindowID;
 }
 
@@ -89,7 +89,7 @@ std::optional<std::string>& ArcdpsExtension::DemoWindow::getAppearAsInOption() {
 	return mAppearAsInOptionOpt;
 }
 
-const std::string& ArcdpsExtension::DemoWindow::getAppearAsInOptionDefault() {
+std::string_view ArcdpsExtension::DemoWindow::getAppearAsInOptionDefault() {
 	return mAppearAsInOptionDefault;
 }
 

@@ -37,16 +37,16 @@ namespace ArcdpsExtension {
 		void newRow();
 
 	protected:
-		const std::string& getTitleDefault() override;
+		std::string_view getTitleDefault() override;
 		std::optional<std::string>& getTitle() override;
-		const std::string& getWindowID() override;
+		std::string_view getWindowID() override;
 		bool& getShowTitleBar() override;
 		bool& getShowBackground() override;
 		std::optional<ImVec2>& getPadding() override;
 		SizingPolicy& getSizingPolicy() override;
 		bool getMaxHeightActive() override;
 		std::optional<std::string>& getAppearAsInOption() override;
-		const std::string& getAppearAsInOptionDefault() override;
+		std::string_view getAppearAsInOptionDefault() override;
 		void DrawStyleSettingsSubMenu() override;
 
 	public:

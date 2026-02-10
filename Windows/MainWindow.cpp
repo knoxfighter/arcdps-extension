@@ -81,10 +81,8 @@ void ArcdpsExtension::MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWi
 	}
 
 	const auto& titleOpt = getTitle();
-	std::string title = titleOpt ? titleOpt.value() : getTitleDefault();
-	title.append("###");
-	title.append(getWindowID());
-	ImGui::Begin(title.c_str(), &GetOpenVar(), imGuiWindowFlags);
+	std::string_view title = titleOpt ? titleOpt.value() : getTitleDefault();
+	ImGui::Begin(std::format("{}###{}", title, getWindowID()).c_str(), &GetOpenVar(), imGuiWindowFlags);
 
 	mThisWindow = ImGui::GetCurrentWindow();
 
@@ -139,7 +137,8 @@ void ArcdpsExtension::MainWindow::Init() {
 
 void ArcdpsExtension::MainWindow::DrawOptionCheckbox() {
 	const auto& appearAsInOptionOpt = getAppearAsInOption();
-	const std::string& appearAsInOption = appearAsInOptionOpt ? appearAsInOptionOpt.value() : getAppearAsInOptionDefault();
+	auto defaultStr = std::string(getAppearAsInOptionDefault());
+	const std::string& appearAsInOption = appearAsInOptionOpt ? appearAsInOptionOpt.value() : defaultStr;
 	ImGui::Checkbox(appearAsInOption.c_str(), &GetOpenVar());
 }
 

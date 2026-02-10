@@ -41,7 +41,7 @@ void ArcdpsExtension::DemoTableWindow::DrawContent() {
 	mTable->Draw();
 }
 
-const std::string& ArcdpsExtension::DemoTableWindow::getTitleDefault() {
+std::string_view ArcdpsExtension::DemoTableWindow::getTitleDefault() {
 	return mTitleDefault;
 }
 
@@ -49,7 +49,7 @@ std::optional<std::string>& ArcdpsExtension::DemoTableWindow::getTitle() {
 	return mTitle;
 }
 
-const std::string& ArcdpsExtension::DemoTableWindow::getWindowID() {
+std::string_view ArcdpsExtension::DemoTableWindow::getWindowID() {
 	return mWindowID;
 }
 
@@ -77,6 +77,6 @@ std::optional<std::string>& ArcdpsExtension::DemoTableWindow::getAppearAsInOptio
 	return mAppearAsInOptionOpt;
 }
 
-const std::string& ArcdpsExtension::DemoTableWindow::getAppearAsInOptionDefault() {
+std::string_view ArcdpsExtension::DemoTableWindow::getAppearAsInOptionDefault() {
 	return mAppearAsInOptionDefault;
 }

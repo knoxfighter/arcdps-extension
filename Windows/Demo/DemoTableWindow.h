@@ -22,15 +22,15 @@ namespace ArcdpsExtension {
 		void DrawContextMenu() override;
 		void DrawContent() override;
 
-		const std::string& getTitleDefault() override;
+		std::string_view getTitleDefault() override;
 		std::optional<std::string>& getTitle() override;
-		const std::string& getWindowID() override;
+		std::string_view getWindowID() override;
 		bool& getShowTitleBar() override;
 		bool& getShowBackground() override;
 		std::optional<ImVec2>& getPadding() override;
 		SizingPolicy& getSizingPolicy() override;
 		std::optional<std::string>& getAppearAsInOption() override;
-		const std::string& getAppearAsInOptionDefault() override;
+		std::string_view getAppearAsInOptionDefault() override;
 
 	private:
 		bool mOpen = true;

@@ -131,12 +131,12 @@ namespace ArcdpsExtension {
 		/**
 		 * The default Text for the title bar, when the above `optional` is `nullopt`
 		 */
-		virtual const std::string& getTitleDefault() = 0;
+		virtual std::string_view getTitleDefault() = 0;
 		/**
 		 * The ID appended onto the title to be used by the ImGuiWindow, so it doesn't crash.
 		 * This should never change!
 		 */
-		virtual const std::string& getWindowID() = 0;
+		virtual std::string_view getWindowID() = 0;
 
 		/**
 		 * Get the name of this window in the arcdps options.
@@ -148,7 +148,7 @@ namespace ArcdpsExtension {
 		/**
 		 * Default for appear as in option, if the optional there is nullopt.
 		 */
-		virtual const std::string& getAppearAsInOptionDefault() = 0;
+		virtual std::string_view getAppearAsInOptionDefault() = 0;
 
 		/**
 		 * This has to be `true` to show the background.
