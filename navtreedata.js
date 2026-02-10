@@ -100,7 +100,7 @@ var NAVTREEINDEX =
 "arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002",
 "classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817",
 "classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
-"classArcdpsExtension_1_1MainWindow.html#af7b35e1f8506700866be73e5e425ea47",
+"classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
 "classIconLoaderTests.html",
 "group__Fuzz.html",
 "map_8h.html#a8d2b5f33e3867a550a3d542312735c0d",

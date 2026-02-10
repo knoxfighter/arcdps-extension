@@ -191,14 +191,14 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ab8ee743a7324754afadf199df34a7f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abefef129efddd480833d3dddc768f74c" id="r_abefef129efddd480833d3dddc768f74c"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#abefef129efddd480833d3dddc768f74c">getTitle</a> ()=0</td></tr>
 <tr class="separator:abefef129efddd480833d3dddc768f74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae076eaf686771a01b1ba73e0fd8f4c48" id="r_ae076eaf686771a01b1ba73e0fd8f4c48"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#ae076eaf686771a01b1ba73e0fd8f4c48">getTitleDefault</a> ()=0</td></tr>
-<tr class="separator:ae076eaf686771a01b1ba73e0fd8f4c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80b133167217c69f44079c482526876" id="r_af80b133167217c69f44079c482526876"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#af80b133167217c69f44079c482526876">getWindowID</a> ()=0</td></tr>
-<tr class="separator:af80b133167217c69f44079c482526876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad548aadb26593fcda78e314131e2ee49" id="r_ad548aadb26593fcda78e314131e2ee49"><td class="memItemLeft" align="right" valign="top">virtual std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#ad548aadb26593fcda78e314131e2ee49">getTitleDefault</a> ()=0</td></tr>
+<tr class="separator:ad548aadb26593fcda78e314131e2ee49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ffed81304a6e3e72d1ec789ca767744" id="r_a7ffed81304a6e3e72d1ec789ca767744"><td class="memItemLeft" align="right" valign="top">virtual std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#a7ffed81304a6e3e72d1ec789ca767744">getWindowID</a> ()=0</td></tr>
+<tr class="separator:a7ffed81304a6e3e72d1ec789ca767744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab8a867126c091597c23b2896a5d77f3" id="r_aab8a867126c091597c23b2896a5d77f3"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#aab8a867126c091597c23b2896a5d77f3">getAppearAsInOption</a> ()=0</td></tr>
 <tr class="separator:aab8a867126c091597c23b2896a5d77f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a264949cee5b178faff224f22a9c2f538" id="r_a264949cee5b178faff224f22a9c2f538"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#a264949cee5b178faff224f22a9c2f538">getAppearAsInOptionDefault</a> ()=0</td></tr>
-<tr class="separator:a264949cee5b178faff224f22a9c2f538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13670402d94f8d60ad6c773aeef388c7" id="r_a13670402d94f8d60ad6c773aeef388c7"><td class="memItemLeft" align="right" valign="top">virtual std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#a13670402d94f8d60ad6c773aeef388c7">getAppearAsInOptionDefault</a> ()=0</td></tr>
+<tr class="separator:a13670402d94f8d60ad6c773aeef388c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fc02aea85b199c4efbb42294f9857ec" id="r_a6fc02aea85b199c4efbb42294f9857ec"><td class="memItemLeft" align="right" valign="top">virtual bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#a6fc02aea85b199c4efbb42294f9857ec">getShowBackground</a> ()=0</td></tr>
 <tr class="separator:a6fc02aea85b199c4efbb42294f9857ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a507915c3d0191357121d3a356254e318" id="r_a507915c3d0191357121d3a356254e318"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; ImVec2 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1MainWindow.html#a507915c3d0191357121d3a356254e318">getPadding</a> ()=0</td></tr>
@@ -615,8 +615,8 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
 
 </div>
 </div>
-<a id="a264949cee5b178faff224f22a9c2f538" name="a264949cee5b178faff224f22a9c2f538"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a264949cee5b178faff224f22a9c2f538">&#9670;&#160;</a></span>getAppearAsInOptionDefault()</h2>
+<a id="a13670402d94f8d60ad6c773aeef388c7" name="a13670402d94f8d60ad6c773aeef388c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13670402d94f8d60ad6c773aeef388c7">&#9670;&#160;</a></span>getAppearAsInOptionDefault()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -625,7 +625,7 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::string &amp; ArcdpsExtension::MainWindow::getAppearAsInOptionDefault </td>
+          <td class="memname">virtual std::string_view ArcdpsExtension::MainWindow::getAppearAsInOptionDefault </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -639,7 +639,7 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
 </div><div class="memdoc">
 <p>Default for appear as in option, if the optional there is nullopt. </p>
 
-<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#aa17e2b9dd7d43106c16ce64c60cb9bda">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#a47c470bce58d7ab7b67aa8e1b848e774">ArcdpsExtension::DemoWindow</a>.</p>
+<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#ac13d7722799f6a234d4614b44ae16e47">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#aef4955b4114d5344263b377c818c32b2">ArcdpsExtension::DemoWindow</a>.</p>
 
 </div>
 </div>
@@ -925,8 +925,8 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
 
 </div>
 </div>
-<a id="ae076eaf686771a01b1ba73e0fd8f4c48" name="ae076eaf686771a01b1ba73e0fd8f4c48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae076eaf686771a01b1ba73e0fd8f4c48">&#9670;&#160;</a></span>getTitleDefault()</h2>
+<a id="ad548aadb26593fcda78e314131e2ee49" name="ad548aadb26593fcda78e314131e2ee49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad548aadb26593fcda78e314131e2ee49">&#9670;&#160;</a></span>getTitleDefault()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -935,7 +935,7 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::string &amp; ArcdpsExtension::MainWindow::getTitleDefault </td>
+          <td class="memname">virtual std::string_view ArcdpsExtension::MainWindow::getTitleDefault </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -949,12 +949,12 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
 </div><div class="memdoc">
 <p>The default Text for the title bar, when the above <code>optional</code> is <code>nullopt</code> </p>
 
-<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#a4e89c06e01435cd7979ef7a55a8aa57b">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#a4354683ea4baca919922d2886983cd0c">ArcdpsExtension::DemoWindow</a>.</p>
+<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#acc414f06add66e5f300178866ba45c90">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#a1038d6cb11d14efc08405a0f6151ea2b">ArcdpsExtension::DemoWindow</a>.</p>
 
 </div>
 </div>
-<a id="af80b133167217c69f44079c482526876" name="af80b133167217c69f44079c482526876"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af80b133167217c69f44079c482526876">&#9670;&#160;</a></span>getWindowID()</h2>
+<a id="a7ffed81304a6e3e72d1ec789ca767744" name="a7ffed81304a6e3e72d1ec789ca767744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ffed81304a6e3e72d1ec789ca767744">&#9670;&#160;</a></span>getWindowID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -963,7 +963,7 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::string &amp; ArcdpsExtension::MainWindow::getWindowID </td>
+          <td class="memname">virtual std::string_view ArcdpsExtension::MainWindow::getWindowID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -977,7 +977,7 @@ requires std::is_base_of_v&lt;<a class="el" href="classArcdpsExtension_1_1Compon
 </div><div class="memdoc">
 <p>The ID appended onto the title to be used by the ImGuiWindow, so it doesn't crash. This should never change! </p>
 
-<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#a864102fb19493acbc4f4ca88fe17bf47">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#a5fd64094898c68b45452e4d65ce85c5b">ArcdpsExtension::DemoWindow</a>.</p>
+<p>Implemented in <a class="el" href="classArcdpsExtension_1_1DemoTableWindow.html#a0d598c114394254a3c78ff26a6a78eda">ArcdpsExtension::DemoTableWindow</a>, and <a class="el" href="classArcdpsExtension_1_1DemoWindow.html#abe1aa344f8407ba4796f301870fbdd04">ArcdpsExtension::DemoWindow</a>.</p>
 
 </div>
 </div>
