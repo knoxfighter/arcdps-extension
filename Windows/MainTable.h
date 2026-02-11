@@ -3210,7 +3210,7 @@ namespace ArcdpsExtension {
 		column->NameOffset = -1;
 		if (!label.empty()) {
 			column->NameOffset = (ImS16) mTable.ColumnsNames.size();
-			mTable.ColumnsNames.append(label.data(), label.data() + label.size());
+			mTable.ColumnsNames.append(label.data(), label.data() + label.size() + 1);
 		}
 	}
 
