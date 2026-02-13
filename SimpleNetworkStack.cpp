@@ -21,6 +21,12 @@ ArcdpsExtension::SimpleNetworkStack::Result ArcdpsExtension::SimpleNetworkStack:
 	mLastResponseBuffer.clear();
 	curl_easy_reset(mHandle);
 
+	// if (auto res = curl_easy_setopt(mHandle, CURLOPT_VERBOSE, 1L); res != CURLE_OK) {
+	// 	return std::unexpected(Error{ErrorType::PerformError, curl_easy_strerror(res)});
+	// }
+	if (auto res = curl_easy_setopt(mHandle, CURLOPT_SSL_OPTIONS , CURLSSLOPT_NATIVE_CA ); res != CURLE_OK) {
+		return std::unexpected(Error{ErrorType::PerformError, curl_easy_strerror(res)});
+	}
 	if (auto res = curl_easy_setopt(mHandle, CURLOPT_URL, pElement.Url.c_str()); res != CURLE_OK) {
 		return std::unexpected(Error{ErrorType::OptUrlError, curl_easy_strerror(res)});
 	}

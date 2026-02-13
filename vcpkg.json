@@ -28,7 +28,14 @@
       "curl":{
         "description": "make tools available, that depend on curl",
         "dependencies": [
-          "curl"
+          {
+            "name": "curl",
+            "default-features": false,
+            "features": [
+              "non-http",
+              "openssl"
+            ]
+          }
         ]
       }
     },
