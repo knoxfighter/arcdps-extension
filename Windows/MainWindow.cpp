@@ -139,7 +139,9 @@ void ArcdpsExtension::MainWindow::DrawOptionCheckbox() {
 	const auto& appearAsInOptionOpt = getAppearAsInOption();
 	auto defaultStr = std::string(getAppearAsInOptionDefault());
 	const std::string& appearAsInOption = appearAsInOptionOpt ? appearAsInOptionOpt.value() : defaultStr;
+	ImGui::PushID(std::string(getWindowID()).c_str());
 	ImGui::Checkbox(appearAsInOption.c_str(), &GetOpenVar());
+	ImGui::PopID();
 }
 
 void ArcdpsExtension::MainWindow::SetMaxHeightCursorPos(float pNewCursorPos) {
