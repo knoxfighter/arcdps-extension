@@ -38,9 +38,10 @@ var searchData=
   ['updatestate_35',['updatestate',['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html',1,'ArcdpsExtension::UpdateCheckerBase::UpdateState'],['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html#a76a676f394e8ac21fec9c7d7eb320cb2',1,'ArcdpsExtension::UpdateCheckerBase::UpdateState::UpdateState(const std::optional&lt; Version &gt; &amp;pVersion, std::string &amp;&amp;pInstallPath)']]],
   ['updatestatus_36',['UpdateStatus',['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html#a83b163a3993e86a427a5ea6dbdafad24',1,'ArcdpsExtension::UpdateCheckerBase::UpdateState']]],
   ['updatesuccessful_37',['UpdateSuccessful',['../classArcdpsExtension_1_1UpdateCheckerBase.html#a52ce00d9da634dde7307b39791a28abeaa17305ca980d2b6509105adeebc47fd6',1,'ArcdpsExtension::UpdateCheckerBase']]],
-  ['urlencode_38',['UrlEncode',['../classArcdpsExtension_1_1SimpleNetworkStack.html#ac4c45f03cca5e4c7bc1faa4939f73b32',1,'ArcdpsExtension::SimpleNetworkStack']]],
-  ['usage_39',['Usage',['../md_Readme.html#autotoc_md1',1,'']]],
-  ['use_20cases_40',['Use-cases',['../md_Readme.html#autotoc_md5',1,'']]],
-  ['userid_41',['userid',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#ad2b23c5a5d8ce82441dfa79ab5f2eefa',1,'ArcdpsExtension::MainTable::TableColumnSettings::UserID'],['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a7c6784a1450b45f635ea4cb2d1b155ef',1,'ArcdpsExtension::MainTable::TableColumn::UserID'],['../structArcdpsExtension_1_1MainTableColumn.html#a37d60031d854905f516fa75be01fc510',1,'ArcdpsExtension::MainTableColumn::UserId']]],
-  ['useroutersize_42',['UserOuterSize',['../structArcdpsExtension_1_1MainTable_1_1Table.html#acfaea262da6aecfe9854711e97cf856e',1,'ArcdpsExtension::MainTable::Table']]]
+  ['upgrade_38',['ImGUI upgrade',['../md_ImGUI_01upgrade.html',1,'']]],
+  ['urlencode_39',['UrlEncode',['../classArcdpsExtension_1_1SimpleNetworkStack.html#ac4c45f03cca5e4c7bc1faa4939f73b32',1,'ArcdpsExtension::SimpleNetworkStack']]],
+  ['usage_40',['Usage',['../md_Readme.html#autotoc_md1',1,'']]],
+  ['use_20cases_41',['Use-cases',['../md_Readme.html#autotoc_md5',1,'']]],
+  ['userid_42',['userid',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#ad2b23c5a5d8ce82441dfa79ab5f2eefa',1,'ArcdpsExtension::MainTable::TableColumnSettings::UserID'],['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a7c6784a1450b45f635ea4cb2d1b155ef',1,'ArcdpsExtension::MainTable::TableColumn::UserID'],['../structArcdpsExtension_1_1MainTableColumn.html#a37d60031d854905f516fa75be01fc510',1,'ArcdpsExtension::MainTableColumn::UserId']]],
+  ['useroutersize_43',['UserOuterSize',['../structArcdpsExtension_1_1MainTable_1_1Table.html#acfaea262da6aecfe9854711e97cf856e',1,'ArcdpsExtension::MainTable::Table']]]
 ];

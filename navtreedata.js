@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "ArcdpsExtension", "index.html", [
+    [ "ImGUI upgrade", "md_ImGUI_01upgrade.html", null ],
     [ "Arcdps Extension", "md_Readme.html", [
       [ "Usage", "md_Readme.html#autotoc_md1", [
         [ "add to your project", "md_Readme.html#autotoc_md2", [
@@ -97,17 +98,17 @@ var NAVTREEINDEX =
 "ArcdpsExtension_8cpp.html",
 "MobIDs_8h.html#aa4183a394aa4e7600297584922235450afcbab72c9778ae00ca2bea7571ac403e",
 "MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ae105e39f83ffa443a7bc4748d028ae83",
-"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002",
+"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30",
 "classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817",
 "classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
 "classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
-"classIconLoaderTests.html",
-"group__Fuzz.html",
-"map_8h.html#a8d2b5f33e3867a550a3d542312735c0d",
-"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a4e8df674e16da3702dd62ac3d52cd1ed",
-"structArcdpsExtension_1_1MainTableColumn.html#aba6064eba789adac5fa6b9ac66e1e58a",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a2524b8ecb27412d9ca617a9acb28aeb8",
-"structcbtevent.html#ae55800927aa8b2f25e86be0429f8c1ff"
+"classEventSequencerTests.html",
+"group__Common.html#gaf6357c263defb60895a32ab418b55894",
+"map_8h.html#a8a7f8db2d5d4c4ed8cea0e270de075f6",
+"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a46fedd93d3fc9853c085edf37a419a65",
+"structArcdpsExtension_1_1MainTableColumn.html#a9244ef25e04b4342653f182f80a1459d",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a21da4d1bb215ac992574a583ec17fc24",
+"structcbtevent.html#addc74ccf00a31cb991d6e28da3497af1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

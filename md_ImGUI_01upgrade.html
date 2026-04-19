@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ArcdpsExtension: Related Pages</title>
+<title>ArcdpsExtension: ImGUI upgrade</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md_ImGUI_01upgrade.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -94,18 +94,20 @@ $(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Related Pages</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">ImGUI upgrade</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="md_ImGUI_01upgrade.html" target="_self">ImGUI upgrade</a></td><td class="desc"></td></tr>
-<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="md_Readme.html" target="_self">Arcdps Extension</a></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="todo.html" target="_self">Todo List</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p><a class="el" href="namespaceImGui.html">ImGui</a> upgrade steps:</p><ul>
+<li>Copy TreeNodeBehavior() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> and re-add the code related to icons.</li>
+<li>Copy TableHeader() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> and re-add the code related to show label and texture.</li>
+<li>Copy ProgressBar() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> into AlignedProgressBar() and re-add the code related to alignment.</li>
+<li>Copy BeginMenu() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> and re-add the code related to.</li>
+<li>Copy the bottom part of TableDrawContextMenu() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> to MenuItemTableColumnVisibility().</li>
+<li>Copy BeginTableEx() from upstream <a class="el" href="namespaceImGui.html">ImGui</a> and re-add the code related to child flags. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

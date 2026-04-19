@@ -145,6 +145,8 @@ Functions</h2></td></tr>
 <tr class="separator:a06952f92880bf320406f21421af3b4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816f20a444a938fd39c670f67d3300f2" id="r_a816f20a444a938fd39c670f67d3300f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a816f20a444a938fd39c670f67d3300f2">AlignedProgressBar</a> (float fraction, const ImVec2 &amp;size_arg, const char *overlay, <a class="el" href="arcdps__structs_8h.html#acdfaca60ec19c0265bac2692d7982726">Alignment</a> alignment)</td></tr>
 <tr class="separator:a816f20a444a938fd39c670f67d3300f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e0debc11c72c2839c8d29458a918166" id="r_a1e0debc11c72c2839c8d29458a918166"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a1e0debc11c72c2839c8d29458a918166">BeginMenuEx</a> (const char *label, const char *icon, bool enabled, bool &amp;hoveredPar)</td></tr>
+<tr class="separator:a1e0debc11c72c2839c8d29458a918166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663227fe46dd68301ebc6a579cd87456" id="r_a663227fe46dd68301ebc6a579cd87456"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a663227fe46dd68301ebc6a579cd87456">BeginMenu</a> (const char *label, bool enabled, bool &amp;hoveredPar)</td></tr>
 <tr class="separator:a663227fe46dd68301ebc6a579cd87456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c66c544affbdc7853c0b6694593772f" id="r_a1c66c544affbdc7853c0b6694593772f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceImGuiEx.html#a1c66c544affbdc7853c0b6694593772f">BeginMenuChild</a> (const char *child_str_id, const char *menu_label, std::function&lt; void()&gt; draw_func)</td></tr>
@@ -359,31 +361,7 @@ requires (!std::ranges::viewable_range&lt;T&gt;)</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// for child windows</span></div>
-<div class="line">ImGui::BeginChild(<span class="stringliteral">&quot;boonTableSettings&quot;</span>, ImVec2(0, ImGui::GetTextLineHeight()));</div>
-<div class="line"><span class="keywordtype">bool</span> hovered = ImGui::IsWindowHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup | ImGuiHoveredFlags_ChildWindows);</div>
-<div class="line"><span class="keywordflow">if</span> (ImGui::BeginMenu(<span class="stringliteral">&quot;##boon-table-settings&quot;</span>)) {</div>
-<div class="line">    <span class="keywordflow">if</span> (!hovered) {</div>
-<div class="line">        ImGui::CloseCurrentPopup();</div>
-<div class="line">    }</div>
-<div class="line">    settingsUi.Draw();</div>
-<div class="line">    ImGui::EndMenu();</div>
-<div class="line">}</div>
-<div class="line">ImGui::EndChild();</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// for menus without child</span></div>
-<div class="line"><span class="keywordtype">bool</span> hovered;</div>
-<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="namespaceImGuiEx.html#a663227fe46dd68301ebc6a579cd87456">ImGuiEx::BeginMenu</a>(<span class="stringliteral">&quot;boon-table-settings&quot;</span>, <span class="keyword">true</span>, hovered)) {</div>
-<div class="line">    settingsUi.Draw();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!(ImGui::IsWindowHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup | ImGuiHoveredFlags_ChildWindows) || hovered) &amp;&amp; !ImGui::IsAnyMouseDown()) {</div>
-<div class="line">        ImGui::CloseCurrentPopup();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    ImGui::EndMenu();</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceImGuiEx_html_a663227fe46dd68301ebc6a579cd87456"><div class="ttname"><a href="namespaceImGuiEx.html#a663227fe46dd68301ebc6a579cd87456">ImGuiEx::BeginMenu</a></div><div class="ttdeci">bool BeginMenu(const char *label, bool enabled, bool &amp;hoveredPar)</div><div class="ttdef"><b>Definition</b> Widgets.cpp:403</div></div>
-</div><!-- fragment --> 
+
 </div>
 </div>
 <a id="a64be2d0bfc9a57a21713b1031484b521" name="a64be2d0bfc9a57a21713b1031484b521"></a>
@@ -437,6 +415,46 @@ requires (!std::ranges::viewable_range&lt;T&gt;)</td></tr>
           <td></td>
           <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
           <td class="paramname"><em>draw_func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e0debc11c72c2839c8d29458a918166" name="a1e0debc11c72c2839c8d29458a918166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e0debc11c72c2839c8d29458a918166">&#9670;&#160;</a></span>BeginMenuEx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ImGuiEx::BeginMenuEx </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>icon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>hoveredPar</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

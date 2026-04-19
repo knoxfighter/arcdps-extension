@@ -5,6 +5,7 @@ var Widgets_8cpp =
     [ "BeginMenu", "Widgets_8cpp.html#a663227fe46dd68301ebc6a579cd87456", null ],
     [ "BeginMenu", "Widgets_8cpp.html#a64be2d0bfc9a57a21713b1031484b521", null ],
     [ "BeginMenuChild", "Widgets_8cpp.html#a1c66c544affbdc7853c0b6694593772f", null ],
+    [ "BeginMenuEx", "Widgets_8cpp.html#a1e0debc11c72c2839c8d29458a918166", null ],
     [ "BeginPopupContextWindow", "Widgets_8cpp.html#afe13eb53cd35901c010f2ec275f1981f", null ],
     [ "BeginTable", "Widgets_8cpp.html#a2503b76887667b646443cc4b394d7e54", null ],
     [ "BeginTableEx", "Widgets_8cpp.html#ad35b975afa5a90575e6a015527412782", null ],
