@@ -444,20 +444,20 @@ namespace ImGuiEx {
 			// Menu inside an horizontal menu bar
 			// Selectable extend their highlight by half ItemSpacing in each direction.
 			// For ChildMenu, the popup position will be overwritten by the call to FindBestWindowPosForPopup() in Begin()
-			popup_pos = ImVec2(pos.x - 1.0f - IM_FLOOR(style.ItemSpacing.x * 0.5f), pos.y - style.FramePadding.y + window->MenuBarHeight());
-			window->DC.CursorPos.x += IM_FLOOR(style.ItemSpacing.x * 0.5f);
+			popup_pos = ImVec2(pos.x - 1.0f - IM_TRUNC(style.ItemSpacing.x * 0.5f), pos.y - style.FramePadding.y + window->MenuBarHeight());
+			window->DC.CursorPos.x += IM_TRUNC(style.ItemSpacing.x * 0.5f);
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(style.ItemSpacing.x * 2.0f, style.ItemSpacing.y));
 			float w = label_size.x;
 			pressed = ImGui::Selectable(label, menu_is_open, ImGuiSelectableFlags_NoHoldingActiveID | ImGuiSelectableFlags_SelectOnClick | ImGuiSelectableFlags_DontClosePopups | (!enabled ? ImGuiSelectableFlags_Disabled : 0), ImVec2(w, 0.0f));
 			ImGui::PopStyleVar();
-			window->DC.CursorPos.x += IM_FLOOR(style.ItemSpacing.x * (-1.0f + 0.5f));
+			window->DC.CursorPos.x += IM_TRUNC(style.ItemSpacing.x * (-1.0f + 0.5f));
 			// -1 spacing to compensate the spacing added when Selectable() did a SameLine(). It would also work to call SameLine() ourselves after the PopStyleVar().
 		} else {
 			// Menu inside a menu
 			// (In a typical menu window where all items are BeginMenu() or MenuItem() calls, extra_w will always be 0.0f.
 			//  Only when they are other items sticking out we're going to add spacing, yet only register minimum width into the layout system.
 			popup_pos = ImVec2(pos.x, pos.y - style.WindowPadding.y);
-			float min_w = window->DC.MenuColumns.DeclColumns(label_size.x, 0.0f, IM_FLOOR(g.FontSize * 1.20f)); // Feedback to next frame
+			float min_w = window->DC.MenuColumns.DeclColumns(label_size.x, 0.0f, IM_TRUNC(g.FontSize * 1.20f)); // Feedback to next frame
 			float extra_w = ImMax(0.0f, ImGui::GetContentRegionAvail().x - min_w);
 			pressed = ImGui::Selectable(label, menu_is_open, ImGuiSelectableFlags_NoHoldingActiveID | ImGuiSelectableFlags_SelectOnClick | ImGuiSelectableFlags_DontClosePopups | ImGuiSelectableFlags_SpanAvailWidth | (!enabled ? ImGuiSelectableFlags_Disabled : 0), ImVec2(min_w, 0.0f));
 			ImU32 text_col = ImGui::GetColorU32(enabled ? ImGuiCol_Text : ImGuiCol_TextDisabled);
@@ -750,8 +750,8 @@ namespace ImGuiEx {
 		if (display_frame) {
 			// Framed header expand a little outside the default padding, to the edge of InnerClipRect
 			// (FIXME: May remove this at some point and make InnerClipRect align with WindowPadding.x instead of WindowPadding.x*0.5f)
-			frame_bb.Min.x -= IM_FLOOR(window->WindowPadding.x * 0.5f - 1.0f);
-			frame_bb.Max.x += IM_FLOOR(window->WindowPadding.x * 0.5f);
+			frame_bb.Min.x -= IM_TRUNC(window->WindowPadding.x * 0.5f - 1.0f);
+			frame_bb.Max.x += IM_TRUNC(window->WindowPadding.x * 0.5f);
 		}
 
 		const float text_offset_x = g.FontSize + (display_frame ? padding.x * 3 : padding.x * 2);          // Collapser arrow width + Spacing
