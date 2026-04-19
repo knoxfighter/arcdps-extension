@@ -144,7 +144,7 @@ namespace ImGuiEx {
 			return;
 
 		ImGuiTable* table = g.CurrentTable;
-		IM_ASSERT(table != NULL && "Need to call TableHeader() after BeginTable()!");
+		IM_ASSERT_USER_ERROR_RET(table != NULL, "Call should only be done while in BeginTable() scope!");
 		IM_ASSERT(table->CurrentColumn != -1);
 		const int column_n = table->CurrentColumn;
 		ImGuiTableColumn* column = &table->Columns[column_n];
@@ -152,14 +152,14 @@ namespace ImGuiEx {
 		// Label
 		if (label == NULL)
 			label = "";
-		const char* label_end = ImGui::FindRenderedTextEnd(label);
-		ImVec2 label_size = ImGui::CalcTextSize(label, label_end, true);
+		const char* label_end = FindRenderedTextEnd(label);
+		ImVec2 label_size = CalcTextSize(label, label_end, true);
 		ImVec2 label_pos = window->DC.CursorPos;
 
 		// If we already got a row height, there's use that.
 		// FIXME-TABLE: Padding problem if the correct outer-padding CellBgRect strays off our ClipRect?
-		ImRect cell_r = ImGui::TableGetCellBgRect(table, column_n);
-		float label_height = table->RowMinHeight - table->CellPaddingY * 2.0f;
+		ImRect cell_r = TableGetCellBgRect(table, column_n);
+		float label_height = table->RowMinHeight - table->RowCellPaddingY * 2.0f;
 		if (show_label) {
 			label_height = ImMax(label_size.y, label_height);
 		} else {
@@ -169,96 +169,95 @@ namespace ImGuiEx {
 		// Calculate ideal size for sort order arrow
 		float w_arrow = 0.0f;
 		float w_sort_text = 0.0f;
+		bool sort_arrow = false;
 		char sort_order_suf[4] = "";
 		const float ARROW_SCALE = 0.65f;
 		if ((table->Flags & ImGuiTableFlags_Sortable) && !(column->Flags & ImGuiTableColumnFlags_NoSort)) {
-			w_arrow = ImFloor(g.FontSize * ARROW_SCALE + g.Style.FramePadding.x);
+			w_arrow = ImTrunc(g.FontSize * ARROW_SCALE + g.Style.FramePadding.x);
+			if (column->SortOrder != -1)
+				sort_arrow = true;
 			if (column->SortOrder > 0) {
-				ImFormatString(sort_order_suf, IM_ARRAYSIZE(sort_order_suf), "%d", column->SortOrder + 1);
-				w_sort_text = g.Style.ItemInnerSpacing.x + ImGui::CalcTextSize(sort_order_suf).x;
+				ImFormatString(sort_order_suf, IM_COUNTOF(sort_order_suf), "%d", column->SortOrder + 1);
+				w_sort_text = g.Style.ItemInnerSpacing.x + CalcTextSize(sort_order_suf).x;
 			}
 		}
 
-		// We feed our unclipped width to the column without writing on CursorMaxPos, so that column is still considering for merging.
+		// We feed our unclipped width to the column without writing on CursorMaxPos, so that column is still considered for merging.
 		float max_pos_x = label_pos.x + w_sort_text + w_arrow;
 		if (show_label) {
 			max_pos_x += label_size.x;
 		} else {
 			max_pos_x += image_size;
 		}
-		column->ContentMaxXHeadersUsed = ImMax(column->ContentMaxXHeadersUsed, column->WorkMaxX);
+		column->ContentMaxXHeadersUsed = ImMax(column->ContentMaxXHeadersUsed, sort_arrow ? cell_r.Max.x : ImMin(max_pos_x, cell_r.Max.x));
 		column->ContentMaxXHeadersIdeal = ImMax(column->ContentMaxXHeadersIdeal, max_pos_x);
 
 		// Keep header highlighted when context menu is open.
-		const bool selected = (table->IsContextPopupOpen && table->ContextPopupColumn == column_n && table->InstanceInteracted == table->InstanceCurrent);
 		ImGuiID id = window->GetID(label);
 		ImRect bb(cell_r.Min.x, cell_r.Min.y, cell_r.Max.x, ImMax(cell_r.Max.y, cell_r.Min.y + label_height + g.Style.CellPadding.y * 2.0f));
-		ImGui::ItemSize(ImVec2(0.0f, label_height)); // Don't declare unclipped width, it'll be fed ContentMaxPosHeadersIdeal
-		if (!ImGui::ItemAdd(bb, id))
+		ItemSize(ImVec2(0.0f, label_height)); // Don't declare unclipped width, it'll be fed ContentMaxPosHeadersIdeal
+		if (!ItemAdd(bb, id))
 			return;
 
 		//GetForegroundDrawList()->AddRect(cell_r.Min, cell_r.Max, IM_COL32(255, 0, 0, 255)); // [DEBUG]
 		//GetForegroundDrawList()->AddRect(bb.Min, bb.Max, IM_COL32(255, 0, 0, 255)); // [DEBUG]
 
-		// Using AllowItemOverlap mode because we cover the whole cell, and we want user to be able to submit subsequent items.
+		// Using AllowOverlap mode because we cover the whole cell, and we want user to be able to submit subsequent items.
+		const bool highlight = (table->HighlightColumnHeader == column_n);
 		bool hovered, held;
-		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, ImGuiButtonFlags_AllowItemOverlap);
-		if (g.ActiveId != id)
-			ImGui::SetItemAllowOverlap();
-		if (held || hovered || selected) {
-			const ImU32 col = ImGui::GetColorU32(held ? ImGuiCol_HeaderActive : hovered ? ImGuiCol_HeaderHovered
-																						: ImGuiCol_Header);
+		bool pressed = ButtonBehavior(bb, id, &hovered, &held, ImGuiButtonFlags_AllowOverlap);
+		if (held || hovered || highlight) {
+			const ImU32 col = GetColorU32(held ? ImGuiCol_HeaderActive : hovered ? ImGuiCol_HeaderHovered
+																				 : ImGuiCol_Header);
 			//RenderFrame(bb.Min, bb.Max, col, false, 0.0f);
-			ImGui::TableSetBgColor(ImGuiTableBgTarget_CellBg, col, table->CurrentColumn);
-			ImGui::RenderNavHighlight(bb, id, ImGuiNavHighlightFlags_TypeThin | ImGuiNavHighlightFlags_NoRounding);
+			TableSetBgColor(ImGuiTableBgTarget_CellBg, col, table->CurrentColumn);
 		} else {
 			// Submit single cell bg color in the case we didn't submit a full header row
 			if ((table->RowFlags & ImGuiTableRowFlags_Headers) == 0)
-				ImGui::TableSetBgColor(ImGuiTableBgTarget_CellBg, ImGui::GetColorU32(ImGuiCol_TableHeaderBg), table->CurrentColumn);
+				TableSetBgColor(ImGuiTableBgTarget_CellBg, GetColorU32(ImGuiCol_TableHeaderBg), table->CurrentColumn);
 		}
+		RenderNavCursor(bb, id, ImGuiNavRenderCursorFlags_Compact | ImGuiNavRenderCursorFlags_NoRounding);
 		if (held)
 			table->HeldHeaderColumn = (ImGuiTableColumnIdx) column_n;
 		window->DC.CursorPos.y -= g.Style.ItemSpacing.y * 0.5f;
 
 		// Drag and drop to re-order columns.
 		// FIXME-TABLE: Scroll request while reordering a column and it lands out of the scrolling zone.
-		if (held && (table->Flags & ImGuiTableFlags_Reorderable) && ImGui::IsMouseDragging(0) && !g.DragDropActive) {
-			// While moving a column it will jump on the other side of the mouse, so we also test for MouseDelta.x
-			table->ReorderColumn = (ImGuiTableColumnIdx) column_n;
+		if (held && (table->Flags & ImGuiTableFlags_Reorderable) && IsMouseDragging(0) && !g.DragDropActive) {
+			// - While moving a column it will jump on the other side of the mouse, so we also test for MouseDelta.x
+			// - We need to handle reordering across hidden columns.
+			//   In the configuration below, moving C to the right of E will lead to:
+			//      ... C [D] E  --->  ... [D] E  C   (Column name/index)
+			//      ... 2  3  4        ...  2  3  4   (Display order)
+			// - The other constraints are enforced by TableQueueSetColumnDisplayOrder() which might early out.
 			table->InstanceInteracted = table->InstanceCurrent;
-
-			// We don't reorder: through the frozen<>unfrozen line, or through a column that is marked with ImGuiTableColumnFlags_NoReorder.
 			if (g.IO.MouseDelta.x < 0.0f && g.IO.MousePos.x < cell_r.Min.x)
 				if (ImGuiTableColumn* prev_column = (column->PrevEnabledColumn != -1) ? &table->Columns[column->PrevEnabledColumn] : NULL)
-					if (!((column->Flags | prev_column->Flags) & ImGuiTableColumnFlags_NoReorder))
-						if ((column->IndexWithinEnabledSet < table->FreezeColumnsRequest) == (prev_column->IndexWithinEnabledSet < table->FreezeColumnsRequest))
-							table->ReorderColumnDir = -1;
+					TableQueueSetColumnDisplayOrder(table, column_n, prev_column->DisplayOrder);
 			if (g.IO.MouseDelta.x > 0.0f && g.IO.MousePos.x > cell_r.Max.x)
 				if (ImGuiTableColumn* next_column = (column->NextEnabledColumn != -1) ? &table->Columns[column->NextEnabledColumn] : NULL)
-					if (!((column->Flags | next_column->Flags) & ImGuiTableColumnFlags_NoReorder))
-						if ((column->IndexWithinEnabledSet < table->FreezeColumnsRequest) == (next_column->IndexWithinEnabledSet < table->FreezeColumnsRequest))
-							table->ReorderColumnDir = +1;
+					TableQueueSetColumnDisplayOrder(table, column_n, next_column->DisplayOrder);
 		}
 
 		// Sort order arrow
-		const float ellipsis_max = cell_r.Max.x - w_arrow - w_sort_text;
+		const float ellipsis_max = ImMax(cell_r.Max.x - w_arrow - w_sort_text, label_pos.x);
 		if ((table->Flags & ImGuiTableFlags_Sortable) && !(column->Flags & ImGuiTableColumnFlags_NoSort)) {
 			if (column->SortOrder != -1) {
 				float x = ImMax(cell_r.Min.x, cell_r.Max.x - w_arrow - w_sort_text);
 				float y = label_pos.y;
 				if (column->SortOrder > 0) {
-					ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorU32(ImGuiCol_Text, 0.70f));
-					ImGui::RenderText(ImVec2(x + g.Style.ItemInnerSpacing.x, y), sort_order_suf);
-					ImGui::PopStyleColor();
+					PushStyleColor(ImGuiCol_Text, GetColorU32(ImGuiCol_Text, 0.70f));
+					RenderText(ImVec2(x + g.Style.ItemInnerSpacing.x, y), sort_order_suf);
+					PopStyleColor();
 					x += w_sort_text;
 				}
-				ImGui::RenderArrow(window->DrawList, ImVec2(x, y), ImGui::GetColorU32(ImGuiCol_Text), column->SortDirection == ImGuiSortDirection_Ascending ? ImGuiDir_Up : ImGuiDir_Down, ARROW_SCALE);
+				RenderArrow(window->DrawList, ImVec2(x, y), GetColorU32(ImGuiCol_Text), column->SortDirection == ImGuiSortDirection_Ascending ? ImGuiDir_Up : ImGuiDir_Down, ARROW_SCALE);
 			}
 
 			// Handle clicking on column header to adjust Sort Order
 			if (pressed && table->ReorderColumn != column_n) {
-				ImGuiSortDirection sort_direction = ImGui::TableGetColumnNextSortDirection(column);
-				ImGui::TableSetColumnSortDirection(column_n, sort_direction, g.IO.KeyShift);
+				ImGuiSortDirection sort_direction = TableGetColumnNextSortDirection(column);
+				TableSetColumnSortDirection(column_n, sort_direction, g.IO.KeyShift);
 			}
 		}
 
@@ -266,7 +265,7 @@ namespace ImGuiEx {
 		// be merged into a single draw call.
 		//window->DrawList->AddCircleFilled(ImVec2(ellipsis_max, label_pos.y), 40, IM_COL32_WHITE);
 		if (show_label) {
-			// ImGui::RenderTextEllipsis(window->DrawList, label_pos, ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max,
+			// RenderTextEllipsis(window->DrawList, label_pos, ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max,
 			// 	ellipsis_max, label, label_end, &label_size);
 
 			float newX = label_pos.x;
@@ -275,18 +274,18 @@ namespace ImGuiEx {
 				case Alignment::Center:
 					// newX = label_pos.x + ((ellipsis_max - label_pos.x) / 2) - (label_size.x / 2);
 					newX = label_pos.x + ((cell_r.Max.x - label_pos.x - table->CellPaddingX) / 2) - (label_size.x / 2);
-					// ImGui::SetCursorPosX(cursorPosX + (textSpace / 2 - contentSize.x / 2));
+					// SetCursorPosX(cursorPosX + (textSpace / 2 - contentSize.x / 2));
 					break;
 				case Alignment::Right:
 					newX = ellipsis_max - label_size.x;
-					// ImGui::SetCursorPosX(cursorPosX + textSpace - contentSize.x);
+					// SetCursorPosX(cursorPosX + textSpace - contentSize.x);
 					break;
 				// nothing to do
 				case Alignment::Left:
 				case Alignment::Unaligned: break;
 			}
 
-			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label, label_end, &label_size);
+			RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, bb.Max.y), ellipsis_max, label, label_end, &label_size);
 		} else {
 			float newX = label_pos.x;
 
@@ -294,32 +293,32 @@ namespace ImGuiEx {
 				case Alignment::Center:
 					// newX = label_pos.x + ((ellipsis_max - label_pos.x) / 2) - (image_size / 2);
 					newX = label_pos.x + ((cell_r.Max.x - label_pos.x - table->CellPaddingX) / 2) - (image_size / 2);
-					// ImGui::SetCursorPosX(cursorPosX + (textSpace / 2 - contentSize.x / 2));
+					// SetCursorPosX(cursorPosX + (textSpace / 2 - contentSize.x / 2));
 					break;
 				case Alignment::Right:
 					newX = ellipsis_max - image_size;
-					// ImGui::SetCursorPosX(cursorPosX + textSpace - contentSize.x);
+					// SetCursorPosX(cursorPosX + textSpace - contentSize.x);
 					break;
 				// nothing to do
 				case Alignment::Left:
 				case Alignment::Unaligned: break;
 			}
 
-			ImRect ibb(ImVec2(newX, label_pos.y), ImVec2(newX, label_pos.y) + image_size);
+			ImRect ibb(ImVec2(newX, label_pos.y), ImVec2(newX + image_size, label_pos.y + image_size));
 
 			window->DrawList->AddImage(texture, ibb.Min, ibb.Max);
 		}
 
-		// const bool text_clipped = label_size.x > (ellipsis_max - label_pos.x);
-		// if (text_clipped && hovered && g.HoveredIdNotActiveTimer > g.TooltipSlowDelay)
-		// ImGui::SetTooltip("%.*s", (int)(label_end - label), label);
-		if (ImGui::IsItemHovered()) {
-			ImGui::SetTooltip("%s", label);
-		}
+		//const bool text_clipped = label_size.x > (ellipsis_max - label_pos.x);
+		// if (text_clipped && hovered && g.ActiveId == 0)
+		// SetItemTooltip("%.*s", (int) (label_end - label), label);
+		if (IsItemHovered()) {
+			SetTooltip("%s", label);
+		}		
 
 		// We don't use BeginPopupContextItem() because we want the popup to stay up even after the column is hidden
-		// if (ImGui::IsMouseReleased(1) && ImGui::IsItemHovered())
-		// ImGui::TableOpenContextMenu(column_n);
+		// if (IsPopupOpenRequestForItem(ImGuiPopupFlags_None, id))
+		// TableOpenContextMenu(column_n);
 	}
 
 	// This code can be used to make the text over the progressBar aligned.
