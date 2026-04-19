@@ -275,6 +275,8 @@ namespace ArcdpsExtension {
 
 		bool mCustomColumnsActiveTemp = false; // only here to allow users to have the custom columns feature disabled.
 
+		static constexpr int IMGUI_TABLE_MAX_DRAW_CHANNELS = 4 + 64 * 2;
+
 		// Utilities to control ImGui, use these instead of ImGui directly!
 	protected:
 		/**
@@ -639,7 +641,7 @@ namespace ArcdpsExtension {
 
 		static ImGuiSortDirection GetColumnAvailSortDirection(TableColumn* column, int n) {
 			IM_ASSERT(n < column->SortDirectionsAvailCount);
-			return (column->SortDirectionsAvailList >> (n << 1)) & 0x03;
+			return (ImGuiSortDirection)((column->SortDirectionsAvailList >> (n << 1)) & 0x03);
 		}
 
 		void EndCell();
@@ -773,7 +775,7 @@ namespace ArcdpsExtension {
 
 			for (const auto& column : mColumns) {
 				if (NextColumn()) {
-					ColumnHeader(column.Name(), false, column.Texture(), getHeaderAlignment(), column.Popup());
+					ColumnHeader(column.Name(), false, (ImTextureID)column.Texture(), getHeaderAlignment(), column.Popup());
 				}
 			}
 
@@ -975,9 +977,9 @@ namespace ArcdpsExtension {
 	void MainTable<MaxColumnCount>::BeginInitMemory(int columns_count) {
 		// Allocate single buffer for our arrays
 		ImSpanAllocator<3> span_allocator;
-		span_allocator.ReserveBytes(0, columns_count * sizeof(TableColumn));
-		span_allocator.ReserveBytes(1, columns_count * sizeof(TableColumnIdx));
-		span_allocator.ReserveBytes(2, columns_count * sizeof(ImGuiTableCellData));
+		span_allocator.Reserve(0, columns_count * sizeof(TableColumn));
+		span_allocator.Reserve(1, columns_count * sizeof(TableColumnIdx));
+		span_allocator.Reserve(2, columns_count * sizeof(ImGuiTableCellData));
 		mTable.RawData = IM_ALLOC(span_allocator.GetArenaSizeInBytes());
 		memset(mTable.RawData, 0, span_allocator.GetArenaSizeInBytes());
 		span_allocator.SetArenaBasePtr(mTable.RawData);
@@ -1307,7 +1309,7 @@ namespace ArcdpsExtension {
 			// Allocate width for stretched/weighted columns (StretchWeight gets converted into WidthRequest)
 			if (column->Flags & ImGuiTableColumnFlags_WidthStretch) {
 				float weight_ratio = column->StretchWeight / stretch_sum_weights;
-				column->WidthRequest = IM_FLOOR(ImMax(width_avail_for_stretched_columns * weight_ratio, mTable.MinColumnWidth) + 0.01f);
+				column->WidthRequest = IM_TRUNC(ImMax(width_avail_for_stretched_columns * weight_ratio, mTable.MinColumnWidth) + 0.01f);
 				width_remaining_for_stretched_columns -= column->WidthRequest;
 			}
 
@@ -1338,7 +1340,7 @@ namespace ArcdpsExtension {
 		mTable.HoveredColumnBody = -1;
 		mTable.HoveredColumnBorder = -1;
 		const ImRect mouse_hit_rect(mTable.OuterRect.Min.x, mTable.OuterRect.Min.y, mTable.OuterRect.Max.x, ImMax(mTable.OuterRect.Max.y, mTable.OuterRect.Min.y + mTable.LastOuterHeight));
-		const bool is_hovering_table = ImGui::ItemHoverable(mouse_hit_rect, 0);
+		const bool is_hovering_table = ImGui::ItemHoverable(mouse_hit_rect, 0, ImGuiItemFlags_None);
 
 		// [Part 6] Setup final position, offset, skip/clip states and clipping rectangles, detect hovered column
 		// Process columns in their visible orders as we are comparing the visible order and adjusting host_clip_rect while looping.
@@ -1544,7 +1546,7 @@ namespace ArcdpsExtension {
 			sort_spec->ColumnUserID = column->UserID;
 			sort_spec->ColumnIndex = (TableColumnIdx) column_n;
 			sort_spec->SortOrder = (TableColumnIdx) column->SortOrder;
-			sort_spec->SortDirection = column->SortDirection;
+			sort_spec->SortDirection = (ImGuiSortDirection) column->SortDirection;
 		}
 		mTable.SortSpecs.Specs = sort_specs;
 		mTable.SortSpecs.SpecsCount = mTable.SortSpecsCount;
@@ -1949,8 +1951,8 @@ namespace ArcdpsExtension {
 						merge_clip_rect.Max.y = ImMax(merge_clip_rect.Max.y, host_rect.Max.y);
 
 					remaining_count -= merge_group->ChannelsCount;
-					for (int n = 0; n < IM_ARRAYSIZE(remaining_mask.Storage); n++)
-						remaining_mask.Storage[n] &= ~merge_group->ChannelsMask.Storage[n];
+					for (int n = 0; n < IM_ARRAYSIZE(remaining_mask.Data); n++)
+						remaining_mask.Data[n] &= ~merge_group->ChannelsMask.Data[n];
 					for (int n = 0; n < splitter->_Count && merge_channels_count != 0; n++) {
 						// Copy + overwrite new clip rect
 						if (!merge_group->ChannelsMask.TestBit(n))
@@ -2271,7 +2273,7 @@ namespace ArcdpsExtension {
 			ImGui::KeepAliveID(column_id);
 
 			bool hovered = false, held = false;
-			bool pressed = ImGui::ButtonBehavior(hit_rect, column_id, &hovered, &held, ImGuiButtonFlags_FlattenChildren | ImGuiButtonFlags_AllowItemOverlap | ImGuiButtonFlags_PressedOnClick | ImGuiButtonFlags_PressedOnDoubleClick);
+			bool pressed = ImGui::ButtonBehavior(hit_rect, column_id, &hovered, &held, ImGuiButtonFlags_FlattenChildren | ImGuiButtonFlags_AllowOverlap | ImGuiButtonFlags_PressedOnClick | ImGuiButtonFlags_PressedOnDoubleClick);
 			if (pressed && ImGui::IsMouseDoubleClicked(0)) {
 				SetColumnWidthAutoSingle(column_n);
 				ImGui::ClearActiveID();
@@ -2388,6 +2390,7 @@ namespace ArcdpsExtension {
 	template<size_t MaxColumnCount>
 	requires SmallerThanMaxColumnAmount<MaxColumnCount>
 	void MainTable<MaxColumnCount>::BeginCell(int column_n) {
+		ImGuiContext& g = *GImGui;
 		TableColumn* column = &mTable.Columns[column_n];
 		ImGuiWindow* window = mTable.InnerWindow;
 		mTable.CurrentColumn = column_n;
@@ -2415,8 +2418,8 @@ namespace ArcdpsExtension {
 
 		window->SkipItems = column->IsSkipItems;
 		if (column->IsSkipItems) {
-			window->DC.LastItemId = 0;
-			window->DC.LastItemStatusFlags = 0;
+			g.LastItemData.ID = 0;
+			g.LastItemData.StatusFlags = 0;
 		}
 
 		if (mTable.Flags & ImGuiTableFlags_NoClip) {
@@ -2698,7 +2701,7 @@ namespace ArcdpsExtension {
 		ImVec2 actual_outer_size = ImGui::CalcItemSize(outer_size, ImMax(avail_size.x, 1.0f), use_child_window ? ImMax(avail_size.y, 1.0f) : 0.0f);
 		ImRect outer_rect(outer_window->DC.CursorPos, outer_window->DC.CursorPos + actual_outer_size);
 
-		if (use_child_window && ImGui::IsClippedEx(outer_rect, 0, false)) {
+		if (use_child_window && ImGui::IsClippedEx(outer_rect, 0)) {
 			ImGui::ItemSize(outer_rect);
 			// This causes issues with the killproof.me plugin.
 			// Removing this return will fix those, if you find issues with the removal of this return tell me.
@@ -3288,15 +3291,15 @@ namespace ArcdpsExtension {
 
 		// Using AllowItemOverlap mode because we cover the whole cell, and we want user to be able to submit subsequent items.
 		bool hovered, held;
-		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, ImGuiButtonFlags_AllowItemOverlap);
-		if (g.ActiveId != id)
-			ImGui::SetItemAllowOverlap();
+		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, ImGuiButtonFlags_AllowOverlap);
+		// if (g.ActiveId != id)
+		//	ImGui::SetItemAllowOverlap();
 		if (held || hovered || selected) {
 			const ImU32 col = ImGui::GetColorU32(held ? ImGuiCol_HeaderActive : hovered ? ImGuiCol_HeaderHovered
 																						: ImGuiCol_Header);
 			//RenderFrame(bb.Min, bb.Max, col, false, 0.0f);
 			SetBgColor(ImGuiTableBgTarget_CellBg, col, mTable.CurrentColumn);
-			ImGui::RenderNavHighlight(bb, id, ImGuiNavHighlightFlags_TypeThin | ImGuiNavHighlightFlags_NoRounding);
+			ImGui::RenderNavHighlight(bb, id, ImGuiNavRenderCursorFlags_Compact | ImGuiNavHighlightFlags_NoRounding);
 		} else {
 			// Submit single cell bg color in the case we didn't submit a full header row
 			if ((mTable.RowFlags & ImGuiTableRowFlags_Headers) == 0)
@@ -3372,7 +3375,7 @@ namespace ArcdpsExtension {
 				case Alignment::Unaligned: break;
 			}
 
-			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label.data(), label.data() + label.size(), &label_size);
+			ImGui::RenderTextEllipsis(window->DrawList, ImVec2(newX, label_pos.y), ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, label.data(), label.data() + label.size(), &label_size);
 		} else {
 			float newX = label_pos.x;
 
