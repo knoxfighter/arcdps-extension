@@ -4,3 +4,4 @@ ImGui upgrade steps:
 - Copy ProgressBar() from upstream ImGui into AlignedProgressBar() and re-add the code related to alignment.
 - Copy BeginMenu() from upstream ImGui and re-add the code related to.
 - Copy the bottom part of TableDrawContextMenu() from upstream ImGui to MenuItemTableColumnVisibility().
+- Copy BeginTableEx() from upstream ImGui and re-add the code related to child flags.
