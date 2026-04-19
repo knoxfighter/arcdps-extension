@@ -701,7 +701,7 @@ namespace ImGuiEx {
 		if (column.IsEnabled && table->ColumnsEnabledCount <= 1)
 			menu_item_active = false;
 		if (ImGui::MenuItem(columnName, NULL, column.IsEnabled, menu_item_active))
-			column.IsEnabledNextFrame = !column.IsEnabled;
+			column.IsUserEnabledNextFrame = !column.IsEnabled;
 	}
 
 	ImRect TableGetCurrentRowRect() {
