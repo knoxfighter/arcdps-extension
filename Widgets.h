@@ -337,7 +337,7 @@ namespace ImGuiEx {
 
 			ImGui::PopStyleColor(2);
 
-			if (ImGui::ListBoxHeader("###FilteredCombo_ItemList")) {
+			if (ImGui::BeginListBox("###FilteredCombo_ItemList")) {
 				for (const auto& value : valueCache) {
 					const auto& val = std::get<1>(value);
 					const bool itemSelected = (val == pCurrent);
@@ -349,7 +349,7 @@ namespace ImGuiEx {
 					if (itemSelected)
 						ImGui::SetItemDefaultFocus();
 				}
-				ImGui::ListBoxFooter();
+				ImGui::EndListBox();
 			}
 			ImGui::PopItemWidth();
 			ImGui::EndPopup();
@@ -357,7 +357,7 @@ namespace ImGuiEx {
 
 
 		if (valueChanged)
-			ImGui::MarkItemEdited(g.CurrentWindow->DC.LastItemId);
+			ImGui::MarkItemEdited(g.LastItemData.ID);
 
 		return valueChanged;
 	}
