@@ -324,7 +324,7 @@ namespace ImGuiEx {
 	// This code can be used to make the text over the progressBar aligned.
 	// This also uses imgui internals, which are likely to change between versions.
 	void AlignedProgressBar(float fraction, const ImVec2& size_arg, const char* overlay, Alignment alignment) {
-		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		ImGuiWindow* window = GetCurrentWindow();
 		if (window->SkipItems)
 			return;
 
@@ -332,43 +332,66 @@ namespace ImGuiEx {
 		const ImGuiStyle& style = g.Style;
 
 		ImVec2 pos = window->DC.CursorPos;
-		ImVec2 size = ImGui::CalcItemSize(size_arg, ImGui::CalcItemWidth(), g.FontSize + style.FramePadding.y * 2.0f);
+		ImVec2 size = CalcItemSize(size_arg, CalcItemWidth(), g.FontSize + style.FramePadding.y * 2.0f);
 		ImRect bb(pos, pos + size);
-		ImGui::ItemSize(size, style.FramePadding.y);
-		if (!ImGui::ItemAdd(bb, 0))
+		ItemSize(size, style.FramePadding.y);
+		if (!ItemAdd(bb, 0))
 			return;
 
-		// Render
-		fraction = ImSaturate(fraction);
-		ImGui::RenderFrame(bb.Min, bb.Max, ImGui::GetColorU32(ImGuiCol_FrameBg), true, style.FrameRounding);
-		bb.Expand(ImVec2(-style.FrameBorderSize, -style.FrameBorderSize));
-		const ImVec2 fill_br = ImVec2(ImLerp(bb.Min.x, bb.Max.x, fraction), bb.Max.y);
-		ImGui::RenderRectFilledRangeH(window->DrawList, bb, ImGui::GetColorU32(ImGuiCol_PlotHistogram), 0.0f, fraction, style.FrameRounding);
+		// Fraction < 0.0f will display an indeterminate progress bar animation
+		// The value must be animated along with time, so e.g. passing '-1.0f * ImGui::GetTime()' as fraction works.
+		const bool is_indeterminate = (fraction < 0.0f);
+		if (!is_indeterminate)
+			fraction = ImSaturate(fraction);
 
-		// Default displaying the fraction as percentage string, but user can override it
-		char overlay_buf[32];
-		if (!overlay) {
-			ImFormatString(overlay_buf, IM_ARRAYSIZE(overlay_buf), "%.0f%%", fraction * 100 + 0.01f);
-			overlay = overlay_buf;
+		// Out of courtesy we accept a NaN fraction without crashing
+		float fill_n0 = 0.0f;
+		float fill_n1 = (fraction == fraction) ? fraction : 0.0f;
+
+		if (is_indeterminate) {
+			const float fill_width_n = 0.2f;
+			fill_n0 = ImFmod(-fraction, 1.0f) * (1.0f + fill_width_n) - fill_width_n;
+			fill_n1 = ImSaturate(fill_n0 + fill_width_n);
+			fill_n0 = ImSaturate(fill_n0);
 		}
 
-		ImVec2 overlay_size = ImGui::CalcTextSize(overlay, NULL);
-		if (overlay_size.x > 0.0f) {
-			switch (alignment) {
-				case Alignment::Left:
-					ImGui::RenderTextClipped(bb.Min, bb.Max, overlay, NULL, &overlay_size, ImVec2(0.f, 0.f), &bb);
-					break;
-				case Alignment::Center:
-					ImGui::RenderTextClipped(bb.Min, bb.Max, overlay, NULL, &overlay_size, ImVec2(0.5f, 0.5f), &bb);
-					break;
-				case Alignment::Right:
-					ImGui::RenderTextClipped(bb.Min, bb.Max, overlay, NULL, &overlay_size, ImVec2(1.f, 0.f), &bb);
-					break;
-				default:
-					ImGui::RenderTextClipped(
-							ImVec2(ImClamp(fill_br.x + style.ItemSpacing.x, bb.Min.x, bb.Max.x - overlay_size.x - style.ItemInnerSpacing.x), bb.Min.y), bb.Max,
-							overlay, NULL, &overlay_size, ImVec2(0.0f, 0.5f), &bb
-					);
+		// Render
+		RenderFrame(bb.Min, bb.Max, GetColorU32(ImGuiCol_FrameBg), true, style.FrameRounding);
+		bb.Expand(ImVec2(-style.FrameBorderSize, -style.FrameBorderSize));
+		float fill_x0 = ImLerp(bb.Min.x, bb.Max.x, fill_n0);
+		float fill_x1 = ImLerp(bb.Min.x, bb.Max.x, fill_n1);
+		if (fill_x0 < fill_x1)
+			RenderRectFilledInRangeH(window->DrawList, bb, GetColorU32(ImGuiCol_PlotHistogram), fill_x0, fill_x1, style.FrameRounding);
+
+		// Default displaying the fraction as percentage string, but user can override it
+		// Don't display text for indeterminate bars by default
+		char overlay_buf[32];
+		if (!is_indeterminate || overlay != NULL) {
+			if (!overlay) {
+				ImFormatString(overlay_buf, IM_COUNTOF(overlay_buf), "%.0f%%", fraction * 100 + 0.01f);
+				overlay = overlay_buf;
+			}
+
+			ImVec2 overlay_size = CalcTextSize(overlay, NULL);
+			if (overlay_size.x > 0.0f) {
+				ImVec2 alignRender = ImVec2(0.0f, 0.5f);
+				switch (alignment) {
+					case Alignment::Left:
+						alignRender = ImVec2(0.f, 0.f);
+						break;
+					case Alignment::Center:
+						alignRender = ImVec2(0.5f, 0.5f);
+						break;
+					case Alignment::Right:
+						alignRender = ImVec2(1.f, 0.f);
+						break;
+				}
+
+				float text_x = is_indeterminate ? (bb.Min.x + bb.Max.x - overlay_size.x) * 0.5f : fill_x1 + style.ItemSpacing.x;
+				RenderTextClipped(
+						ImVec2(ImClamp(text_x, bb.Min.x, bb.Max.x - overlay_size.x - style.ItemInnerSpacing.x), bb.Min.y), bb.Max,
+						overlay, NULL, &overlay_size, alignRender, &bb
+				);
 			}
 		}
 	}
