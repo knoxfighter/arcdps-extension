@@ -89,7 +89,7 @@ void ArcdpsExtension::MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWi
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(4, 4));
 	if (ImGuiEx::BeginPopupContextWindow(nullptr, 1, ImGuiHoveredFlags_ChildWindows)) {
 		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
-		ImGui::PushItemFlag(ImGuiItemFlags_SelectableDontClosePopup, true);
+		ImGui::PushItemFlag(ImGuiItemFlags_AutoClosePopups, true);
 
 		DrawContextMenu();
 
