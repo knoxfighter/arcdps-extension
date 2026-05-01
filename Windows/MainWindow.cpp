@@ -87,7 +87,7 @@ void ArcdpsExtension::MainWindow::Draw(ImGuiWindowFlags imGuiWindowFlags, MainWi
 	mThisWindow = ImGui::GetCurrentWindow();
 
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(4, 4));
-	if (ImGuiEx::BeginPopupContextWindow(nullptr, 1, ImGuiHoveredFlags_ChildWindows)) {
+	if (ImGuiEx::BeginPopupContextWindow(nullptr, ImGuiPopupFlags_MouseButtonRight, ImGuiHoveredFlags_ChildWindows)) {
 		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
 		ImGui::PushItemFlag(ImGuiItemFlags_AutoClosePopups, true);
 
