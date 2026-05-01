@@ -9,6 +9,7 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <string_view>
 
 namespace ArcdpsExtension {
 	class DemoTableWindow final : public MainWindow, public Singleton<DemoTableWindow> {

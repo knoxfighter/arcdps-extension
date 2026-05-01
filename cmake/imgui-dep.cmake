@@ -1,4 +1,5 @@
 find_package(imgui CONFIG REQUIRED)
+find_package(rapidfuzz CONFIG)
 
 target_compile_definitions(${PROJECT_NAME} PUBLIC IMGUI_DEFINE_MATH_OPERATORS)
 target_compile_definitions(${PROJECT_NAME} PRIVATE ARCDPS_EXTENSION_IMGUI)
@@ -32,3 +33,4 @@ target_sources(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC imgui::imgui)
+target_link_libraries(${PROJECT_NAME} PUBLIC rapidfuzz::rapidfuzz)

@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <cctype>
+#include <cerrno>
 #include <charconv>
 #include <compare>
 #include <cstdio>

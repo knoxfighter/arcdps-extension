@@ -7,6 +7,7 @@
 #include <imgui/imgui.h>
 #include <optional>
 #include <string>
+#include <string_view>
 
 namespace ArcdpsExtension {
 	class DemoWindow final : public MainWindow, public Singleton<DemoWindow> {

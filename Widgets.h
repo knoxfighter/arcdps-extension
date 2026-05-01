@@ -1,7 +1,6 @@
 #pragma once
 
 #include "arcdps_structs.h"
-#include "rapidfuzz_amalgamated.hpp"
 
 #include <algorithm>
 #include <cfloat>
@@ -16,6 +15,7 @@
 #include <map>
 #include <optional>
 #include <ranges>
+#include <rapidfuzz/fuzz.hpp>
 #include <string>
 #include <string_view>
 #include <tuple>

@@ -1,7 +1,5 @@
 #include "Widgets.h"
 
-#include "ImGui_Math.h"
-
 #include <cstdlib>
 #include <stdexcept>
 #include <cassert>

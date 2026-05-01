@@ -7,7 +7,7 @@
         "debug-windows-clang"
       ],
       "cacheVariables": {
-        "CMAKE_CXX_INCLUDE_WHAT_YOU_USE": "C:\\Data\\Development\\C++\\include-what-you-use\\cmake-build-release-clang\\bin\\Release\\include-what-you-use.exe;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\msvc-stl.imp;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\imgui.imp;-Xiwyu;--quoted_includes_first;;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\nlohmann_json.imp;-Xiwyu;--quoted_includes_first;-Xiwyu;--no_fwd_decls"
+        "CMAKE_CXX_INCLUDE_WHAT_YOU_USE": "C:\\Data\\Development\\C++\\include-what-you-use\\cmake-build-release-clang\\bin\\Release\\include-what-you-use.exe;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\msvc-stl.imp;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\imgui.imp;-Xiwyu;--quoted_includes_first;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\nlohmann_json.imp;-Xiwyu;--mapping_file=C:\\Data\\Development\\misc\\IWYUMappings\\rapidfuzz.imp;-Xiwyu;--quoted_includes_first;-Xiwyu;--no_fwd_decls"
       },
       "condition": {
         "type": "equals",

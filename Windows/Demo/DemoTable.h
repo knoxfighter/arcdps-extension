@@ -4,7 +4,6 @@
 #include "../MainWindow.h"
 #include "../../arcdps_structs.h"
 
-#include <functional>
 #include <imgui/imgui.h>
 #include <string>
 #include <vector>

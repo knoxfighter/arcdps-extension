@@ -60,7 +60,6 @@ target_sources(${PROJECT_NAME}
 		MobIDs.h
 		MumbleLink.h
 		nlohmannJsonExtension.h
-		rapidfuzz_amalgamated.hpp
 		SimpleRingBuffer.h
 		Singleton.h
 		UpdateCheckerBase.h

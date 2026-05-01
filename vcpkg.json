@@ -16,7 +16,8 @@
       "imgui": {
         "description": "make imgui tools available",
         "dependencies": [
-          "imgui"
+          "imgui",
+          "rapidfuzz-cpp"
         ]
       },
       "unofficial-extras": {
