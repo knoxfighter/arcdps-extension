@@ -67,6 +67,8 @@ namespace ArcdpsExtension {
 			std::string DownloadUrl;
 		};
 
+		virtual ~UpdateCheckerBase() = default;
+
 		static std::expected<Version, std::string> GetCurrentVersion(HMODULE dll) noexcept;
 		void ClearFiles(HMODULE pDll) noexcept;
 		std::unique_ptr<UpdateState> CheckForUpdate(HMODULE pDll, const Version& pCurrentVersion, std::string&& pRepo, bool pAllowPreRelease) noexcept;

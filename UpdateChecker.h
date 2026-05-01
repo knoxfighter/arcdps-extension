@@ -13,10 +13,15 @@ namespace ArcdpsExtension {
 	 * - Localization.h<br>
 	 * - Singleton of this library (it has to be setup correctly as well)
 	 */
-	class UpdateChecker final : public UpdateCheckerBase, public Singleton<UpdateChecker> {
+	class UpdateCheckerExtended : public UpdateCheckerBase {
 	public:
 		void Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink);
 		bool HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) override;
 		std::optional<std::string> HttpGet(const std::string& pUrl) override;
+	};
+
+	// This is here for backwards compatibility
+	class UpdateChecker final : public UpdateCheckerExtended, public Singleton<UpdateChecker> {
+
 	};
 } // namespace ArcdpsExtension

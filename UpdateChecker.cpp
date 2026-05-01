@@ -20,7 +20,7 @@
 #include <windows.h>
 #include <shellapi.h>
 
-void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
+void ArcdpsExtension::UpdateCheckerExtended::Draw(const std::unique_ptr<UpdateState>& pUpdateState, const std::string& pPluginName, const std::string& pRepoReleaseLink) {
 	if (!pUpdateState) {
 		// wrongly initialized UpdateChecker, nothing to do here!
 		return;
@@ -75,7 +75,7 @@ void ArcdpsExtension::UpdateChecker::Draw(const std::unique_ptr<UpdateState>& pU
 	}
 }
 
-bool ArcdpsExtension::UpdateChecker::HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) {
+bool ArcdpsExtension::UpdateCheckerExtended::HttpDownload(const std::string& pUrl, const std::filesystem::path& pOutputFile) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<SimpleNetworkStack::Result> promise;
@@ -93,7 +93,7 @@ bool ArcdpsExtension::UpdateChecker::HttpDownload(const std::string& pUrl, const
 	return true;
 }
 
-std::optional<std::string> ArcdpsExtension::UpdateChecker::HttpGet(const std::string& pUrl) {
+std::optional<std::string> ArcdpsExtension::UpdateCheckerExtended::HttpGet(const std::string& pUrl) {
 	auto& networkStack = SimpleNetworkStack::instance();
 
 	std::promise<SimpleNetworkStack::Result> promise;
