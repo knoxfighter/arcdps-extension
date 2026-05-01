@@ -12,5 +12,6 @@ var searchData=
   ['_7esimplenetworkstack_9',['~SimpleNetworkStack',['../classArcdpsExtension_1_1SimpleNetworkStack.html#a1c0c00ffbf0131b2f3f8edcc5373e2ff',1,'ArcdpsExtension::SimpleNetworkStack']]],
   ['_7esingleton_10',['~Singleton',['../classArcdpsExtension_1_1Singleton.html#ae758636b9fa627d617c44429ba39af55',1,'ArcdpsExtension::Singleton']]],
   ['_7etable_11',['~Table',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a9e405d60120cc8ae8833ca66a4b8fbfc',1,'ArcdpsExtension::MainTable::Table']]],
-  ['_7eupdatestate_12',['~UpdateState',['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html#a23eac6371feed8f1399de88ad299e57b',1,'ArcdpsExtension::UpdateCheckerBase::UpdateState']]]
+  ['_7eupdatecheckerbase_12',['~UpdateCheckerBase',['../classArcdpsExtension_1_1UpdateCheckerBase.html#abf5dbae941a51bac7bd83e44472a15c5',1,'ArcdpsExtension::UpdateCheckerBase']]],
+  ['_7eupdatestate_13',['~UpdateState',['../structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html#a23eac6371feed8f1399de88ad299e57b',1,'ArcdpsExtension::UpdateCheckerBase::UpdateState']]]
 ];

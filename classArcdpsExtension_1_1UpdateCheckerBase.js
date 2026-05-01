@@ -10,6 +10,7 @@ var classArcdpsExtension_1_1UpdateCheckerBase =
       [ "UpdateSuccessful", "classArcdpsExtension_1_1UpdateCheckerBase.html#a52ce00d9da634dde7307b39791a28abeaa17305ca980d2b6509105adeebc47fd6", null ],
       [ "UpdateError", "classArcdpsExtension_1_1UpdateCheckerBase.html#a52ce00d9da634dde7307b39791a28abea79fd6265f5bca338afd8e345cf49e9dd", null ]
     ] ],
+    [ "~UpdateCheckerBase", "classArcdpsExtension_1_1UpdateCheckerBase.html#abf5dbae941a51bac7bd83e44472a15c5", null ],
     [ "CheckForUpdate", "classArcdpsExtension_1_1UpdateCheckerBase.html#ae4227ae184549c1da9e480c44bfaf8e7", null ],
     [ "ClearFiles", "classArcdpsExtension_1_1UpdateCheckerBase.html#aa043944c763bf02e3baab3b73171938b", null ],
     [ "GetInstallState", "classArcdpsExtension_1_1UpdateCheckerBase.html#a00a8e01af8a9b3a2e1cb2858ac6bad3f", null ],

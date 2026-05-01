@@ -100,12 +100,12 @@ var NAVTREEINDEX =
 "classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817",
 "classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
 "classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
-"classEventSequencerTests.html",
-"map_8h.html#a56f0859df92a196002560c11835075de",
-"map_8h.html#ae882e785163a16ef96fdbd66bf83cfdc",
-"structArcdpsExtension_1_1MainTableColumn.html#a37d60031d854905f516fa75be01fc510",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a0955e8792898ade074b060641bbec189",
-"structcbtevent.html#a907e11a674a269d415c1eecf107cedec"
+"classArcdpsExtension_1_1UpdateCheckerExtended.html#a39abdd9c1d7c17ffe8a9ffb38e019540",
+"map_8h.html#a559182421cdac9585191d0067643504b",
+"map_8h.html#ae5f0ffce6b38b8fb964011314b469d59",
+"structArcdpsExtension_1_1MainTableColumn.html#a16b5237a2072322ddec5b928fe2f0577",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html",
+"structcbtevent.html#a58e55ba899ef3eabf92ade72a3022439"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

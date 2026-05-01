@@ -73,7 +73,9 @@ var hierarchy =
       [ "SimpleNetworkStackTests", "classSimpleNetworkStackTests.html", null ]
     ] ],
     [ "ArcdpsExtension::UpdateCheckerBase", "classArcdpsExtension_1_1UpdateCheckerBase.html", [
-      [ "ArcdpsExtension::UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", null ]
+      [ "ArcdpsExtension::UpdateCheckerExtended", "classArcdpsExtension_1_1UpdateCheckerExtended.html", [
+        [ "ArcdpsExtension::UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", null ]
+      ] ]
     ] ],
     [ "ArcdpsExtension::UpdateCheckerBase::UpdateState", "structArcdpsExtension_1_1UpdateCheckerBase_1_1UpdateState.html", null ]
 ];

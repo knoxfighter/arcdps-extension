@@ -52,7 +52,7 @@ var searchData=
   ['singleton_3c_20simplenetworkstack_20_3e_49',['Singleton&lt; SimpleNetworkStack &gt;',['../classArcdpsExtension_1_1Singleton.html',1,'ArcdpsExtension']]],
   ['singleton_3c_20updatechecker_20_3e_50',['Singleton&lt; UpdateChecker &gt;',['../classArcdpsExtension_1_1Singleton.html',1,'ArcdpsExtension']]],
   ['singletonmanager_51',['singletonmanager',['../classArcdpsExtension_1_1SingletonManager.html',1,'ArcdpsExtension::SingletonManager'],['../classArcdpsExtension_1_1SingletonManager.html#a2ce82e4cc73e00b582e6d77ad3b29936',1,'ArcdpsExtension::SingletonManager::SingletonManager()']]],
-  ['size_52',['size',['../structarcdps__exports.html#a1874d04f46a9b89c9a9fb60ae41a8619',1,'arcdps_exports::size'],['../classArcdpsExtension_1_1RingBuffer.html#a2e07ace790e73e3973d4a2123bd1492b',1,'ArcdpsExtension::RingBuffer::Size()']]],
+  ['size_52',['size',['../classArcdpsExtension_1_1RingBuffer.html#a2e07ace790e73e3973d4a2123bd1492b',1,'ArcdpsExtension::RingBuffer::Size()'],['../structarcdps__exports.html#a1874d04f46a9b89c9a9fb60ae41a8619',1,'arcdps_exports::size']]],
   ['sizecontenttowindow_53',['SizeContentToWindow',['../arcdps__structs_8h.html#a49de3d7c2318416d2ade99db277cf4dfa52d3604dbf4c4db08d45b5fa5f55d98b',1,'arcdps_structs.h']]],
   ['sizetocontent_54',['SizeToContent',['../arcdps__structs_8h.html#a49de3d7c2318416d2ade99db277cf4dfa988cdf254814d74bf36e17a4aae0add8',1,'arcdps_structs.h']]],
   ['sizingpolicy_55',['SizingPolicy',['../arcdps__structs_8h.html#a49de3d7c2318416d2ade99db277cf4df',1,'arcdps_structs.h']]],

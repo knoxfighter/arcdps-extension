@@ -1,4 +1,5 @@
 var UpdateChecker_8h =
 [
-    [ "ArcdpsExtension::UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", "classArcdpsExtension_1_1UpdateChecker" ]
+    [ "ArcdpsExtension::UpdateCheckerExtended", "classArcdpsExtension_1_1UpdateCheckerExtended.html", "classArcdpsExtension_1_1UpdateCheckerExtended" ],
+    [ "ArcdpsExtension::UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", null ]
 ];

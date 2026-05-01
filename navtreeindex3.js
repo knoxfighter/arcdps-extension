@@ -244,10 +244,10 @@ var NAVTREEINDEX3 =
 "arcdps__structs__slim_8h_source.html":[5,0,4],
 "classArcdpsExtension_1_1BaseSingleton.html":[2,0,0,0],
 "classArcdpsExtension_1_1BaseSingleton.html":[4,0,0,0],
-"classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[2,0,0,0,0],
 "classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[4,0,0,0,0],
-"classArcdpsExtension_1_1CombatEventHandler.html":[2,0,0,1],
+"classArcdpsExtension_1_1BaseSingleton.html#a4172470c85d93f8128d88ca18864961c":[2,0,0,0,0],
 "classArcdpsExtension_1_1CombatEventHandler.html":[4,0,0,1],
-"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[2,0,0,1,35],
-"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[4,0,0,1,35]
+"classArcdpsExtension_1_1CombatEventHandler.html":[2,0,0,1],
+"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[4,0,0,1,35],
+"classArcdpsExtension_1_1CombatEventHandler.html#a03c40e22827c240eacbf0b94ada064d7":[2,0,0,1,35]
 };

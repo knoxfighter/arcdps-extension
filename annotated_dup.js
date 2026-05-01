@@ -24,8 +24,9 @@ var annotated_dup =
       [ "SimpleNetworkStack", "classArcdpsExtension_1_1SimpleNetworkStack.html", "classArcdpsExtension_1_1SimpleNetworkStack" ],
       [ "Singleton", "classArcdpsExtension_1_1Singleton.html", "classArcdpsExtension_1_1Singleton" ],
       [ "SingletonManager", "classArcdpsExtension_1_1SingletonManager.html", "classArcdpsExtension_1_1SingletonManager" ],
-      [ "UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", "classArcdpsExtension_1_1UpdateChecker" ],
-      [ "UpdateCheckerBase", "classArcdpsExtension_1_1UpdateCheckerBase.html", "classArcdpsExtension_1_1UpdateCheckerBase" ]
+      [ "UpdateChecker", "classArcdpsExtension_1_1UpdateChecker.html", null ],
+      [ "UpdateCheckerBase", "classArcdpsExtension_1_1UpdateCheckerBase.html", "classArcdpsExtension_1_1UpdateCheckerBase" ],
+      [ "UpdateCheckerExtended", "classArcdpsExtension_1_1UpdateCheckerExtended.html", "classArcdpsExtension_1_1UpdateCheckerExtended" ]
     ] ],
     [ "nlohmann", null, [
       [ "adl_serializer< std::optional< T > >", "structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html", null ]

@@ -22,7 +22,7 @@ var searchData=
   ['hoveredcolumnbody_19',['HoveredColumnBody',['../structArcdpsExtension_1_1MainTable_1_1Table.html#aafdf11f631cc167aaad1734f0f8b64c9',1,'ArcdpsExtension::MainTable::Table']]],
   ['hoveredcolumnborder_20',['HoveredColumnBorder',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a984a6d7f2fe35d97fcb4fe5e35ad43f1',1,'ArcdpsExtension::MainTable::Table']]],
   ['hoveredtext_21',['HoveredText',['../structArcdpsExtension_1_1Row.html#abd25ea69f13cb9f8be081549e5caaf06',1,'ArcdpsExtension::Row']]],
-  ['httpdownload_22',['httpdownload',['../classArcdpsExtension_1_1UpdateChecker.html#a2a54d551afd897d1a4a8d63f52856f03',1,'ArcdpsExtension::UpdateChecker::HttpDownload()'],['../classArcdpsExtension_1_1UpdateCheckerBase.html#adcebd56346838c622d1a24ae3129ebb4',1,'ArcdpsExtension::UpdateCheckerBase::HttpDownload()']]],
-  ['httpget_23',['httpget',['../classArcdpsExtension_1_1UpdateChecker.html#a5f5ab030affc593327a5e7d4bdf08dd0',1,'ArcdpsExtension::UpdateChecker::HttpGet()'],['../classArcdpsExtension_1_1UpdateCheckerBase.html#acfd3811377ae11f74f00a7153509e335',1,'ArcdpsExtension::UpdateCheckerBase::HttpGet()']]],
+  ['httpdownload_22',['httpdownload',['../classArcdpsExtension_1_1UpdateCheckerExtended.html#ad5285387302af57c760ba8c027a03cfa',1,'ArcdpsExtension::UpdateCheckerExtended::HttpDownload()'],['../classArcdpsExtension_1_1UpdateCheckerBase.html#adcebd56346838c622d1a24ae3129ebb4',1,'ArcdpsExtension::UpdateCheckerBase::HttpDownload()']]],
+  ['httpget_23',['httpget',['../classArcdpsExtension_1_1UpdateCheckerExtended.html#a0cbe558e6ade82d15561090af983392c',1,'ArcdpsExtension::UpdateCheckerExtended::HttpGet()'],['../classArcdpsExtension_1_1UpdateCheckerBase.html#acfd3811377ae11f74f00a7153509e335',1,'ArcdpsExtension::UpdateCheckerBase::HttpGet()']]],
   ['human_24',['Human',['../MumbleLink_8h.html#a9152e19a09e291da64aa17ec75f17937ac1bb19b27818343c1926119b958741b5',1,'MumbleLink.h']]]
 ];
