@@ -683,7 +683,7 @@ namespace ImGuiEx {
 		if (!str_id)
 			str_id = "window_context";
 		ImGuiID id = window->GetID(str_id);
-		int mouse_button = (popup_flags & ImGuiPopupFlags_MouseButtonMask_);
+		ImGuiMouseButton mouse_button = GetMouseButtonFromPopupFlags(popup_flags);
 		hovered_flags |= ImGuiHoveredFlags_AllowWhenBlockedByPopup;
 		if (ImGui::IsMouseReleased(mouse_button) && ImGui::IsWindowHovered(hovered_flags))
 			if (!(popup_flags & ImGuiPopupFlags_NoOpenOverItems) || !ImGui::IsAnyItemHovered())
