@@ -14,7 +14,7 @@ var searchData=
   ['sortdirectionsavailcount_11',['SortDirectionsAvailCount',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#afeac239819a02a537f3fab7c83017798',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['sortdirectionsavaillist_12',['SortDirectionsAvailList',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#ab825ebc7653f30fe47db9593cd95b050',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['sortdirectionsavailmask_13',['SortDirectionsAvailMask',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a4e53c8d09c80d210f10b6aa3f8ebf539',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['sortorder_14',['sortorder',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a0a48ea478ed431a115283e203a152488',1,'ArcdpsExtension::MainTable::TableColumn::SortOrder'],['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#aecc658fab01d011ffd5eaabb2d235eb5',1,'ArcdpsExtension::MainTable::TableColumnSettings::SortOrder']]],
+  ['sortorder_14',['sortorder',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#aecc658fab01d011ffd5eaabb2d235eb5',1,'ArcdpsExtension::MainTable::TableColumnSettings::SortOrder'],['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a0a48ea478ed431a115283e203a152488',1,'ArcdpsExtension::MainTable::TableColumn::SortOrder']]],
   ['sortspecs_15',['SortSpecs',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a01ccbf62cd3fd72a8354922a2e2fd3d7',1,'ArcdpsExtension::MainTable::Table']]],
   ['sortspecscount_16',['SortSpecsCount',['../structArcdpsExtension_1_1MainTable_1_1Table.html#ad021193e0fae40e3cb4297d861c10bf6',1,'ArcdpsExtension::MainTable::Table']]],
   ['sortspecsmulti_17',['SortSpecsMulti',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a42bf2bbe989b7f42ca68094816603aa7',1,'ArcdpsExtension::MainTable::Table']]],
@@ -22,13 +22,9 @@ var searchData=
   ['source_19',['Source',['../structArcdpsExtension_1_1EventSequencer_1_1Event.html#a91da4cc0a4c620dd88eb0db4418a2b9a',1,'ArcdpsExtension::EventSequencer::Event']]],
   ['spec_20',['spec',['../structIdentity.html#a2bdaa4757a2e6c1d7cd6eab5b6d059aa',1,'Identity']]],
   ['src_5fagent_21',['src_agent',['../structcbtevent.html#a130fb2a45383e7f42a385827284f6f63',1,'cbtevent']]],
-  ['src_5fbegin_22',['src_begin',['../structrapidfuzz_1_1Opcode.html#a8910e5546998d7b455bad53445b94ba2',1,'rapidfuzz::Opcode']]],
-  ['src_5fend_23',['src_end',['../structrapidfuzz_1_1Opcode.html#a3d6acf8baa8c0f87ca58a842bfae077b',1,'rapidfuzz::Opcode']]],
-  ['src_5finstid_24',['src_instid',['../structcbtevent.html#a907e11a674a269d415c1eecf107cedec',1,'cbtevent']]],
-  ['src_5fmaster_5finstid_25',['src_master_instid',['../structcbtevent.html#addc74ccf00a31cb991d6e28da3497af1',1,'cbtevent']]],
-  ['src_5fpos_26',['src_pos',['../structrapidfuzz_1_1EditOp.html#a58318bcec6cd13c7aedfc5a667d9b297',1,'rapidfuzz::EditOp']]],
-  ['state_27',['state',['../UpdateCheckerTest_8cpp.html#abdebc933e68845b36fb607e9cce6921d',1,'UpdateCheckerTest.cpp']]],
-  ['str_28',['Str',['../structInputTextCallback__UserData.html#af4af934be464cc04c79ee922e697e2d8',1,'InputTextCallback_UserData']]],
-  ['stretchweight_29',['StretchWeight',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#acda9286c29a0ee38aa01e379f5df2b44',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['suffix_5flen_30',['suffix_len',['../structrapidfuzz_1_1StringAffix.html#aab735d2ae72220592886a6f08356a874',1,'rapidfuzz::StringAffix']]]
+  ['src_5finstid_22',['src_instid',['../structcbtevent.html#a907e11a674a269d415c1eecf107cedec',1,'cbtevent']]],
+  ['src_5fmaster_5finstid_23',['src_master_instid',['../structcbtevent.html#addc74ccf00a31cb991d6e28da3497af1',1,'cbtevent']]],
+  ['state_24',['state',['../UpdateCheckerTest_8cpp.html#abdebc933e68845b36fb607e9cce6921d',1,'UpdateCheckerTest.cpp']]],
+  ['str_25',['Str',['../structInputTextCallback__UserData.html#af4af934be464cc04c79ee922e697e2d8',1,'InputTextCallback_UserData']]],
+  ['stretchweight_26',['StretchWeight',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#acda9286c29a0ee38aa01e379f5df2b44',1,'ArcdpsExtension::MainTable::TableColumn']]]
 ];

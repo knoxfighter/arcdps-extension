@@ -15,7 +15,7 @@ var searchData=
   ['nightmarehallucination2_12',['NightmareHallucination2',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a4569b7ea1abf378a453b53dbae06eef8',1,'MobIDs.h']]],
   ['nightmarehallucinationsiax_13',['NightmareHallucinationSiax',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ab1dc84da36c5edd3b2d69f3a3f4ce914',1,'MobIDs.h']]],
   ['nikare_14',['Nikare',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a1412cf4eacb006e06be699cb8e535760',1,'MobIDs.h']]],
-  ['none_15',['none',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;arcdps_structs_slim.h'],['../MumbleLink_8h.html#ab1a463827405788af9d5ec6e99990fc8a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;MumbleLink.h'],['../namespacerapidfuzz.html#a84d857af21f99ff0b707fb7c86531ed5a6adf97f83acf6453d4a6a4b1070f3754',1,'rapidfuzz::None']]],
+  ['none_15',['none',['../arcdps__structs__slim_8h.html#a13f5d9da9efbe94da36a80222ab03093a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;arcdps_structs_slim.h'],['../MumbleLink_8h.html#ab1a463827405788af9d5ec6e99990fc8a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;MumbleLink.h']]],
   ['normal_16',['Normal',['../MumbleLink_8h.html#ad95c5f34f5b9787c54deb4d1f12af284a960b44c579bc2f6818d2daaf9e4c16f0',1,'MumbleLink.h']]],
   ['norn_17',['Norn',['../MumbleLink_8h.html#a9152e19a09e291da64aa17ec75f17937abecc67971583f225997d2e534e07271e',1,'MumbleLink.h']]]
 ];

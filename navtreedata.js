@@ -50,8 +50,6 @@ var NAVTREE =
         [ "googletest", "md_Readme.html#autotoc_md18", null ]
       ] ]
     ] ],
-    [ "Todo List", "todo.html", null ],
-    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -103,12 +101,11 @@ var NAVTREEINDEX =
 "classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
 "classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
 "classEventSequencerTests.html",
-"group__Common.html#gaf6357c263defb60895a32ab418b55894",
-"map_8h.html#a8a7f8db2d5d4c4ed8cea0e270de075f6",
-"namespaceArcdpsExtension.html#a6998431fecc1df50998647659d658933a46fedd93d3fc9853c085edf37a419a65",
-"structArcdpsExtension_1_1MainTableColumn.html#a9244ef25e04b4342653f182f80a1459d",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a21da4d1bb215ac992574a583ec17fc24",
-"structcbtevent.html#addc74ccf00a31cb991d6e28da3497af1"
+"map_8h.html#a56f0859df92a196002560c11835075de",
+"map_8h.html#ae882e785163a16ef96fdbd66bf83cfdc",
+"structArcdpsExtension_1_1MainTableColumn.html#a37d60031d854905f516fa75be01fc510",
+"structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a0955e8792898ade074b060641bbec189",
+"structcbtevent.html#a907e11a674a269d415c1eecf107cedec"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

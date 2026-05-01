@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cachedwratio_0',['CachedWRatio',['../structrapidfuzz_1_1fuzz_1_1CachedPartialRatio.html#accf215312c82ef2af31ccc462f21adef',1,'rapidfuzz::fuzz::CachedPartialRatio']]]
+  ['from_5fjson_0',['from_json',['../structArcdpsExtension_1_1MainTable_1_1TableColumnSettings.html#aba54567a7ac59ac215aca79906df71cf',1,'ArcdpsExtension::MainTable::TableColumnSettings']]]
 ];

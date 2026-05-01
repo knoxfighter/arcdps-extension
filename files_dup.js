@@ -30,7 +30,6 @@ var files_dup =
     [ "MobIDs.h", "MobIDs_8h.html", "MobIDs_8h" ],
     [ "MumbleLink.h", "MumbleLink_8h.html", "MumbleLink_8h" ],
     [ "nlohmannJsonExtension.h", "nlohmannJsonExtension_8h.html", "nlohmannJsonExtension_8h" ],
-    [ "rapidfuzz_amalgamated.hpp", "rapidfuzz__amalgamated_8hpp.html", "rapidfuzz__amalgamated_8hpp" ],
     [ "SimpleNetworkStack.cpp", "SimpleNetworkStack_8cpp.html", null ],
     [ "SimpleNetworkStack.h", "SimpleNetworkStack_8h.html", "SimpleNetworkStack_8h" ],
     [ "SimpleNetworkStackTests.cpp", "SimpleNetworkStackTests_8cpp.html", "SimpleNetworkStackTests_8cpp" ],

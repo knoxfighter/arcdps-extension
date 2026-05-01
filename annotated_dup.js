@@ -30,43 +30,6 @@ var annotated_dup =
     [ "nlohmann", null, [
       [ "adl_serializer< std::optional< T > >", "structnlohmann_1_1adl__serializer_3_01std_1_1optional_3_01T_01_4_01_4.html", null ]
     ] ],
-    [ "rapidfuzz", "namespacerapidfuzz.html", [
-      [ "common", "namespacerapidfuzz_1_1common.html", [
-        [ "BlockPatternMatchVector", "structrapidfuzz_1_1common_1_1BlockPatternMatchVector.html", "structrapidfuzz_1_1common_1_1BlockPatternMatchVector" ],
-        [ "CharHashTable", "structrapidfuzz_1_1common_1_1CharHashTable.html", "structrapidfuzz_1_1common_1_1CharHashTable" ],
-        [ "CharHashTable< CharT1, ValueType, 1 >", "structrapidfuzz_1_1common_1_1CharHashTable_3_01CharT1_00_01ValueType_00_011_01_4.html", "structrapidfuzz_1_1common_1_1CharHashTable_3_01CharT1_00_01ValueType_00_011_01_4" ],
-        [ "ConstMatrixVectorView", "structrapidfuzz_1_1common_1_1ConstMatrixVectorView.html", "structrapidfuzz_1_1common_1_1ConstMatrixVectorView" ],
-        [ "Matrix", "structrapidfuzz_1_1common_1_1Matrix.html", "structrapidfuzz_1_1common_1_1Matrix" ],
-        [ "MatrixVectorView", "structrapidfuzz_1_1common_1_1MatrixVectorView.html", "structrapidfuzz_1_1common_1_1MatrixVectorView" ],
-        [ "PatternMatchVector", "structrapidfuzz_1_1common_1_1PatternMatchVector.html", "structrapidfuzz_1_1common_1_1PatternMatchVector" ]
-      ] ],
-      [ "detail", "namespacerapidfuzz_1_1detail.html", [
-        [ "difflib", "namespacerapidfuzz_1_1detail_1_1difflib.html", [
-          [ "SequenceMatcher", "classrapidfuzz_1_1detail_1_1difflib_1_1SequenceMatcher.html", "classrapidfuzz_1_1detail_1_1difflib_1_1SequenceMatcher" ]
-        ] ]
-      ] ],
-      [ "fuzz", "namespacerapidfuzz_1_1fuzz.html", [
-        [ "CachedPartialRatio", "structrapidfuzz_1_1fuzz_1_1CachedPartialRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedPartialRatio" ],
-        [ "CachedPartialTokenRatio", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenRatio" ],
-        [ "CachedPartialTokenSetRatio", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenSetRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenSetRatio" ],
-        [ "CachedPartialTokenSortRatio", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenSortRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedPartialTokenSortRatio" ],
-        [ "CachedQRatio", "structrapidfuzz_1_1fuzz_1_1CachedQRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedQRatio" ],
-        [ "CachedRatio", "structrapidfuzz_1_1fuzz_1_1CachedRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedRatio" ],
-        [ "CachedTokenRatio", "structrapidfuzz_1_1fuzz_1_1CachedTokenRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedTokenRatio" ],
-        [ "CachedTokenSetRatio", "structrapidfuzz_1_1fuzz_1_1CachedTokenSetRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedTokenSetRatio" ],
-        [ "CachedTokenSortRatio", "structrapidfuzz_1_1fuzz_1_1CachedTokenSortRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedTokenSortRatio" ],
-        [ "CachedWRatio", "structrapidfuzz_1_1fuzz_1_1CachedWRatio.html", "structrapidfuzz_1_1fuzz_1_1CachedWRatio" ]
-      ] ],
-      [ "CachedLevenshtein", "structrapidfuzz_1_1CachedLevenshtein.html", "structrapidfuzz_1_1CachedLevenshtein" ],
-      [ "EditOp", "structrapidfuzz_1_1EditOp.html", "structrapidfuzz_1_1EditOp" ],
-      [ "Editops", "classrapidfuzz_1_1Editops.html", "classrapidfuzz_1_1Editops" ],
-      [ "IteratorView", "classrapidfuzz_1_1IteratorView.html", "classrapidfuzz_1_1IteratorView" ],
-      [ "LevenshteinWeightTable", "structrapidfuzz_1_1LevenshteinWeightTable.html", "structrapidfuzz_1_1LevenshteinWeightTable" ],
-      [ "Opcode", "structrapidfuzz_1_1Opcode.html", "structrapidfuzz_1_1Opcode" ],
-      [ "Opcodes", "classrapidfuzz_1_1Opcodes.html", "classrapidfuzz_1_1Opcodes" ],
-      [ "SplittedSentenceView", "classrapidfuzz_1_1SplittedSentenceView.html", "classrapidfuzz_1_1SplittedSentenceView" ],
-      [ "StringAffix", "structrapidfuzz_1_1StringAffix.html", "structrapidfuzz_1_1StringAffix" ]
-    ] ],
     [ "ag", "structag.html", "structag" ],
     [ "arcdps_exports", "structarcdps__exports.html", "structarcdps__exports" ],
     [ "cbtevent", "structcbtevent.html", "structcbtevent" ],

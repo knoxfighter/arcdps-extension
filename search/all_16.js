@@ -35,13 +35,10 @@ var searchData=
   ['wnd_32',['Wnd',['../classArcdpsExtension_1_1KeyBindHandler.html#a0ed922787995cd2c0f7d29417b4baee5',1,'ArcdpsExtension::KeyBindHandler']]],
   ['wnd_5ffilter_33',['wnd_filter',['../structarcdps__exports.html#a304d29ccc50d45adea39d9a3e8aa90b2',1,'arcdps_exports']]],
   ['wnd_5fnofilter_34',['wnd_nofilter',['../structarcdps__exports.html#ae8f1ef72e8a4bb4f0d5ae86078696542',1,'arcdps_exports']]],
-  ['word_5fcount_35',['word_count',['../classrapidfuzz_1_1SplittedSentenceView.html#afed18b13021484421fa7fd248d9be5ba',1,'rapidfuzz::SplittedSentenceView']]],
-  ['words_36',['words',['../classrapidfuzz_1_1SplittedSentenceView.html#a87804bb43863b6fe1dc437ecac3fd9cf',1,'rapidfuzz::SplittedSentenceView']]],
-  ['workmaxx_37',['WorkMaxX',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a9ea513429c445fc67228ebb64f897049',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['workminx_38',['WorkMinX',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#adc17c79a7463553e719372831da0e2ab',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['workrect_39',['WorkRect',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a4b81c0282b31f37bc3a78cb74f8ce21c',1,'ArcdpsExtension::MainTable::Table']]],
-  ['worldid_40',['worldId',['../structIdentity.html#a5773549ce582ee3f7fb3686e821ca564',1,'Identity']]],
-  ['wratio_41',['wratio',['../group__Fuzz.html#gaa144360e61d1301672d05751ec356123',1,'rapidfuzz::fuzz::WRatio(InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2, double score_cutoff=0)'],['../group__Fuzz.html#ga0d510c43917869e7533d5bb1ba74aef3',1,'rapidfuzz::fuzz::WRatio(const Sentence1 &amp;s1, const Sentence2 &amp;s2, double score_cutoff=0)']]],
-  ['wyvernmatriarch_42',['WyvernMatriarch',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a0e1e75122dd3f29ac28585da74750640',1,'MobIDs.h']]],
-  ['wyvernpatriarch_43',['WyvernPatriarch',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a7b90a7843d852cf6427ce50955dbb0b0',1,'MobIDs.h']]]
+  ['workmaxx_35',['WorkMaxX',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a9ea513429c445fc67228ebb64f897049',1,'ArcdpsExtension::MainTable::TableColumn']]],
+  ['workminx_36',['WorkMinX',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#adc17c79a7463553e719372831da0e2ab',1,'ArcdpsExtension::MainTable::TableColumn']]],
+  ['workrect_37',['WorkRect',['../structArcdpsExtension_1_1MainTable_1_1Table.html#a4b81c0282b31f37bc3a78cb74f8ce21c',1,'ArcdpsExtension::MainTable::Table']]],
+  ['worldid_38',['worldId',['../structIdentity.html#a5773549ce582ee3f7fb3686e821ca564',1,'Identity']]],
+  ['wyvernmatriarch_39',['WyvernMatriarch',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a0e1e75122dd3f29ac28585da74750640',1,'MobIDs.h']]],
+  ['wyvernpatriarch_40',['WyvernPatriarch',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a7b90a7843d852cf6427ce50955dbb0b0',1,'MobIDs.h']]]
 ];

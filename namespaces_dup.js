@@ -52,6 +52,5 @@ var namespaces_dup =
       [ "TreeNodeBehavior", "namespaceImGuiEx.html#a4be780d8891950a8ae8cb9df0276d4a9", null ],
       [ "TreeNodeEx", "namespaceImGuiEx.html#ac150a76ca6c38784d1c32e040b291e5e", null ],
       [ "WindowReposition", "namespaceImGuiEx.html#a6726ec0cda66b92c76bd37e9439b74c0", null ]
-    ] ],
-    [ "rapidfuzz", "namespacerapidfuzz.html", "namespacerapidfuzz" ]
+    ] ]
 ];
