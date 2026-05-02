@@ -84,7 +84,7 @@ var NAVTREE =
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
+        [ "Enumerator", "globals_eval.html", "globals_eval" ],
         [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
@@ -96,16 +96,16 @@ var NAVTREEINDEX =
 "ArcdpsExtension_8cpp.html",
 "MobIDs_8h.html#aa4183a394aa4e7600297584922235450afcbab72c9778ae00ca2bea7571ac403e",
 "MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63ae105e39f83ffa443a7bc4748d028ae83",
-"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30",
-"classArcdpsExtension_1_1CombatEventHandler.html#a0421b95fd173d6f04aa7fc3a821ae817",
-"classArcdpsExtension_1_1KeyBindComponent.html#a796dd5b1f73da73288fc53868ef41bde",
-"classArcdpsExtension_1_1MainWindow.html#ae765113d2b3ec356d54614357b16a2f1",
-"classArcdpsExtension_1_1UpdateCheckerExtended.html#a39abdd9c1d7c17ffe8a9ffb38e019540",
-"map_8h.html#a559182421cdac9585191d0067643504b",
-"map_8h.html#ae5f0ffce6b38b8fb964011314b469d59",
-"structArcdpsExtension_1_1MainTableColumn.html#a16b5237a2072322ddec5b928fe2f0577",
-"structArcdpsExtension_1_1MainTable_1_1TableColumn.html",
-"structcbtevent.html#a58e55ba899ef3eabf92ade72a3022439"
+"arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3",
+"arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ae2c4de471af1c72f724db266b1545530",
+"classArcdpsExtension_1_1DemoWindow.html#ae53effba264543781532d912dc204bfb",
+"classArcdpsExtension_1_1MainWindow.html#a34fb5467a481899aa6463d70c5350485",
+"classArcdpsExtension_1_1SingletonManager.html#a08c044cd7c46097d4242de6c44ded73f",
+"map_8h.html#a23c0d2954c7f53e5cf9e5bde6e142809",
+"map_8h.html#ab83a52d135610f35e602b44ce05c38c9",
+"namespaceImGuiEx.html#ac150a76ca6c38784d1c32e040b291e5e",
+"structArcdpsExtension_1_1MainTable_1_1Table.html#ac0920a999dcaeaa0109916136edb7989",
+"structInputTextCallback__UserData.html#af51bd842c8197c249d4e715d4b0991a7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

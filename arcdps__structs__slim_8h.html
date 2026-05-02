@@ -248,9 +248,9 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:aa03a33a0aa23f08794dfff4bc7b2810c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02aa39376fa6aaf598a43887b429a8de" id="r_a02aa39376fa6aaf598a43887b429a8de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8de">cbtresult</a> { <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea9d45a35a54f0538e377efabd8e27f2c8">CBTR_NORMAL</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea00f9df53829fcb730e524e8e7ba03ae0">CBTR_CRIT</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30">CBTR_GLANCE</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaf1a44156f97d9f956ca2b7742ebd23f8">CBTR_STRIKE_DAMAGENORMAL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaa3331712c308f71933ea859a401ddc7a">CBTR_STRIKE_DAMAGECRIT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead579d3dc9049dec2b1546b6ed81319c9">CBTR_STRIKE_DAMAGEGLANCE</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead964f54e607aae6893dd6e12d73b30b7">CBTR_BLOCK</a>
 , <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea899462eba75fef2e25bcce0cd67b5fdd">CBTR_EVADE</a>
@@ -260,27 +260,36 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea733ea0c55918e26ede6f0db12a9a8730">CBTR_KILLINGBLOW</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea5b5dccd8f21d23566e64ca6d1f6308bd">CBTR_DOWNED</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea5dad179a991e465392b8f554b4d0cc34">CBTR_BREAKBAR</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea7259d0697c3cccc92ebc7a28ed2181f6">CBTR_ACTIVATION</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead3a33a6acdc27594a360fb749cbe53e6">CBTR_DEFIANCE_DAMAGENORMAL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea459c83b6d47a8d0f5a27a5da4cfdc6de">CBTR_SKILLCAST</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002">CBTR_UNKNOWN</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deae707014f7ec52a14abc003ee1e3055b2">CBTR_CROWDCONTROL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea2185d1a880e8ad4bdb483a843c58ffb8">CBTR_INVERT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea92a42d55c0f7f5cebdffb5c5853b99a3">CBTR_BUFF_DAMAGECYCLE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaea382827fc9559e45b7d464acbcf40fa">CBTR_BUFF_DAMAGENOTCYCLE</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8deaea9cc11550abb8d512350c6dd0869908">CBTR_BUFF_DAMAGENOTCYCLEDMGTOTARGETONHIT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea5f8b178009811de845cc0ad440f402f6">CBTR_BUFF_DAMAGENOTCYCLEDMGTOSOURCEONHIT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dea7e5372bff9b8cc3b68de3697f2cd83da">CBTR_BUFF_DAMAGENOTCYCLEDMGTOTARGETONSTACKREMOVE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002">CBTR_UNKNOWN</a>
 <br />
  }</td></tr>
 <tr class="separator:a02aa39376fa6aaf598a43887b429a8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfbc2af9adf51c9b732bec7826ecf5ba" id="r_abfbc2af9adf51c9b732bec7826ecf5ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5ba">cbtactivation</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baabcd91264fb6cbf327e9fa672785191d7">ACTV_NONE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa3587cb76f5b38e774de6ec6135b98d63">ACTV_START</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baab89809880843377438b3a608fd7cdda8">ACTV_QUICKNESS_UNUSED</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa6c19450e00e54485daf35780710f8d60">ACTV_CANCEL_FIRE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa9ea4d16634098481a8e8794c30afe689">ACTV_START_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baaba2b4927234c7dae30daeeaf6626e337">ACTV_QUICKNESS_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baab8bca76e8ed5aee2637c5238773901e5">ACTV_MINIMUM</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baae4ba98e09fe9b61c36896db11748bcca">ACTV_CANCEL_CANCEL</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa4daf2b8248cec72613e1ec2bd3fdd233">ACTV_CANCEL</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa663a237f5bf1115780100f03812d3ce1">ACTV_RESET</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa20f9b2914b5938f82420f9343d844c84">ACTV_NODATA</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#abfbc2af9adf51c9b732bec7826ecf5baa3cf93e520c752fa3089984b42b499625">ACTV_UNKNOWN</a>
 <br />
  }</td></tr>
 <tr class="separator:abfbc2af9adf51c9b732bec7826ecf5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9eaab87ee5fe0145dff56595c6e56f6" id="r_aa9eaab87ee5fe0145dff56595c6e56f6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6">cbtstatechange</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a4261cce68b88e43f7e7d618e9b1cbc3b">CBTS_NONE</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a6272b2a8dc131e16aae86b9e6b19cdef">CBTS_COMBAT</a> = 0
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a4c1a4a502c7ee78e2ee2bbd00c6d593f">CBTS_ENTERCOMBAT</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a5df964c76e702cae1792a563808849d1">CBTS_EXITCOMBAT</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a336d9ce78aa0fd3f07ca9a7621bf8511">CBTS_CHANGEUP</a>
@@ -290,9 +299,9 @@ Enumerations</h2></td></tr>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a9f23acc893c18bdc02b4fd145e559ddf">CBTS_SPAWN</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a1601b40d909e090214d7163a013db401">CBTS_DESPAWN</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a3057cc5e33430a942bb68b8c5ab9e787">CBTS_HEALTHUPDATE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a8111fbe14854b7f21a4ba951f48b6e88">CBTS_LOGSTART</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ae752fbad6ff70dceaf95c1573037eea1">CBTS_LOGEND</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ae1ea33188a1eac8c3e1903fd47a55339">CBTS_HEALTHPCTUPDATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a0851be6c255fc45c4a53065db55f018b">CBTS_SQCOMBATSTART</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a6eb4716ffe86985e0b21b49f5c597fea">CBTS_SQCOMBATEND</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a1a35c9e7d3adc33b7d1688696d0da959">CBTS_WEAPSWAP</a>
 , <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ac8162d0b903dc9841d31ef0115efeadf">CBTS_MAXHEALTHUPDATE</a>
@@ -313,9 +322,9 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a8c18ada5fa0c1b084edaadf0c3b1c6a7">CBTS_TARGETABLE</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a94670a1a6ec913ac48f3d9de12a224ce">CBTS_MAPID</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a5becefdba8b114f683978218f4aae970">CBTS_REPLINFO</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a96b17e0b52cc9b46eeefedc423b4e4ea">CBTS_STACKACTIVE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ad9b92ea1a5a3f83f47872b8f710d6455">CBTS_BUFFACTIVE</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ae5a55d1c6ce3877402afb53b4e03860f">CBTS_STACKRESET</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a5b1bd5620ce2fc5001acbd58494f46f6">CBTS_BUFFDEACTIVE</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab203edb9deab73cdcc5cbf75d2cd44da">CBTS_GUILD</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a8b83080831b1a55cf5eb909564f3308a">CBTS_BUFFINFO</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab61acdf755baa984ca9846bcbf00121e">CBTS_BUFFFORMULA</a>
@@ -325,22 +334,53 @@ Enumerations</h2></td></tr>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ae2c4de471af1c72f724db266b1545530">CBTS_BREAKBARSTATE</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a75036a0bea6839e80a4745b4d25f895a">CBTS_BREAKBARPERCENT</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a81f55e2cffc9ece678cf2e71ae277f5a">CBTS_ERROR</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a1bc40cb5fc5032ced7fe44e5a51ff004">CBTS_TAG</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab4a2ad5e4af167daf8bacd7fced5b219">CBTS_BARRIERUPDATE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a7ebd30451088439a2d8321946c435449">CBTS_STATRESET</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a58aa7f6d7f5c743be12463fbc7c498fc">CBTS_INTEGRITY</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aca832671331c7db0b10b0863069eba99">CBTS_MARKER</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a274ef32419e18ae087b126aa257c5d59">CBTS_BARRIERPCTUPDATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a45af54bb51264ae968f914c9254bc843">CBTS_STATRESET_DEFUNC</a>
 , <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a40103fad39bc3e0196ffde6906fb6bf8">CBTS_EXTENSION</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aa8ed4dc13aa0f200a9d6e1d171b7f302">CBTS_APIDELAYED</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab019fae4e22bb7c848f171a3ab736971">CBTS_INSTANCESTART</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a4b228abbd5d9701b7291bc7df344136e">CBTS_TICKRATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6adf647ab4aaced515de147294e3ab6a92">CBTS_RATEHEALTH</a>
 , <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a3fe58ec08cd90a74d348bb3783a03eac">CBTS_LAST90BEFOREDOWN</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a957d896e90b58c26bafa8bded87793c8">CBTS_EFFECT</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a15d403e543246248b8092779d202d325">CBTS_IDTOGUID</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a1b30e68b24c9ef16b7d65975d87a85b2">CBTS_LOGNPCUPDATE</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a7250b6301b069f6ef8ed8a71d9d98143">CBTS_UNKNOWN</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a954c23e3075940d72856d5a74f1fa1e6">CBTS_IDLEEVENT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a377baabb4d72e38757ed9609800e7bd7">CBTS_EXTENSIONCOMBAT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a411a7f2c34589e6971fef86bac1cb884">CBTS_FRACTALSCALE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a283a057ce17638a3aa01c5278ff84060">CBTS_EFFECT2_DEFUNC</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6af8f89de52be6cfd257dea1fc6f40cacc">CBTS_RULESET</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aebfa7ed798d3d683a022baa33207cb3f">CBTS_SQUADMARKER</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aa6cd9449649a8fc797efeba86a634f6a">CBTS_ARCBUILD</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a04f99b41528ba835ea67d98e9ebe172f">CBTS_GLIDER</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a1fab672230f5c8bf1ba38c41143e17b2">CBTS_STUNBREAK</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a3546f55be4c29c6145f4e5926befe5b5">CBTS_MISSILECREATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a6e51fe710e22f47980b6b2bbc1b9dbc7">CBTS_MISSILELAUNCH</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a24999d8b6c1b5f3dc54f5f58e3f26c80">CBTS_MISSILEREMOVE</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aaf874b86ce1bb029406188561efaacb8">CBTS_EFFECTGROUNDCREATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aa3f43d77c2874bd2e22cf01ea67780fe">CBTS_EFFECTGROUNDREMOVE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab7ae115cd5834311a9318320ccac3e71">CBTS_EFFECTAGENTCREATE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a98e9c0672b0e5d4aa3dca341a8ff143d">CBTS_EFFECTAGENTREMOVE</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6ab656f9b0239ee928f6f713827dbb6b4e">CBTS_IIDCHANGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a133dc1677d7b2d9be46fb87e899881f2">CBTS_MAPCHANGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a061a5606283baac892b098c5acdbb201">CBTS_EARLYEXIT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aaf3de20f7d4bfde085e34234b38a252b">CBTS_ANIMATIONSTART</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6aaa21a3e0a0174de1e26deb3fca71cf55">CBTS_ANIMATIONSTOP</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a71b88ebc6b078e10773fc7f4422e98cd">CBTS_BUFFAPPLY</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a9b7b081e36a61443d0dccedaeaedc49b">CBTS_BUFFCHANGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a34ff155bd5ed0e7ee486303412b4cb40">CBTS_BUFFREMOVE_SINGLE</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a5291747b3a02d27d02fc3a33b776e1c8">CBTS_BUFFREMOVE_ALL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#aa9eaab87ee5fe0145dff56595c6e56f6a7250b6301b069f6ef8ed8a71d9d98143">CBTS_UNKNOWN</a>
 <br />
  }</td></tr>
 <tr class="separator:aa9eaab87ee5fe0145dff56595c6e56f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -354,68 +394,97 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a9e0afb0195fe6f1da81fa72bf1560139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f666159b24eb2e8bbe4dd38f852dc7" id="r_ad3f666159b24eb2e8bbe4dd38f852dc7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7">cbtbuffcycle</a> { <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7afd9bf6fd2230d97f1e61740653764e93">CBTC_CYCLE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7ae16a17da6b9cdcecd0488faa8f640734">CBTC_NOTCYCLE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7a6bc1eeb7aee6d5bd7a89864e911f9e37">CBTC_NOTCYCLENORESIST</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7a1bfb6a5e68c0961b034a44008c56697f">CBTC_NOTCYCLEDMGTOTARGETONHIT</a>
+<tr class="memitem:a7ae4027db5839e4a2e3edb02ebce4ddf" id="r_a7ae4027db5839e4a2e3edb02ebce4ddf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddf">cbtcustomskill</a> { <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a">CSK_DODGE</a> = 23275
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa9232b460fa5921446994e3a6b8a4b953">CSK_DEFIANCEDAMAGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfad513416c37f12a171560a75a5dac9574">CSK_SELFCAST1</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfaec3d853ad35fdfde271f4d1832f5e2bd">CSK_ENEMYCAST1</a>
 , <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7a9388dfdb9048dbd4afb5d499f4894e17">CBTC_NOTCYCLEDMGTOSOURCEONHIT</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7a5ccdfaf6f4631a2381a240cec69afc4a">CBTC_NOTCYCLEDMGTOTARGETONSTACKREMOVE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7a14c0acbb87b8b89628ad830ac2a2e574">CBTC_UNKNOWN</a>
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa3dd0171cc2764fc54acfbf828eae1168">CSK_SELFCAST2</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa89ba1d49df055182e3c9a6f39d8a09a2">CSK_ENEMYCAST2</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa8640d5adc7b54a63b15c7bbb22e07e02">CSK_SELFCAST3</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa3a847e03fb870fad5f3e18902974e982">CSK_ENEMYCAST3</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa6024a6279c1d38f69ee5ab58f9139a21">CSK_BREAKBAR_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa077cd12c201c37738bb2f37331bf239b">CSK_WEAPONDRAW</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa282ac25a410114365bc3f335a16c2017">CSK_WEAPONSTOW</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa94c99edbd36d5dfa53465943abf19a35">CSK_GENERICBLOCK</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa8e2494faa09372db52ead54c1abd942e">CSK_GENERICDAMAGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa8274b7283864fe60c9c350bb0e39a47b">CSK_GENERICKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa0075f4b94db013da8884870bcca2ac95">CSK_GENERICDOWN</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa6ec2809d069cda3bfe8c0021578bc430">CSK_GENERICEVADE</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfabc8a4380e6756a754a95ddfd79814b06">CSK_GENERICINTERRUPT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfae72f25cbbd2d1c5894241fbc6b5a00b6">CSK_GENERICABSORB</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfae04f4810b5c8a1768cb049e1478e6036">CSK_GENERICMISS</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa8374a5aad00acef0d69e0c7fcd5ed6d8">CSK_GENERICKNOCKDOWN</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfab02afe80f75bec6df0d472bb3ce21193">CSK_GENERICKNOCKBACKPULL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfab6dc023e7d829ad5801957468733c196">CSK_GENERICFLOATLAND</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa9302474cc99584c30e45a959dfe1252d">CSK_GENERICLAUNCH</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfae6e938a37a201bfdf68c21c2f8c94b5f">CSK_GENERICWATERFLOATSINK_DEFUNC</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa4b00f06fc3067147c5360a0a206a9338">CSK_GENERICCCBUFF</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa8b5e1a6641a36c0433ebbd5e631260c5">CSK_GENERICSTAGGER</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa71008c5d01c8f3408ec451b82b1c8005">CSK_GENERICINVALID</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa4becbd3e11c8ac84d1e9beae5ce40202">CSK_GADGETINTERACT</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa3706df4ec19dcd1d79c08e1e10bd6fbe">CSK_EMOTE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfaff8099a818d71b4d50b8e89ab05b4707">CSK_GENERICFLOATWATER</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa30bcbf667395bc5eb78bbcf439a783ea">CSK_GENERICSINK</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa64c9e4ef46e722068a451c8a8e3c4b0a">CSK_GENERICLOCKOUT</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfadb7eef61f75301668ede1b5f461a42cf">CSK_GENERICFEAR</a>
 <br />
- }</td></tr>
-<tr class="separator:ad3f666159b24eb2e8bbe4dd38f852dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84c02b7d5e98268a7cee6559763f2d4b" id="r_a84c02b7d5e98268a7cee6559763f2d4b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4b">e_attribute</a> { <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4bab27212240b03ce5a23837658b63a31e7">ATTR_NONE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba1e33905798a5db6a002624fa4201c6a6">ATTR_POWER</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba287a76539faebe7384281d5a291db17b">ATTR_PRECISION</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba7fe590a626a7b72995de5f13dd1e163a">ATTR_TOUGHNESS</a>
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba004c4b5298c15222c5d92f41269fa531">ATTR_VITALITY</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba0f128f39010ca41aa09e7706de09af7f">ATTR_FEROCITY</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba1d0085bafadb74089864df62ed1603b3">ATTR_HEALING</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba256099275a0ec998e6009d478f336b4d">ATTR_CONDITION</a>
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba08c874fb6795c8d1d5fb8aed43ea12a8">ATTR_CONCENTRATION</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4bacc62fcb272daa0307348725d2e236244">ATTR_EXPERTISE</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba8016fbb78e21c38f71a96f36973cab96">ATTR_CUST_ARMOR</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba68fa87c95ec5db4c194bbf7966ba14cb">ATTR_CUST_AGONY</a>
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba50792c64b95e161b10d5817c29ae8717">ATTR_CUST_STATINC</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4baf4d5c6fbd27829dc7687e006b83e42ad">ATTR_CUST_PHYSINC</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba6b2f698ebd93a47e002b595dfe86162f">ATTR_CUST_CONDINC</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba48d94dd7ba3a291f708eab813b035d02">ATTR_CUST_PHYSREC</a>
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba17c6a20e4e81f703f11523b9d5bc04a1">ATTR_CUST_CONDREC</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba37561e13c0921e52b3dafd338839ddbe">ATTR_CUST_ATTACKSPEED</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba733f591e41e5f8be0173b53cceefc2d6">ATTR_CUST_SIPHONINC</a>
-, <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4baa4d26b06d6a2d6d1b268b7819dfb8e7b">ATTR_CUST_SIPHONREC</a>
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4ba3b3cacd0afda8882a34d8eef5a2c5ca6">ATTR_UNKNOWN</a> = 65535
-<br />
- }</td></tr>
-<tr class="separator:a84c02b7d5e98268a7cee6559763f2d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e00164432b84c21da4dd6ffbf2b99ab" id="r_a1e00164432b84c21da4dd6ffbf2b99ab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99ab">e_buffcategory</a> { <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99aba21d677e1456e2c22860792e3ad2901d9">EFFECT_CAT_BOON</a> = 0
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99aba4ba01ce827cc9795c8147b2225a177bc">EFFECT_CAT_ANY</a> = 1
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99abab6111a2479efd420004aeecd1376659b">EFFECT_CAT_CONDITION</a> = 2
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99abadc700eb676102e03eb3749518b88d577">EFFECT_CAT_FOOD</a> = 4
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99aba60ecf9f1c708f9bf9924ce31c2f45bb7">EFFECT_CAT_UPGRADE</a> = 6
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99abae17f01937595299c888840840d39c9b9">EFFECT_CAT_BOOST</a> = 8
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99abaf55ab135f548ece648e907e851fa496b">EFFECT_CAT_TRAIT</a> = 11
-, <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99abad76d547f93af5ab969aa2c0e3d355d5b">EFFECT_CAT_ENHANCEMENT</a> = 13
-, <br />
-&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99aba270b8ed31999de9882e8bf4afc5786f0">EFFECT_CAT_STANCE</a> = 16
-<br />
- }</td></tr>
-<tr class="separator:a1e00164432b84c21da4dd6ffbf2b99ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ae4027db5839e4a2e3edb02ebce4ddf" id="r_a7ae4027db5839e4a2e3edb02ebce4ddf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddf">cbtcustomskill</a> { <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfab93320f13297443d347ac391bc4c9d2d">CSK_RESURRECT</a> = 1066
-, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfa50dde5da95edfa6e9ad81e94b782341b">CSK_BANDAGE</a> = 1175
-, <a class="el" href="arcdps__structs__slim_8h.html#a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a">CSK_DODGE</a> = 65001
  }</td></tr>
 <tr class="separator:a7ae4027db5839e4a2e3edb02ebce4ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca1ff6883a2a99b90fce5c1844660c6" id="r_a3ca1ff6883a2a99b90fce5c1844660c6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6">n_animationstart</a> { <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a70ef8c3e9fa27493fb53471bfe3b5193">ANIMSTART_NONE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a46887c565422f69ff728bfb863e9536a">ANIMSTART_SKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a99ae98833c2f7b7b696e59feed1d3c5d">ANIMSTART_DODGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a8c0a3edc5d26cd1364cd1c1db245d804">ANIMSTART_STOWDRAW</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a18306b9d0ec2bcf30a3dea66735f36c4">ANIMSTART_MOVESKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6adb66cbdec0597f37e5571c8f1374a203">ANIMSTART_MOTIONSKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6a5c41b3e032f038a9bd8c8d2cff74ec52">ANIMSTART_GADGETINTERACT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6ae84941cac7a7b4854940956921625eb4">ANIMSTART_EMOTE</a>
+<br />
+ }</td></tr>
+<tr class="separator:a3ca1ff6883a2a99b90fce5c1844660c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac31029c808a131690643904ca60067f2" id="r_ac31029c808a131690643904ca60067f2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2">n_animationstop</a> { <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a53d39011aff782204d99994990a9fc98">ANIMSTOP_NONE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2ab2aa78dfea8b5e982b2e34bee7dfa818">ANIMSTOP_INSTANT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2aa33cd839377e3affe80b8ba1b000e868">ANIMSTOP_MULTI_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2ab658a9abc0e7f60b8e24748359e76c71">ANIMSTOP_TRANSITION</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a1efa492d5a4d2d7191a6bd27b6914478">ANIMSTOP_PARTIAL_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a01a0c2f2d4a92d1323ccd75351e21df4">ANIMSTOP_ENDED</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a2766271570d5479f2cb82314f6e43964">ANIMSTOP_CANCEL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2abd88e5600991092190e3ee531ba62aa3">ANIMSTOP_STOWDRAW</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a37a66ceb0e6c5c8fb419bd77a3d5190e">ANIMSTOP_INTERRUPT</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a8deb67dfd602b873410858997fd340fe">ANIMSTOP_DEATH</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a98f8a3ac3c1a799559fdc38a63313aae">ANIMSTOP_DOWNED</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a2cbe01a1810b4160e4ebd6fab5fd5a57">ANIMSTOP_CROWDCONTROL</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a05e59aa530ff2a6aa51bd06e098f9a21">ANIMSTOP_COMMAND</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a1234cd5d8e02769f805b4d0d1307c12c">ANIMSTOP_MOTIONSKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a8084141c77fc30384ce4efc4f13e265f">ANIMSTOP_MOVEDODGE</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a07a9a89bb9bd606e69e4922b0d001513">ANIMSTOP_MOTIONSKILL_VIA_RESET</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a43a27f9a5eddd6c9b0c7c7858cec0c9a">ANIMSTOP_MOVESKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2ac8d5918735e38864461cd37f7c67e2a9">ANIMSTOP_STOW</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a7ed54453286eb3cb63c47fc63398d5e8">ANIMSTOP_ANY_DEFUNC</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2adeafa116a75d6520b09187a2bc75c4bc">ANIMSTOP_GADGET_VIA_RESET</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a25001bfedefbc72400ffa70c46238047">ANIMSTOP_MANUAL_EXPIRY</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2af4663a0953d0e867e8d2f1df58532c4c">ANIMSTOP_DESPAWN</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2aa026324425104a6387ea4c3ccc40e026">ANIMSTOP_RETURN_CONTROL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2a48e8d44557720e7d80224541065594ae">ANIMSTOP_READY</a>
+<br />
+ }</td></tr>
+<tr class="separator:ac31029c808a131690643904ca60067f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6332a2e6cc2d46a31c91124933609ad7" id="r_a6332a2e6cc2d46a31c91124933609ad7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7">gwlanguage</a> { <br />
 &#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a5b601e0e6750a7c7171d763fa1ac2064">GWL_ENG</a> = 0
 , <a class="el" href="arcdps__structs__slim_8h.html#a6332a2e6cc2d46a31c91124933609ad7a90bcae86bbe45807b51b2e8462467277">GWL_KR</a> = 1
@@ -427,8 +496,14 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a6332a2e6cc2d46a31c91124933609ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0885f4f1b7436b3a9a4a77ed3eb3688" id="r_ac0885f4f1b7436b3a9a4a77ed3eb3688"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688">n_contentlocal</a> { <a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688abfb1a9d21374fc3fdfd8d767b505d188">CONTENTLOCAL_EFFECT</a>
+<tr class="memitem:ac0885f4f1b7436b3a9a4a77ed3eb3688" id="r_ac0885f4f1b7436b3a9a4a77ed3eb3688"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688">n_contentlocal</a> { <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688abfb1a9d21374fc3fdfd8d767b505d188">CONTENTLOCAL_EFFECT</a>
 , <a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688adc607bc780bb8512a2db0bc6287528b4">CONTENTLOCAL_MARKER</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688a77aabf503d53a025adb8127ab9c09176">CONTENTLOCAL_SKILL</a>
+, <a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688a0d50ef21a8aff879c864088142bccabe">CONTENTLOCAL_SPECIES_NOT_GADGET</a>
+, <br />
+&#160;&#160;<a class="el" href="arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688a6e6599d6211d515cd663d9c071539e0e">CONTENTLOCAL_EMOTE</a>
+<br />
  }</td></tr>
 <tr class="separator:ac0885f4f1b7436b3a9a4a77ed3eb3688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c524b45a0aff7a7f6e3e914626c74dc" id="r_a6c524b45a0aff7a7f6e3e914626c74dc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcdps__structs__slim_8h.html#a6c524b45a0aff7a7f6e3e914626c74dc">Prof</a> : uint32_t { <br />
@@ -625,35 +700,13 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baabcd91264fb6cbf327e9fa672785191d7" name="abfbc2af9adf51c9b732bec7826ecf5baabcd91264fb6cbf327e9fa672785191d7"></a>ACTV_NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa3587cb76f5b38e774de6ec6135b98d63" name="abfbc2af9adf51c9b732bec7826ecf5baa3587cb76f5b38e774de6ec6135b98d63"></a>ACTV_START&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baab89809880843377438b3a608fd7cdda8" name="abfbc2af9adf51c9b732bec7826ecf5baab89809880843377438b3a608fd7cdda8"></a>ACTV_QUICKNESS_UNUSED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa6c19450e00e54485daf35780710f8d60" name="abfbc2af9adf51c9b732bec7826ecf5baa6c19450e00e54485daf35780710f8d60"></a>ACTV_CANCEL_FIRE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baae4ba98e09fe9b61c36896db11748bcca" name="abfbc2af9adf51c9b732bec7826ecf5baae4ba98e09fe9b61c36896db11748bcca"></a>ACTV_CANCEL_CANCEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa9ea4d16634098481a8e8794c30afe689" name="abfbc2af9adf51c9b732bec7826ecf5baa9ea4d16634098481a8e8794c30afe689"></a>ACTV_START_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baaba2b4927234c7dae30daeeaf6626e337" name="abfbc2af9adf51c9b732bec7826ecf5baaba2b4927234c7dae30daeeaf6626e337"></a>ACTV_QUICKNESS_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baab8bca76e8ed5aee2637c5238773901e5" name="abfbc2af9adf51c9b732bec7826ecf5baab8bca76e8ed5aee2637c5238773901e5"></a>ACTV_MINIMUM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa4daf2b8248cec72613e1ec2bd3fdd233" name="abfbc2af9adf51c9b732bec7826ecf5baa4daf2b8248cec72613e1ec2bd3fdd233"></a>ACTV_CANCEL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa663a237f5bf1115780100f03812d3ce1" name="abfbc2af9adf51c9b732bec7826ecf5baa663a237f5bf1115780100f03812d3ce1"></a>ACTV_RESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa20f9b2914b5938f82420f9343d844c84" name="abfbc2af9adf51c9b732bec7826ecf5baa20f9b2914b5938f82420f9343d844c84"></a>ACTV_NODATA&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abfbc2af9adf51c9b732bec7826ecf5baa3cf93e520c752fa3089984b42b499625" name="abfbc2af9adf51c9b732bec7826ecf5baa3cf93e520c752fa3089984b42b499625"></a>ACTV_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="ad3f666159b24eb2e8bbe4dd38f852dc7" name="ad3f666159b24eb2e8bbe4dd38f852dc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3f666159b24eb2e8bbe4dd38f852dc7">&#9670;&#160;</a></span>cbtbuffcycle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="arcdps__structs__slim_8h.html#ad3f666159b24eb2e8bbe4dd38f852dc7">cbtbuffcycle</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7afd9bf6fd2230d97f1e61740653764e93" name="ad3f666159b24eb2e8bbe4dd38f852dc7afd9bf6fd2230d97f1e61740653764e93"></a>CBTC_CYCLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7ae16a17da6b9cdcecd0488faa8f640734" name="ad3f666159b24eb2e8bbe4dd38f852dc7ae16a17da6b9cdcecd0488faa8f640734"></a>CBTC_NOTCYCLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7a6bc1eeb7aee6d5bd7a89864e911f9e37" name="ad3f666159b24eb2e8bbe4dd38f852dc7a6bc1eeb7aee6d5bd7a89864e911f9e37"></a>CBTC_NOTCYCLENORESIST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7a1bfb6a5e68c0961b034a44008c56697f" name="ad3f666159b24eb2e8bbe4dd38f852dc7a1bfb6a5e68c0961b034a44008c56697f"></a>CBTC_NOTCYCLEDMGTOTARGETONHIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7a9388dfdb9048dbd4afb5d499f4894e17" name="ad3f666159b24eb2e8bbe4dd38f852dc7a9388dfdb9048dbd4afb5d499f4894e17"></a>CBTC_NOTCYCLEDMGTOSOURCEONHIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7a5ccdfaf6f4631a2381a240cec69afc4a" name="ad3f666159b24eb2e8bbe4dd38f852dc7a5ccdfaf6f4631a2381a240cec69afc4a"></a>CBTC_NOTCYCLEDMGTOTARGETONSTACKREMOVE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad3f666159b24eb2e8bbe4dd38f852dc7a14c0acbb87b8b89628ad830ac2a2e574" name="ad3f666159b24eb2e8bbe4dd38f852dc7a14c0acbb87b8b89628ad830ac2a2e574"></a>CBTC_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -691,9 +744,39 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfab93320f13297443d347ac391bc4c9d2d" name="a7ae4027db5839e4a2e3edb02ebce4ddfab93320f13297443d347ac391bc4c9d2d"></a>CSK_RESURRECT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa50dde5da95edfa6e9ad81e94b782341b" name="a7ae4027db5839e4a2e3edb02ebce4ddfa50dde5da95edfa6e9ad81e94b782341b"></a>CSK_BANDAGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a" name="a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a"></a>CSK_DODGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a" name="a7ae4027db5839e4a2e3edb02ebce4ddfac8ab2a687670c9eb0135be1e075e661a"></a>CSK_DODGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa9232b460fa5921446994e3a6b8a4b953" name="a7ae4027db5839e4a2e3edb02ebce4ddfa9232b460fa5921446994e3a6b8a4b953"></a>CSK_DEFIANCEDAMAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfad513416c37f12a171560a75a5dac9574" name="a7ae4027db5839e4a2e3edb02ebce4ddfad513416c37f12a171560a75a5dac9574"></a>CSK_SELFCAST1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfaec3d853ad35fdfde271f4d1832f5e2bd" name="a7ae4027db5839e4a2e3edb02ebce4ddfaec3d853ad35fdfde271f4d1832f5e2bd"></a>CSK_ENEMYCAST1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa3dd0171cc2764fc54acfbf828eae1168" name="a7ae4027db5839e4a2e3edb02ebce4ddfa3dd0171cc2764fc54acfbf828eae1168"></a>CSK_SELFCAST2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa89ba1d49df055182e3c9a6f39d8a09a2" name="a7ae4027db5839e4a2e3edb02ebce4ddfa89ba1d49df055182e3c9a6f39d8a09a2"></a>CSK_ENEMYCAST2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa8640d5adc7b54a63b15c7bbb22e07e02" name="a7ae4027db5839e4a2e3edb02ebce4ddfa8640d5adc7b54a63b15c7bbb22e07e02"></a>CSK_SELFCAST3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa3a847e03fb870fad5f3e18902974e982" name="a7ae4027db5839e4a2e3edb02ebce4ddfa3a847e03fb870fad5f3e18902974e982"></a>CSK_ENEMYCAST3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa6024a6279c1d38f69ee5ab58f9139a21" name="a7ae4027db5839e4a2e3edb02ebce4ddfa6024a6279c1d38f69ee5ab58f9139a21"></a>CSK_BREAKBAR_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa077cd12c201c37738bb2f37331bf239b" name="a7ae4027db5839e4a2e3edb02ebce4ddfa077cd12c201c37738bb2f37331bf239b"></a>CSK_WEAPONDRAW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa282ac25a410114365bc3f335a16c2017" name="a7ae4027db5839e4a2e3edb02ebce4ddfa282ac25a410114365bc3f335a16c2017"></a>CSK_WEAPONSTOW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa94c99edbd36d5dfa53465943abf19a35" name="a7ae4027db5839e4a2e3edb02ebce4ddfa94c99edbd36d5dfa53465943abf19a35"></a>CSK_GENERICBLOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa8e2494faa09372db52ead54c1abd942e" name="a7ae4027db5839e4a2e3edb02ebce4ddfa8e2494faa09372db52ead54c1abd942e"></a>CSK_GENERICDAMAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa8274b7283864fe60c9c350bb0e39a47b" name="a7ae4027db5839e4a2e3edb02ebce4ddfa8274b7283864fe60c9c350bb0e39a47b"></a>CSK_GENERICKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa0075f4b94db013da8884870bcca2ac95" name="a7ae4027db5839e4a2e3edb02ebce4ddfa0075f4b94db013da8884870bcca2ac95"></a>CSK_GENERICDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa6ec2809d069cda3bfe8c0021578bc430" name="a7ae4027db5839e4a2e3edb02ebce4ddfa6ec2809d069cda3bfe8c0021578bc430"></a>CSK_GENERICEVADE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfabc8a4380e6756a754a95ddfd79814b06" name="a7ae4027db5839e4a2e3edb02ebce4ddfabc8a4380e6756a754a95ddfd79814b06"></a>CSK_GENERICINTERRUPT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfae72f25cbbd2d1c5894241fbc6b5a00b6" name="a7ae4027db5839e4a2e3edb02ebce4ddfae72f25cbbd2d1c5894241fbc6b5a00b6"></a>CSK_GENERICABSORB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfae04f4810b5c8a1768cb049e1478e6036" name="a7ae4027db5839e4a2e3edb02ebce4ddfae04f4810b5c8a1768cb049e1478e6036"></a>CSK_GENERICMISS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa8374a5aad00acef0d69e0c7fcd5ed6d8" name="a7ae4027db5839e4a2e3edb02ebce4ddfa8374a5aad00acef0d69e0c7fcd5ed6d8"></a>CSK_GENERICKNOCKDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfab02afe80f75bec6df0d472bb3ce21193" name="a7ae4027db5839e4a2e3edb02ebce4ddfab02afe80f75bec6df0d472bb3ce21193"></a>CSK_GENERICKNOCKBACKPULL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfab6dc023e7d829ad5801957468733c196" name="a7ae4027db5839e4a2e3edb02ebce4ddfab6dc023e7d829ad5801957468733c196"></a>CSK_GENERICFLOATLAND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa9302474cc99584c30e45a959dfe1252d" name="a7ae4027db5839e4a2e3edb02ebce4ddfa9302474cc99584c30e45a959dfe1252d"></a>CSK_GENERICLAUNCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfae6e938a37a201bfdf68c21c2f8c94b5f" name="a7ae4027db5839e4a2e3edb02ebce4ddfae6e938a37a201bfdf68c21c2f8c94b5f"></a>CSK_GENERICWATERFLOATSINK_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa4b00f06fc3067147c5360a0a206a9338" name="a7ae4027db5839e4a2e3edb02ebce4ddfa4b00f06fc3067147c5360a0a206a9338"></a>CSK_GENERICCCBUFF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa8b5e1a6641a36c0433ebbd5e631260c5" name="a7ae4027db5839e4a2e3edb02ebce4ddfa8b5e1a6641a36c0433ebbd5e631260c5"></a>CSK_GENERICSTAGGER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa71008c5d01c8f3408ec451b82b1c8005" name="a7ae4027db5839e4a2e3edb02ebce4ddfa71008c5d01c8f3408ec451b82b1c8005"></a>CSK_GENERICINVALID&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa4becbd3e11c8ac84d1e9beae5ce40202" name="a7ae4027db5839e4a2e3edb02ebce4ddfa4becbd3e11c8ac84d1e9beae5ce40202"></a>CSK_GADGETINTERACT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa3706df4ec19dcd1d79c08e1e10bd6fbe" name="a7ae4027db5839e4a2e3edb02ebce4ddfa3706df4ec19dcd1d79c08e1e10bd6fbe"></a>CSK_EMOTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfaff8099a818d71b4d50b8e89ab05b4707" name="a7ae4027db5839e4a2e3edb02ebce4ddfaff8099a818d71b4d50b8e89ab05b4707"></a>CSK_GENERICFLOATWATER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa30bcbf667395bc5eb78bbcf439a783ea" name="a7ae4027db5839e4a2e3edb02ebce4ddfa30bcbf667395bc5eb78bbcf439a783ea"></a>CSK_GENERICSINK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfa64c9e4ef46e722068a451c8a8e3c4b0a" name="a7ae4027db5839e4a2e3edb02ebce4ddfa64c9e4ef46e722068a451c8a8e3c4b0a"></a>CSK_GENERICLOCKOUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ae4027db5839e4a2e3edb02ebce4ddfadb7eef61f75301668ede1b5f461a42cf" name="a7ae4027db5839e4a2e3edb02ebce4ddfadb7eef61f75301668ede1b5f461a42cf"></a>CSK_GENERICFEAR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -710,9 +793,9 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea9d45a35a54f0538e377efabd8e27f2c8" name="a02aa39376fa6aaf598a43887b429a8dea9d45a35a54f0538e377efabd8e27f2c8"></a>CBTR_NORMAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea00f9df53829fcb730e524e8e7ba03ae0" name="a02aa39376fa6aaf598a43887b429a8dea00f9df53829fcb730e524e8e7ba03ae0"></a>CBTR_CRIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30" name="a02aa39376fa6aaf598a43887b429a8dead1b12d076271fa09c70e752288b21d30"></a>CBTR_GLANCE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deaf1a44156f97d9f956ca2b7742ebd23f8" name="a02aa39376fa6aaf598a43887b429a8deaf1a44156f97d9f956ca2b7742ebd23f8"></a>CBTR_STRIKE_DAMAGENORMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deaa3331712c308f71933ea859a401ddc7a" name="a02aa39376fa6aaf598a43887b429a8deaa3331712c308f71933ea859a401ddc7a"></a>CBTR_STRIKE_DAMAGECRIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dead579d3dc9049dec2b1546b6ed81319c9" name="a02aa39376fa6aaf598a43887b429a8dead579d3dc9049dec2b1546b6ed81319c9"></a>CBTR_STRIKE_DAMAGEGLANCE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dead964f54e607aae6893dd6e12d73b30b7" name="a02aa39376fa6aaf598a43887b429a8dead964f54e607aae6893dd6e12d73b30b7"></a>CBTR_BLOCK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea899462eba75fef2e25bcce0cd67b5fdd" name="a02aa39376fa6aaf598a43887b429a8dea899462eba75fef2e25bcce0cd67b5fdd"></a>CBTR_EVADE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3" name="a02aa39376fa6aaf598a43887b429a8deaa07c15e8a518246370a81610b52c07a3"></a>CBTR_INTERRUPT&#160;</td><td class="fielddoc"></td></tr>
@@ -720,8 +803,15 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea463857ebf8e2404bbc80640af9b6af46" name="a02aa39376fa6aaf598a43887b429a8dea463857ebf8e2404bbc80640af9b6af46"></a>CBTR_BLIND&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea733ea0c55918e26ede6f0db12a9a8730" name="a02aa39376fa6aaf598a43887b429a8dea733ea0c55918e26ede6f0db12a9a8730"></a>CBTR_KILLINGBLOW&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea5b5dccd8f21d23566e64ca6d1f6308bd" name="a02aa39376fa6aaf598a43887b429a8dea5b5dccd8f21d23566e64ca6d1f6308bd"></a>CBTR_DOWNED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea5dad179a991e465392b8f554b4d0cc34" name="a02aa39376fa6aaf598a43887b429a8dea5dad179a991e465392b8f554b4d0cc34"></a>CBTR_BREAKBAR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea7259d0697c3cccc92ebc7a28ed2181f6" name="a02aa39376fa6aaf598a43887b429a8dea7259d0697c3cccc92ebc7a28ed2181f6"></a>CBTR_ACTIVATION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dead3a33a6acdc27594a360fb749cbe53e6" name="a02aa39376fa6aaf598a43887b429a8dead3a33a6acdc27594a360fb749cbe53e6"></a>CBTR_DEFIANCE_DAMAGENORMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea459c83b6d47a8d0f5a27a5da4cfdc6de" name="a02aa39376fa6aaf598a43887b429a8dea459c83b6d47a8d0f5a27a5da4cfdc6de"></a>CBTR_SKILLCAST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deae707014f7ec52a14abc003ee1e3055b2" name="a02aa39376fa6aaf598a43887b429a8deae707014f7ec52a14abc003ee1e3055b2"></a>CBTR_CROWDCONTROL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea2185d1a880e8ad4bdb483a843c58ffb8" name="a02aa39376fa6aaf598a43887b429a8dea2185d1a880e8ad4bdb483a843c58ffb8"></a>CBTR_INVERT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea92a42d55c0f7f5cebdffb5c5853b99a3" name="a02aa39376fa6aaf598a43887b429a8dea92a42d55c0f7f5cebdffb5c5853b99a3"></a>CBTR_BUFF_DAMAGECYCLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deaea382827fc9559e45b7d464acbcf40fa" name="a02aa39376fa6aaf598a43887b429a8deaea382827fc9559e45b7d464acbcf40fa"></a>CBTR_BUFF_DAMAGENOTCYCLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8deaea9cc11550abb8d512350c6dd0869908" name="a02aa39376fa6aaf598a43887b429a8deaea9cc11550abb8d512350c6dd0869908"></a>CBTR_BUFF_DAMAGENOTCYCLEDMGTOTARGETONHIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea5f8b178009811de845cc0ad440f402f6" name="a02aa39376fa6aaf598a43887b429a8dea5f8b178009811de845cc0ad440f402f6"></a>CBTR_BUFF_DAMAGENOTCYCLEDMGTOSOURCEONHIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dea7e5372bff9b8cc3b68de3697f2cd83da" name="a02aa39376fa6aaf598a43887b429a8dea7e5372bff9b8cc3b68de3697f2cd83da"></a>CBTR_BUFF_DAMAGENOTCYCLEDMGTOTARGETONSTACKREMOVE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002" name="a02aa39376fa6aaf598a43887b429a8dead60ebb7c05615f52d4bef2bbdfe3c002"></a>CBTR_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -739,7 +829,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a4261cce68b88e43f7e7d618e9b1cbc3b" name="aa9eaab87ee5fe0145dff56595c6e56f6a4261cce68b88e43f7e7d618e9b1cbc3b"></a>CBTS_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a6272b2a8dc131e16aae86b9e6b19cdef" name="aa9eaab87ee5fe0145dff56595c6e56f6a6272b2a8dc131e16aae86b9e6b19cdef"></a>CBTS_COMBAT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a4c1a4a502c7ee78e2ee2bbd00c6d593f" name="aa9eaab87ee5fe0145dff56595c6e56f6a4c1a4a502c7ee78e2ee2bbd00c6d593f"></a>CBTS_ENTERCOMBAT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a5df964c76e702cae1792a563808849d1" name="aa9eaab87ee5fe0145dff56595c6e56f6a5df964c76e702cae1792a563808849d1"></a>CBTS_EXITCOMBAT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a336d9ce78aa0fd3f07ca9a7621bf8511" name="aa9eaab87ee5fe0145dff56595c6e56f6a336d9ce78aa0fd3f07ca9a7621bf8511"></a>CBTS_CHANGEUP&#160;</td><td class="fielddoc"></td></tr>
@@ -747,9 +837,9 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a4922aef79a1e80e7117d39f18ce46fb8" name="aa9eaab87ee5fe0145dff56595c6e56f6a4922aef79a1e80e7117d39f18ce46fb8"></a>CBTS_CHANGEDOWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a9f23acc893c18bdc02b4fd145e559ddf" name="aa9eaab87ee5fe0145dff56595c6e56f6a9f23acc893c18bdc02b4fd145e559ddf"></a>CBTS_SPAWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a1601b40d909e090214d7163a013db401" name="aa9eaab87ee5fe0145dff56595c6e56f6a1601b40d909e090214d7163a013db401"></a>CBTS_DESPAWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a3057cc5e33430a942bb68b8c5ab9e787" name="aa9eaab87ee5fe0145dff56595c6e56f6a3057cc5e33430a942bb68b8c5ab9e787"></a>CBTS_HEALTHUPDATE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a8111fbe14854b7f21a4ba951f48b6e88" name="aa9eaab87ee5fe0145dff56595c6e56f6a8111fbe14854b7f21a4ba951f48b6e88"></a>CBTS_LOGSTART&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ae752fbad6ff70dceaf95c1573037eea1" name="aa9eaab87ee5fe0145dff56595c6e56f6ae752fbad6ff70dceaf95c1573037eea1"></a>CBTS_LOGEND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ae1ea33188a1eac8c3e1903fd47a55339" name="aa9eaab87ee5fe0145dff56595c6e56f6ae1ea33188a1eac8c3e1903fd47a55339"></a>CBTS_HEALTHPCTUPDATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a0851be6c255fc45c4a53065db55f018b" name="aa9eaab87ee5fe0145dff56595c6e56f6a0851be6c255fc45c4a53065db55f018b"></a>CBTS_SQCOMBATSTART&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a6eb4716ffe86985e0b21b49f5c597fea" name="aa9eaab87ee5fe0145dff56595c6e56f6a6eb4716ffe86985e0b21b49f5c597fea"></a>CBTS_SQCOMBATEND&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a1a35c9e7d3adc33b7d1688696d0da959" name="aa9eaab87ee5fe0145dff56595c6e56f6a1a35c9e7d3adc33b7d1688696d0da959"></a>CBTS_WEAPSWAP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ac8162d0b903dc9841d31ef0115efeadf" name="aa9eaab87ee5fe0145dff56595c6e56f6ac8162d0b903dc9841d31ef0115efeadf"></a>CBTS_MAXHEALTHUPDATE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a701e8b38849891a2bf9d129324911293" name="aa9eaab87ee5fe0145dff56595c6e56f6a701e8b38849891a2bf9d129324911293"></a>CBTS_POINTOFVIEW&#160;</td><td class="fielddoc"></td></tr>
@@ -766,8 +856,8 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a8c18ada5fa0c1b084edaadf0c3b1c6a7" name="aa9eaab87ee5fe0145dff56595c6e56f6a8c18ada5fa0c1b084edaadf0c3b1c6a7"></a>CBTS_TARGETABLE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a94670a1a6ec913ac48f3d9de12a224ce" name="aa9eaab87ee5fe0145dff56595c6e56f6a94670a1a6ec913ac48f3d9de12a224ce"></a>CBTS_MAPID&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a5becefdba8b114f683978218f4aae970" name="aa9eaab87ee5fe0145dff56595c6e56f6a5becefdba8b114f683978218f4aae970"></a>CBTS_REPLINFO&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a96b17e0b52cc9b46eeefedc423b4e4ea" name="aa9eaab87ee5fe0145dff56595c6e56f6a96b17e0b52cc9b46eeefedc423b4e4ea"></a>CBTS_STACKACTIVE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ae5a55d1c6ce3877402afb53b4e03860f" name="aa9eaab87ee5fe0145dff56595c6e56f6ae5a55d1c6ce3877402afb53b4e03860f"></a>CBTS_STACKRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ad9b92ea1a5a3f83f47872b8f710d6455" name="aa9eaab87ee5fe0145dff56595c6e56f6ad9b92ea1a5a3f83f47872b8f710d6455"></a>CBTS_BUFFACTIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a5b1bd5620ce2fc5001acbd58494f46f6" name="aa9eaab87ee5fe0145dff56595c6e56f6a5b1bd5620ce2fc5001acbd58494f46f6"></a>CBTS_BUFFDEACTIVE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab203edb9deab73cdcc5cbf75d2cd44da" name="aa9eaab87ee5fe0145dff56595c6e56f6ab203edb9deab73cdcc5cbf75d2cd44da"></a>CBTS_GUILD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a8b83080831b1a55cf5eb909564f3308a" name="aa9eaab87ee5fe0145dff56595c6e56f6a8b83080831b1a55cf5eb909564f3308a"></a>CBTS_BUFFINFO&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab61acdf755baa984ca9846bcbf00121e" name="aa9eaab87ee5fe0145dff56595c6e56f6ab61acdf755baa984ca9846bcbf00121e"></a>CBTS_BUFFFORMULA&#160;</td><td class="fielddoc"></td></tr>
@@ -775,18 +865,43 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a663a6f9deaecf447f8998897eec6fc9d" name="aa9eaab87ee5fe0145dff56595c6e56f6a663a6f9deaecf447f8998897eec6fc9d"></a>CBTS_SKILLTIMING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ae2c4de471af1c72f724db266b1545530" name="aa9eaab87ee5fe0145dff56595c6e56f6ae2c4de471af1c72f724db266b1545530"></a>CBTS_BREAKBARSTATE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a75036a0bea6839e80a4745b4d25f895a" name="aa9eaab87ee5fe0145dff56595c6e56f6a75036a0bea6839e80a4745b4d25f895a"></a>CBTS_BREAKBARPERCENT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a81f55e2cffc9ece678cf2e71ae277f5a" name="aa9eaab87ee5fe0145dff56595c6e56f6a81f55e2cffc9ece678cf2e71ae277f5a"></a>CBTS_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a1bc40cb5fc5032ced7fe44e5a51ff004" name="aa9eaab87ee5fe0145dff56595c6e56f6a1bc40cb5fc5032ced7fe44e5a51ff004"></a>CBTS_TAG&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab4a2ad5e4af167daf8bacd7fced5b219" name="aa9eaab87ee5fe0145dff56595c6e56f6ab4a2ad5e4af167daf8bacd7fced5b219"></a>CBTS_BARRIERUPDATE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a7ebd30451088439a2d8321946c435449" name="aa9eaab87ee5fe0145dff56595c6e56f6a7ebd30451088439a2d8321946c435449"></a>CBTS_STATRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a58aa7f6d7f5c743be12463fbc7c498fc" name="aa9eaab87ee5fe0145dff56595c6e56f6a58aa7f6d7f5c743be12463fbc7c498fc"></a>CBTS_INTEGRITY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aca832671331c7db0b10b0863069eba99" name="aa9eaab87ee5fe0145dff56595c6e56f6aca832671331c7db0b10b0863069eba99"></a>CBTS_MARKER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a274ef32419e18ae087b126aa257c5d59" name="aa9eaab87ee5fe0145dff56595c6e56f6a274ef32419e18ae087b126aa257c5d59"></a>CBTS_BARRIERPCTUPDATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a45af54bb51264ae968f914c9254bc843" name="aa9eaab87ee5fe0145dff56595c6e56f6a45af54bb51264ae968f914c9254bc843"></a>CBTS_STATRESET_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a40103fad39bc3e0196ffde6906fb6bf8" name="aa9eaab87ee5fe0145dff56595c6e56f6a40103fad39bc3e0196ffde6906fb6bf8"></a>CBTS_EXTENSION&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aa8ed4dc13aa0f200a9d6e1d171b7f302" name="aa9eaab87ee5fe0145dff56595c6e56f6aa8ed4dc13aa0f200a9d6e1d171b7f302"></a>CBTS_APIDELAYED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab019fae4e22bb7c848f171a3ab736971" name="aa9eaab87ee5fe0145dff56595c6e56f6ab019fae4e22bb7c848f171a3ab736971"></a>CBTS_INSTANCESTART&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a4b228abbd5d9701b7291bc7df344136e" name="aa9eaab87ee5fe0145dff56595c6e56f6a4b228abbd5d9701b7291bc7df344136e"></a>CBTS_TICKRATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6adf647ab4aaced515de147294e3ab6a92" name="aa9eaab87ee5fe0145dff56595c6e56f6adf647ab4aaced515de147294e3ab6a92"></a>CBTS_RATEHEALTH&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a3fe58ec08cd90a74d348bb3783a03eac" name="aa9eaab87ee5fe0145dff56595c6e56f6a3fe58ec08cd90a74d348bb3783a03eac"></a>CBTS_LAST90BEFOREDOWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a957d896e90b58c26bafa8bded87793c8" name="aa9eaab87ee5fe0145dff56595c6e56f6a957d896e90b58c26bafa8bded87793c8"></a>CBTS_EFFECT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a15d403e543246248b8092779d202d325" name="aa9eaab87ee5fe0145dff56595c6e56f6a15d403e543246248b8092779d202d325"></a>CBTS_IDTOGUID&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a1b30e68b24c9ef16b7d65975d87a85b2" name="aa9eaab87ee5fe0145dff56595c6e56f6a1b30e68b24c9ef16b7d65975d87a85b2"></a>CBTS_LOGNPCUPDATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a954c23e3075940d72856d5a74f1fa1e6" name="aa9eaab87ee5fe0145dff56595c6e56f6a954c23e3075940d72856d5a74f1fa1e6"></a>CBTS_IDLEEVENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a377baabb4d72e38757ed9609800e7bd7" name="aa9eaab87ee5fe0145dff56595c6e56f6a377baabb4d72e38757ed9609800e7bd7"></a>CBTS_EXTENSIONCOMBAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a411a7f2c34589e6971fef86bac1cb884" name="aa9eaab87ee5fe0145dff56595c6e56f6a411a7f2c34589e6971fef86bac1cb884"></a>CBTS_FRACTALSCALE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a283a057ce17638a3aa01c5278ff84060" name="aa9eaab87ee5fe0145dff56595c6e56f6a283a057ce17638a3aa01c5278ff84060"></a>CBTS_EFFECT2_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6af8f89de52be6cfd257dea1fc6f40cacc" name="aa9eaab87ee5fe0145dff56595c6e56f6af8f89de52be6cfd257dea1fc6f40cacc"></a>CBTS_RULESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aebfa7ed798d3d683a022baa33207cb3f" name="aa9eaab87ee5fe0145dff56595c6e56f6aebfa7ed798d3d683a022baa33207cb3f"></a>CBTS_SQUADMARKER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aa6cd9449649a8fc797efeba86a634f6a" name="aa9eaab87ee5fe0145dff56595c6e56f6aa6cd9449649a8fc797efeba86a634f6a"></a>CBTS_ARCBUILD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a04f99b41528ba835ea67d98e9ebe172f" name="aa9eaab87ee5fe0145dff56595c6e56f6a04f99b41528ba835ea67d98e9ebe172f"></a>CBTS_GLIDER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a1fab672230f5c8bf1ba38c41143e17b2" name="aa9eaab87ee5fe0145dff56595c6e56f6a1fab672230f5c8bf1ba38c41143e17b2"></a>CBTS_STUNBREAK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a3546f55be4c29c6145f4e5926befe5b5" name="aa9eaab87ee5fe0145dff56595c6e56f6a3546f55be4c29c6145f4e5926befe5b5"></a>CBTS_MISSILECREATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a6e51fe710e22f47980b6b2bbc1b9dbc7" name="aa9eaab87ee5fe0145dff56595c6e56f6a6e51fe710e22f47980b6b2bbc1b9dbc7"></a>CBTS_MISSILELAUNCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a24999d8b6c1b5f3dc54f5f58e3f26c80" name="aa9eaab87ee5fe0145dff56595c6e56f6a24999d8b6c1b5f3dc54f5f58e3f26c80"></a>CBTS_MISSILEREMOVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aaf874b86ce1bb029406188561efaacb8" name="aa9eaab87ee5fe0145dff56595c6e56f6aaf874b86ce1bb029406188561efaacb8"></a>CBTS_EFFECTGROUNDCREATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aa3f43d77c2874bd2e22cf01ea67780fe" name="aa9eaab87ee5fe0145dff56595c6e56f6aa3f43d77c2874bd2e22cf01ea67780fe"></a>CBTS_EFFECTGROUNDREMOVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab7ae115cd5834311a9318320ccac3e71" name="aa9eaab87ee5fe0145dff56595c6e56f6ab7ae115cd5834311a9318320ccac3e71"></a>CBTS_EFFECTAGENTCREATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a98e9c0672b0e5d4aa3dca341a8ff143d" name="aa9eaab87ee5fe0145dff56595c6e56f6a98e9c0672b0e5d4aa3dca341a8ff143d"></a>CBTS_EFFECTAGENTREMOVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6ab656f9b0239ee928f6f713827dbb6b4e" name="aa9eaab87ee5fe0145dff56595c6e56f6ab656f9b0239ee928f6f713827dbb6b4e"></a>CBTS_IIDCHANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a133dc1677d7b2d9be46fb87e899881f2" name="aa9eaab87ee5fe0145dff56595c6e56f6a133dc1677d7b2d9be46fb87e899881f2"></a>CBTS_MAPCHANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a061a5606283baac892b098c5acdbb201" name="aa9eaab87ee5fe0145dff56595c6e56f6a061a5606283baac892b098c5acdbb201"></a>CBTS_EARLYEXIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aaf3de20f7d4bfde085e34234b38a252b" name="aa9eaab87ee5fe0145dff56595c6e56f6aaf3de20f7d4bfde085e34234b38a252b"></a>CBTS_ANIMATIONSTART&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6aaa21a3e0a0174de1e26deb3fca71cf55" name="aa9eaab87ee5fe0145dff56595c6e56f6aaa21a3e0a0174de1e26deb3fca71cf55"></a>CBTS_ANIMATIONSTOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a71b88ebc6b078e10773fc7f4422e98cd" name="aa9eaab87ee5fe0145dff56595c6e56f6a71b88ebc6b078e10773fc7f4422e98cd"></a>CBTS_BUFFAPPLY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a9b7b081e36a61443d0dccedaeaedc49b" name="aa9eaab87ee5fe0145dff56595c6e56f6a9b7b081e36a61443d0dccedaeaedc49b"></a>CBTS_BUFFCHANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a34ff155bd5ed0e7ee486303412b4cb40" name="aa9eaab87ee5fe0145dff56595c6e56f6a34ff155bd5ed0e7ee486303412b4cb40"></a>CBTS_BUFFREMOVE_SINGLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a5291747b3a02d27d02fc3a33b776e1c8" name="aa9eaab87ee5fe0145dff56595c6e56f6a5291747b3a02d27d02fc3a33b776e1c8"></a>CBTS_BUFFREMOVE_ALL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa9eaab87ee5fe0145dff56595c6e56f6a7250b6301b069f6ef8ed8a71d9d98143" name="aa9eaab87ee5fe0145dff56595c6e56f6a7250b6301b069f6ef8ed8a71d9d98143"></a>CBTS_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -815,68 +930,6 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a5ad6b2dd22d6039e313331ac62764199acb6144da4056884fbcdc1d01aade8699" name="a5ad6b2dd22d6039e313331ac62764199acb6144da4056884fbcdc1d01aade8699"></a>CCOL_MGREY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5ad6b2dd22d6039e313331ac62764199a65b33a8e8c4737f3d92095884d214664" name="a5ad6b2dd22d6039e313331ac62764199a65b33a8e8c4737f3d92095884d214664"></a>CCOL_DGREY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5ad6b2dd22d6039e313331ac62764199aa15560fd378ec5a3ee34457893231664" name="a5ad6b2dd22d6039e313331ac62764199aa15560fd378ec5a3ee34457893231664"></a>CCOL_NUM&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a84c02b7d5e98268a7cee6559763f2d4b" name="a84c02b7d5e98268a7cee6559763f2d4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84c02b7d5e98268a7cee6559763f2d4b">&#9670;&#160;</a></span>e_attribute</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="arcdps__structs__slim_8h.html#a84c02b7d5e98268a7cee6559763f2d4b">e_attribute</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4bab27212240b03ce5a23837658b63a31e7" name="a84c02b7d5e98268a7cee6559763f2d4bab27212240b03ce5a23837658b63a31e7"></a>ATTR_NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba1e33905798a5db6a002624fa4201c6a6" name="a84c02b7d5e98268a7cee6559763f2d4ba1e33905798a5db6a002624fa4201c6a6"></a>ATTR_POWER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba287a76539faebe7384281d5a291db17b" name="a84c02b7d5e98268a7cee6559763f2d4ba287a76539faebe7384281d5a291db17b"></a>ATTR_PRECISION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba7fe590a626a7b72995de5f13dd1e163a" name="a84c02b7d5e98268a7cee6559763f2d4ba7fe590a626a7b72995de5f13dd1e163a"></a>ATTR_TOUGHNESS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba004c4b5298c15222c5d92f41269fa531" name="a84c02b7d5e98268a7cee6559763f2d4ba004c4b5298c15222c5d92f41269fa531"></a>ATTR_VITALITY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba0f128f39010ca41aa09e7706de09af7f" name="a84c02b7d5e98268a7cee6559763f2d4ba0f128f39010ca41aa09e7706de09af7f"></a>ATTR_FEROCITY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba1d0085bafadb74089864df62ed1603b3" name="a84c02b7d5e98268a7cee6559763f2d4ba1d0085bafadb74089864df62ed1603b3"></a>ATTR_HEALING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba256099275a0ec998e6009d478f336b4d" name="a84c02b7d5e98268a7cee6559763f2d4ba256099275a0ec998e6009d478f336b4d"></a>ATTR_CONDITION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba08c874fb6795c8d1d5fb8aed43ea12a8" name="a84c02b7d5e98268a7cee6559763f2d4ba08c874fb6795c8d1d5fb8aed43ea12a8"></a>ATTR_CONCENTRATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4bacc62fcb272daa0307348725d2e236244" name="a84c02b7d5e98268a7cee6559763f2d4bacc62fcb272daa0307348725d2e236244"></a>ATTR_EXPERTISE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba8016fbb78e21c38f71a96f36973cab96" name="a84c02b7d5e98268a7cee6559763f2d4ba8016fbb78e21c38f71a96f36973cab96"></a>ATTR_CUST_ARMOR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba68fa87c95ec5db4c194bbf7966ba14cb" name="a84c02b7d5e98268a7cee6559763f2d4ba68fa87c95ec5db4c194bbf7966ba14cb"></a>ATTR_CUST_AGONY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba50792c64b95e161b10d5817c29ae8717" name="a84c02b7d5e98268a7cee6559763f2d4ba50792c64b95e161b10d5817c29ae8717"></a>ATTR_CUST_STATINC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4baf4d5c6fbd27829dc7687e006b83e42ad" name="a84c02b7d5e98268a7cee6559763f2d4baf4d5c6fbd27829dc7687e006b83e42ad"></a>ATTR_CUST_PHYSINC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba6b2f698ebd93a47e002b595dfe86162f" name="a84c02b7d5e98268a7cee6559763f2d4ba6b2f698ebd93a47e002b595dfe86162f"></a>ATTR_CUST_CONDINC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba48d94dd7ba3a291f708eab813b035d02" name="a84c02b7d5e98268a7cee6559763f2d4ba48d94dd7ba3a291f708eab813b035d02"></a>ATTR_CUST_PHYSREC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba17c6a20e4e81f703f11523b9d5bc04a1" name="a84c02b7d5e98268a7cee6559763f2d4ba17c6a20e4e81f703f11523b9d5bc04a1"></a>ATTR_CUST_CONDREC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba37561e13c0921e52b3dafd338839ddbe" name="a84c02b7d5e98268a7cee6559763f2d4ba37561e13c0921e52b3dafd338839ddbe"></a>ATTR_CUST_ATTACKSPEED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba733f591e41e5f8be0173b53cceefc2d6" name="a84c02b7d5e98268a7cee6559763f2d4ba733f591e41e5f8be0173b53cceefc2d6"></a>ATTR_CUST_SIPHONINC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4baa4d26b06d6a2d6d1b268b7819dfb8e7b" name="a84c02b7d5e98268a7cee6559763f2d4baa4d26b06d6a2d6d1b268b7819dfb8e7b"></a>ATTR_CUST_SIPHONREC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a84c02b7d5e98268a7cee6559763f2d4ba3b3cacd0afda8882a34d8eef5a2c5ca6" name="a84c02b7d5e98268a7cee6559763f2d4ba3b3cacd0afda8882a34d8eef5a2c5ca6"></a>ATTR_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a1e00164432b84c21da4dd6ffbf2b99ab" name="a1e00164432b84c21da4dd6ffbf2b99ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e00164432b84c21da4dd6ffbf2b99ab">&#9670;&#160;</a></span>e_buffcategory</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="arcdps__structs__slim_8h.html#a1e00164432b84c21da4dd6ffbf2b99ab">e_buffcategory</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99aba21d677e1456e2c22860792e3ad2901d9" name="a1e00164432b84c21da4dd6ffbf2b99aba21d677e1456e2c22860792e3ad2901d9"></a>EFFECT_CAT_BOON&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99aba4ba01ce827cc9795c8147b2225a177bc" name="a1e00164432b84c21da4dd6ffbf2b99aba4ba01ce827cc9795c8147b2225a177bc"></a>EFFECT_CAT_ANY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99abab6111a2479efd420004aeecd1376659b" name="a1e00164432b84c21da4dd6ffbf2b99abab6111a2479efd420004aeecd1376659b"></a>EFFECT_CAT_CONDITION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99abadc700eb676102e03eb3749518b88d577" name="a1e00164432b84c21da4dd6ffbf2b99abadc700eb676102e03eb3749518b88d577"></a>EFFECT_CAT_FOOD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99aba60ecf9f1c708f9bf9924ce31c2f45bb7" name="a1e00164432b84c21da4dd6ffbf2b99aba60ecf9f1c708f9bf9924ce31c2f45bb7"></a>EFFECT_CAT_UPGRADE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99abae17f01937595299c888840840d39c9b9" name="a1e00164432b84c21da4dd6ffbf2b99abae17f01937595299c888840840d39c9b9"></a>EFFECT_CAT_BOOST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99abaf55ab135f548ece648e907e851fa496b" name="a1e00164432b84c21da4dd6ffbf2b99abaf55ab135f548ece648e907e851fa496b"></a>EFFECT_CAT_TRAIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99abad76d547f93af5ab969aa2c0e3d355d5b" name="a1e00164432b84c21da4dd6ffbf2b99abad76d547f93af5ab969aa2c0e3d355d5b"></a>EFFECT_CAT_ENHANCEMENT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1e00164432b84c21da4dd6ffbf2b99aba270b8ed31999de9882e8bf4afc5786f0" name="a1e00164432b84c21da4dd6ffbf2b99aba270b8ed31999de9882e8bf4afc5786f0"></a>EFFECT_CAT_STANCE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -922,6 +975,70 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
+<a id="a3ca1ff6883a2a99b90fce5c1844660c6" name="a3ca1ff6883a2a99b90fce5c1844660c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca1ff6883a2a99b90fce5c1844660c6">&#9670;&#160;</a></span>n_animationstart</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6">n_animationstart</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a70ef8c3e9fa27493fb53471bfe3b5193" name="a3ca1ff6883a2a99b90fce5c1844660c6a70ef8c3e9fa27493fb53471bfe3b5193"></a>ANIMSTART_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a46887c565422f69ff728bfb863e9536a" name="a3ca1ff6883a2a99b90fce5c1844660c6a46887c565422f69ff728bfb863e9536a"></a>ANIMSTART_SKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a99ae98833c2f7b7b696e59feed1d3c5d" name="a3ca1ff6883a2a99b90fce5c1844660c6a99ae98833c2f7b7b696e59feed1d3c5d"></a>ANIMSTART_DODGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a8c0a3edc5d26cd1364cd1c1db245d804" name="a3ca1ff6883a2a99b90fce5c1844660c6a8c0a3edc5d26cd1364cd1c1db245d804"></a>ANIMSTART_STOWDRAW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a18306b9d0ec2bcf30a3dea66735f36c4" name="a3ca1ff6883a2a99b90fce5c1844660c6a18306b9d0ec2bcf30a3dea66735f36c4"></a>ANIMSTART_MOVESKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6adb66cbdec0597f37e5571c8f1374a203" name="a3ca1ff6883a2a99b90fce5c1844660c6adb66cbdec0597f37e5571c8f1374a203"></a>ANIMSTART_MOTIONSKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6a5c41b3e032f038a9bd8c8d2cff74ec52" name="a3ca1ff6883a2a99b90fce5c1844660c6a5c41b3e032f038a9bd8c8d2cff74ec52"></a>ANIMSTART_GADGETINTERACT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3ca1ff6883a2a99b90fce5c1844660c6ae84941cac7a7b4854940956921625eb4" name="a3ca1ff6883a2a99b90fce5c1844660c6ae84941cac7a7b4854940956921625eb4"></a>ANIMSTART_EMOTE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac31029c808a131690643904ca60067f2" name="ac31029c808a131690643904ca60067f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac31029c808a131690643904ca60067f2">&#9670;&#160;</a></span>n_animationstop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2">n_animationstop</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a53d39011aff782204d99994990a9fc98" name="ac31029c808a131690643904ca60067f2a53d39011aff782204d99994990a9fc98"></a>ANIMSTOP_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2ab2aa78dfea8b5e982b2e34bee7dfa818" name="ac31029c808a131690643904ca60067f2ab2aa78dfea8b5e982b2e34bee7dfa818"></a>ANIMSTOP_INSTANT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2aa33cd839377e3affe80b8ba1b000e868" name="ac31029c808a131690643904ca60067f2aa33cd839377e3affe80b8ba1b000e868"></a>ANIMSTOP_MULTI_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2ab658a9abc0e7f60b8e24748359e76c71" name="ac31029c808a131690643904ca60067f2ab658a9abc0e7f60b8e24748359e76c71"></a>ANIMSTOP_TRANSITION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a1efa492d5a4d2d7191a6bd27b6914478" name="ac31029c808a131690643904ca60067f2a1efa492d5a4d2d7191a6bd27b6914478"></a>ANIMSTOP_PARTIAL_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a01a0c2f2d4a92d1323ccd75351e21df4" name="ac31029c808a131690643904ca60067f2a01a0c2f2d4a92d1323ccd75351e21df4"></a>ANIMSTOP_ENDED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a2766271570d5479f2cb82314f6e43964" name="ac31029c808a131690643904ca60067f2a2766271570d5479f2cb82314f6e43964"></a>ANIMSTOP_CANCEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2abd88e5600991092190e3ee531ba62aa3" name="ac31029c808a131690643904ca60067f2abd88e5600991092190e3ee531ba62aa3"></a>ANIMSTOP_STOWDRAW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a37a66ceb0e6c5c8fb419bd77a3d5190e" name="ac31029c808a131690643904ca60067f2a37a66ceb0e6c5c8fb419bd77a3d5190e"></a>ANIMSTOP_INTERRUPT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a8deb67dfd602b873410858997fd340fe" name="ac31029c808a131690643904ca60067f2a8deb67dfd602b873410858997fd340fe"></a>ANIMSTOP_DEATH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a98f8a3ac3c1a799559fdc38a63313aae" name="ac31029c808a131690643904ca60067f2a98f8a3ac3c1a799559fdc38a63313aae"></a>ANIMSTOP_DOWNED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a2cbe01a1810b4160e4ebd6fab5fd5a57" name="ac31029c808a131690643904ca60067f2a2cbe01a1810b4160e4ebd6fab5fd5a57"></a>ANIMSTOP_CROWDCONTROL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a05e59aa530ff2a6aa51bd06e098f9a21" name="ac31029c808a131690643904ca60067f2a05e59aa530ff2a6aa51bd06e098f9a21"></a>ANIMSTOP_COMMAND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a1234cd5d8e02769f805b4d0d1307c12c" name="ac31029c808a131690643904ca60067f2a1234cd5d8e02769f805b4d0d1307c12c"></a>ANIMSTOP_MOTIONSKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a8084141c77fc30384ce4efc4f13e265f" name="ac31029c808a131690643904ca60067f2a8084141c77fc30384ce4efc4f13e265f"></a>ANIMSTOP_MOVEDODGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a07a9a89bb9bd606e69e4922b0d001513" name="ac31029c808a131690643904ca60067f2a07a9a89bb9bd606e69e4922b0d001513"></a>ANIMSTOP_MOTIONSKILL_VIA_RESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a43a27f9a5eddd6c9b0c7c7858cec0c9a" name="ac31029c808a131690643904ca60067f2a43a27f9a5eddd6c9b0c7c7858cec0c9a"></a>ANIMSTOP_MOVESKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2ac8d5918735e38864461cd37f7c67e2a9" name="ac31029c808a131690643904ca60067f2ac8d5918735e38864461cd37f7c67e2a9"></a>ANIMSTOP_STOW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a7ed54453286eb3cb63c47fc63398d5e8" name="ac31029c808a131690643904ca60067f2a7ed54453286eb3cb63c47fc63398d5e8"></a>ANIMSTOP_ANY_DEFUNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2adeafa116a75d6520b09187a2bc75c4bc" name="ac31029c808a131690643904ca60067f2adeafa116a75d6520b09187a2bc75c4bc"></a>ANIMSTOP_GADGET_VIA_RESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a25001bfedefbc72400ffa70c46238047" name="ac31029c808a131690643904ca60067f2a25001bfedefbc72400ffa70c46238047"></a>ANIMSTOP_MANUAL_EXPIRY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2af4663a0953d0e867e8d2f1df58532c4c" name="ac31029c808a131690643904ca60067f2af4663a0953d0e867e8d2f1df58532c4c"></a>ANIMSTOP_DESPAWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2aa026324425104a6387ea4c3ccc40e026" name="ac31029c808a131690643904ca60067f2aa026324425104a6387ea4c3ccc40e026"></a>ANIMSTOP_RETURN_CONTROL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac31029c808a131690643904ca60067f2a48e8d44557720e7d80224541065594ae" name="ac31029c808a131690643904ca60067f2a48e8d44557720e7d80224541065594ae"></a>ANIMSTOP_READY&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="ac0885f4f1b7436b3a9a4a77ed3eb3688" name="ac0885f4f1b7436b3a9a4a77ed3eb3688"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0885f4f1b7436b3a9a4a77ed3eb3688">&#9670;&#160;</a></span>n_contentlocal</h2>
 
@@ -936,6 +1053,9 @@ Enumerations</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac0885f4f1b7436b3a9a4a77ed3eb3688abfb1a9d21374fc3fdfd8d767b505d188" name="ac0885f4f1b7436b3a9a4a77ed3eb3688abfb1a9d21374fc3fdfd8d767b505d188"></a>CONTENTLOCAL_EFFECT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac0885f4f1b7436b3a9a4a77ed3eb3688adc607bc780bb8512a2db0bc6287528b4" name="ac0885f4f1b7436b3a9a4a77ed3eb3688adc607bc780bb8512a2db0bc6287528b4"></a>CONTENTLOCAL_MARKER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac0885f4f1b7436b3a9a4a77ed3eb3688a77aabf503d53a025adb8127ab9c09176" name="ac0885f4f1b7436b3a9a4a77ed3eb3688a77aabf503d53a025adb8127ab9c09176"></a>CONTENTLOCAL_SKILL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac0885f4f1b7436b3a9a4a77ed3eb3688a0d50ef21a8aff879c864088142bccabe" name="ac0885f4f1b7436b3a9a4a77ed3eb3688a0d50ef21a8aff879c864088142bccabe"></a>CONTENTLOCAL_SPECIES_NOT_GADGET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac0885f4f1b7436b3a9a4a77ed3eb3688a6e6599d6211d515cd663d9c071539e0e" name="ac0885f4f1b7436b3a9a4a77ed3eb3688a6e6599d6211d515cd663d9c071539e0e"></a>CONTENTLOCAL_EMOTE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
