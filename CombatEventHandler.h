@@ -216,7 +216,10 @@ namespace ArcdpsExtension {
 		}
 
 		/**
-		 * Reset all stats (this is there when the arcdps api resets all it's stats. e.g. after the Xera pre)
+		 * retired, not used since 260402+, previously named CBTS_STATRESET
+		 * src_agent: species id of agent that triggered the reset, eg boss species id
+		 * evtc: yes
+		 * realtime: yes
 		 * @param pTime Time of the event (Windows timegettime function aka. time since startup)
 		 */
 		virtual void StatReset(uint64_t pTime) {

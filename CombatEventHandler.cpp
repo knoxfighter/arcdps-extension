@@ -37,10 +37,10 @@ void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pS
 					//                case CBTS_SPAWN: // Not in realtime api
 					//                case CBTS_DESPAWN: // Not in realtime api
 					//                case CBTS_HEALTHUPDATE: // Not in realtime api
-				case CBTS_LOGSTART:
+				case CBTS_SQCOMBATSTART:
 					LogStart(mLastEventTime, pEvent->value, pEvent->buff_dmg, pEvent->src_agent);
 					break;
-				case CBTS_LOGEND:
+				case CBTS_SQCOMBATEND:
 					LogEnd(mLastEventTime, pEvent->value, pEvent->buff_dmg, pEvent->src_agent);
 					break;
 				case CBTS_WEAPSWAP:
@@ -74,10 +74,10 @@ void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pS
 					//                case CBTS_TARGETABLE: // Not in realtime api
 					//                case CBTS_MAPID: // Not in realtime api
 					//                case CBTS_REPLINFO: // Internal only, not used
-				case CBTS_STACKACTIVE:
+				case CBTS_BUFFACTIVE:
 					StackActive(mLastEventTime, pEvent->src_agent, pEvent->dst_agent, *pSrc);
 					break;
-				case CBTS_STACKRESET: {
+				case CBTS_BUFFDEACTIVE: {
 					auto pad = reinterpret_cast<uint32_t*>(&pEvent->pad61);
 					StackReset(mLastEventTime, pEvent->src_agent, pEvent->value, *pad, *pSrc);
 					break;
@@ -92,7 +92,7 @@ void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pS
 					//                case CBTS_ERROR: // Not in realtime api
 					//                case CBTS_TAG: // Not useful information, it is either delayed or not there at all.
 					//                case CBTS_BARRIERUPDATE: // Not in realtime api
-				case CBTS_STATRESET:
+				case CBTS_STATRESET_DEFUNC:
 					StatReset(mLastEventTime);
 					break;
 				case CBTS_EXTENSION:
@@ -104,7 +104,7 @@ void ArcdpsExtension::CombatEventHandler::EventInternal(cbtevent* pEvent, ag* pS
 				case CBTS_INSTANCESTART:
 					InstanceStart(mLastEventTime, pEvent->src_agent);
 					break;
-				case CBTS_TICKRATE:
+				case CBTS_RATEHEALTH:
 					Tickrate(mLastEventTime, pEvent->src_agent);
 					break;
 				case CBTS_LAST90BEFOREDOWN:
