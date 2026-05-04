@@ -2,11 +2,11 @@
 
 #include "arcdps_structs.h"
 
-#include <format>
 #include <ArcdpsUnofficialExtras/KeyBindHelper.h>
-#include <ranges>
 #include <ArcdpsUnofficialExtras/KeyBindStructs.h>
+#include <format>
 #include <optional>
+#include <ranges>
 #include <utility>
 
 uint64_t ArcdpsExtension::KeyBindHandler::Subscribe(Subscriber pSubscriber) {
@@ -55,13 +55,15 @@ bool ArcdpsExtension::KeyBindHandler::Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, L
 			if (modifier != 0) {
 				mTrackedModifier |= modifier;
 			} else {
-				KeyBinds::Modifier arcdpsModifier = GetArcdpsModifier();
-
 				// Check if any registered KeyBind is correct
 				for (const auto& subscriber : mSubscribers | std::views::values) {
 					const auto& key = subscriber.Key;
 
-					if ((subscriber.Flags & SubscriberFlags_ArcdpsModifier ? arcdpsModifier == mTrackedModifier : key.Modifier == mTrackedModifier) && key.DeviceType == KeyBinds::DeviceType::Keyboard && static_cast<KeyBinds::KeyCode>(key.Code) == keyCode) {
+					if (
+							((subscriber.Flags & SubscriberFlags_ArcdpsModifier) != 0 ? GetArcdpsModifier() == mTrackedModifier : key.Modifier == mTrackedModifier)
+							&& key.DeviceType == KeyBinds::DeviceType::Keyboard
+							&& static_cast<KeyBinds::KeyCode>(key.Code) == keyCode
+					) {
 						bool res = subscriber.Fun(key);
 						if (res) {
 							return res;
@@ -139,6 +141,9 @@ KeyBinds::Modifier ArcdpsExtension::KeyBindHandler::GetArcdpsModifier() {
 	}
 
 	return 0;
+}
+bool ArcdpsExtension::KeyBindHandler::AreModifierPressed(KeyBinds::Modifier pModifier) const {
+	return (mTrackedModifier & pModifier) == pModifier;
 }
 
 KeyBinds::Modifier ArcdpsExtension::KeyBindHandler::getArcdpsModifierSingle(uint16_t pMod) {

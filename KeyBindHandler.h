@@ -65,9 +65,17 @@ namespace ArcdpsExtension {
 		bool Wnd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 		/**
-		 * Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper)
+		 * Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper).
+		 * Calls arcdps' e7 export.
 		 */
 		static KeyBinds::Modifier GetArcdpsModifier();
+
+		/**
+		 * Check if the given modifier are pressed.
+		 * Will also trigger if more modifiers are pressed. (e.g. the check for shift will also trigger if ctrl+shift are pressed)
+		 * @param pModifier The modifier to check
+		 */
+[[nodiscard]] bool AreModifierPressed(KeyBinds::Modifier pModifier = GetArcdpsModifier()) const;
 
 	private:
 		static uint64_t getNewId() {
