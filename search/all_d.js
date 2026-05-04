@@ -3,7 +3,7 @@ var searchData=
   ['n_5fanimationstart_0',['n_animationstart',['../arcdps__structs__slim_8h.html#a3ca1ff6883a2a99b90fce5c1844660c6',1,'arcdps_structs_slim.h']]],
   ['n_5fanimationstop_1',['n_animationstop',['../arcdps__structs__slim_8h.html#ac31029c808a131690643904ca60067f2',1,'arcdps_structs_slim.h']]],
   ['n_5fcontentlocal_2',['n_contentlocal',['../arcdps__structs__slim_8h.html#ac0885f4f1b7436b3a9a4a77ed3eb3688',1,'arcdps_structs_slim.h']]],
-  ['name_3',['name',['../structag.html#af323df89742c08047731d243fdd30d97',1,'ag::name'],['../structLinkedMem.html#a7697b0186d770c5779c259ea3205c7d0',1,'LinkedMem::name'],['../structIdentity.html#a5307c371054154600f94fededbd9431f',1,'Identity::name'],['../structArcdpsExtension_1_1MainTableColumn.html#a8594612cea4ad41f52a7fc978f16d7c8',1,'ArcdpsExtension::MainTableColumn::Name']]],
+  ['name_3',['name',['../structArcdpsExtension_1_1MainTableColumn.html#a8594612cea4ad41f52a7fc978f16d7c8',1,'ArcdpsExtension::MainTableColumn::Name'],['../structag.html#af323df89742c08047731d243fdd30d97',1,'ag::name'],['../structLinkedMem.html#a7697b0186d770c5779c259ea3205c7d0',1,'LinkedMem::name'],['../structIdentity.html#a5307c371054154600f94fededbd9431f',1,'Identity::name']]],
   ['nameoffset_4',['NameOffset',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a655011fdbbd0861c77dccfc3c77237a9',1,'ArcdpsExtension::MainTable::TableColumn']]],
   ['namestorage_5',['NameStorage',['../structArcdpsExtension_1_1EventSequencer_1_1Event_1_1Agent.html#aa10ccdbf5dd490ff736d7b4c1bef1c16',1,'ArcdpsExtension::EventSequencer::Event::Agent']]],
   ['narella_6',['Narella',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a8bf845205a24641665fb7ba4fd0f2c29',1,'MobIDs.h']]],

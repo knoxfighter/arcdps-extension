@@ -159,6 +159,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac7afa3452683885e34db1e2c469d2a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed922787995cd2c0f7d29417b4baee5" id="r_a0ed922787995cd2c0f7d29417b4baee5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1KeyBindHandler.html#a0ed922787995cd2c0f7d29417b4baee5">Wnd</a> (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)</td></tr>
 <tr class="separator:a0ed922787995cd2c0f7d29417b4baee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fee27ff943dcf30ba99768e0db95e1e" id="r_a7fee27ff943dcf30ba99768e0db95e1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1KeyBindHandler.html#a7fee27ff943dcf30ba99768e0db95e1e">AreModifierPressed</a> (KeyBinds::Modifier pModifier=<a class="el" href="classArcdpsExtension_1_1KeyBindHandler.html#a68c2bf71fd2044e8490f9356b9c5f02b">GetArcdpsModifier</a>()) const</td></tr>
+<tr class="separator:a7fee27ff943dcf30ba99768e0db95e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classArcdpsExtension_1_1Singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classArcdpsExtension_1_1Singleton')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classArcdpsExtension_1_1Singleton.html">ArcdpsExtension::Singleton&lt; KeyBindHandler &gt;</a></td></tr>
 <tr class="memitem:ae758636b9fa627d617c44429ba39af55 inherit pub_methods_classArcdpsExtension_1_1Singleton" id="r_ae758636b9fa627d617c44429ba39af55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArcdpsExtension_1_1Singleton.html#ae758636b9fa627d617c44429ba39af55">~Singleton</a> () override</td></tr>
 <tr class="separator:ae758636b9fa627d617c44429ba39af55 inherit pub_methods_classArcdpsExtension_1_1Singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,6 +254,30 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7fee27ff943dcf30ba99768e0db95e1e" name="a7fee27ff943dcf30ba99768e0db95e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fee27ff943dcf30ba99768e0db95e1e">&#9670;&#160;</a></span>AreModifierPressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ArcdpsExtension::KeyBindHandler::AreModifierPressed </td>
+          <td>(</td>
+          <td class="paramtype">KeyBinds::Modifier&#160;</td>
+          <td class="paramname"><em>pModifier</em> = <code><a class="el" href="classArcdpsExtension_1_1KeyBindHandler.html#a68c2bf71fd2044e8490f9356b9c5f02b">GetArcdpsModifier</a>()</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the given modifier are pressed. Will also trigger if more modifiers are pressed. (e.g. the check for shift will also trigger if ctrl+shift are pressed) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pModifier</td><td>The modifier to check </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a68c2bf71fd2044e8490f9356b9c5f02b" name="a68c2bf71fd2044e8490f9356b9c5f02b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68c2bf71fd2044e8490f9356b9c5f02b">&#9670;&#160;</a></span>GetArcdpsModifier()</h2>
 
@@ -274,7 +300,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper) </p>
+<p>Call to get the arcdps modifier as KeyBindModifier (here cause it cannot be in KeyBindHelper). Calls arcdps' e7 export. </p>
 
 </div>
 </div>

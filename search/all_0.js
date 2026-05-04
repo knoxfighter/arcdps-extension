@@ -70,7 +70,7 @@ var searchData=
   ['arc_5flog_67',['arc_log',['../arcdps__structs_8cpp.html#aea5bd8eb53a76c6b5c8fb74a7936dec2',1,'ARC_LOG:&#160;arcdps_structs.cpp'],['../arcdps__structs_8h.html#aea5bd8eb53a76c6b5c8fb74a7936dec2',1,'ARC_LOG:&#160;arcdps_structs.cpp']]],
   ['arc_5flog_5ffile_68',['arc_log_file',['../arcdps__structs_8cpp.html#a36bddc323e21baed0b855e8cae3e6642',1,'ARC_LOG_FILE:&#160;arcdps_structs.cpp'],['../arcdps__structs_8h.html#a36bddc323e21baed0b855e8cae3e6642',1,'ARC_LOG_FILE:&#160;arcdps_structs.cpp']]],
   ['arcdps_20extension_69',['Arcdps Extension',['../md_Readme.html',1,'']]],
-  ['arcdps_5fexports_70',['arcdps_exports',['../structarcdps__exports.html',1,'arcdps_exports'],['../arcdps__structs_8h.html#a1e3172aaf8d03fc45fdf2c21ced0d7ff',1,'arcdps_exports:&#160;arcdps_structs.h']]],
+  ['arcdps_5fexports_70',['arcdps_exports',['../arcdps__structs_8h.html#a1e3172aaf8d03fc45fdf2c21ced0d7ff',1,'arcdps_exports:&#160;arcdps_structs.h'],['../structarcdps__exports.html',1,'arcdps_exports']]],
   ['arcdps_5fstructs_2ecpp_71',['arcdps_structs.cpp',['../arcdps__structs_8cpp.html',1,'']]],
   ['arcdps_5fstructs_2eh_72',['arcdps_structs.h',['../arcdps__structs_8h.html',1,'']]],
   ['arcdps_5fstructs_5fslim_2eh_73',['arcdps_structs_slim.h',['../arcdps__structs__slim_8h.html',1,'']]],
@@ -83,10 +83,11 @@ var searchData=
   ['arcexportdefaults_80',['arcExportDefaults',['../arcdps__structs_8cpp.html#abea1cbca7734bf7880546c9711c583c0',1,'arcdps_structs.cpp']]],
   ['archdiviner_81',['Archdiviner',['../MobIDs_8h.html#aea3234b9e6ff7f848ac3d3f5fb432f63a041bd06571da72dee4f203f530eda6af',1,'MobIDs.h']]],
   ['arcpds_20event_20handling_82',['arcpds event handling',['../md_Readme.html#autotoc_md9',1,'']]],
-  ['arkk_83',['Arkk',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a69a05ba696a7c45a139d0ac94df088ba',1,'MobIDs.h']]],
-  ['artsariiv_84',['Artsariiv',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a9601181383a3159fb66a320dfce46d0f',1,'MobIDs.h']]],
-  ['asura_85',['Asura',['../MumbleLink_8h.html#a9152e19a09e291da64aa17ec75f17937a53f1445a9f28799a32ea55f046319fc3',1,'MumbleLink.h']]],
-  ['autofitqueue_86',['AutoFitQueue',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a8682ba73ec395f9d99f654715dc8b96d',1,'ArcdpsExtension::MainTable::TableColumn']]],
-  ['autofitsinglecolumn_87',['AutoFitSingleColumn',['../structArcdpsExtension_1_1MainTable_1_1Table.html#adab71976f0c0ad1d556cc3b47aa7139e',1,'ArcdpsExtension::MainTable::Table']]],
-  ['avggolem_88',['AvgGolem',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a5a0a97db51f2299c620d5d2448497b3a',1,'MobIDs.h']]]
+  ['aremodifierpressed_83',['AreModifierPressed',['../classArcdpsExtension_1_1KeyBindHandler.html#a7fee27ff943dcf30ba99768e0db95e1e',1,'ArcdpsExtension::KeyBindHandler']]],
+  ['arkk_84',['Arkk',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a69a05ba696a7c45a139d0ac94df088ba',1,'MobIDs.h']]],
+  ['artsariiv_85',['Artsariiv',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a9601181383a3159fb66a320dfce46d0f',1,'MobIDs.h']]],
+  ['asura_86',['Asura',['../MumbleLink_8h.html#a9152e19a09e291da64aa17ec75f17937a53f1445a9f28799a32ea55f046319fc3',1,'MumbleLink.h']]],
+  ['autofitqueue_87',['AutoFitQueue',['../structArcdpsExtension_1_1MainTable_1_1TableColumn.html#a8682ba73ec395f9d99f654715dc8b96d',1,'ArcdpsExtension::MainTable::TableColumn']]],
+  ['autofitsinglecolumn_88',['AutoFitSingleColumn',['../structArcdpsExtension_1_1MainTable_1_1Table.html#adab71976f0c0ad1d556cc3b47aa7139e',1,'ArcdpsExtension::MainTable::Table']]],
+  ['avggolem_89',['AvgGolem',['../MobIDs_8h.html#aa4183a394aa4e7600297584922235450a5a0a97db51f2299c620d5d2448497b3a',1,'MobIDs.h']]]
 ];

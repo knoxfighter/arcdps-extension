@@ -7,5 +7,6 @@ var searchData=
   ['alignedprogressbar_4',['AlignedProgressBar',['../namespaceImGuiEx.html#a816f20a444a938fd39c670f67d3300f2',1,'ImGuiEx']]],
   ['alignedtextcolumn_5',['alignedtextcolumn',['../classArcdpsExtension_1_1MainTable.html#a50c336e846c750a91b29c1bca302d38f',1,'ArcdpsExtension::MainTable::AlignedTextColumn(const char *text)'],['../classArcdpsExtension_1_1MainTable.html#a2ffd6c91ec6b9e160a1959cf98b4bcb5',1,'ArcdpsExtension::MainTable::AlignedTextColumn(const std::string &amp;text)'],['../classArcdpsExtension_1_1MainTable.html#ad406708bff62980937ee60fd78f3f9bd',1,'ArcdpsExtension::MainTable::AlignedTextColumn(std::string_view format, Args &amp;&amp;... args)'],['../namespaceImGuiEx.html#a68e9442630b8c64f4fd93ccb0900ab84',1,'ImGuiEx::AlignedTextColumn()']]],
   ['applyspecificcolumnsetup_6',['ApplySpecificColumnSetup',['../classArcdpsExtension_1_1MainTable.html#a9620a91f15e325eb691112984358d9c4',1,'ArcdpsExtension::MainTable']]],
-  ['arcexportdefaults_7',['arcExportDefaults',['../arcdps__structs_8cpp.html#abea1cbca7734bf7880546c9711c583c0',1,'arcdps_structs.cpp']]]
+  ['arcexportdefaults_7',['arcExportDefaults',['../arcdps__structs_8cpp.html#abea1cbca7734bf7880546c9711c583c0',1,'arcdps_structs.cpp']]],
+  ['aremodifierpressed_8',['AreModifierPressed',['../classArcdpsExtension_1_1KeyBindHandler.html#a7fee27ff943dcf30ba99768e0db95e1e',1,'ArcdpsExtension::KeyBindHandler']]]
 ];

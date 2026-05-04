@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"namespaceImGuiEx.html#aabac93463183f0de50deed46248591ad":[2,0,2,16],
+"namespaceImGuiEx.html#ab5a5efe000bdeae4923399b5edf86699":[2,0,2,21],
 "namespaceImGuiEx.html#ac150a76ca6c38784d1c32e040b291e5e":[2,0,2,38],
 "namespaceImGuiEx.html#ac42db620be0af5f878ae8e50177c545e":[2,0,2,11],
 "namespaceImGuiEx.html#ac84124bb2f6d24b2dbaed5e0b3864922":[2,0,2,18],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "structArcdpsExtension_1_1MainTable_1_1Table.html#ab3236e4a6f2c192f5d5e7c4a6a6f5709":[2,0,0,13,0,4],
 "structArcdpsExtension_1_1MainTable_1_1Table.html#ab3236e4a6f2c192f5d5e7c4a6a6f5709":[4,0,0,13,0,4],
 "structArcdpsExtension_1_1MainTable_1_1Table.html#ab6461a64938b03cc498620b7a4613337":[4,0,0,13,0,24],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#ab6461a64938b03cc498620b7a4613337":[2,0,0,13,0,24],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#abc81d7d3913919285b74d8cb99d73b13":[4,0,0,13,0,26],
-"structArcdpsExtension_1_1MainTable_1_1Table.html#abc81d7d3913919285b74d8cb99d73b13":[2,0,0,13,0,26]
+"structArcdpsExtension_1_1MainTable_1_1Table.html#ab6461a64938b03cc498620b7a4613337":[2,0,0,13,0,24]
 };
