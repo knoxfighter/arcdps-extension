@@ -373,6 +373,9 @@ namespace ImGuiEx {
 			ImVec2 overlay_size = CalcTextSize(overlay, NULL);
 			if (overlay_size.x > 0.0f) {
 				ImVec2 alignRender = ImVec2(0.0f, 0.5f);
+				// By default consider the whole cell for text placement and alignment
+				float text_x = is_indeterminate ? (bb.Min.x + bb.Max.x - overlay_size.x) * 0.5f : bb.Min.x;
+
 				switch (alignment) {
 					case Alignment::Left:
 						alignRender = ImVec2(0.f, 0.f);
@@ -383,9 +386,12 @@ namespace ImGuiEx {
 					case Alignment::Right:
 						alignRender = ImVec2(1.f, 0.f);
 						break;
+					default:
+						// Fallback to default ImGui alignment which is left aligned after the progress bar fill
+						text_x = is_indeterminate ? (bb.Min.x + bb.Max.x - overlay_size.x) * 0.5f : fill_x1 + style.ItemSpacing.x;
+						break;
 				}
 
-				float text_x = is_indeterminate ? (bb.Min.x + bb.Max.x - overlay_size.x) * 0.5f : fill_x1 + style.ItemSpacing.x;
 				RenderTextClipped(
 						ImVec2(ImClamp(text_x, bb.Min.x, bb.Max.x - overlay_size.x - style.ItemInnerSpacing.x), bb.Min.y), bb.Max,
 						overlay, NULL, &overlay_size, alignRender, &bb
